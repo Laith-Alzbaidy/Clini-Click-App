@@ -1,0 +1,12 @@
+.book {
+  color: var(--primary-color);
+}
+.backIcon {
+  margin: 2rem 0 0 2rem;
+}
+
+.treatmentText {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 1rem 0 1.5rem 2rem;
+}

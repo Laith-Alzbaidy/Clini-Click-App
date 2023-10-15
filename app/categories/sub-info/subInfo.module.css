@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap");
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.backIcon {
+  margin: 2rem 0 0 2rem;
+}
+.infoText {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+  width: 85%;
+  margin: 1rem 0 1rem 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+.title {
+  color: #001435;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin: 3rem 0 1rem 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+.stepsTitle {
+  color: #001435;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin: 1rem 0 1rem 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+.list {
+  color: #000;
+  margin: 0 0 0 2.5rem;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: "Montserrat", sans-serif;
+}

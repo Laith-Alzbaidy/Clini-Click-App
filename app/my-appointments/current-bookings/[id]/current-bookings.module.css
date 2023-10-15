@@ -1,0 +1,148 @@
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: #001435;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 1rem 0 0 0;
+  font-family: "Montserrat", sans-serif;
+}
+.subTitle {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+}
+
+.container {
+  width: 90%;
+  margin: 2rem auto;
+}
+.bookingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.treatmentContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.treatmentContainer:first-child {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.treatmentName {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.treatmentDeatils {
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+}
+.practitionerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.practitionerContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.practitionerContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.totalContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.totalContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.totalContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.totalContainer :nth-child(1) span {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.call {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 0 0;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.cancellation {
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.button {
+  display: flex;
+  width: 100%;
+  height: 44px;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 35px;
+  border: 1px solid #adadad;
+  background: linear-gradient(
+    97deg,
+    rgba(255, 255, 255, 0.2) 7.86%,
+    rgba(255, 255, 255, 0) 92.86%
+  );
+  color: var(--neutral-color-cool-grey-50, #828282);
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 1rem;
+}
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.modal{
+  background-color: #E2E2E2;
+}
+.modalBody{
+  text-align: center;
+  width: 100%;
+
+}
+@media (max-width: 365px) and (min-width: 280px) {
+  .button {
+    width: 290.458px;
+  }
+}
+@media (max-width: 280px) and (min-width: 180px) {
+  .button {
+    width: 200.458px;
+    font-size: 12px;
+  }
+}

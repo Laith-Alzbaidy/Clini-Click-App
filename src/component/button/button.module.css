@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+.btn {
+  background-color: var(--secondary-color) !important;
+  color: #F9FAFB;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  border: none !important;
+  outline: none !important;
+  padding: 11px 20px !important;
+  margin-top: 30px;
+  border-radius: 35px !important;
+  font-family: "Quicksand", sans-serif !important;
+}

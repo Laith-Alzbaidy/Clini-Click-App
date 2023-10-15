@@ -1,0 +1,26 @@
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: #001435;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 1rem 0 0 0;
+  font-family: "Montserrat", sans-serif;
+}
+.subTitle {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+}
+
+.container {
+  width: 90%;
+  margin: 2rem auto;
+}
+
