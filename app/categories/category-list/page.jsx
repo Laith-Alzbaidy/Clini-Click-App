@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from "react";
 import styles from "./tabs.module.css";
 import Image from "next/image";
@@ -47,7 +48,7 @@ const CategoryContent = ({ activeTab }) => {
     <div className={styles.categoryContent}>
       {activeTab === "category 1" && (
         <>
-          <h4 className={styles.header}>Category 1</h4>
+          <div className={styles.header}>CategoryOne</div>
           {data.map((post, index) => (
             <div key={index}>
               <Link href={`/categories/${post.id}`} className={styles.link}>
@@ -62,7 +63,7 @@ const CategoryContent = ({ activeTab }) => {
                       <div className={styles.currentPrice}>
                         AED {post.currentPrice}
                       </div>
-                      <div>{post.discount}% off</div>
+                      <div>{post.discount}50% off</div>
                     </div>
                   </div>
                   <Image

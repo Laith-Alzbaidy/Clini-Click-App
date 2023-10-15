@@ -1,0 +1,64 @@
+.title {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 15px !important;
+}
+
+.container-card {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 2px;
+  border: 1px solid #e8f3f1;
+  background: #fff;
+  height: 212px;
+}
+
+.container-image {
+  height: 115px;
+  position: relative;
+}
+
+.name-card {
+  margin-top: 5px !important;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+.specialization {
+  font-weight: 700;
+  color: #adadad;
+  font-size: 9px;
+  line-height: 10px;
+}
+.exp {
+  color: (var(--primary-color));
+  font-weight: 500;
+  font-size: 8px;
+}
+
+.image {
+  width: 100% !important;
+  border-radius: 15px;
+}
+
+.container-rate-review {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 10px;
+}
+
+.star-image {
+  width: 13px;
+  height: 13px;
+}
+
+.text-review {
+  font-size: 8px;
+  font-weight: 400;
+  margin-top: 5px !important;
+}

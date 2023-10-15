@@ -1,16 +1,12 @@
-"use client";
 import React from "react";
+import { Button } from "react-bootstrap";
 import styles from "./button.module.css";
-import { Button } from "react-bootstrap";;
-import "bootstrap/dist/css/bootstrap.css";
 
-const Btn = ({ title , onClick })  => {
+const Btn = ({ title, marginTop , onClick }) => {
   return (
-    <>
-      <Button className={styles.btn}>
-        {title}
-      </Button>
-    </>
+    <Button className={styles["btn"]} style={{ marginTop: marginTop }}>
+      {title}
+    </Button>
   );
 };
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import RadioButtons from "../../../src/component/radioButton/radioButton";
 import Btn from '../../../src/component/button/button';
 import backicon from "../assets/conhh.svg";
-import clinic from "../assets/cliniclick.svg";
+
 
 const free = [{ label: "Free", value: "option1" }];
 
@@ -60,7 +60,7 @@ const SubCategory = async ({ params }) => {
             pathname: "/categories/sub-info",
             query: { search: params.id },
           }}
-          className={styles.learnMore}>
+          className={styles.learnMore1}>
           learn more
         </Link>
         <div className={styles.constContainer}>
@@ -124,11 +124,8 @@ const SubCategory = async ({ params }) => {
           No payment will be taken until your appointment
         </p>
 
-        <Btn text={`Continue to book AED 200`} />
-        <div className={styles.powerdBy}>
-          <div>Powerd by</div>
-          <Image src={clinic} width={75} height={75} />
-        </div>
+        <Btn title={`Continue to book AED 200`} />
+    
       </div>
     </>
   );

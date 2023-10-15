@@ -1,8 +1,6 @@
-.backIcon {
-  margin: 2rem 0 0 1rem;
-}
+
 .background {
-  width: 90%;
+  width: 100%;
   height: fit-content;
   border-radius: 25px;
    display: block; 
@@ -22,14 +20,14 @@
   font-size: 14px;
   margin: 0 0 0.5rem 0;
 }
-.learnMore {
+.learnMore1 {
   margin: 0 0 0.5rem 0;
   font-size: 14px;
-  color: var(--icon-btn-color);
+  color: #a75cff;;
   text-decoration: none;
 }
 .container{
-  width: 90%;
+
   margin: 2rem auto;
 }
 

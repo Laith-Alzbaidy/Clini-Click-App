@@ -19,10 +19,6 @@
   margin: 2rem 0 1rem 0;
 }
 
-.container {
-  width: 90%;
-  margin: 2rem auto;
-}
 .bookingContainer {
   display: flex;
   flex-direction: column;
@@ -127,22 +123,41 @@
   display: flex;
   justify-content: center;
 }
-.modal{
-  background-color: #E2E2E2;
+.modal {
+  background-color: #e2e2e2;
 }
-.modalBody{
+.modalBody {
   text-align: center;
   width: 100%;
-
 }
-@media (max-width: 365px) and (min-width: 280px) {
+@media (max-width: 320px) and (min-width: 280px) {
   .button {
     width: 290.458px;
   }
-}
-@media (max-width: 280px) and (min-width: 180px) {
-  .button {
-    width: 200.458px;
+  .treatmentName {
     font-size: 12px;
+  }
+  .treatmentDeatils {
+    font-size: 11px;
+  }
+
+  .practitionerContainer :nth-child(1) {
+    font-size: 12px;
+  }
+  .practitionerContainer :nth-child(2) {
+    font-size: 12px;
+  }
+
+  .totalContainer :nth-child(1) {
+    font-size: 12px;
+  }
+  .totalContainer :nth-child(2) {
+    font-size: 12px;
+  }
+  .totalContainer :nth-child(1) span {
+    font-size: 12px;
+  }
+  .title {
+    font-size: 14px;
   }
 }

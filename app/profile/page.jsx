@@ -9,7 +9,6 @@ import Image from "next/image";
 import user from './assets/user.svg'
 import email from './assets/email.svg'
 import backIcon from './assets/back.svg'
-import clinic from './assets/cliniclick.svg'
 
 const Profile = () => {
   const [show, setShow] = useState(false);
@@ -125,11 +124,6 @@ const Profile = () => {
           </Modal.Footer>
         </Modal>
       </>
-      <div style={{display:"flex" ,  justifyContent:"center" , alignItems:"center" , gap:"0.2rem" , marginTop:'5rem'}}>
-        <div>Powerd by</div>
-        <Image src={clinic}></Image>
-       
-      </div>
     </>
   );
 };

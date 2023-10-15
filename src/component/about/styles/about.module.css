@@ -1,0 +1,40 @@
+.title {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+.title-icon,
+.date {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.title-icon {
+  color: #828282;
+}
+.date {
+  color: var(--primary-color);
+}
+
+.card {
+  padding: 10px;
+}
+
+.description {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--primary-color);
+  text-align: justify;
+}
+
+.read-more {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--secondary-color);
+  margin-top: 5px !important;
+  cursor: pointer;
+}
+
+#more {
+  display: none;
+}

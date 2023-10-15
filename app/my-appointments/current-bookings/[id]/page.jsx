@@ -2,9 +2,14 @@ import React  from "react";
 import styles from "./current-bookings.module.css";
 import Link from "next/link";
 import Head from "next/head";
-import CostumButton from "@/src/component/button/button";
+import Btn from "@/src/component/button/button";
 import ModalBox from "../../../../src/component/modal/modal";
+import backIcon from '../../assets/conhh.svg'
+import user from '../../assets/user.svg'
+import location from '../../assets/location.svg'
+import phone from '../../assets/call.svg'
 
+import Image from "next/image";
 async function getData(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   if (!res.ok) {
@@ -20,16 +25,16 @@ const CurrentBookings = async ({ params }) => {
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <Link href={"/categories"}>
-          <img src="/assets/conhh.svg" className={styles.backIcon} />
+          <Image src={backIcon} className={styles.backIcon} />
         </Link>
 
         <Link href={"/profile"}>
-          <img src="/assets/user.svg" />
+          <Image src={user} />
         </Link>
       </div>
 
       <div className={styles.title}>Wed, 23 July at 5:00 PM</div>
-      <CostumButton text={"Reschedule appointment"} />
+      <Btn title={"Reschedule appointment"} />
       
      <ModalBox />
 
@@ -89,11 +94,11 @@ const CurrentBookings = async ({ params }) => {
         allowFullScreen
         title="My Map"></iframe>
       <div className={styles.call}>
-        <img src="/assets/call.svg" />
+        <Image src={phone} />
         <div>+971-5-000000000</div>
       </div>
       <div className={styles.call}>
-        <img src="/assets/location.svg" />
+        <Image src={location} />
         <div>Dubai Marina,Dubai.</div>
       </div>
     </div>
