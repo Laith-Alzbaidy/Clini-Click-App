@@ -1,0 +1,40 @@
+.header-reviews {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.container-all-reviews {
+  margin: 10px 0 !important;
+}
+
+.container-review-rate {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rate {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.star-review {
+  width: 13px;
+  height: 13px;
+}
+
+.discription-reviews {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 8px !important;
+  color: var(--primary-color);
+}

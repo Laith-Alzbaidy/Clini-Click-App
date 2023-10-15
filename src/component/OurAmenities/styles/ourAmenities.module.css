@@ -1,0 +1,23 @@
+.title {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 15px !important;
+}
+
+.content-icon {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.icon {
+  color: var(--primary-color);
+}
+
+.text-icon {
+  font-size: 12px !important;
+  font-weight: 400;
+}

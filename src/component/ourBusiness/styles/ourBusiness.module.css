@@ -1,0 +1,11 @@
+.title {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 15px !important;
+}
+
+.text {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
