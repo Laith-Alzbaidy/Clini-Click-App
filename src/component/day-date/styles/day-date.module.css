@@ -1,0 +1,19 @@
+.step {
+  font-size: 12px;
+  font-weight: 600;
+  color: #adadad;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 15px !important;
+}
+
+.lable-phone {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
