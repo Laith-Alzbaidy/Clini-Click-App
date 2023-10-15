@@ -1,0 +1,9 @@
+.book {
+  color: var(--primary-color);
+}
+
+.treatmentText {
+  font-size: 18px;
+  font-weight: 500;
+  margin:1rem 0 1.5rem  0rem;
+}

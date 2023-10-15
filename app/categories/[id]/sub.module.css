@@ -1,0 +1,111 @@
+
+.background {
+  width: 100%;
+  height: fit-content;
+  border-radius: 25px;
+   display: block; 
+  margin: 1rem auto;
+}
+.subName {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
+.subDuration {
+  font-size: 14px;
+  color: #828282;
+  margin: 0 0 0.5rem 0;
+}
+.subDiscreption {
+  font-size: 14px;
+  margin: 0 0 0.5rem 0;
+}
+.learnMore1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 14px;
+  color: #a75cff;;
+  text-decoration: none;
+}
+.container{
+
+  margin: 2rem auto;
+}
+
+.constContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 0 0;
+}
+.constChildContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.constChildContainer :nth-child(1) {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0.5rem
+
+}
+.constChildContainer :nth-child(2) {
+  font-size: 14px;
+  margin-bottom: 0.5rem
+}
+.SelectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  margin: 0.5rem 0 1rem 0;
+}
+.SelectHeader div {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.customradio input[type="radio"] {
+  accent-color: var(--icon-btn-color);
+  width: 15px;
+  height: 15px;
+}
+.noPayment {
+  color: #000;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.powerdBy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 365px) and (min-width: 278px) {
+
+  .subName {
+    font-size: 14px;
+  }
+  .subDuration {
+    font-size: 12px;
+  }
+  .subDiscreption {
+    font-size: 12px;
+
+  }
+  
+  .constChildContainer :nth-child(1) {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .constChildContainer :nth-child(2) {
+    font-size: 12px;
+  }
+
+}

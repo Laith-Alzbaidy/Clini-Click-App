@@ -8,7 +8,7 @@ import styles from "./styles/ourteam.module.css";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper , SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const slider = [

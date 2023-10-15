@@ -1,0 +1,118 @@
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: #001435;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 1rem 0 0 0;
+  font-family: "Montserrat", sans-serif;
+}
+.subTitle {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+}
+
+.container {
+  margin: 0rem auto;
+}
+.active {
+  background-color: #a75cff;
+}
+.container-scheduling {
+  border: 1px solid #e8f3f1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 46px;
+  height: 64px;
+}
+
+.container-scheduling:hover {
+  background-color: var(--secondary-color);
+}
+.container-scheduling:hover {
+  background-color: var(--secondary-color);
+}
+.container-scheduling:hover .day,
+.container-scheduling:hover .date {
+  color: white;
+}
+.day {
+  color: #a1a8b0;
+  font-size: 10px;
+  font-weight: 400;
+}
+.date {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.time {
+  /* color: #adadad; */
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.card-time {
+  border-radius: 15px;
+  border: 1px solid #adadad;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 103px;
+  height: 37px;
+  margin-top: 20px;
+}
+
+.card-time:hover {
+  background-color: var(--secondary-color);
+}
+
+.card-time:hover .time {
+  color: white;
+}
+.container-question {
+  margin: 20px 0;
+}
+.question {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+}
+.timeContainer {
+  border-radius: 15px;
+  border: 1px solid #adadad;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 37px;
+  margin-top: 20px;
+}
+.timeContainer:hover {
+  background-color: var(--secondary-color);
+}
+.timeContainer:hover .time {
+  color: white;
+}
+
+.Bigcontainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}

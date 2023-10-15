@@ -1,0 +1,96 @@
+
+.tabscontainer::-webkit-scrollbar {
+  display: none;
+}
+.tab {
+  background-color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #c4c4c4;
+  border-radius: 35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.active {
+  background-color: rgb(235, 235, 235);
+}
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  text-decoration: none;
+  gap: 1rem;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.subCategoryText {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  color: #828282;
+}
+.priceIcons {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 14px;
+}
+.priceIcons :nth-child(1) {
+  text-decoration: line-through;
+}
+.priceIcons :nth-child(3) {
+  background-color:var(--icon-btn-color);
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 3px 7px 3px 7px;
+}
+.priceIcons div {
+  font-size: 12px;
+}
+.subTitle {
+  font-weight: 500;
+}
+.currentPrice {
+  font-weight: 600;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.powerdBy {
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 365px) and (min-width: 280px) {
+  .subTitle {
+    font-size: 14px;
+  }
+  .subCategoryText {
+    font-size: 12px;
+  }
+  .priceIcons {
+    gap: 0.5rem;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  .header {
+    font-size: 16px;
+  }
+  .tab {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .subCategoryImg {
+    width: 75px;
+    height: 75px;
+  }
+}
