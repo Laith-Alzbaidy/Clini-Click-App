@@ -3,7 +3,6 @@
   --secondary-color: #a75cff;
   --gray-light-color: #e2e2e2;
   --gray-bold-color: #d0d0d0;
-
 }
 
 * {
@@ -20,7 +19,7 @@ body {
 }
 
 a {
-  /* color: inherit !important; */
+  color: inherit !important;
   text-decoration: none !important;
 }
 
