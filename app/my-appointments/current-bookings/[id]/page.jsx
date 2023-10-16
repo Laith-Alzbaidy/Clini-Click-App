@@ -1,3 +1,4 @@
+'use client'
 import React  from "react";
 import styles from "./current-bookings.module.css";
 import Link from "next/link";
@@ -8,8 +9,8 @@ import backIcon from '../../assets/conhh.svg'
 import user from '../../assets/user.svg'
 import location from '../../assets/location.svg'
 import phone from '../../assets/call.svg'
-
 import Image from "next/image";
+
 async function getData(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   if (!res.ok) {
@@ -18,8 +19,10 @@ async function getData(id) {
 
   return res.json();
 }
+
 const CurrentBookings = async ({ params }) => {
   const data = await getData(params.id);
+
 
   return (
     <div className={styles.container}>
@@ -34,7 +37,16 @@ const CurrentBookings = async ({ params }) => {
       </div>
 
       <div className={styles.title}>Wed, 23 July at 5:00 PM</div>
+      <Link
+       href={{
+        pathname: '/my-appointments/reschedule',
+        query: {
+          search: data.id
+        }
+      }}
+      >
       <Btn title={"Reschedule appointment"} />
+      </Link>
       
      <ModalBox />
 

@@ -98,7 +98,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35%;
+  width: 31%;
   height: 37px;
   margin-top: 20px;
 }
@@ -113,6 +113,14 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between;
   margin-top: 1rem;
+}
+.form-control:focus {
+  outline: none !important;
+}
+@media (max-width: 365px) and (min-width: 280px) {
+  .timeContainer {
+    width: 45%;
+  }
 }
