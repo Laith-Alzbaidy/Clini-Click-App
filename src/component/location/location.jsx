@@ -14,11 +14,19 @@ const Location = () => {
 
       <div>
         {/* Add custom styles for the image */}
-        <Image
+        {/* <Image
           src={map}
           alt="map"
           className={styles["map"]} // Add custom class for image styles
-        />
+        /> */}
+        <iframe
+          width="100%"
+          style={{ borderRadius: 20 }}
+          referrerPolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
+          allowFullScreen
+          title="My Map"
+        ></iframe>
       </div>
       {/* Location and Call Icons */}
       <div className={styles["container-icon"]}>
