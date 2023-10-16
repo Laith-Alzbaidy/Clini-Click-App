@@ -21,7 +21,7 @@ const PastBookings = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/categories"}>
+        <Link href={"/my-appointments"}>
           <Image src={back} className={styles.backIcon} />
         </Link>
 

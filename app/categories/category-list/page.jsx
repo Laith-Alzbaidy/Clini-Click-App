@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./tabs.module.css";
 import Image from "next/image";
@@ -6,16 +6,11 @@ import Link from "next/link";
 import img from "../assets/img.svg";
 
 async function getData() {
-  try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    return res.json();
-  } catch (error) {
-    // Handle the error or return a custom error message.
-    throw error;
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
   }
+  return res.json();
 }
 
 const truncateText = (text, maxWords) => {
@@ -41,7 +36,7 @@ const CategoryContent = ({ activeTab }) => {
   }, []);
 
   if (error) {
-    return <p>Error: {error.message}</p>; // Display error message
+    return <p>Error: {error.message}</p>;
   }
 
   return (

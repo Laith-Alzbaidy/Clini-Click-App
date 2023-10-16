@@ -6,10 +6,10 @@ import Btn from "../../src/component/button/button";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Image from "next/image";
-import user from './assets/user.svg'
-import email from './assets/email.svg'
-import backIcon from './assets/back.svg'
-
+import user from "./assets/user.svg";
+import email from "./assets/email.svg";
+import backIcon from "./assets/back.svg";
+import { NextResponse } from "next/server";
 const Profile = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -28,10 +28,27 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // handle the form submission here
-
     console.log("Form data submitted:", formData);
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await fetch("/api/deleteAccount", {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+
+      if (response.ok) {
+        console.log("Account deleted successfully");
+      } else {
+        console.error("Failed to delete account");
+      }
+    } catch (error) {
+      console.error("Error deleting account:", error);
+    }
   };
   return (
     <>
@@ -98,7 +115,7 @@ const Profile = () => {
             />
           </div>
         </div>
-      <Btn title={"Manage my appointments"} /> 
+        <Btn title={"Manage my appointments"} />
       </form>
       <>
         <div className={styles.deleteAccount} onClick={handleShow}>
@@ -115,7 +132,7 @@ const Profile = () => {
             </div>
           </Modal.Body>
           <Modal.Footer className={styles.modal}>
-            <Button onClick={handleClose} className={styles.yesButton}>
+            <Button onClick={handleDeleteAccount} className={styles.yesButton}>
               Yes
             </Button>
             <Button onClick={handleClose} className={styles.noButton}>

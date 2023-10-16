@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Btn from "@/src/component/button/button";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const timeSlots = [
   "09:00 AM",
@@ -35,23 +35,22 @@ const schedulingData = [
 ];
 
 const Reschedule = ({ searchParams }) => {
-  const id = searchParams.search
-  
-  console.log("id" , id)
+  const id = searchParams.search;
+
   const [selectedMonth, setSelectedMonth] = useState();
   const [month, setMonth] = useState("January");
   const [selectedDay, setSelectedDay] = useState();
   const [selectedTime, setSelectedTime] = useState();
   const router = useRouter();
-
-  const handleConfirm = () => {
-    console.log(selectedDay, selectedMonth, month, selectedTime);
-    router.push('/my-appointments/reschedule/confirmed');
-  };
   
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
   };
+  const handleConfirm = () => {
+    console.log(selectedDay, selectedMonth, month, selectedTime);
+    router.push(`/my-appointments/reschedule/confirmed/${id}`);
+  };
+
 
   const schedulingSlides = schedulingData.map((item, index) => {
     const isActive = item.day === selectedDay && item.date === selectedMonth;
@@ -72,14 +71,13 @@ const Reschedule = ({ searchParams }) => {
   const handleDayClick = (day, date) => {
     setSelectedDay(day);
     setSelectedMonth(date);
-    console.log(day, date);
   };
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <Link href={"/categories"}>
+          <Link href={`/my-appointments`}>
             <Image src={back} className={styles.backIcon} />
           </Link>
 
@@ -150,10 +148,8 @@ const Reschedule = ({ searchParams }) => {
       </div>
 
       <div className={styles["container-question"]}>
-        <div>
-          <div className={styles["question"]}>
-            Which day would you like to book?
-          </div>
+        <div className={styles["question"]}>
+          Which time would you like to book?
         </div>
 
         <div className={styles.Bigcontainer}>
