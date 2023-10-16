@@ -2,12 +2,14 @@
 import React, { useState } from "react";
 import styles from "./reschedule.module.css";
 import Link from "next/link";
-import back from "../../../assets/conhh.svg";
-import user from "../../../assets/user.svg";
+import back from "../assets/conhh.svg";
+import user from "../assets/user.svg";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Col, Row } from "react-bootstrap";
 import "swiper/css";
+import Btn from "@/src/component/button/button";
+import { useRouter } from 'next/navigation';
+
 const timeSlots = [
   "09:00 AM",
   "10:00 AM",
@@ -32,12 +34,23 @@ const schedulingData = [
   { day: "Sun", date: 30 },
 ];
 
-const Reschedule = () => {
-  const [selectedMonth, setSelectedMonth] = useState("January");
-  const [selectedDay, setSelectedDay] = useState(24);
+const Reschedule = ({ searchParams }) => {
+  const id = searchParams.search
+  
+  console.log("id" , id)
+  const [selectedMonth, setSelectedMonth] = useState();
+  const [month, setMonth] = useState("January");
+  const [selectedDay, setSelectedDay] = useState();
+  const [selectedTime, setSelectedTime] = useState();
+  const router = useRouter();
 
-  const handleTimeSelect = (selectedTime) => {
-    console.log(`Selected time: ${selectedTime}`);
+  const handleConfirm = () => {
+    console.log(selectedDay, selectedMonth, month, selectedTime);
+    router.push('/my-appointments/reschedule/confirmed');
+  };
+  
+  const handleTimeSelect = (Time) => {
+    setSelectedTime(Time);
   };
 
   const schedulingSlides = schedulingData.map((item, index) => {
@@ -83,8 +96,9 @@ const Reschedule = () => {
         <select
           className="form-control"
           id="exampleSelect"
-          onChange={(e) => setSelectedMonth(e.target.value)}
-          value={selectedMonth}>
+          onChange={(e) => setMonth(e.target.value)}
+          value={month}
+          style={{ border: "none", paddingLeft: 5, width: "120px" }}>
           <option>January</option>
           <option>February</option>
           <option>March</option>
@@ -106,7 +120,31 @@ const Reschedule = () => {
           centeredSlides={false}
           slidesPerView={5.6}
           onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}>
+          onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            280: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            320: {
+              slidesPerView: 5,
+              spaceBetween: 20,
+            },
+            425: {
+              slidesPerView: 6,
+              spaceBetween: 20,
+            },
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 8,
+              spaceBetween: 30,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 12.5,
+              spaceBetween: 40,
+            },
+          }}>
           {schedulingSlides}
         </Swiper>
       </div>
@@ -132,6 +170,7 @@ const Reschedule = () => {
           ))}
         </div>
       </div>
+      <Btn title={"confirm"} onClick={handleConfirm} />
     </>
   );
 };

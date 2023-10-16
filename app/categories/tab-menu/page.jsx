@@ -27,17 +27,39 @@ const TabsMenu = ({ activeTab, onTabClick }) => {
   return (
     <div className={styles.tabscontainer}>
       <Swiper
-        spaceBetween={8}
-        centeredSlides={false}
-        navigation={{
-          nextEl: ".swiper-button-prev",
-          prevEl: ".swiper-button-next",
-        }}
-        slidesPerView={3.25}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}>
-        {TabSlider}
-      </Swiper>
+    spaceBetween={8}
+    centeredSlides={false}
+    navigation={{
+      nextEl: ".swiper-button-prev",
+      prevEl: ".swiper-button-next",
+    }}
+    slidesPerView={3.25}
+    onSlideChange={() => console.log("slide change")}
+    onSwiper={(swiper) => console.log(swiper)}
+    breakpoints={{
+      // when window width is >= 320px
+      280: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      }
+    }}
+  >
+    {TabSlider}
+  </Swiper>
     </div>
   );
 };

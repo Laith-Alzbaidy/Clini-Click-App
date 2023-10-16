@@ -4,7 +4,7 @@ import styles from "./button.module.css";
 
 const Btn = ({ title, marginTop , onClick }) => {
   return (
-    <Button className={styles["btn"]} style={{ marginTop: marginTop }}>
+    <Button className={styles["btn"]} onClick={onClick} style={{ marginTop: marginTop }}>
       {title}
     </Button>
   );

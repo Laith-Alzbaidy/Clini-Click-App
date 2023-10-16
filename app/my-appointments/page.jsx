@@ -60,7 +60,7 @@ const MyAppointments = async() => {
             <div>{appointment.username}</div>
           </div>
           <Link href={`my-appointments/past-bookings/${appointment.id}`} className={styles.link}>
-            <img src="/assets/left.svg" />
+            <Image src={left} />
           </Link>
         </div>
       ))}

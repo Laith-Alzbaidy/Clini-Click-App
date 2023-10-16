@@ -1,36 +1,34 @@
+'use client'
 import React from "react";
-import styles from "./past-bookings.module.css";
+import styles from "./confirmed.module.css";
 import Link from "next/link";
-import Head from 'next/head';
+import Head from "next/head";
 import Image from "next/image";
-import back from '../../assets/conhh.svg'
-import user from '../../assets/user.svg'
-import call from '../../assets/call.svg'
-import location from '../../assets/location.svg'
-
-async function getData(id) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-const PastBookings = async ({ params }) => {
-  const data = await getData(params.id);
+import back from "../../assets/conhh.svg";
+import user from "../../assets/user.svg";
+import call from "../../assets/call.svg";
+import location from "../../assets/location.svg";
+import { useRouter } from "next/navigation";
+const Confirmed = ({}) => {
+  const router = useRouter();
+  const id = router.query?.id;
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/categories"}>
-          <Image src={back} className={styles.backIcon} />
+        <Link href={"/my-appointments/reschedule"}>
+          <Image src={back} alt="back" />
         </Link>
 
         <Link href={"/profile"}>
-          <Image src={user} />
+          <Image src={user} alt="user" />
         </Link>
       </div>
 
-      <div className={styles.title}>Manage Bookings</div>
+      <div className={styles.title}>Your appointment is confirmed {id}</div>
+      <div className={styles.notification}>
+        We will send you a reminder
+        <br /> before your Appointment
+      </div>
       <div className={styles.subTitle}>Your appointment details</div>
       <div className={styles.bookingContainer}>
         <div className={styles.treatmentContainer}>
@@ -69,23 +67,21 @@ const PastBookings = async ({ params }) => {
       </Head>
       <iframe
         width="100%"
-        
-        style={{ borderRadius: 20}}
+        style={{ borderRadius: 20 }}
         referrerPolicy="no-referrer-when-downgrade"
         src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
         allowFullScreen
-        title="My Map"
-      ></iframe>
+        title="My Map"></iframe>
       <div className={styles.call}>
-        <Image src={call} />
+        <Image src={call} alt="call" />
         <div>+971-5-000000000</div>
       </div>
       <div className={styles.call}>
-        <Image src={location} />
+        <Image src={location} alt="location" />
         <div>Dubai Marina,Dubai.</div>
       </div>
     </div>
   );
 };
 
-export default PastBookings;
+export default Confirmed;
