@@ -28,11 +28,11 @@ const CurrentBookings = async ({ params }) => {
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <Link href={"/categories"}>
-          <Image src={backIcon} className={styles.backIcon} />
+          <Image src={backIcon} className={styles.backIcon} alt="back"/>
         </Link>
 
         <Link href={"/profile"}>
-          <Image src={user} />
+          <Image src={user} alt="user"/>
         </Link>
       </div>
 
@@ -106,11 +106,11 @@ const CurrentBookings = async ({ params }) => {
         allowFullScreen
         title="My Map"></iframe>
       <div className={styles.call}>
-        <Image src={phone} />
+        <Image src={phone} alt="phone"/>
         <div>+971-5-000000000</div>
       </div>
       <div className={styles.call}>
-        <Image src={location} />
+        <Image src={location} alt="location"/>
         <div>Dubai Marina,Dubai.</div>
       </div>
     </div>

@@ -27,7 +27,7 @@
 .learnMore1 {
   margin: 0 0 0.5rem 0;
   font-size: 14px;
-  color: #a75cff;;
+  color: #a75cff !important;
   text-decoration: none;
 }
 .container{
