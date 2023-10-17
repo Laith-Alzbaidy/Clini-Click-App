@@ -8,7 +8,7 @@ import Image from "next/image";
 import user from "./assets/image/user.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Col, Row } from "react-bootstrap";
-import Button from "@/src/component/button/button";
+import Btn from "@/src/component/button/button";
 import "swiper/css";
 
 const Practitioner = () => {
@@ -246,7 +246,7 @@ const Practitioner = () => {
       <p className="text-center">
         No payment will be taken until your appointment
       </p>
-      <Button title="Continue" marginTop="10px" />
+      <Btn title="Continue" marginTop="10px" />
     </div>
   );
 };

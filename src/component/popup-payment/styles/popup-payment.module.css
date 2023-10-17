@@ -1,0 +1,43 @@
+.header {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.container-payed input[type="radio"] {
+  accent-color: #a75cff;
+  width: 15px;
+  height: 15px;
+}
+
+.text-lable {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.container-payed {
+  margin: 20px 0;
+}
+
+.input-choose-payment {
+  border-radius: 24px;
+  border: 1px solid rgb(211, 211, 211);
+  background-color: rgb(249, 250, 251);
+  color: #a1a8b0;
+  padding: 12px 30px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.sub-title {
+  max-width: 215px;
+}
+
+.title-header {
+  font-size: 14px !important;
+  font-weight: 800;
+}
