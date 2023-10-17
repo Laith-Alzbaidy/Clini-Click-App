@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import image from "./assets/image/image.png";
 import star from "./assets/image/Star.svg";
@@ -8,7 +8,7 @@ import styles from "./styles/ourteam.module.css";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import Image from "next/image";
-import { Swiper , SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const slider = [
@@ -41,110 +41,55 @@ const slider = [
     alt: "image personal",
   },
 ];
+const getData = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  console.log("---------", res.data);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+};
 
-const ouerTeam = slider.map((item, index) => {
-  return (
-    <SwiperSlide key={index}>
-      <Link href={`ourTeam/${item.id}`}>
-        <div className={styles["container-card"]}>
-          <div className={styles["container-image"]}>
-            <Image
-              fill
-              src={item.image}
-              alt={item.alt}
-              className={styles["image"]}
-            />
-          </div>
+const OurTeam = async () => {
+  const data = await getData();
 
-          <div>
-            <h3 className={styles["name-card"]}>{item.name}</h3>
-            <p className={styles["specialization"]}>{item.specialization}</p>
-          </div>
-
-          <p className={styles["exp"]}>{item.exp}</p>
-
-          <div className={styles["container-rate-review"]}>
-            <div>
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
+  const ouerTeam = slider.map((item, index) => {
+    return (
+      <SwiperSlide key={index}>
+        <Link href={`ourTeam/${item.id}`}>
+          <div className={styles["container-card"]}>
+            <div className={styles["container-image"]}>
+              <Image
+                fill
+                src={item.image}
+                alt={item.alt}
+                className={styles["image"]}
+              />
             </div>
-            <p className={styles["text-review"]}>{item.review}</p>
+
+            <div>
+              <h3 className={styles["name-card"]}>{item.name}</h3>
+              <p className={styles["specialization"]}>{item.specialization}</p>
+            </div>
+
+            <p className={styles["exp"]}>{item.exp}</p>
+
+            <div className={styles["container-rate-review"]}>
+              <div>
+                <Image src={star} className={styles["star-image"]} alt="star" />
+                <Image src={star} className={styles["star-image"]} alt="star" />
+                <Image src={star} className={styles["star-image"]} alt="star" />
+                <Image src={star} className={styles["star-image"]} alt="star" />
+                <Image src={star} className={styles["star-image"]} alt="star" />
+              </div>
+              <p className={styles["text-review"]}>{item.review}</p>
+            </div>
           </div>
-        </div>
-      </Link>
-    </SwiperSlide>
-  );
-});
-const OurTeam = () => {
+        </Link>
+      </SwiperSlide>
+    );
+  });
   return (
-    // <div className="ourteam-section">
-    //   <h1 className={styles["title"]}>Our team</h1>
-
-    //   <Row>
-    //     <Col xs={6} md={6}>
-    //       <div className={styles["container-card"]}>
-    //         <Image
-    //           src={image}
-    //           alt="image personal"
-    //           className={styles["image"]}
-    //         />
-
-    //         <div>
-    //           <h3 className={styles["name-card"]}>Dr. Marcus Horizon</h3>
-    //           <p className={styles["specialization"]}>Cardiologist</p>
-    //         </div>
-
-    //         <p className={styles["exp"]}>10 years of experience</p>
-
-    //         <div className={styles["container-rate-review"]}>
-    //           <div>
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //           </div>
-    //           <p className={styles["text-review"]}>106 reviews</p>
-    //         </div>
-    //       </div>
-    //     </Col>
-
-    //     <Col xs={6} md={6}>
-    //       <div className={styles["container-card"]}>
-    //         <Image src={image} alt="Marcos" className={styles["image"]} />
-
-    //         <div>
-    //           <h3 className={styles["name-card"]}>Dr. Marcus Horizon</h3>
-    //           <p className={styles["specialization"]}>Cardiologist</p>
-    //         </div>
-
-    //         <p className={styles["exp"]}>10 years of experience</p>
-
-    //         <div className={styles["container-rate-review"]}>
-    //           <div>
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //             <Image src={star} className={styles["star-image"]} />
-    //           </div>
-    //           <p className={styles["text-review"]}>106 reviews</p>
-    //         </div>
-    //       </div>
-    //     </Col>
-    //   </Row>
-    // </div>
-
-    // -------------------------
-    // -------------------------
-    // -------------------------
-    // -------------------------
-    // -------------------------
-    // -------------------------
-
     <div className="ourteam-section">
       <h1 className={styles["title"]}>Our team</h1>
 

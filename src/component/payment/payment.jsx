@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import ClosePrev from "@/src/component/close-prev/close-prev";
 import styles from "./styles/payment.module.css";
 import promocode from "./assets/image/promo-code.svg";
@@ -9,6 +10,8 @@ import Btn from "../button/button";
 import PopupPayment from "../popup-payment/popup-payment";
 
 const Payment = () => {
+  const [offer, setOffer] = useState("");
+
   return (
     <div>
       <ClosePrev />

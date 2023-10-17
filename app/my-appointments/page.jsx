@@ -23,11 +23,11 @@ const MyAppointments = async() => {
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <Link href={"/categories"}>
-          <Image src={backIcon} className={styles.backIcon} />
+          <Image src={backIcon} className={styles.backIcon} alt="back"/>
         </Link>
 
         <Link href={"/profile"}>
-          <Image src={user} />
+          <Image src={user} alt="user" />
         </Link>
       </div>
 
@@ -52,7 +52,7 @@ const MyAppointments = async() => {
 
       {data.map((appointment, index) => (
         <div className={styles.cardContainer} key={index}>
-          <Image src={image} className={styles.cardImage} />
+          <Image src={image} className={styles.cardImage} alt="img"/>
           <div className={styles.details}>
             <div>Thu 22/7/2023 3:00 PM</div>
             <div>{appointment.name}</div>
@@ -60,7 +60,7 @@ const MyAppointments = async() => {
             <div>{appointment.username}</div>
           </div>
           <Link href={`my-appointments/past-bookings/${appointment.id}`} className={styles.link}>
-            <Image src={left} />
+            <Image src={left} alt="left"/>
           </Link>
         </div>
       ))}

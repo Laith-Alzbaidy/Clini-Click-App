@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./subInfo.module.css";
-import back from '../assets/conhh.svg'
+import back from "../assets/conhh.svg";
 import Image from "next/image";
 import Link from "next/link";
 async function getData(id) {
@@ -20,7 +20,8 @@ const Info = async ({ searchParams }) => {
     return (
       <div className={styles.container}>
         <Link href={`/categories/${id}`}>
-        <Image src={back} ></Image></Link>
+          <Image src={back} alt="back" />
+        </Link>
         <div className={styles.title}>sub category</div>
         <div className={styles.infoText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod

@@ -24,6 +24,7 @@
 }
 .active {
   background-color: #a75cff;
+  color: #ffffff;
 }
 .container-scheduling {
   border: 1px solid #e8f3f1;
@@ -34,6 +35,7 @@
   justify-content: center;
   width: 46px;
   height: 64px;
+
 }
 
 .container-scheduling:hover {
@@ -64,32 +66,16 @@
   font-weight: 400;
 }
 
-.card-time {
-  border-radius: 15px;
-  border: 1px solid #adadad;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 103px;
-  height: 37px;
-  margin-top: 20px;
-}
 
-.card-time:hover {
-  background-color: var(--secondary-color);
-}
 
-.card-time:hover .time {
-  color: white;
-}
 .container-question {
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 .question {
   color: var(--primary-color);
   font-size: 12px;
   font-weight: 700;
+  margin-top: 2rem;
 }
 .timeContainer {
   border-radius: 15px;
@@ -114,7 +100,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .form-control:focus {
   outline: none !important;

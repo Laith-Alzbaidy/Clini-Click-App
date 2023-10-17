@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Btn from "@/src/component/button/button";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const timeSlots = [
   "09:00 AM",
@@ -35,22 +35,20 @@ const schedulingData = [
 ];
 
 const Reschedule = ({ searchParams }) => {
-  const id = searchParams.search
-  
-  console.log("id" , id)
+  const id = searchParams.search;
+
   const [selectedMonth, setSelectedMonth] = useState();
   const [month, setMonth] = useState("January");
   const [selectedDay, setSelectedDay] = useState();
   const [selectedTime, setSelectedTime] = useState();
   const router = useRouter();
 
-  const handleConfirm = () => {
-    console.log(selectedDay, selectedMonth, month, selectedTime);
-    router.push('/my-appointments/reschedule/confirmed');
-  };
-  
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
+  };
+  const handleConfirm = () => {
+    console.log(selectedDay, selectedMonth, month, selectedTime);
+    router.push(`/my-appointments/reschedule/confirmed/${id}`);
   };
 
   const schedulingSlides = schedulingData.map((item, index) => {
@@ -61,7 +59,8 @@ const Reschedule = ({ searchParams }) => {
           className={`${styles["container-scheduling"]} ${
             isActive ? styles.active : ""
           }`}
-          onClick={() => handleDayClick(item.day, item.date)}>
+          onClick={() => handleDayClick(item.day, item.date)}
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -72,14 +71,13 @@ const Reschedule = ({ searchParams }) => {
   const handleDayClick = (day, date) => {
     setSelectedDay(day);
     setSelectedMonth(date);
-    console.log(day, date);
   };
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <Link href={"/categories"}>
+          <Link href={`/my-appointments`}>
             <Image src={back} className={styles.backIcon} />
           </Link>
 
@@ -96,9 +94,10 @@ const Reschedule = ({ searchParams }) => {
         <select
           className="form-control"
           id="exampleSelect"
-          onChange={(e) => setMonth(e.target.value)}
+          // onChange={(e) => setMonth(e.target.value)}
           value={month}
-          style={{ border: "none", paddingLeft: 5, width: "120px" }}>
+          style={{ border: "none", paddingLeft: 5, width: "120px" }}
+        >
           <option>January</option>
           <option>February</option>
           <option>March</option>
@@ -144,16 +143,15 @@ const Reschedule = ({ searchParams }) => {
               slidesPerView: 12.5,
               spaceBetween: 40,
             },
-          }}>
+          }}
+        >
           {schedulingSlides}
         </Swiper>
       </div>
 
       <div className={styles["container-question"]}>
-        <div>
-          <div className={styles["question"]}>
-            Which day would you like to book?
-          </div>
+        <div className={styles["question"]}>
+          Which time would you like to book?
         </div>
 
         <div className={styles.Bigcontainer}>
@@ -163,7 +161,8 @@ const Reschedule = ({ searchParams }) => {
                 className={styles["time"]}
                 key={index}
                 value={time}
-                onClick={() => handleTimeSelect(time)}>
+                onClick={() => handleTimeSelect(time)}
+              >
                 {time}
               </p>
             </div>

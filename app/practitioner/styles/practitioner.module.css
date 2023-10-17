@@ -73,6 +73,11 @@
   height: 13px;
 }
 
+.active {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
 .text-review {
   font-size: 8px;
   font-weight: 400;
@@ -121,34 +126,51 @@
 }
 
 .time {
-  /* color: #adadad; */
   color: var(--primary-color);
   font-size: 12px;
   font-weight: 400;
-}
-
-.card-time {
-  border-radius: 15px;
-  border: 1px solid #adadad;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 103px;
-  height: 37px;
-  margin-top: 20px;
-}
-
-.card-time:hover {
-  background-color: var(--secondary-color);
 }
 
 .card-time:hover .time {
   color: white;
 }
 
+.timeContainer {
+  border-radius: 15px;
+  border: 1px solid #adadad;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31%;
+  height: 37px;
+  margin-top: 20px;
+}
+
+.timeContainer:hover {
+  background-color: var(--secondary-color);
+}
+
+.timeContainer:hover .time {
+  color: white;
+}
+
+.Bigcontainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
 .line {
   background: #e2e2e2;
   height: 3px;
   margin: 20px 0;
+}
+
+@media (max-width: 365px) and (min-width: 280px) {
+  .timeContainer {
+    width: 45%;
+  }
 }

@@ -21,12 +21,12 @@ const PastBookings = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/categories"}>
-          <Image src={back} className={styles.backIcon} />
+        <Link href={"/my-appointments"}>
+          <Image src={back} className={styles.backIcon} alt="back"/>
         </Link>
 
         <Link href={"/profile"}>
-          <Image src={user} />
+          <Image src={user} alt="user"/>
         </Link>
       </div>
 
@@ -77,11 +77,11 @@ const PastBookings = async ({ params }) => {
         title="My Map"
       ></iframe>
       <div className={styles.call}>
-        <Image src={call} />
+        <Image src={call} alt="phone"/>
         <div>+971-5-000000000</div>
       </div>
       <div className={styles.call}>
-        <Image src={location} />
+        <Image src={location} alt="location"/>
         <div>Dubai Marina,Dubai.</div>
       </div>
     </div>

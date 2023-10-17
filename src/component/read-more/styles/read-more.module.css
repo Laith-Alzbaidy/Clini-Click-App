@@ -1,0 +1,14 @@
+.description {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--primary-color);
+  text-align: justify;
+}
+
+.read-more {
+  font-weight: 700;
+  font-size: 12px !important;
+  color: var(--secondary-color);
+  margin-top: 5px !important;
+  cursor: pointer;
+}

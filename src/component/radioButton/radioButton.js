@@ -42,10 +42,11 @@ function RadioButton({ label, value, selectedOption, onChange, price }) {
 }
 
 function RadioButtons({ options }) {
-  const [selectedOption, setSelectedOption] = useState(options[0].value);
+  const [selectedOption, setSelectedOption] = useState();
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+    console.log(event.target.value);
   };
 
   return (

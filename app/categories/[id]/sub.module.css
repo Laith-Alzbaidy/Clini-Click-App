@@ -1,11 +1,15 @@
 
 .background {
-  width: 100%;
-  height: fit-content;
   border-radius: 25px;
-   display: block; 
-  margin: 1rem auto;
 }
+.containerHero {
+  height: 220px;
+  border-radius: 0;
+  margin: 20px 0;
+  position: relative;
+  width: 100%;
+}
+
 .subName {
   font-size: 16px;
   font-weight: 600;
@@ -23,7 +27,7 @@
 .learnMore1 {
   margin: 0 0 0.5rem 0;
   font-size: 14px;
-  color: #a75cff;;
+  color: #a75cff !important;
   text-decoration: none;
 }
 .container{

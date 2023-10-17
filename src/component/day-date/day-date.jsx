@@ -9,9 +9,16 @@ import PhoneInput from "react-phone-input-2";
 import Btn from "@/src/component/button/button";
 import "react-phone-input-2/lib/style.css";
 
+import { useRouter } from "next/navigation";
+
 const DayDate = () => {
+  const router = useRouter();
   const [phone, setPhone] = useState();
 
+  const handleConfirm = () => {
+    console.log(phone);
+    router.push(`/otb`);
+  };
   return (
     <div>
       <ClosePrev />
@@ -35,7 +42,7 @@ const DayDate = () => {
         />
       </div>
 
-      <Btn title="Send code" />
+      <Btn title="Send code" onClick={handleConfirm} />
     </div>
   );
 };

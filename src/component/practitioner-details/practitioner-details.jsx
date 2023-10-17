@@ -8,13 +8,19 @@ import Image from "next/image";
 import user from "./assets/image/user.svg";
 import email from "./assets/image/email.svg";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
+import { useRouter } from "next/navigation";
 const PractitionerDetails = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
   });
 
+  const handleConfirm = () => {
+    console.log(formData);
+    router.push(`/day-date`);
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -100,7 +106,7 @@ const PractitionerDetails = () => {
           <p className="text-center">
             No payment will be taken until your appointment
           </p>
-          <Btn title="Continue" marginTop="10px" />
+          <Btn title="Continue" marginTop="10px" onClick={handleConfirm} />
         </div>
       </form>
     </>

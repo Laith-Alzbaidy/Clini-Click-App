@@ -4,18 +4,28 @@ import styles from "./confirmed.module.css";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-import back from "../../assets/conhh.svg";
-import user from "../../assets/user.svg";
-import call from "../../assets/call.svg";
-import location from "../../assets/location.svg";
-import { useRouter } from "next/navigation";
-const Confirmed = ({}) => {
-  const router = useRouter();
-  const id = router.query?.id;
+import back from "../../../assets/conhh.svg";
+import user from "../../../assets/user.svg";
+import call from "../../../assets/call.svg";
+import location from "../../../assets/location.svg";
+import Btn from '@/src/component/button/button';
+
+async function getData(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+const Confirmed = async ({params}) => {
+  const data = await getData(params.id);
+
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/my-appointments/reschedule"}>
+        <Link href={`/my-appointments`}>
           <Image src={back} alt="back" />
         </Link>
 
@@ -24,7 +34,7 @@ const Confirmed = ({}) => {
         </Link>
       </div>
 
-      <div className={styles.title}>Your appointment is confirmed {id}</div>
+      <div className={styles.title}>Your appointment is confirmed</div>
       <div className={styles.notification}>
         We will send you a reminder
         <br /> before your Appointment
@@ -80,6 +90,9 @@ const Confirmed = ({}) => {
         <Image src={location} alt="location" />
         <div>Dubai Marina,Dubai.</div>
       </div>
+      <Link href={'/'}>
+      <Btn title={'Back to Clinic Profile'} />
+      </Link>
     </div>
   );
 };
