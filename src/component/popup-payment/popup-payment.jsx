@@ -11,19 +11,31 @@ import apple from "./assets/image/apple.png";
 import google from "./assets/image/google.png";
 import credit from "./assets/image/credit-debit.png";
 import payclinic from "./assets/image/pay-clinic.png";
+import PopupCardPayment from "../popup-card-payment/popup-card-payment";
 function PopupPayment() {
   const [show, setShow] = useState(false);
   const [selectedValue, setSelectedValue] = useState("Apple Pay"); // Set the default value here
+  const [showPaymentCardPopup, setShowPaymentCardPopup] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleClosePaymentCardPopup = () => {
+    setShowPaymentCardPopup(false);
+  };
+
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
+
+    setTimeout(() => {
+      handleClose(false);
+      setShowPaymentCardPopup(true);
+    }, 1000);
   };
 
   return (
     <>
+      {" "}
       <input
         type="text"
         id="choose-payment"
@@ -33,13 +45,12 @@ function PopupPayment() {
         className={styles["input-choose-payment"]}
         onClick={handleShow}
       />
-
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>
             <div className={styles["header"]}>
               <h2 className={styles["title-header"]}>Pay with</h2>
-              <Image src={close} onClick={handleClose} />
+              <Image src={close} onClick={handleClose} alt="close" />
             </div>
             <p className={styles["sub-title"]}>
               No payment will be taken until your appointment
@@ -112,6 +123,10 @@ function PopupPayment() {
           </div>
         </Modal.Body>
       </Modal>
+      <PopupCardPayment
+        show={showPaymentCardPopup}
+        onHide={handleClosePaymentCardPopup}
+      />
     </>
   );
 }

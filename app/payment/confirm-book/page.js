@@ -1,5 +1,5 @@
 import React from "react";
-import BookFinish from "@/src/component/book/book";
+import BookFinish from "@/src/component/confirm-book/book";
 const Page = () => {
   return (
     <>

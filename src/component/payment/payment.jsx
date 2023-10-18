@@ -8,9 +8,13 @@ import call from "./assets/image/call.svg";
 import location from "./assets/image/location.svg";
 import Btn from "../button/button";
 import PopupPayment from "../popup-payment/popup-payment";
-
+import { useRouter } from "next/navigation";
 const Payment = () => {
+  const router = useRouter();
   const [offer, setOffer] = useState("");
+  const handleConfirm = () => {
+    router.push(`/payment/confirm-book`);
+  };
 
   return (
     <div>
@@ -38,6 +42,7 @@ const Payment = () => {
             name="promoCode"
             placeholder="Enter promo code"
             required
+            onChange={(e) => setOffer(e.target.value)}
             className={styles["input-promocode"]}
           />
         </div>
@@ -136,8 +141,10 @@ const Payment = () => {
         <b>Privacy Policy</b>
         and confirm that I am 18 years or older
       </p>
+
       <Btn title="Book with Apple Pay/ Google Pay" marginTop={10} />
-      <Btn title="Book appointment" marginTop={10} />
+
+      <Btn title="Book appointment" marginTop={10} onClick={handleConfirm} />
     </div>
   );
 };

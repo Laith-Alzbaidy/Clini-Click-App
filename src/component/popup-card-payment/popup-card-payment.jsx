@@ -6,9 +6,8 @@ import Modal from "react-bootstrap/Modal";
 import close from "./assets/image/close.svg";
 import Image from "next/image";
 import styles from "./styles/popup-card-payment.module.css";
-
-function PopupCardPayment() {
-  const [show, setShow] = useState(false);
+function PopupCardPayment({ onHide, show }) {
+  // const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     cardNumber: "",
     cardHolder: "",
@@ -16,8 +15,8 @@ function PopupCardPayment() {
     cvv: "",
   });
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => onHide(false);
+  // const handleShow = () => handleClosePaymentCardPopup(true);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,18 +24,26 @@ function PopupCardPayment() {
       ...formData,
       [name]: value,
     });
+
+    console.log();
+    if (
+      formData.cardHolder !== "" &&
+      formData.cardNumber !== "" &&
+      formData.expiryDate !== "" &&
+      formData.cvv
+    ) {
+      handleClose();
+    }
   };
 
   return (
     <>
-      <input placeholder="1111111222" onClick={handleShow} />
-
-      <Modal show={show} onHide={handleClose} animation={false}>
+      <Modal show={show} onHide={onHide} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>
             <div className={styles["header"]}>
               <h2 className={styles["title-header"]}>Card details</h2>
-              <Image src={close} onClick={handleClose} />
+              <Image src={close} onClick={handleClose} alt="close" />
             </div>
             <p className={styles["sub-title"]}>
               Card details are required to confirm your appointment
