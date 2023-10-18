@@ -1,5 +1,5 @@
 .container-btn {
-  background-color: var(--icon-btn-color);
+  background-color: var(--secondary-color);
   display: flex;
   height: 24px;
   padding: 12px 20px;
