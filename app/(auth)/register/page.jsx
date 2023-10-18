@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import InputField from "@/src/component/inputField/inputField";
 import user from "../assets/user.svg";
@@ -6,7 +8,7 @@ import password from "../assets/password.svg";
 import Btn from "@/src/component/button/button";
 import styles from "../auth.module.css";
 import Link from "next/link";
-
+import { useState } from "react";
 const Register = () => {
   const [err, setErr] = useState(false);
   const handleSubmit = async (e) => {
