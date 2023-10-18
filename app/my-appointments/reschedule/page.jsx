@@ -45,6 +45,7 @@ const Reschedule = ({ searchParams }) => {
 
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
+
   };
   const handleConfirm = () => {
     console.log(selectedDay, selectedMonth, month, selectedTime);
@@ -61,7 +62,7 @@ const Reschedule = ({ searchParams }) => {
           }`}
           onClick={() => handleDayClick(item.day, item.date)}
         >
-          <p className={styles["day"]}>{item.day}</p>
+          <p className={styles["day"]} >{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
       </SwiperSlide>
@@ -94,9 +95,9 @@ const Reschedule = ({ searchParams }) => {
         <select
           className="form-control"
           id="exampleSelect"
-          // onChange={(e) => setMonth(e.target.value)}
+          onChange={(e) => setMonth(e.target.value)}
           value={month}
-          style={{ border: "none", paddingLeft: 5, width: "120px" }}
+          style={{ border: "none !important", paddingLeft: 5, width: "120px" }}
         >
           <option>January</option>
           <option>February</option>
