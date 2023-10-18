@@ -8,6 +8,7 @@ import OurAmenities from "@/src/component/OurAmenities/ourAmenities";
 import OurBusiness from "@/src/component/ourBusiness/ourBusiness";
 import Icon from "@/src/component/icon/icon";
 import Btn from "@/src/component/button/button";
+
 export default function Home() {
   return (
     <>
@@ -19,7 +20,9 @@ export default function Home() {
       <OurAmenities />
       <OurBusiness />
       <Icon />
-      <Btn title="Book appointment" />
+      <Link href="categories">
+        <Btn title="Book appointment" />
+      </Link>
     </>
   );
 }

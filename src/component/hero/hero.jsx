@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import imageHero from "./assets/image/hero.png";
@@ -6,16 +7,37 @@ import styles from "./styles/hero.module.css";
 import star from "./assets/image/Star.svg";
 import location from "./assets/image/icon _location_.svg";
 import call from "./assets/image/call.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 const Hero = () => {
+  const [index, setIndex] = useState(1);
+  const image = [imageHero, imageHero, imageHero, imageHero, imageHero];
+
+  const sliderHero = image.map((item, index) => {
+    return (
+      <SwiperSlide key={index}>
+        <div className={styles["container-hero"]}>
+          <Image fill src={item} className={styles["image"]} alt="hero" />
+          <div className={styles["number-image"]}>
+            <span>{`${index + 1}/5`}</span>
+          </div>
+        </div>
+      </SwiperSlide>
+    );
+  });
+
   return (
     <main className="section-hero">
-      <div className={styles["container-hero"]}>
-        <Image fill src={imageHero} className={styles["image"]} alt="hero" />
-        <div className={styles["number-image"]}>
-          <span>{`${1}/5`}</span>
-        </div>
-      </div>
+      <Swiper
+        modules={[Autoplay]}
+        slidesPerView={1}
+        spaceBetween={15}
+        autoplay={{ delay: 1000 }}
+      >
+        {sliderHero}
+      </Swiper>
 
       {/* content hero */}
       <div className={styles["content-hero"]}>
@@ -41,7 +63,7 @@ const Hero = () => {
           <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
         </div>
         <div className={styles["content-icon"]}>
-          <Image src={call} className={styles["icon"]} aalt="call" />
+          <Image src={call} className={styles["icon"]} alt="call" />
           <p className={styles["text-icon"]}>+971-5-000000000</p>
         </div>
       </div>

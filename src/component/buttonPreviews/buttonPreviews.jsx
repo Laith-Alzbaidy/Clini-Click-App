@@ -4,7 +4,7 @@ import Link from "next/link";
 import previews from "./assets/image/previews.svg";
 const ButtonPreviews = () => {
   return (
-    <div>
+    <div className="mb-2">
       <Image src={previews} alt="button previews" />
     </div>
   );

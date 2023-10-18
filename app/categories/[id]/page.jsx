@@ -6,6 +6,7 @@ import RadioButtons from "../../../src/component/radioButton/radioButton";
 import Btn from "../../../src/component/button/button";
 import backicon from "../assets/conhh.svg";
 import background from "../assets/g.png";
+
 const free = [{ label: "Free", value: "Free" }];
 
 const Body = [
@@ -76,7 +77,8 @@ const SubCategory = async ({ params }) => {
             pathname: "/categories/sub-info",
             query: { search: params.id },
           }}
-          className={styles.learnMore1}>
+          className={styles.learnMore1}
+        >
           learn more
         </Link>
         <div className={styles.constContainer}>
@@ -94,7 +96,8 @@ const SubCategory = async ({ params }) => {
             width: "90%",
             margin: "0.5rem auto",
             border: "solid 1px #ECECEC",
-          }}></div>
+          }}
+        ></div>
 
         <div>
           <div className={styles.SelectHeader}>
@@ -108,7 +111,8 @@ const SubCategory = async ({ params }) => {
             width: "80%",
             margin: "1rem auto",
             border: "solid 1px #E8F3F1",
-          }}></div>
+          }}
+        ></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Device</div>
@@ -121,7 +125,8 @@ const SubCategory = async ({ params }) => {
             width: "80%",
             margin: "1rem auto",
             border: "solid 1px #E8F3F1",
-          }}></div>
+          }}
+        ></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Body Area</div>
@@ -135,12 +140,15 @@ const SubCategory = async ({ params }) => {
             width: "80%",
             margin: "1rem auto",
             border: "solid 1px #E8F3F1",
-          }}></div>
+          }}
+        ></div>
         <p className={styles.noPayment}>
           No payment will be taken until your appointment
         </p>
 
-        <Btn title={`Continue to book AED 200`}/>
+        <Link href="/practitioner">
+          <Btn title={`Continue to book AED 200`} />
+        </Link>
       </div>
     </>
   );

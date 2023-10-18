@@ -4,7 +4,7 @@ import styles from "./tabs.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import img from "../assets/img.svg";
-
+import axios from "axios";
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   if (!res.ok) {

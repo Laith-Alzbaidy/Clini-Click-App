@@ -10,19 +10,22 @@ function RadioButton({ label, value, selectedOption, onChange, price }) {
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: "0.5rem",
-        }}>
+        }}
+      >
         <span
           style={{
             fontSize: "14px",
             fontWeight: 400,
             display: "flex",
             alignItems: "center",
-          }}>
+          }}
+        >
           {label}
         </span>
         <div className={styles.customradio}>
           <span
-            style={{ marginRight: "7px", fontSize: "12px", fontWeight: 400 }}>
+            style={{ marginRight: "7px", fontSize: "12px", fontWeight: 400 }}
+          >
             {price}
           </span>
           <input
