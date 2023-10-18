@@ -11,6 +11,8 @@ import email from "./assets/email.svg";
 import backIcon from "./assets/back.svg";
 import { useRouter } from "next/navigation";
 import InputField from "@/src/component/inputField/inputField";
+import Popup from "reactjs-popup";
+
 
 const Profile = () => {
   const router = useRouter();
@@ -18,51 +20,58 @@ const Profile = () => {
   const [err, setErr] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    router.push("/my-appointments");
     const firstName = e.target[0].value;
     const lastName = e.target[1].value;
     const email = e.target[2].value;
 
-    try {
-      const response = await fetch("/api/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ firstName, lastName, email }),
-      });
+    // try {
+    //   const response = await fetch("/api/", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ firstName, lastName, email }),
+    //   });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Form submission successful:", data);
-        router.push("/");
-      }
-    } catch (error) {
-      setErr(true);
-    }
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     console.log("Form submission successful:", data);
+    //     router.push("/my-appointments");
+    //   }
+    // } catch (error) {
+    //   setErr(true);
+    // }
   };
 
   const handleDeleteAccount = async () => {
-    try {
-      const response = await fetch("/api/deleteAccount", {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      });
+    setShow(false);
+    setShowPopup(true);
+    setTimeout(() => {
+      router.push('/');
+    }, 2000);
 
-      if (response.ok) {
-        console.log("Account deleted successfully");
-        router.push("/");
-      } else {
-        console.error("Failed to delete account");
-      }
-    } catch (error) {
-      console.error("Error deleting account:", error);
-    }
+    // try {
+    //   const response = await fetch("/api/deleteAccount", {
+    //     method: "DELETE",
+    //     headers: {
+    //       Authorization: `Bearer ${userToken}`,
+    //     },
+    //   });
+
+    //   if (response.ok) {
+    //     console.log("Account deleted successfully");
+
+    //     } else {
+    //       console.error("Failed to delete account");
+    //     }
+    //   } catch (error) {
+    //     console.error("Error deleting account:", error);
+    //   }
   };
   return (
     <>
@@ -71,6 +80,13 @@ const Profile = () => {
       </Link>
       <div className={styles.title}>My details</div>
 
+      <Popup open={showPopup} closeOnDocumentClick={false}>
+        {(close) => (
+          <div className={styles.model}>
+            <p>Your account has been deleted successfully.</p>
+          </div>
+        )}
+      </Popup>
       <form onSubmit={handleSubmit}>
         <InputField
           type={"text"}

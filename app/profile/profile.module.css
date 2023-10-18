@@ -110,3 +110,14 @@
   justify-content: center;
   margin: 1rem 0 1rem 0;
 }
+.model {
+  width: 240.587px;
+  height: 148.411px;
+  flex-shrink: 0;
+  background-color: #e8e8e8 !important;
+  border-radius: 25px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: grid;
+  place-items: center;
+  text-align: center;
+}

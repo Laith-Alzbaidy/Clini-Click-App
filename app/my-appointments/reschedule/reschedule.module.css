@@ -24,7 +24,12 @@
 }
 .active {
   background-color: #a75cff;
-  color: #ffffff;
+  color: #fff;
+}
+.activeText {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
 }
 .container-scheduling {
   border: 1px solid #e8f3f1;
