@@ -16,16 +16,14 @@
   font-weight: 600;
   text-align: center;
   margin: 0.6rem 0 0 0;
-  
 }
 .deleteAccount:hover {
-cursor: pointer;
-  
+  cursor: pointer;
 }
 .yesButton {
   background-color: #adadad;
   border-radius: 35px;
-  border: 1px solid #fff;
+  border: 1px solid #adadad !important;
   display: flex;
   width: 68px;
   height: 30px;
@@ -35,6 +33,15 @@ cursor: pointer;
   gap: 10px;
   flex-shrink: 0;
 }
+.yesButton:hover {
+  background-color: #adadad !important;
+}
+
+.yesButton:active {
+  background-color: #585858 !important;
+  border: 1px solid #585858 !important;
+}
+
 .noButton {
   background-color: #a75cff;
   border-radius: 35px;
@@ -50,6 +57,7 @@ cursor: pointer;
 }
 .modal {
   background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
 }
 .modalBody {
   text-align: center;

@@ -24,10 +24,10 @@ const ModalBox = () => {
             </div>
           </Modal.Body>
           <Modal.Footer className={styles.modal}>
-            <Button onClick={handleClose} className={styles.yesButton}>
+            <Button onClick={handleClose} className="btn btn-primary">
               Yes
             </Button>
-            <Button onClick={handleClose} className={styles.noButton}>
+            <Button onClick={handleClose} className="btn btn-secondary">
               No
             </Button>
           </Modal.Footer>

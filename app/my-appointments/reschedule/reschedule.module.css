@@ -35,7 +35,6 @@
   justify-content: center;
   width: 46px;
   height: 64px;
-
 }
 
 .container-scheduling:hover {
@@ -65,8 +64,6 @@
   font-size: 12px;
   font-weight: 400;
 }
-
-
 
 .container-question {
   margin: 2rem 0;

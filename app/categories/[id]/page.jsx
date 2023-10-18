@@ -140,7 +140,7 @@ const SubCategory = async ({ params }) => {
           No payment will be taken until your appointment
         </p>
 
-        <Btn title={`Continue to book AED 200`} />
+        <Btn title={`Continue to book AED 200`}/>
       </div>
     </>
   );

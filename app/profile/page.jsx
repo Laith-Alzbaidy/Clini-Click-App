@@ -15,42 +15,34 @@ import InputField from "@/src/component/inputField/inputField";
 const Profile = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [err, setErr] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const firstName = e.target[0].value;
+    const lastName = e.target[1].value;
+    const email = e.target[2].value;
+
     try {
       const response = await fetch("/api/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ firstName, lastName, email }),
       });
 
       if (response.ok) {
         const data = await response.json();
         console.log("Form submission successful:", data);
-        route.push('/')
-      } else {
-        console.error("Form submission failed");
+        router.push("/");
       }
     } catch (error) {
-      console.error("An error occurred while submitting the form:", error);
+      setErr(true);
     }
-    
   };
 
   const handleDeleteAccount = async () => {
@@ -81,28 +73,21 @@ const Profile = () => {
 
       <form onSubmit={handleSubmit}>
         <InputField
-          onChange={handleChange}
           type={"text"}
-          value={formData.firstName}
           placeholder={"Enter your Firstname"}
           icon={user}
-          name={"firstName"}/>
+        />
         <InputField
-          onChange={handleChange}
           type={"text"}
-          value={formData.lastName}
           placeholder={"Enter your Lastname"}
           icon={user}
-          name={"lastName"}/>
+        />
         <InputField
-          onChange={handleChange}
           type={"email"}
-          value={formData.email}
           placeholder={"Enter your Email"}
           icon={email}
-          name={"email"}
-          />
-
+        />
+        {err && <div>{err}</div>}
         <Btn title={"Manage my appointments"} type={"submit"} />
       </form>
       <>
