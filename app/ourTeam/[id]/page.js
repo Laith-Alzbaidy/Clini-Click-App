@@ -49,7 +49,7 @@ const OurTeamSpecific = async ({ params }) => {
             <Image src={star} className={styles["star-image"]} alt="star" />
             <Image src={star} className={styles["star-image"]} alt="star" />
           </div>
-          <Link href={`${1}/reviews`}>
+          <Link className={styles["link-review"]} href={`${1}/reviews`}>
             <p className={styles["text-review"]}>106 reviews</p>
           </Link>
         </div>
@@ -83,7 +83,7 @@ const OurTeamSpecific = async ({ params }) => {
         <ReadMore />
         <div className={styles["container-content"]}>
           <Row className={styles["card"]}>
-            <Col className="d-flex align-items-center gap-3">
+            <Col className="d-flex gap-3">
               <Image src={global} alt="Languages" />
               <div>
                 <p className={styles["title-icon"]}>Languages</p>
@@ -93,7 +93,7 @@ const OurTeamSpecific = async ({ params }) => {
                 </p>
               </div>
             </Col>
-            <Col className="d-flex align-items-center gap-3">
+            <Col className="d-flex gap-3">
               <Image src={license} alt="License Number" />
               <div>
                 <p className={styles["title-icon"]}>License Number</p>

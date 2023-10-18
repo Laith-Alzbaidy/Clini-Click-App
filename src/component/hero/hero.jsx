@@ -52,20 +52,26 @@ const Hero = () => {
             <Image src={star} className={styles["star-image"]} alt="star" />
             <Image src={star} className={styles["star-image"]} alt="star" />
           </div>
+
           <Link href="/google-reviews">
             <p className={styles["text-review"]}>106 Google reviews</p>
           </Link>
         </div>
 
         {/* Location and Call Icons */}
-        <div className={styles["content-icon"]}>
-          <Image src={location} className={styles["icon"]} alt="location" />
-          <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
-        </div>
-        <div className={styles["content-icon"]}>
-          <Image src={call} className={styles["icon"]} alt="call" />
-          <p className={styles["text-icon"]}>+971-5-000000000</p>
-        </div>
+        <Link href="#">
+          <div className={styles["content-icon"]}>
+            <Image src={location} className={styles["icon"]} alt="location" />
+            <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
+          </div>
+        </Link>
+
+        <Link href="#">
+          <div className={styles["content-icon"]}>
+            <Image src={call} className={styles["icon"]} alt="call" />
+            <p className={styles["text-icon"]}>+971-5-000000000</p>
+          </div>
+        </Link>
       </div>
     </main>
   );
