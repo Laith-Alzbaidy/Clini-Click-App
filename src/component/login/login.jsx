@@ -4,14 +4,14 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import ClosePrev from "@/src/component/close-prev/close-prev";
-import styles from "./styles/day-date.module.css";
+import styles from "./styles/login.module.css";
 import PhoneInput from "react-phone-input-2";
 import Btn from "@/src/component/button/button";
 import "react-phone-input-2/lib/style.css";
 
 import { useRouter } from "next/navigation";
 
-const DayDate = () => {
+const Login = () => {
   const router = useRouter();
   const [phone, setPhone] = useState();
 
@@ -47,4 +47,4 @@ const DayDate = () => {
   );
 };
 
-export default DayDate;
+export default Login;

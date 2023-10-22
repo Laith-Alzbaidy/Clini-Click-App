@@ -1,9 +1,9 @@
 import React from "react";
-import DayDate from "@/src/component/day-date/day-date";
+import Login from "@/src/component/login/login";
 const Page = () => {
   return (
     <>
-      <DayDate />
+      <Login />
     </>
   );
 };

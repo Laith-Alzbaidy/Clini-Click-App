@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import imageHero from "./assets/image/hero.png";
 import styles from "./styles/hero.module.css";
 import star from "./assets/image/Star.svg";
@@ -9,6 +8,8 @@ import location from "./assets/image/icon _location_.svg";
 import call from "./assets/image/call.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import Link from "next/link";
+
 import "swiper/css";
 
 const Hero = () => {
@@ -59,19 +60,16 @@ const Hero = () => {
         </div>
 
         {/* Location and Call Icons */}
-        <Link href="#">
-          <div className={styles["content-icon"]}>
-            <Image src={location} className={styles["icon"]} alt="location" />
-            <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
-          </div>
-        </Link>
 
-        <Link href="#">
-          <div className={styles["content-icon"]}>
-            <Image src={call} className={styles["icon"]} alt="call" />
-            <p className={styles["text-icon"]}>+971-5-000000000</p>
-          </div>
-        </Link>
+        <div className={styles["content-icon"]}>
+          <Image src={location} className={styles["icon"]} alt="location" />
+          <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
+        </div>
+
+        <div className={styles["content-icon"]}>
+          <Image src={call} className={styles["icon"]} alt="call" />
+          <p className={styles["text-icon"]}>+971-5-000000000</p>
+        </div>
       </div>
     </main>
   );

@@ -74,8 +74,8 @@
 }
 
 .active {
-  background-color: var(--secondary-color);
-  color: #ffffff;
+  background-color: var(--secondary-color) !important;
+  color: #ffffff !important;
 }
 
 .text-review {

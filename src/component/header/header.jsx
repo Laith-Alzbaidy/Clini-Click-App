@@ -8,15 +8,10 @@ const Header = () => {
   return (
     <header className="header-section">
       <Image src={Logo} width={100} height={20} alt="logo" />
-      <div className={styles["container-btn"]}>
-        <Link className={styles["btn"]} href="#">
-          Log in
-        </Link>
-        <span>/</span>
-        <Link className={styles["btn"]} href="#">
-          Sigin up
-        </Link>
-      </div>
+
+      <Link href="/login">
+        <button className={styles["btn"]}>Log in / Sign Up</button>
+      </Link>
     </header>
   );
 };
