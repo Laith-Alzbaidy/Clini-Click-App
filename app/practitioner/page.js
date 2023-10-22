@@ -66,9 +66,14 @@ const Practitioner = () => {
 
   // Map practitioner data to create cards
   const team = slider.map((item, index) => {
+    const isActive = true;
+    const containerCardClasses = isActive
+      ? `${styles["container-card"]} active` // Add an 'active' class
+      : styles["container-card"];
+
     return (
       <SwiperSlide key={index}>
-        <div className={styles["container-card"]}>
+        <div className={containerCardClasses}>
           <div className={styles["container-image"]}>
             <Image
               fill

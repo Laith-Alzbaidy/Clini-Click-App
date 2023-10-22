@@ -32,6 +32,11 @@
   height: 212px;
 }
 
+.container-card.active {
+  border: 2px solid var(--secondary-color) !important;
+  background-color: red !important;
+}
+
 .container-image {
   height: 115px;
   position: relative;
