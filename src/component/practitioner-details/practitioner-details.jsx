@@ -19,7 +19,7 @@ const PractitionerDetails = () => {
 
   const handleConfirm = () => {
     console.log(formData);
-    router.push(`/day-date`);
+    router.push(`/practitioner-register`);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;

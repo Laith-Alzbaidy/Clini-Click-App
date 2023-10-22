@@ -19,7 +19,7 @@
 .categoryContent {
   margin: 1rem 0rem 0 0rem;
 }
-.header{
+.header {
   margin-top: 2rem;
   font-size: 18px;
   font-weight: 800;
@@ -38,7 +38,7 @@
 }
 .subCategoryText {
   margin-top: 0.5rem;
-  font-size: 14px;
+  font-size: 12px;
   color: #828282;
 }
 .priceIcons {
@@ -52,7 +52,7 @@
   text-decoration: line-through;
 }
 .priceIcons :nth-child(3) {
-  background-color:var(--secondary-color);
+  background-color: var(--secondary-color);
   color: #ffffff;
   border-radius: 15px;
   padding: 3px 7px 3px 7px;
@@ -61,7 +61,8 @@
   font-size: 12px;
 }
 .subTitle {
-  font-weight: 500;
+  font-weight: 800;
+  font-size: 12px;
 }
 .currentPrice {
   font-weight: 600;

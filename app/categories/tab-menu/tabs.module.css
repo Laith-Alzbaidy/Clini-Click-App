@@ -1,4 +1,3 @@
-
 .tabscontainer::-webkit-scrollbar {
   display: none;
 }
@@ -44,7 +43,7 @@
   text-decoration: line-through;
 }
 .priceIcons :nth-child(3) {
-  background-color:var(--icon-btn-color);
+  background-color: var(--icon-btn-color);
   color: #ffffff;
   border-radius: 15px;
   padding: 3px 7px 3px 7px;

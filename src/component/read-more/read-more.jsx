@@ -11,7 +11,7 @@ const ReadMore = () => {
 
   return (
     <div>
-      {showmore ? (
+      {!showmore ? (
         <>
           <p className={styles["description"]}>
             Clinique de la Belle au Bois Dormant is Dubai’s most
@@ -19,7 +19,7 @@ const ReadMore = () => {
           </p>
 
           <span className={styles["read-more"]} onClick={flagShowMore}>
-            {showmore ? "Read more" : "Less more"}
+            {!showmore ? "Read more" : "Less more"}
           </span>
         </>
       ) : (
@@ -33,7 +33,7 @@ const ReadMore = () => {
             With high skilled.
           </p>
           <span className={styles["read-more"]} onClick={flagShowMore}>
-            {showmore ? "Read more" : "Less more"}
+            {showmore ? "Less more" : "Read more"}
           </span>
         </>
       )}

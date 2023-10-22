@@ -11,7 +11,7 @@ import Btn from "@/src/component/button/button";
 import { useState } from "react";
 import "swiper/css";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 const Practitioner = () => {
   const router = useRouter();
 
@@ -26,6 +26,8 @@ const Practitioner = () => {
   const handleDayClick = (day, date) => {
     setSelectedDay(day);
     setSelectedDate(date);
+    console.log(day);
+    console.log(date);
   };
 
   const handleConfirm = () => {
@@ -133,7 +135,7 @@ const Practitioner = () => {
       <SwiperSlide key={index}>
         <div
           className={`${styles["container-scheduling"]} ${
-            isActive ? styles.active : ""
+            isActive ? styles.active : console.log(isActive)
           }`}
           onClick={() => handleDayClick(item.day, item.date)}
         >
@@ -145,7 +147,9 @@ const Practitioner = () => {
   });
   return (
     <div>
-      <ButtonPreviews />
+      <Link href="/">
+        <ButtonPreviews />
+      </Link>
 
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 1 of 3</p>
@@ -210,13 +214,6 @@ const Practitioner = () => {
 
       {/* Scheduling Time*/}
       <div className={styles["container-question"]}>
-        <div>
-          <h2 className={styles["question"]}>
-            Which day would you like to book?
-          </h2>
-          <p className="mt-2">July</p>
-        </div>
-
         <div className="mt-2">
           <div className={styles["container-question"]}>
             <div className={styles["question"]}>

@@ -53,3 +53,7 @@
 .sub-title-icon {
   color: var(--primary-color);
 }
+
+.card {
+  display: flex;
+}

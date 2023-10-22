@@ -1,24 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 import OTPInput, { ResendOTP } from "otp-input-react";
-
 import ClosePrev from "@/src/component/close-prev/close-prev";
 import styles from "./styles/otb.module.css";
 import { useState } from "react";
-
 import { useRouter } from "next/navigation";
 
 const OTB = () => {
   const router = useRouter();
   const [otp, setOTP] = useState("");
 
-  const handleConfirm = () => {
-    if (otp.length === 4) {
-      // Check OTP length
+  const handleOTBonChange = (value) => {
+    const updatedOTPValues = [...value];
+    setOTP(value);
+
+    if (updatedOTPValues.length === 4) {
       router.push(`/payment`);
+      console.log(updatedOTPValues);
+      console.log(otp);
     }
   };
 
@@ -34,8 +36,7 @@ const OTB = () => {
         <OTPInput
           value={otp}
           onChange={(value) => {
-            setOTP(value);
-            handleConfirm();
+            handleOTBonChange(value);
           }}
           autoFocus
           OTPLength={4}

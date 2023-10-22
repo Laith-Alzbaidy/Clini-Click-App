@@ -1,17 +1,13 @@
-.container-btn {
-  background-color: var(--secondary-color);
-  display: flex;
-  height: 24px;
-  padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  border-radius: 35px;
-  border: 1px solid #fff;
-}
-
 .btn {
   font-size: 12px;
   font-weight: 700;
+  background-color: var(--secondary-color) !important;
+  color: #f9fafb;
+  font-weight: 700;
+  border: none !important;
+  outline: none !important;
+  border-radius: 35px !important;
+  height: 24px;
+  width: 116px;
+  font-family: "Quicksand", sans-serif !important;
 }
