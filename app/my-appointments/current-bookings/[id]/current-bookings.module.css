@@ -10,15 +10,17 @@
   font-size: 18px;
   font-weight: 800;
   margin: 1rem 0 0 0;
-  font-family: "Montserrat", sans-serif;
 }
 .subTitle {
   color: #000;
   font-size: 12px;
   font-weight: 700;
-  margin: 2rem 0 1rem 0;
+  margin: 25.75px 0 23px 0;
 }
 
+.container {
+  margin: 0rem auto;
+}
 .bookingContainer {
   display: flex;
   flex-direction: column;
@@ -26,7 +28,7 @@
 }
 .treatmentContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 38px;
 }
 .treatmentContainer:first-child {
   color: #000;
@@ -41,12 +43,12 @@
 }
 .treatmentDeatils {
   color: #000;
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 400;
 }
 .practitionerContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 33px;
 }
 .practitionerContainer :nth-child(1) {
   color: #000;
@@ -54,6 +56,20 @@
   font-weight: 400;
 }
 .practitionerContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.timingContainer {
+  display: flex;
+  gap: 63px;
+}
+.timingContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.timingContainer :nth-child(2) {
   color: #000;
   font-size: 14px;
   font-weight: 700;
@@ -87,10 +103,21 @@
   font-size: 14px;
   font-weight: 400;
 }
+.CancelTitle {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
 .cancellation {
   color: #000;
   font-size: 12px;
   font-weight: 400;
+}
+.cancellation span {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .button {
@@ -130,6 +157,144 @@
   text-align: center;
   width: 100%;
 }
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: 30px;
+  }
+  .subTitle {
+    font-size: 20px;
+  }
+  .treatmentContainer:first-child {
+    font-size: 20px;
+  }
+
+  .treatmentName {
+    font-size: 20px;
+  }
+  .treatmentDeatils {
+    font-size: 16px;
+  }
+  .practitionerContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .practitionerContainer :nth-child(2) {
+    font-size: 20px;
+  }
+
+  .timingContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .timingContainer :nth-child(2) {
+    font-size: 20px;
+  }
+
+  .totalContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(2) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(1) span {
+    font-size: 20px;
+  }
+  .call {
+    font-size: 20px;
+  }
+  .CancelTitle {
+    font-size: 18px;
+  }
+  .cancellation {
+    font-size: 18px;
+  }
+  .cancellation span {
+    font-size: 18px;
+  }
+  .button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 769px) {
+  .title {
+    color: #001435;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 1rem 0 0 0;
+  }
+  .subTitle {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .container {
+    margin: 0rem auto;
+  }
+
+  .cardContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border: #e2e2e2 1px solid;
+    border-radius: 20px;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cardImage {
+    width: 25%;
+  }
+  .cardContainer :nth-child(2) {
+    color: #828282;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .title {
+    color: #001435;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 1rem 0 0 0;
+  }
+  .subTitle {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .container {
+    margin: 0rem auto;
+  }
+
+  .cardContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border: #e2e2e2 1px solid;
+    border-radius: 20px;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cardImage {
+    width: 25%;
+  }
+  .cardContainer :nth-child(2) {
+    color: #828282;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
 @media (max-width: 320px) and (min-width: 280px) {
   .button {
     width: 290.458px;

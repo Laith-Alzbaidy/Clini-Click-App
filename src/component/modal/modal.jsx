@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import React from 'react'
 import { useState } from "react";
 import styles from './modal.module.css'
-
+import  './modal.css';
 const ModalBox = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -15,7 +15,7 @@ const ModalBox = () => {
         <button className={styles.button} type="submit" onClick={handleShow}>Cancel appointment</button>
       </div>
          <Modal show={show} onHide={handleClose} animation={false} centered>
-          <Modal.Header closeButton className={styles.modal}></Modal.Header>
+          <Modal.Header closeButton className={styles.modalHeader}></Modal.Header>
 
           <Modal.Body className={styles.modal}>
             <div className={styles.modalBody}>
@@ -23,11 +23,11 @@ const ModalBox = () => {
               <br /> your account ?
             </div>
           </Modal.Body>
-          <Modal.Footer className={styles.modal}>
-            <Button onClick={handleClose} className="btn btn-primary">
+          <Modal.Footer className={styles.modalFooter}>
+          <Button onClick={handleClose} className={styles.yesButton}>
               Yes
             </Button>
-            <Button onClick={handleClose} className="btn btn-secondary">
+            <Button onClick={handleClose} className={styles.noButton}>
               No
             </Button>
           </Modal.Footer>

@@ -43,10 +43,10 @@ const PastBookings = async ({ params }) => {
           </div>
         </div>
         <div className={styles.practitionerContainer}>
-          <div>Practitioner</div>
+          <div>Practitioner:</div>
           <div>Dr. Basel Habayeb</div>
         </div>
-        <div className={styles.practitionerContainer}>
+        <div className={styles.timingContainer}>
           <div>Timing:</div>
           <div>Wed, 23 Jul at 2:00 PM</div>
         </div>

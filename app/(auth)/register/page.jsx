@@ -1,3 +1,4 @@
+'use client'
 import React , {useState} from "react";
 import InputField from "@/src/component/inputField/inputField";
 import user from "../assets/user.svg";

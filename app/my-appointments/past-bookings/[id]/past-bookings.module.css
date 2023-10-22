@@ -9,14 +9,13 @@
   color: #001435;
   font-size: 18px;
   font-weight: 800;
-  margin: 1rem 0 0 0;
-  font-family: "Montserrat", sans-serif;
+  margin: 30px 0 0 0;
 }
 .subTitle {
   color: #000;
   font-size: 12px;
   font-weight: 700;
-  margin: 2rem 0 1rem 0;
+  margin: 25.75px 0 23px 0;
 }
 
 .container {
@@ -29,7 +28,7 @@
 }
 .treatmentContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 38px;
 }
 .treatmentContainer:first-child {
   color: #000;
@@ -44,12 +43,12 @@
 }
 .treatmentDeatils {
   color: #000;
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 400;
 }
 .practitionerContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 30px;
 }
 .practitionerContainer :nth-child(1) {
   color: #000;
@@ -57,6 +56,20 @@
   font-weight: 400;
 }
 .practitionerContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.timingContainer {
+  display: flex;
+  gap: 63px;
+}
+.timingContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.timingContainer :nth-child(2) {
   color: #000;
   font-size: 14px;
   font-weight: 700;

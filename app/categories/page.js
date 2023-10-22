@@ -16,7 +16,7 @@ const Categories = () => {
           height={15}
         />
       </Link>
-      <div className={styles.treatmentText}>Our tratment</div>
+      <div className={styles.treatmentText}>Our treatments</div>
       <Tabs />
     </>
   );

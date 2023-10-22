@@ -29,9 +29,8 @@ const Info = async ({ searchParams }) => {
           sed eiusmod tempor incidLorem ipsum dolor sit amet.
         </div>
 
-        <div style={{ marginBottom: "3rem" }}>
+        <div className={styles.container}>
           <div className={styles.stepsTitle}>Before Treatment</div>
-
           <ul>
             <li className={styles.list}>{data.title}</li>
           </ul>

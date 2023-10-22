@@ -1,4 +1,3 @@
-'use client'
 import React  from "react";
 import styles from "./current-bookings.module.css";
 import Link from "next/link";
@@ -65,7 +64,7 @@ const CurrentBookings = async ({ params }) => {
           <div>Practitioner</div>
           <div>Dr. Basel Habayeb</div>
         </div>
-        <div className={styles.practitionerContainer}>
+        <div className={styles.timingContainer}>
           <div>Timing:</div>
           <div>Wed, 23 Jul at 2:00 PM</div>
         </div>
@@ -83,10 +82,10 @@ const CurrentBookings = async ({ params }) => {
           border: "solid 1px #E8F3F1",
         }}></div>
 
-      <div className={styles.subTitle}>Cancellation policy</div>
+      <div className={styles.CancelTitle}>Cancellation policy</div>
       <div className={styles.cancellation}>
-        A fee of AED 100 may be charged if you cancel within 24 hours, or a fee
-        of AED 300 may be charged if you miss your appointment.
+        A fee of <span>AED 100</span> may be charged if you cancel within <span>24 hours</span>, or a fee
+        of <span>AED 300</span> may be charged if you miss your appointment.
       </div>
       <div
         style={{

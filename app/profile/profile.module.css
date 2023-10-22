@@ -1,18 +1,13 @@
 .title {
   color: #001435;
   font-size: 18px;
-  font-style: normal;
   font-weight: 800;
-  line-height: normal;
   margin: 2rem 0 2rem 0rem;
-  font-family: "Montserrat", sans-serif;
 }
 
 .deleteAccount {
   color: #000;
-  font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  font-style: normal;
   font-weight: 600;
   text-align: center;
   margin: 0.6rem 0 0 0;
@@ -31,7 +26,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  font-size: 12px;
 }
 .yesButton:hover {
   background-color: #adadad !important;
@@ -53,21 +48,40 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  font-size: 12px;
 }
-.modal {
+.modalHeader {
   background-color: #e2e2e2;
   border-color: #e2e2e2 !important;
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
+}
+.modalFooter {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
+  justify-content: center;
+  gap: 24px;
+  border-bottom-right-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+.modal{
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
+
 }
 .modalBody {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
   text-align: center;
-  width: 100%;
+  color: #828282; 
+  font-size: 12px;
+  font-weight: 400;
+
 }
 
 .input {
   width: 80%;
   height: 52px;
-  flex-shrink: 0;
   border-radius: 24px;
   border: 1px solid #f9fafb;
   background: #f9fafb;
@@ -94,7 +108,6 @@
 .inputContainer {
   width: 100%;
   height: 56px;
-  flex-shrink: 0;
   border-radius: 24px;
   border: 1px solid #e5e7eb;
   background: #f9fafb;
@@ -103,21 +116,30 @@
   padding-left: 1.5rem;
   gap: 0.5rem;
 }
-.main {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem 0 1rem 0;
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: 25px;
+  }
+  .deleteAccount {
+    font-size: 18px;
+  }
 }
-.model {
-  width: 240.587px;
-  height: 148.411px;
-  flex-shrink: 0;
-  background-color: #e8e8e8 !important;
-  border-radius: 25px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  display: grid;
-  place-items: center;
-  text-align: center;
+
+@media (max-width: 1279px) and (min-width: 769px) {
+  .title {
+    font-size: 20px;
+  }
+  .deleteAccount {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .title {
+    font-size: 18px;
+  }
+  .deleteAccount {
+    font-size: 14px;
+  }
 }

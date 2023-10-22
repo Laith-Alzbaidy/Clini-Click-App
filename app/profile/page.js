@@ -12,7 +12,7 @@ import backIcon from "./assets/back.svg";
 import { useRouter } from "next/navigation";
 import InputField from "@/src/component/inputField/inputField";
 import Popup from "reactjs-popup";
-
+import './modal.css'
 
 const Profile = () => {
   const router = useRouter();
@@ -111,8 +111,10 @@ const Profile = () => {
           Delete your account
         </div>
 
-        <Modal show={show} onHide={handleClose} animation={false} centered>
-          <Modal.Header closeButton className={styles.modal}></Modal.Header>
+
+
+        <Modal show={show} onHide={handleClose} animation={false} centered >
+          <Modal.Header closeButton className={styles.modalHeader}></Modal.Header>
 
           <Modal.Body className={styles.modal}>
             <div className={styles.modalBody}>
@@ -120,7 +122,7 @@ const Profile = () => {
               <br /> your account ?
             </div>
           </Modal.Body>
-          <Modal.Footer className={styles.modal}>
+          <Modal.Footer className={styles.modalFooter}>
             <Button onClick={handleDeleteAccount} className={styles.yesButton}>
               Yes
             </Button>
@@ -129,6 +131,7 @@ const Profile = () => {
             </Button>
           </Modal.Footer>
         </Modal>
+     
       </>
     </>
   );
