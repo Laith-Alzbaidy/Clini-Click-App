@@ -19,57 +19,32 @@
   background-color: rgb(235, 235, 235);
 }
 
-.mainContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 2rem;
-  text-decoration: none;
-  gap: 1rem;
+
+@media (min-width: 1280px) {
+  .tab {
+    font-size: 20px;
+  }
+  .subCategoryText {
+    font-size: 25px;
+  }
 }
-.link {
-  text-decoration: none;
-  color: black;
+
+@media (max-width: 1279px) and (min-width: 769px) {
+  .tab {
+    font-size: 18px;
+  }
+  .subCategoryText {
+    font-size: 20px;
+  }
 }
-.subCategoryText {
-  margin-top: 0.5rem;
-  font-size: 14px;
-  color: #828282;
-}
-.priceIcons {
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 14px;
-}
-.priceIcons :nth-child(1) {
-  text-decoration: line-through;
-}
-.priceIcons :nth-child(3) {
-  background-color:var(--icon-btn-color);
-  color: #ffffff;
-  border-radius: 15px;
-  padding: 3px 7px 3px 7px;
-}
-.priceIcons div {
-  font-size: 12px;
-}
-.subTitle {
-  font-weight: 500;
-}
-.currentPrice {
-  font-weight: 600;
-}
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-}
-.powerdBy {
-  text-align: center;
-  font-size: 14px;
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .tab {
+    font-size: 16px;
+  }
+  .subCategoryText {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 365px) and (min-width: 280px) {

@@ -70,7 +70,7 @@ const SubCategory = async ({ params }) => {
         <div className={styles.subName}>{data.title}</div>
         <div className={styles.subDuration}>20 min </div>
         <div className={styles.subDiscreption}>
-          Lorem ipsum dolor sit amet, consectetur amet adipiscing elit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut.....
         </div>
         <Link
           href={{

@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <div className="container">{children}</div>
+        <div className="container1">{children}</div>
         <Footer />
       </body>
     </html>

@@ -70,6 +70,12 @@ const CategoryContent = ({ activeTab }) => {
                   />
                 </div>
               </Link>
+              <div
+                style={{
+                  width: "100%",
+                  margin: "23px auto",
+                  border: "solid 1px #ECECEC",
+                }}></div>
             </div>
           ))}
         </>

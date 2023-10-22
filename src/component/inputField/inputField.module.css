@@ -45,7 +45,9 @@
   margin: 1rem 0 1rem 0;
 }
 .input::placeholder {
+  color: #a1a8b0;
   font-size: 16px;
+  font-weight: 400;
 }
 @media (max-width: 365px) and (min-width: 280px) {
   .input::placeholder {

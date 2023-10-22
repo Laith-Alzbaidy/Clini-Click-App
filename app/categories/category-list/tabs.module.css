@@ -16,11 +16,10 @@
 .active {
   background-color: rgb(235, 235, 235);
 }
-.categoryContent {
-  margin: 1rem 0rem 0 0rem;
-}
+
 .header {
-  margin-top: 2rem;
+  margin-top: 30px;
+  color: #001435;
   font-size: 18px;
   font-weight: 800;
 }
@@ -28,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 16px;
   text-decoration: none;
   gap: 1rem;
 }
@@ -38,44 +37,114 @@
 }
 .subCategoryText {
   margin-top: 0.5rem;
-  font-size: 12px;
   color: #828282;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
 }
 .priceIcons {
   margin-top: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  font-size: 14px;
+  font-size: 12px;
 }
 .priceIcons :nth-child(1) {
   text-decoration: line-through;
+  color: #828282;
+  font-weight: 500;
 }
 .priceIcons :nth-child(3) {
   background-color: var(--secondary-color);
-  color: #ffffff;
+  width: fit-content;
+  padding: 0 8px 0 8px;
+  height: fit-content;
   border-radius: 15px;
-  padding: 3px 7px 3px 7px;
+  background: #a75cff;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
 }
 .priceIcons div {
   font-size: 12px;
 }
 .subTitle {
-  font-weight: 800;
+  color: #000;
   font-size: 12px;
+  font-weight: 700;
 }
 .currentPrice {
-  font-weight: 600;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
 }
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-}
+
 .powerdBy {
   text-align: center;
   font-size: 14px;
+}
+
+@media (min-width: 1280px) {
+  .tab {
+    font-size: 20px;
+  }
+  .subCategoryText {
+    font-size: 20px;
+  }
+  .header {
+    font-size: 25px;
+  }
+  .subTitle {
+    font-size: 20px;
+  }
+  .priceIcons div {
+    font-size: 20px;
+  }
+  .subCategoryImg {
+    width: 120px;
+    height: 120px;
+  }
+  
+}
+
+@media (max-width: 1279px) and (min-width: 769px) {
+  .tab {
+    font-size: 18px;
+  }
+  .subCategoryText {
+    font-size: 18px;
+  }
+  .header {
+    font-size: 20px;
+  }
+  .subTitle {
+    font-size: 18px;
+  }
+  .priceIcons div {
+    font-size: 18px;
+  }
+  .subCategoryImg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .tab {
+    font-size: 16px;
+  }
+  .subCategoryText {
+    font-size: 16px;
+  }
+  .header {
+    font-size: 18px;
+  }
+  .subTitle {
+    font-size: 16px;
+  }
+  .priceIcons div {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 365px) and (min-width: 280px) {

@@ -18,9 +18,7 @@
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-size: 15px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   margin-top: 1rem;
 }
 .buttonContainer {
@@ -31,7 +29,7 @@
 .yesButton {
   background-color: #adadad;
   border-radius: 35px;
-  border: 1px solid #fff;
+  border: 1px solid #adadad !important;
   display: flex;
   width: 68px;
   height: 30px;
@@ -39,7 +37,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  font-size: 12px;
 }
 .noButton {
   background-color: #a75cff;
@@ -52,14 +50,39 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  font-size: 12px;
 }
 .modal {
   background-color: #e2e2e2;
   border-color: #e2e2e2 !important;
 
 }
+
+.modalFooter {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
+  justify-content: center;
+  gap: 24px;
+  border-bottom-right-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+.modal{
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
+
+}
 .modalBody {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
   text-align: center;
-  width: 100%;
+  color: #828282; 
+  font-size: 12px;
+  font-weight: 400;
+
+}
+.modalHeader {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2 !important;
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
 }

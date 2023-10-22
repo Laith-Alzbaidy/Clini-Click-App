@@ -47,8 +47,9 @@ a {
   cursor: pointer;
 }
 
-.container {
+.container1 {
   padding: 28px !important;
+  padding-top: 28px !important;
 }
 
 .header-section {
@@ -77,4 +78,13 @@ a {
 
 .react-tel-input .flag-dropdown.open .selected-flag {
   background: none !important;
+}
+
+@media (min-width: 1280px) {
+  .container1 {
+    padding: 65px !important;
+    padding-top: 35px !important;
+  }
+  
+  
 }
