@@ -49,7 +49,7 @@ const OurTeamSpecific = async ({ params }) => {
             <Image src={star} className={styles["star-image"]} alt="star" />
             <Image src={star} className={styles["star-image"]} alt="star" />
           </div>
-          <Link href={`${1}/reviews`}>
+          <Link className={styles["link-review"]} href={`${1}/reviews`}>
             <p className={styles["text-review"]}>106 reviews</p>
           </Link>
         </div>

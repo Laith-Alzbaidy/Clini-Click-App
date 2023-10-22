@@ -53,6 +53,7 @@ const Hero = () => {
             <Image src={star} className={styles["star-image"]} alt="star" />
             <Image src={star} className={styles["star-image"]} alt="star" />
           </div>
+
           <Link href="/google-reviews">
             <p className={styles["text-review"]}>106 Google reviews</p>
           </Link>
