@@ -77,7 +77,20 @@
   background-color: var(--secondary-color) !important;
   color: #ffffff !important;
 }
-
+.active {
+  background-color: #a75cff;
+  color: #fff;
+}
+.active .date {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.active .day {
+  color: #FFF;
+  font-size: 10px;
+  font-weight: 400;
+}
 .text-review {
   font-size: 8px;
   font-weight: 400;
