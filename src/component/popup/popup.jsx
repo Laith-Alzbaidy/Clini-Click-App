@@ -10,7 +10,7 @@ function PopupModal() {
   return (
     <Popup open={showPopup} closeOnDocumentClick={false}>
       {close => (
-        <div className="modal">
+        <div className="popup">
           <p>Modal Content</p>
           <button onClick={() => { close(); closePopup(); }}>Close</button>
         </div>

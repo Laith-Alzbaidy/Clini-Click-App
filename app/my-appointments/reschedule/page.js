@@ -97,7 +97,7 @@ const Reschedule = ({ searchParams }) => {
           id="exampleSelect"
           onChange={(e) => setMonth(e.target.value)}
           value={month}
-          style={{ border: "none !important", paddingLeft: 5, width: "120px" }}
+          style={{ border:"none !important", paddingLeft: 5, width: "120px" }}
         >
           <option>January</option>
           <option>February</option>

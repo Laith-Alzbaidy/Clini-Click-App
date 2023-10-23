@@ -1,10 +1,10 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./tabs.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import img from "../assets/img.svg";
 import axios from "axios";
+
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   if (!res.ok) {
@@ -21,7 +21,7 @@ const truncateText = (text, maxWords) => {
   return text;
 };
 
-const CategoryContent = ({ activeTab }) => {
+const CategoryContent = ({ categories }) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -41,11 +41,12 @@ const CategoryContent = ({ activeTab }) => {
 
   return (
     <div className={styles.categoryContent}>
-      {activeTab === "category 1" && (
-        <>
-          <div className={styles.header}>CategoryOne</div>
-          {data.map((post, index) => (
-            <div key={index}>
+      {categories.map((category, index) => (
+        <div key={category}>
+          <div className={styles.header}>{category}</div>
+          {data.slice(0, 5) 
+            .map((post, postIndex) => (
+            <div key={postIndex}>
               <Link href={`/categories/${post.id}`} className={styles.link}>
                 <div className={styles.mainContainer}>
                   <div>
@@ -78,9 +79,9 @@ const CategoryContent = ({ activeTab }) => {
                 }}></div>
             </div>
           ))}
-        </>
-      )}
-      {activeTab === "category 2" && <p>Content for category 2</p>}
+        </div>
+      ))}
+     
     </div>
   );
 };

@@ -4,12 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const TabsMenu = ({ activeTab, onTabClick }) => {
   const tabs = [
-    "category 1",
-    "category 2",
-    "category 3",
-    "category 4",
-    "category 5",
-    "category 6",
+    "Category 1",
+    "Category 2",
+    "Category 3",
+    "Category 4",
+    "Category 5",
+    "Category 6",
   ];
   const TabSlider = tabs.map((tab, index) => (
     <SwiperSlide
