@@ -24,6 +24,10 @@ a {
   text-decoration: none !important;
 }
 
+ul {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 h1,
 h2,
 h3,
@@ -76,15 +80,9 @@ a {
   height: 37px !important;
 }
 
-.react-tel-input .flag-dropdown.open .selected-flag {
-  background: none !important;
-}
-
 @media (min-width: 1280px) {
   .container1 {
     padding: 65px !important;
     padding-top: 35px !important;
   }
-  
-  
 }

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import Link from "next/link";
 import Btn from "@/src/component/button/button";
-import styles from "./styles/practitioner-details.module.css";
+import styles from "./styles/user-details.module.css";
 import Image from "next/image";
 import user from "./assets/image/user.svg";
 import email from "./assets/image/email.svg";
@@ -19,7 +19,7 @@ const PractitionerDetails = () => {
 
   const handleConfirm = () => {
     console.log(formData);
-    router.push(`/practitioner-register`);
+    router.push(`/payment`);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +35,7 @@ const PractitionerDetails = () => {
   };
   return (
     <>
-      <Link href="practitioner">
+      <Link href="payment">
         <ButtonPreviews />
       </Link>
       <div className={styles["header"]}>
@@ -56,6 +56,7 @@ const PractitionerDetails = () => {
               type="text"
               id="firstName"
               name="firstName"
+              placeholder="Enter your first name"
               value={formData.firstName}
               onChange={handleChange}
               required
@@ -75,6 +76,7 @@ const PractitionerDetails = () => {
               type="text"
               id="lastName"
               name="lastName"
+              placeholder="Enter your last name"
               value={formData.lastName}
               onChange={handleChange}
               required
@@ -98,6 +100,7 @@ const PractitionerDetails = () => {
               onChange={handleChange}
               required
               className={styles.input}
+              placeholder="Enter your email"
             />
           </div>
         </div>

@@ -70,7 +70,8 @@ const SubCategory = async ({ params }) => {
         <div className={styles.subName}>{data.title}</div>
         <div className={styles.subDuration}>20 min </div>
         <div className={styles.subDiscreption}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut.....
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
+          tempor incididunt ut.....
         </div>
         <Link
           href={{
@@ -146,7 +147,7 @@ const SubCategory = async ({ params }) => {
           No payment will be taken until your appointment
         </p>
 
-        <Link href="/practitioner">
+        <Link href="/schedule-appointment">
           <Btn title={`Continue to book AED 200`} />
         </Link>
       </div>

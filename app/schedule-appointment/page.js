@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
-import styles from "./styles/practitioner.module.css";
+import styles from "./styles/schedule-appointment.module.css";
 import star from "./assets/image/Star.svg";
 import image from "./assets/image/image.png";
 import Image from "next/image";
@@ -31,7 +31,7 @@ const Practitioner = () => {
   };
 
   const handleConfirm = () => {
-    router.push(`/practitioner-details`);
+    router.push(`/login`);
   };
   // Data for practitioner information
   const slider = [

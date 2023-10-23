@@ -18,7 +18,7 @@ const Payment = () => {
 
   return (
     <div>
-      <ClosePrev />
+      <ClosePrev close="/" back="/user-details" />
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 3 of 3</p>
         <h1 className={styles["title"]}>Confirm and book</h1>
