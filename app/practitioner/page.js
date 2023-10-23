@@ -137,8 +137,7 @@ const Practitioner = () => {
           className={`${styles["container-scheduling"]} ${
             isActive ? styles.active : console.log(isActive)
           }`}
-          onClick={() => handleDayClick(item.day, item.date)}
-        >
+          onClick={() => handleDayClick(item.day, item.date)}>
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -170,8 +169,7 @@ const Practitioner = () => {
             centeredSlides={false}
             slidesPerView={2}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+            onSwiper={(swiper) => console.log(swiper)}>
             <SwiperSlide>
               <div className={styles["container-card"]}>
                 <div className="d-flex flex-column align-items-center gap-2">
@@ -205,8 +203,7 @@ const Practitioner = () => {
             centeredSlides={false}
             slidesPerView={5.6}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+            onSwiper={(swiper) => console.log(swiper)}>
             {schedulingSlides} {/* Render scheduling options */}
           </Swiper>
         </div>
@@ -227,8 +224,7 @@ const Practitioner = () => {
                     className={styles["time"]}
                     key={index}
                     value={time}
-                    onClick={() => handleTimeSelect(time)}
-                  >
+                    onClick={() => handleTimeSelect(time)}>
                     {time}
                   </p>
                 </div>
