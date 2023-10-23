@@ -91,8 +91,10 @@ const Reschedule = ({ searchParams }) => {
         <div className={styles.subTitle}>Which day would you like to book?</div>
       </div>
 
-      <div className="form-group">
-        <select
+      {/* <div className="form-group"> */}
+      <div>
+      January
+        {/* <select
           className="form-control"
           id="exampleSelect"
           onChange={(e) => setMonth(e.target.value)}
@@ -111,7 +113,7 @@ const Reschedule = ({ searchParams }) => {
           <option>October</option>
           <option>November</option>
           <option>December</option>
-        </select>
+        </select> */}
       </div>
 
       <div className="mt-2">
