@@ -82,7 +82,7 @@ const Profile = () => {
 
       <Popup open={showPopup} closeOnDocumentClick={false}>
         {(close) => (
-          <div className={styles.model}>
+          <div className={styles.popup}>
             <p>Your account has been deleted successfully.</p>
           </div>
         )}

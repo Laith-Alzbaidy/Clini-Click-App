@@ -3,13 +3,12 @@ import { NextResponse } from "next/server";
 //IMPORT CONNECT FROM DB
 
 export const POST = async (request) => {
-  const { username, password, email } = await request.json();
+  const { firstname, lastname, email } = await request.json();
   // FROM DB
   await connect();
-  const hashPassword = await bcrypt.hash(password, 10);
   const newUser = new User({
-    username,
-    password: hashPassword,
+    firstname,
+    lastname,
     email,
   });
   try {

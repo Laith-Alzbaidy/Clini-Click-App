@@ -1,6 +1,6 @@
 .modal-content {
     width: 300px !important;
-    height: 129px !important;
+    height: fit-content !important;
     background-color: rgb(144, 144, 144) !important;
     display: flex;
     margin: 0 auto;
@@ -12,7 +12,7 @@
   }
   .modal-body {
     padding-top: 0 !important;
-    height: 35px !important;
+    height: fit-content !important;
     flex: none !important;
   }
   

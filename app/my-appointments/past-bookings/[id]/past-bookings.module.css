@@ -104,6 +104,143 @@
   font-weight: 400;
 }
 
+@media (min-width: 1280px) {
+  .title {
+    font-size: 30px;
+  }
+  .subTitle {
+    font-size: 20px;
+  }
+  .treatmentContainer:first-child {
+    font-size: 20px;
+  }
+
+  .treatmentName {
+    font-size: 20px;
+  }
+  .treatmentDeatils {
+    font-size: 16px;
+  }
+  .practitionerContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .practitionerContainer :nth-child(2) {
+    font-size: 20px;
+  }
+
+  .timingContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .timingContainer :nth-child(2) {
+    font-size: 20px;
+  }
+
+  .totalContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(2) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(1) span {
+    font-size: 20px;
+  }
+  .call {
+    font-size: 20px;
+  }
+  .CancelTitle {
+    font-size: 18px;
+  }
+  .cancellation {
+    font-size: 18px;
+  }
+  .cancellation span {
+    font-size: 18px;
+  }
+  .button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 769px) {
+  .title {
+    color: #001435;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 1rem 0 0 0;
+  }
+  .subTitle {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .container {
+    margin: 0rem auto;
+  }
+
+  .cardContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border: #e2e2e2 1px solid;
+    border-radius: 20px;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cardImage {
+    width: 25%;
+  }
+  .cardContainer :nth-child(2) {
+    color: #828282;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .title {
+    color: #001435;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 1rem 0 0 0;
+  }
+  .subTitle {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .container {
+    margin: 0rem auto;
+  }
+
+  .cardContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border: #e2e2e2 1px solid;
+    border-radius: 20px;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cardImage {
+    width: 25%;
+  }
+  .cardContainer :nth-child(2) {
+    color: #828282;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
 @media (max-width: 320px) and (min-width: 280px) {
 
   .treatmentName {

@@ -26,7 +26,7 @@ const CurrentBookings = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/categories"}>
+        <Link href={"/my-appointments"}>
           <Image src={backIcon} className={styles.backIcon} alt="back"/>
         </Link>
 
@@ -47,7 +47,7 @@ const CurrentBookings = async ({ params }) => {
       <Btn title={"Reschedule appointment"} />
       </Link>
       
-     <ModalBox />
+     <ModalBox content={"  Are you sure you want to cancel your appointment ?"} content2={"A cancellation fee of AED 100 may be charged as per the cancellation policy."}/>
 
       <div className={styles.subTitle}>Your appointment details</div>
       <div className={styles.bookingContainer}>
@@ -55,9 +55,9 @@ const CurrentBookings = async ({ params }) => {
           <div>Treatment:</div>
           <div className={styles.treatmentDeatils}>
             <div className={styles.treatmentName}>Laser hair removal</div>
-            <div>Body area: Arms</div>
-            <div>Device: Gentle Max Pro</div>
-            <div>Sessions: 1</div>
+            <p>Body area: Arms</p>
+            <p>Device: Gentle Max Pro</p>
+            <p>Sessions: 1</p>
           </div>
         </div>
         <div className={styles.practitionerContainer}>

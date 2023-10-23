@@ -79,20 +79,15 @@
   font-weight: 700;
 }
 
-.powerdBy {
-  text-align: center;
-  font-size: 14px;
-}
-
 @media (min-width: 1280px) {
   .tab {
     font-size: 20px;
   }
   .subCategoryText {
-    font-size: 20px;
+    font-size: 18px;
   }
   .header {
-    font-size: 25px;
+    font-size: 30px;
   }
   .subTitle {
     font-size: 20px;
@@ -112,7 +107,7 @@
     font-size: 18px;
   }
   .subCategoryText {
-    font-size: 18px;
+    font-size: 16px;
   }
   .header {
     font-size: 20px;
