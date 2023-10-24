@@ -55,7 +55,7 @@ const OurTeam = async () => {
 
   const ouerTeam = slider.map((item, index) => {
     return (
-      <SwiperSlide key={index}>
+      <SwiperSlide className={styles["swiper-slide"]} key={index}>
         <Link href={`ourTeam/${item.id}`}>
           <div className={styles["container-card"]}>
             <div className={styles["container-image"]}>
@@ -94,15 +94,16 @@ const OurTeam = async () => {
       <h1 className={styles["title"]}>Our team</h1>
 
       <Swiper
-        spaceBetween={15}
         centeredSlides={false}
-        navigation={{
-          nextEl: ".swiper-button-prev",
-          prevEl: ".swiper-button-next",
-        }}
-        slidesPerView={2}
+        slidesPerView={1}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
+        breakpoints={{
+          370: {
+            slidesPerView: 2.1,
+            spaceBetween: 20,
+          },
+        }}
       >
         <div>{ouerTeam}</div>
       </Swiper>

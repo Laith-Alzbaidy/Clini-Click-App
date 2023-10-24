@@ -62,3 +62,7 @@
   font-weight: 400;
   margin-top: 5px !important;
 }
+
+.swiper-slide {
+  margin-right: 10px !important;
+}

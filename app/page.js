@@ -9,6 +9,7 @@ import OurAmenities from "@/src/component/OurAmenities/ourAmenities";
 import OurBusiness from "@/src/component/ourBusiness/ourBusiness";
 import Icon from "@/src/component/icon/icon";
 import Btn from "@/src/component/button/button";
+
 import { use } from "react";
 
 export default function Home() {

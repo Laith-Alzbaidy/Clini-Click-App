@@ -22,13 +22,12 @@
 .container-phone {
   display: flex;
   background-color: rgb(255, 255, 255);
-  flex-direction: row-reverse;
   border-radius: 15px;
   border: 1px solid #adadad;
-  background: #fff;
   padding: 7px;
+  padding: 0px 18px;
 }
-.list-items {
+/* .list-items {
   background: white;
   width: 200px;
   display: flex;
@@ -66,7 +65,7 @@
   background-color: var(--secondary-color);
   width: 100%;
   color: white;
-}
+} */
 
 .container-left {
   display: flex;

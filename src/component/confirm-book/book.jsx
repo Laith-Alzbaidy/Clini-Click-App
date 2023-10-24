@@ -12,7 +12,7 @@ const BookFinish = () => {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/my-appointments/reschedule"}>
+        <Link href={"/"}>
           <Image src={back} alt="back" />
         </Link>
 
@@ -59,18 +59,7 @@ const BookFinish = () => {
           border: "solid 1px #E8F3F1",
         }}
       ></div>
-      <div className={styles.subTitle}>Location</div>
-      <Head>
-        <title>My Map</title>
-      </Head>
-      <iframe
-        width="100%"
-        style={{ borderRadius: 20 }}
-        referrerPolicy="no-referrer-when-downgrade"
-        src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
-        allowFullScreen
-        title="My Map"
-      ></iframe>
+
       <div className={styles.call}>
         <Image src={call} alt="call" />
         <div>+971-5-000000000</div>

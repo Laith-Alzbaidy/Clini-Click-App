@@ -18,7 +18,7 @@ const Practitioner = () => {
   const [selectedTime, setSelectedTime] = useState();
   const [selectedDay, setSelectedDay] = useState();
   const [selectedDate, setSelectedDate] = useState();
-
+  const [slecetedDoctor, setSelectedDoctor] = useState();
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
   };
@@ -66,14 +66,16 @@ const Practitioner = () => {
 
   // Map practitioner data to create cards
   const team = slider.map((item, index) => {
-    const isActive = true;
-    const containerCardClasses = isActive
-      ? `${styles["container-card"]} active` // Add an 'active' class
-      : styles["container-card"];
+    const isActive = item.name == slecetedDoctor;
 
     return (
-      <SwiperSlide key={index}>
-        <div className={containerCardClasses}>
+      <SwiperSlide className={styles["swiper-slide"]} key={index}>
+        <div
+          onClick={() => setSelectedDoctor(item.name)}
+          className={`${styles["container-card"]} ${
+            isActive ? styles["active-container-card"] : ""
+          }`}
+        >
           <div className={styles["container-image"]}>
             <Image
               fill
@@ -171,14 +173,13 @@ const Practitioner = () => {
         {/* Team Section*/}
         <div className="mt-2">
           <Swiper
-            spaceBetween={15}
             centeredSlides={false}
-            slidesPerView={2}
+            slidesPerView={2.4}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            <SwiperSlide>
-              <div className={styles["container-card"]}>
+            <SwiperSlide className={styles["swiper-slide"]}>
+              <div className={`${styles["container-card"]} `}>
                 <div className="d-flex flex-column align-items-center gap-2">
                   <Image src={user} />
                   <h3 className={styles["name-card"]}>No preference</h3>

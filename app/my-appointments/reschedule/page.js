@@ -92,7 +92,7 @@ const Reschedule = ({ searchParams }) => {
 
       {/* <div className="form-group"> */}
       <div>
-      January
+        January
         {/* <select
           className="form-control"
           id="exampleSelect"

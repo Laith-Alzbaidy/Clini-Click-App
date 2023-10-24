@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import img from "../assets/img.svg";
 import axios from "axios";
-
+import { Container } from "react-bootstrap";
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   if (!res.ok) {
@@ -44,8 +44,7 @@ const CategoryContent = ({ categories }) => {
       {categories.map((category, index) => (
         <div key={category}>
           <div className={styles.header}>{category}</div>
-          {data.slice(0, 5) 
-            .map((post, postIndex) => (
+          {data.slice(0, 5).map((post, postIndex) => (
             <div key={postIndex}>
               <Link href={`/categories/${post.id}`} className={styles.link}>
                 <div className={styles.mainContainer}>
@@ -76,12 +75,12 @@ const CategoryContent = ({ categories }) => {
                   width: "100%",
                   margin: "23px auto",
                   border: "solid 1px #ECECEC",
-                }}></div>
+                }}
+              ></div>
             </div>
           ))}
         </div>
       ))}
-     
     </div>
   );
 };

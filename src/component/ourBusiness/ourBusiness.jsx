@@ -8,33 +8,27 @@ const OurBusiness = () => {
   const ourBusinessObj = [
     {
       id: "Monday",
-      firstPeriod: "9:00-14:00",
-      secondPeriod: "18:00-22:00",
+      Period: "9:00-14:00",
     },
     {
       id: "Tuesday",
-      firstPeriod: "9:00-14:00",
-      secondPeriod: "18:00-22:00",
+      Period: "9:00-14:00",
     },
     {
       id: "Wednesday",
-      firstPeriod: "9:00-14:00",
-      secondPeriod: "18:00-22:00",
+      Period: "9:00-14:00",
     },
     {
       id: "Thursday",
-      firstPeriod: "9:00-14:00",
-      secondPeriod: "18:00-22:00",
+      Period: "9:00-14:00",
     },
     {
       id: "Friday",
-      firstPeriod: "9:00-14:00",
-      secondPeriod: "18:00-22:00",
+      Period: "9:00-14:00",
     },
     {
       id: "Saturday",
-      firstPeriod: "9:00-14:00",
-      secondPeriod: "18:00-22:00",
+      Period: "9:00-14:00",
     },
   ];
 
@@ -45,10 +39,7 @@ const OurBusiness = () => {
           <p className={styles["text"]}>{item.id}</p>
         </Col>
         <Col>
-          <p className={styles["text"]}>{item.firstPeriod}</p>
-        </Col>
-        <Col>
-          <p className={styles["text"]}>{item.secondPeriod}</p>
+          <p className={styles["text"]}>{item.Period}</p>
         </Col>
       </Row>
     );

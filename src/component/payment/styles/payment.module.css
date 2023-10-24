@@ -177,3 +177,21 @@
   text-align: center;
   padding: 0 30px;
 }
+
+.btn-payment {
+  background-color: var(--secondary-color) !important;
+
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  border: none !important;
+  outline: none !important;
+  padding: 11px 20px !important;
+  margin-top: 30px;
+  border-radius: 35px !important;
+}
+
+.btn-payment p {
+  color: #f9fafb !important;
+  font-family: "Quicksand", sans-serif !important;
+}
