@@ -7,23 +7,21 @@ import star from "./assets/image/Star.svg";
 import location from "./assets/image/icon _location_.svg";
 import call from "./assets/image/call.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import Link from "next/link";
-
 import "swiper/css";
 
 const Hero = () => {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
   const image = [imageHero, imageHero, imageHero, imageHero, imageHero];
 
+  const handleSlideChange = (swiper) => {
+    setIndex(swiper.activeIndex);
+  };
   const sliderHero = image.map((item, index) => {
     return (
       <SwiperSlide key={index}>
         <div className={styles["container-hero"]}>
           <Image fill src={item} className={styles["image"]} alt="hero" />
-          <div className={styles["number-image"]}>
-            <span>{`${index + 1}/5`}</span>
-          </div>
         </div>
       </SwiperSlide>
     );
@@ -31,13 +29,11 @@ const Hero = () => {
 
   return (
     <main className="section-hero">
-      <Swiper
-        modules={[Autoplay]}
-        slidesPerView={1}
-        spaceBetween={15}
-        autoplay={{ delay: 1000 }}
-      >
+      <Swiper onSlideChange={handleSlideChange} slidesPerView={1}>
         {sliderHero}
+        <div className={styles["number-image"]}>
+          <span>{`${index + 1}/5`}</span>
+        </div>
       </Swiper>
 
       {/* content hero */}

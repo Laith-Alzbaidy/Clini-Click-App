@@ -10,6 +10,8 @@ import Btn from "../button/button";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
 const Payment = () => {
+  const [selectedValue, setSelectedValue] = useState(""); // Set the default value here
+
   const router = useRouter();
   const [offer, setOffer] = useState("");
   const handleConfirm = () => {
@@ -18,7 +20,7 @@ const Payment = () => {
 
   return (
     <div>
-      <ClosePrev />
+      <ClosePrev close="/" back="/user-details" />
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 3 of 3</p>
         <h1 className={styles["title"]}>Confirm and book</h1>
@@ -81,7 +83,7 @@ const Payment = () => {
 
       <div className={styles["line"]}></div>
 
-      <div>
+      {/* <div>
         <div className={styles.subTitle}>Location</div>
 
         <iframe
@@ -114,13 +116,16 @@ const Payment = () => {
             <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className={styles["line"]}></div>
+      {/* <div className={styles["line"]}></div> */}
 
       <div>
         <div className={styles.subTitle}>Pay with</div>
-        <PopupPayment />
+        <PopupPayment
+          selectedValue={selectedValue}
+          setSelectedValue={setSelectedValue}
+        />
         <p className="text-left">
           No payment will be taken until your appointment
         </p>
@@ -142,9 +147,11 @@ const Payment = () => {
         and confirm that I am 18 years or older
       </p>
 
-      <Btn title="Book with Apple Pay/ Google Pay" marginTop={10} />
-
-      <Btn title="Book appointment" marginTop={10} onClick={handleConfirm} />
+      <Btn
+        title={`${"Book appointment"}${selectedValue}`}
+        marginTop={10}
+        onClick={handleConfirm}
+      />
     </div>
   );
 };

@@ -18,7 +18,7 @@ const OTB = () => {
     setOTP(value);
 
     if (updatedOTPValues.length === 4) {
-      router.push(`/payment`);
+      router.push(`/user-details`);
       console.log(updatedOTPValues);
       console.log(otp);
     }
@@ -26,7 +26,7 @@ const OTB = () => {
 
   return (
     <div>
-      <ClosePrev />
+      <ClosePrev close="/" back="/login" />
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 3 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>

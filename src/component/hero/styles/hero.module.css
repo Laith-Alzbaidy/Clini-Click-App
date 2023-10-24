@@ -13,10 +13,11 @@
 .number-image {
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 30px;
   color: var(--secondary-color);
   font-size: 12px;
   font-weight: 900;
+  z-index: 10;
 }
 .content-hero {
   display: flex;

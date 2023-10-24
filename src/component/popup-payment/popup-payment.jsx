@@ -12,9 +12,8 @@ import google from "./assets/image/google.png";
 import credit from "./assets/image/credit-debit.png";
 import payclinic from "./assets/image/pay-clinic.png";
 import PopupCardPayment from "../popup-card-payment/popup-card-payment";
-function PopupPayment() {
+function PopupPayment({ selectedValue, setSelectedValue }) {
   const [show, setShow] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("Apple Pay"); // Set the default value here
   const [showPaymentCardPopup, setShowPaymentCardPopup] = useState(false);
 
   const handleClose = () => setShow(false);
