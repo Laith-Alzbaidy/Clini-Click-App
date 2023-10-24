@@ -1,24 +1,37 @@
 .tabscontainer {
-  display: flex;
-  margin: 1rem 0 1rem 0rem;
+  padding: 1rem 0;
+  background-color: #fff;
+  position: sticky;
+  top:0;
+  width:100%;
+  z-index:100;
 }
 .tabscontainer::-webkit-scrollbar {
   display: none;
 }
 .tab {
-  padding: 8px 15px;
+  width: 100px;
+  height: 28px;
   background-color: #ffffff;
+  color: #101623;
   font-size: 12px;
   font-weight: 600;
   border: 1px solid #c4c4c4;
   border-radius: 35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tab:hover {
+ cursor: pointer;
 }
 .active {
   background-color: rgb(235, 235, 235);
 }
 
+
 .header {
-  margin-top: 30px;
+  margin-top: 10px;
   color: #001435;
   font-size: 18px;
   font-weight: 800;

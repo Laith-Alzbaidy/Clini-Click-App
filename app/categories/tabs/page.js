@@ -26,7 +26,7 @@ const Tabs = () => {
 
   return (
     <>
-      <TabsMenu activeTab={activeTab} onTabClick={handleTabClick} />
+      {/* <TabsMenu activeTab={activeTab} onTabClick={handleTabClick} /> */}
       <CategoryContent activeTab={activeTab} categories={categories} />
     </>
   );

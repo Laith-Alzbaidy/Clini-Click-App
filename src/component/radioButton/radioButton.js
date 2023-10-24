@@ -54,17 +54,25 @@ function RadioButtons({ options }) {
 
   return (
     <div>
-      {options.map((option) => (
+    {options.map((option, index) => (
+      <div key={index}>
         <RadioButton
-          key={option.value}
           label={option.label}
+          label2={option.label2}
           value={option.value}
           price={option.price}
           selectedOption={selectedOption}
           onChange={handleOptionChange}
         />
-      ))}
-    </div>
+        {index !== options.length - 1 && <div
+          style={{
+            width: "90%",
+            margin: "1rem auto",
+            border: "solid 1px #E8F3F1",
+          }}></div>}
+      </div>
+    ))}
+  </div>
   );
 }
 

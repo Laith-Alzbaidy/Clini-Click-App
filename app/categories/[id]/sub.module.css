@@ -1,3 +1,4 @@
+
 .background {
   border-radius: 25px;
 }
@@ -37,7 +38,12 @@
 .container {
   margin: 2rem auto;
 }
-
+.button{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  z-index:100;
+}
 .constContainer {
   display: flex;
   justify-content: space-between;
@@ -84,6 +90,24 @@
   text-align: center;
   font-size: 12px;
   font-weight: 400;
+}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+.btn {
+  background-color: var(--secondary-color) !important;
+  color: #f9fafb;
+  width: 85%;
+  font-size: 15px;
+  font-weight: 700;
+  border: none !important;
+  outline: none !important;
+  padding: 11px 20px !important;
+  border-radius: 35px !important;
+  font-family: "Quicksand", sans-serif !important;
+  position:fixed;
+  bottom:0;
+  z-index:2;
+
 }
 
 @media (min-width: 1280px) {

@@ -12,7 +12,7 @@ import backIcon from "./assets/back.svg";
 import { useRouter } from "next/navigation";
 import InputField from "@/src/component/inputField/inputField";
 import Popup from "reactjs-popup";
-import './modal.css'
+import "./modal.css";
 
 const Profile = () => {
   const router = useRouter();
@@ -52,7 +52,7 @@ const Profile = () => {
     setShow(false);
     setShowPopup(true);
     setTimeout(() => {
-      router.push('/');
+      router.push("/");
     }, 2000);
 
     // try {
@@ -107,14 +107,18 @@ const Profile = () => {
         <Btn title={"Manage my appointments"} type={"submit"} />
       </form>
       <>
-        <div className={styles.deleteAccount} onClick={handleShow}>
-          Delete your account
-        </div>
+        
+          <div className={styles.deleteAccount} onClick={handleShow}>
+            Delete your account
+          </div>
+          <p style={{textAlign:"center" , fontWeight:600 }}>or</p>
+          <div className={styles.logout}>Logout</div>
+       
 
-
-
-        <Modal show={show} onHide={handleClose} animation={false} centered >
-          <Modal.Header closeButton className={styles.modalHeader}></Modal.Header>
+        <Modal show={show} onHide={handleClose} animation={false} centered>
+          <Modal.Header
+            closeButton
+            className={styles.modalHeader}></Modal.Header>
 
           <Modal.Body className={styles.modal}>
             <div className={styles.modalBody}>
@@ -131,7 +135,6 @@ const Profile = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-     
       </>
     </>
   );

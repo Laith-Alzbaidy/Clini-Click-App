@@ -6,7 +6,7 @@
   color: #101623;
   font-size: 16px;
   font-weight: 600;
-  margin: 1rem 0 1.5rem 0rem;
+  margin: 1rem 0 0.8rem 0rem;
 }
 @media (max-width: 768px) and (min-width: 481px) {
   .treatmentText {

@@ -3,14 +3,20 @@ import styles from "./tabs.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import img from "../assets/img.svg";
-import axios from "axios";
-
+import fakeData from "../data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Light from "@/src/component/lines/light";
+import Bold from "@/src/component/lines/bold";
 async function getData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  } catch (error) {
+    throw error;
   }
-  return res.json();
 }
 
 const truncateText = (text, maxWords) => {
@@ -21,7 +27,7 @@ const truncateText = (text, maxWords) => {
   return text;
 };
 
-const CategoryContent = ({ categories }) => {
+const CategoryContent = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -39,49 +45,153 @@ const CategoryContent = ({ categories }) => {
     return <p>Error: {error.message}</p>;
   }
 
+  const [activeTab, setActiveTab] = useState(fakeData[0].category);
+
+  useEffect(() => {
+    const spaceFromTop = 80; 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + spaceFromTop; 
+  
+      const categories = fakeData.map((category) => category.category);
+  
+      for (let i = categories.length - 1; i >= 0; i--) {
+        const category = categories[i];
+        const categoryElement = document.getElementById(category);
+  
+        if (
+          categoryElement.offsetTop <= scrollPosition &&
+          categoryElement.offsetTop + categoryElement.offsetHeight > scrollPosition 
+        ) {
+          setActiveTab(category);
+          break;
+        }
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
+  const spaceFromTop = 65; 
+  const handleTabClick = (category) => {
+    setActiveTab(category);
+    const categoryElement = document.getElementById(category);
+  
+    if (categoryElement) {
+      const scrollPosition = categoryElement.offsetTop - spaceFromTop;
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const TabSlider = fakeData.map((categoryData) => (
+    <SwiperSlide key={categoryData.category} spaceBetween={20}>
+      <div
+        className={` ${styles.tab} ${
+          activeTab === categoryData.category && styles.active
+        }`}
+        onClick={() => handleTabClick(categoryData.category)}>
+        {categoryData.category}
+      </div>
+    </SwiperSlide>
+  ));
+
   return (
-    <div className={styles.categoryContent}>
-      {categories.map((category, index) => (
-        <div key={category}>
-          <div className={styles.header}>{category}</div>
-          {data.slice(0, 5) 
-            .map((post, postIndex) => (
-            <div key={postIndex}>
-              <Link href={`/categories/${post.id}`} className={styles.link}>
-                <div className={styles.mainContainer}>
-                  <div>
-                    <div className={styles.subTitle}>{post.title}</div>
-                    <div className={styles.subCategoryText}>
-                      {truncateText(post.body, 7)}
-                    </div>
-                    <div className={styles.priceIcons}>
-                      <div>AED {post.oldPrice}</div>
-                      <div className={styles.currentPrice}>
-                        AED {post.currentPrice}
+    <div>
+      <div className={styles.tabscontainer}>
+        <Swiper
+          spaceBetween={8}
+          centeredSlides={false}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          slidesPerView={3.25}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            280: {
+              slidesPerView: 2.15,
+              spaceBetween: 15,
+            },
+            320: {
+              slidesPerView: 2.5,
+              spaceBetween: 15,
+            },
+            375: {
+              slidesPerView: 3.25,
+              spaceBetween: 20,
+            },
+            480: {
+              slidesPerView: 3.5,
+              spaceBetween: 30,
+            },
+            640: {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+            768: {
+              slidesPerView: 6,
+              spaceBetween: 100,
+            },
+            1280: {
+              slidesPerView: 8,
+              spaceBetween: 120,
+            },
+          }}>
+          {TabSlider}
+        </Swiper>
+      </div>
+      <div className="category-content">
+        {fakeData.map((categoryData) => (
+          <Link
+            key={categoryData.category}
+            href={`/categories/${categoryData.id}`}
+            className={styles.link}>
+            <div id={categoryData.category} className="category-section">
+              <div className={styles.header}>{categoryData.category}</div>
+              {categoryData.subcategories.map((subcategory, index) => (
+                <div>
+                  <div key={index} className={styles.mainContainer}>
+                    <div>
+                      <div className={styles.subTitle}>{subcategory.title}</div>
+                      <div className={styles.subCategoryText}>
+                        {truncateText(subcategory.description, 7)}
                       </div>
-                      <div>{post.discount}50% off</div>
+                      <div className={styles.priceIcons}>
+                        <div>AED {subcategory.oldPrice}</div>
+                        <div className={styles.currentPrice}>
+                          AED {subcategory.currentPrice}
+                        </div>
+                        <div>{subcategory.discount}% off</div>
+                      </div>
                     </div>
+                    <Image
+                      className={styles.subCategoryImg}
+                      src={img}
+                      alt="Description of the image"
+                      width={100}
+                      height={90}
+                    />
                   </div>
-                  <Image
-                    className={styles.subCategoryImg}
-                    src={img}
-                    alt="Description of the image"
-                    width={100}
-                    height={90}
-                  />
+                  {index !== categoryData.subcategories.length - 1 && (
+                    <Light
+                    key={`separator-${index}`}
+                      />
+                  )}
                 </div>
-              </Link>
-              <div
-                style={{
-                  width: "100%",
-                  margin: "23px auto",
-                  border: "solid 1px #ECECEC",
-                }}></div>
+              ))}
             </div>
-          ))}
-        </div>
-      ))}
-     
+            <Bold></Bold>
+          </Link>
+        ))}
+   
+      </div>
     </div>
   );
 };

@@ -54,8 +54,8 @@ const TabsMenu = ({ activeTab, onTabClick }) => {
             spaceBetween: 10,
           },
           375: {
-            slidesPerView: 3.15,
-            spaceBetween: 10,
+            slidesPerView: 3,
+            spaceBetween: 30,
           },
  
           480: {

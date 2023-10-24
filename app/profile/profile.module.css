@@ -12,6 +12,13 @@
   text-align: center;
   margin: 0.6rem 0 0 0;
 }
+.logout {
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 0 0;
+}
 .deleteAccount:hover {
   cursor: pointer;
 }
