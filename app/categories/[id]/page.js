@@ -53,7 +53,7 @@ const SubCategory = async ({ params }) => {
     marginBottom:"20px"
   }
   return (
-    <>
+    <div className={styles.holder}>
       <Link href={"/categories"}>
         <Image
           className={styles.backIcon}
@@ -141,7 +141,7 @@ const SubCategory = async ({ params }) => {
           <StickyButton title={"Continue to book AED 200"} />
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

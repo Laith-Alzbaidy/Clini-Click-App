@@ -11,14 +11,17 @@ import Icon from "@/src/component/icon/icon";
 import Btn from "@/src/component/button/button";
 
 import { use } from "react";
+import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 
 export default function Home() {
+  const data = "hello"
   return (
     <>
       <Header />
       <Hero />
       <About />
       <OurTeam />
+      <SlideUpPage data={data}/>
       <Location />
       <OurAmenities />
       <OurBusiness />

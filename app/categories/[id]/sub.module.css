@@ -4,6 +4,9 @@
 .background {
   border-radius: 25px;
 }
+.holder{
+  padding: 28px 0 28px 0;
+}
 .containerHero {
   height: 220px;
   border-radius: 0;

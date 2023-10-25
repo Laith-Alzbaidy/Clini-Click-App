@@ -73,7 +73,7 @@ const Reschedule = ({ searchParams }) => {
   };
 
   return (
-    <>
+    <div className={styles.warapper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <Link href={`/my-appointments`}>
@@ -176,7 +176,7 @@ const Reschedule = ({ searchParams }) => {
         </div>
       <Btn title={"confirm"} onClick={handleConfirm} />
       </div>
-    </>
+    </div>
   );
 };
 

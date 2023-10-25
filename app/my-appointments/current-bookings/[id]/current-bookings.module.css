@@ -17,7 +17,9 @@
   font-weight: 700;
   margin: 25.75px 0 23px 0;
 }
-
+.warpper{
+  padding:28px 0 28px 0 ;
+}
 .container {
   padding: 0 28px 0 28px;
 }

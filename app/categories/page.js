@@ -6,7 +6,7 @@ import backicon from "./assets/conhh.svg";
 import Link from "next/link";
 const Categories = () => {
   return (
-    <>
+    <div className={styles.holder}>
       <Link href="/">
         <Image
           className={styles.backIcon}
@@ -18,7 +18,7 @@ const Categories = () => {
       </Link>
       <div className={styles.treatmentText}>Our treatments</div>
       <Tabs />
-    </>
+    </div>
   );
 };
 
