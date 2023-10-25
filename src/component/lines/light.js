@@ -1,14 +1,15 @@
 import React from "react";
 
-const Light = () => {
+const Light = ({additionalStyles}) => {
+  const defaultStyles = {
+    width: "100%",
+    border: "solid 1px #E8F3F1",
+  }
+  const mergedStyles = { ...defaultStyles, ...additionalStyles };
   return (
     <div
-      style={{
-        width: "90%",
-        margin: "1rem auto",
-        border: "solid 1px #E8F3F1",
-      }}></div>
-  );
-};
+    style={mergedStyles}></div>
+  )
+}
 
-export default Light;
+export default Light

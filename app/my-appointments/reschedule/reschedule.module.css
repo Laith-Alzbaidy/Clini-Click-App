@@ -20,7 +20,7 @@
 }
 
 .container {
-  margin: 0rem auto;
+  padding: 0 28px 0 28px;
 }
 .active {
   background-color: #a75cff;

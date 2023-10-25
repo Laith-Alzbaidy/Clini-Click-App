@@ -23,6 +23,7 @@ const Confirmed = async ({params}) => {
   const data = await getData(params.id);
 
   return (
+    <>
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <Link href={`/my-appointments`}>
@@ -35,10 +36,12 @@ const Confirmed = async ({params}) => {
       </div>
 
       <div className={styles.title}>Your appointment is confirmed</div>
+      </div>
       <div className={styles.notification}>
         We will send you a reminder
         <br /> before your Appointment
       </div>
+      <div className={styles.container}>
       <div className={styles.subTitle}>Your appointment details</div>
       <div className={styles.bookingContainer}>
         <div className={styles.treatmentContainer}>
@@ -64,13 +67,15 @@ const Confirmed = async ({params}) => {
           Order total <span>(incl.tax)</span>
         </div>
         <div>AED 300</div>
+        </div>
       </div>
       <div
         style={{
-          width: "80%",
+          width: "100%",
           margin: "1rem auto",
           border: "solid 1px #E8F3F1",
         }}></div>
+         <div className={styles.container}>
       <div className={styles.subTitle}>Location</div>
       <Head>
         <title>My Map</title>
@@ -93,7 +98,8 @@ const Confirmed = async ({params}) => {
       <Link href={'/'}>
       <Btn title={'Back to Clinic Profile'} />
       </Link>
-    </div>
+      </div>
+    </>
   );
 };
 

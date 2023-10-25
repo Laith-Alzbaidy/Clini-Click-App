@@ -1,13 +1,14 @@
 import React from 'react'
 
-const Bold = () => {
+const Bold = ({additionalStyles}) => {
+  const defaultStyles = {
+    width: "100%",
+    border: "solid 3px #E2E2E2",
+  }
+  const mergedStyles = { ...defaultStyles, ...additionalStyles };
   return (
     <div
-    style={{
-      width: "100%",
-      margin: "30px 0 30px 0",
-      border: "solid 3px #E2E2E2",
-    }}></div>
+    style={mergedStyles}></div>
   )
 }
 

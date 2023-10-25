@@ -52,8 +52,8 @@ a {
 }
 
 .container1 {
-  padding: 28px !important;
   padding-top: 28px !important;
+  padding-bottom: 28px !important;
 }
 
 .header-section {
