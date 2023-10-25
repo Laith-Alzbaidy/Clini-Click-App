@@ -1,18 +1,19 @@
-.tabscontainer {
-
-  background-color: #fff;
-  position: sticky;
-  top:0;
-  width:100%;
-  z-index:100;
-  padding: 1rem 28px 1rem 28px;
-}
 .tabscontainer::-webkit-scrollbar {
   display: none;
+}
+.tabscontainer{
 
+ display: flex;
+ flex-direction: row;
+ background-color: #fff;
+ position: sticky;
+ top:0;
+ width:100%;
+ z-index:100;
+ padding: 1rem 28px 1rem 28px;
 }
 .tab {
-  width: 100px;
+  width: 110px;
   height: 28px;
   background-color: #ffffff;
   color: #101623;
@@ -23,15 +24,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .tab:hover {
- cursor: pointer;
+  cursor: pointer;
 }
 .active {
   background-color: rgb(235, 235, 235);
 }
-
 .header {
   margin-top: 10px;
   color: #001435;
@@ -116,7 +115,6 @@
     width: 120px;
     height: 120px;
   }
-  
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {

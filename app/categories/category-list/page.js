@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./tabs.module.css";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import fakeData from "../data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
+import "swiper/css";
 async function getData() {
   try {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -55,25 +57,6 @@ const CategoryContent = () => {
   const [activeTab, setActiveTab] = useState(fakeData[0].category);
 
   useEffect(() => {
-    const spaceFromTop = 80;
-    // const handleScroll = () => {
-    //   const scrollPosition = window.scrollY + spaceFromTop;
-
-    //   const categories = fakeData.map((category) => category.category);
-
-    //   for (let i = categories.length - 1; i >= 0; i--) {
-    //     const category = categories[i];
-    //     const categoryElement = document.getElementById(category);
-
-    //     if (
-    //       categoryElement.offsetTop <= scrollPosition &&
-    //       categoryElement.offsetTop + categoryElement.offsetHeight > scrollPosition
-    //     ) {
-    //       setActiveTab(category);
-    //       break;
-    //     }
-    //   }
-    // };
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const categories = fakeData.map((category) => category.category);
@@ -114,13 +97,20 @@ const CategoryContent = () => {
   };
 
   const TabSlider = fakeData.map((categoryData) => (
-    <SwiperSlide key={categoryData.category} spaceBetween={20}>
+    <SwiperSlide
+      key={categoryData.category}
+      spaceBetween={20}
+      centeredSlides={false}
+      navigation={{
+        nextEl: ".swiper-button-prev",
+        prevEl: ".swiper-button-next",
+      }}
+      slidesPerView={1}>
       <div
         className={` ${styles.tab} ${
           activeTab === categoryData.category && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.category)}
-      >
+        onClick={() => handleTabClick(categoryData.category)}>
         {categoryData.category}
       </div>
     </SwiperSlide>
@@ -133,43 +123,45 @@ const CategoryContent = () => {
           spaceBetween={8}
           centeredSlides={false}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-prev",
+            prevEl: ".swiper-button-next",
           }}
           slidesPerView={3.25}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
+            // when window width is >= 320px
             280: {
               slidesPerView: 2.15,
-              spaceBetween: 15,
+              spaceBetween: 2,
             },
             320: {
               slidesPerView: 2.5,
-              spaceBetween: 15,
+              spaceBetween: 10,
             },
             375: {
-              slidesPerView: 3.25,
-              spaceBetween: 20,
+              slidesPerView: 3,
+              spaceBetween: 30,
             },
+
             480: {
               slidesPerView: 3.5,
               spaceBetween: 30,
             },
+
             640: {
               slidesPerView: 4,
-              spaceBetween: 50,
+              spaceBetween: 40,
             },
             768: {
               slidesPerView: 6,
-              spaceBetween: 100,
+              spaceBetween: 40,
             },
             1280: {
               slidesPerView: 8,
-              spaceBetween: 120,
+              spaceBetween: 40,
             },
-          }}
-        >
+          }}>
           {TabSlider}
         </Swiper>
       </div>
@@ -178,8 +170,7 @@ const CategoryContent = () => {
           <Link
             key={categoryData.category}
             href={`/categories/${categoryData.id}`}
-            className={styles.link}
-          >
+            className={styles.link}>
             <div id={categoryData.category} className={styles.categorySection}>
               <div className={styles.header}>{categoryData.category}</div>
               {categoryData.subcategories.map((subcategory, index) => (
