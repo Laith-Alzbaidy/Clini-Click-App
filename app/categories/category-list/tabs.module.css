@@ -1,13 +1,15 @@
 .tabscontainer {
-  padding: 1rem 0;
+
   background-color: #fff;
   position: sticky;
   top:0;
   width:100%;
   z-index:100;
+  padding: 1rem 28px 1rem 28px;
 }
 .tabscontainer::-webkit-scrollbar {
   display: none;
+
 }
 .tab {
   width: 100px;
@@ -21,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .tab:hover {
  cursor: pointer;
@@ -29,12 +32,12 @@
   background-color: rgb(235, 235, 235);
 }
 
-
 .header {
   margin-top: 10px;
   color: #001435;
   font-size: 18px;
   font-weight: 800;
+  padding: 0 28px 0 28px;
 }
 .mainContainer {
   display: flex;
@@ -43,6 +46,7 @@
   margin-top: 16px;
   text-decoration: none;
   gap: 1rem;
+  padding: 0 28px 0 28px;
 }
 .link {
   text-decoration: none;

@@ -19,7 +19,7 @@
 }
 
 .container {
-  margin: 0rem auto;
+  padding: 0 28px 0 28px;
 }
 .bookingContainer {
   display: flex;
@@ -108,11 +108,13 @@
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 10px;
+  padding: 0 28px 0 28px;
 }
 .cancellation {
   color: #000;
   font-size: 12px;
   font-weight: 400;
+  padding: 0 28px 0 28px;
 }
 .cancellation span {
   color: #000;

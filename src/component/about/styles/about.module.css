@@ -34,15 +34,3 @@
   margin-top: 5px !important;
   cursor: pointer;
 }
-
-#more {
-  display: none;
-}
-
-.container-slide-up {
-  background-color: rgb(203, 200, 200);
-  position: absolute;
-  z-index: 10;
-  /* width: 100%; */
-  bottom: -1500px;
-}

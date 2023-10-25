@@ -3,7 +3,7 @@
 .btn {
   background-color: var(--secondary-color) !important;
   color: #f9fafb;
-  width: 85%;
+  width: 86%;
   font-size: 15px;
   font-weight: 700;
   border: none !important;
@@ -12,6 +12,6 @@
   border-radius: 35px !important;
   font-family: "Quicksand", sans-serif !important;
   position: fixed;
-  bottom: 10px !important;
+  bottom: 10px;
   z-index: 2;
 }

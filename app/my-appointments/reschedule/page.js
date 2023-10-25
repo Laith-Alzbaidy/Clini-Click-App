@@ -59,8 +59,7 @@ const Reschedule = ({ searchParams }) => {
           className={`${styles["container-scheduling"]} ${
             isActive ? styles.active : ""
           }`}
-          onClick={() => handleDayClick(item.day, item.date)}
-        >
+          onClick={() => handleDayClick(item.day, item.date)}>
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -88,12 +87,11 @@ const Reschedule = ({ searchParams }) => {
 
         <div className={styles.title}>Reschedule appointment</div>
         <div className={styles.subTitle}>Which day would you like to book?</div>
-      </div>
 
-      {/* <div className="form-group"> */}
-      <div>
-        January
-        {/* <select
+        {/* <div className="form-group"> */}
+        <div>
+          January
+          {/* <select
           className="form-control"
           id="exampleSelect"
           onChange={(e) => setMonth(e.target.value)}
@@ -113,65 +111,71 @@ const Reschedule = ({ searchParams }) => {
           <option>November</option>
           <option>December</option>
         </select> */}
-      </div>
-
-      <div className="mt-2">
-        <Swiper
-          spaceBetween={10}
-          centeredSlides={false}
-          slidesPerView={5.6}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          breakpoints={{
-            280: {
-              slidesPerView: 4,
-              spaceBetween: 20,
-            },
-            320: {
-              slidesPerView: 5,
-              spaceBetween: 20,
-            },
-            425: {
-              slidesPerView: 6,
-              spaceBetween: 20,
-            },
-            // when window width is >= 480px
-            480: {
-              slidesPerView: 8,
-              spaceBetween: 30,
-            },
-            // when window width is >= 640px
-            640: {
-              slidesPerView: 12.5,
-              spaceBetween: 40,
-            },
-          }}
-        >
-          {schedulingSlides}
-        </Swiper>
-      </div>
-
-      <div className={styles["container-question"]}>
-        <div className={styles["question"]}>
-          Which time would you like to book?
         </div>
 
-        <div className={styles.Bigcontainer}>
-          {timeSlots.map((time, index) => (
-            <div className={styles.timeContainer}>
-              <p
-                className={styles["time"]}
-                key={index}
-                value={time}
-                onClick={() => handleTimeSelect(time)}
-              >
-                {time}
-              </p>
-            </div>
-          ))}
+        <div className="mt-2">
+          <Swiper
+            spaceBetween={10}
+            centeredSlides={false}
+            slidesPerView={5.6}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+            breakpoints={{
+              280: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              320: {
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+              425: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 8,
+                spaceBetween: 30,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 12.5,
+                spaceBetween: 40,
+              },
+            }}>
+            {schedulingSlides}
+          </Swiper>
         </div>
       </div>
+      <div
+        style={{
+          width: "100%",
+          margin: "1rem auto",
+          border: "solid 1px #E8F3F1",
+        }}></div>
+      <div className={styles.container}>
+        <div className={styles["container-question"]}>
+          <div className={styles["question"]}>
+            Which time would you like to book?
+          </div>
+
+          <div className={styles.Bigcontainer}>
+            {timeSlots.map((time, index) => (
+              <div className={styles.timeContainer}>
+                <p
+                  className={styles["time"]}
+                  key={index}
+                  value={time}
+                  onClick={() => handleTimeSelect(time)}>
+                  {time}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       <Btn title={"confirm"} onClick={handleConfirm} />
+      </div>
     </>
   );
 };

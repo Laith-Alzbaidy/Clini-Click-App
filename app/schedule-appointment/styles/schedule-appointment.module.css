@@ -186,12 +186,8 @@
 .line {
   background: #e2e2e2;
   height: 3px;
-  bottom: 130px;
   /* margin: 20px 0; */
-  position: absolute;
-  z-index: 20;
   width: 100%;
-  left: 0;
 }
 
 @media (max-width: 365px) and (min-width: 280px) {

@@ -30,7 +30,14 @@ const truncateText = (text, maxWords) => {
 const CategoryContent = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-
+  const costumStyles = {
+    marginTop: "25px",
+    marginBottom: "18px",
+  };
+  const costumStylesLigth = {
+    marginTop: "18px",
+    marginBottom: "18px",
+  };
   useEffect(() => {
     getData()
       .then((fetchedData) => {
@@ -49,9 +56,26 @@ const CategoryContent = () => {
 
   useEffect(() => {
     const spaceFromTop = 80;
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + spaceFromTop;
+    // const handleScroll = () => {
+    //   const scrollPosition = window.scrollY + spaceFromTop;
 
+    //   const categories = fakeData.map((category) => category.category);
+
+    //   for (let i = categories.length - 1; i >= 0; i--) {
+    //     const category = categories[i];
+    //     const categoryElement = document.getElementById(category);
+
+    //     if (
+    //       categoryElement.offsetTop <= scrollPosition &&
+    //       categoryElement.offsetTop + categoryElement.offsetHeight > scrollPosition
+    //     ) {
+    //       setActiveTab(category);
+    //       break;
+    //     }
+    //   }
+    // };
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
       const categories = fakeData.map((category) => category.category);
 
       for (let i = categories.length - 1; i >= 0; i--) {
@@ -59,16 +83,15 @@ const CategoryContent = () => {
         const categoryElement = document.getElementById(category);
 
         if (
-          categoryElement.offsetTop <= scrollPosition &&
+          categoryElement.offsetTop <= scrollPosition + 100 &&
           categoryElement.offsetTop + categoryElement.offsetHeight >
-            scrollPosition
+            scrollPosition + 100
         ) {
           setActiveTab(category);
           break;
         }
       }
     };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -150,14 +173,14 @@ const CategoryContent = () => {
           {TabSlider}
         </Swiper>
       </div>
-      <div className="category-content">
-        {fakeData.map((categoryData) => (
+      <div className={styles.categoryContent}>
+        {fakeData.map((categoryData, index) => (
           <Link
             key={categoryData.category}
             href={`/categories/${categoryData.id}`}
             className={styles.link}
           >
-            <div id={categoryData.category} className="category-section">
+            <div id={categoryData.category} className={styles.categorySection}>
               <div className={styles.header}>{categoryData.category}</div>
               {categoryData.subcategories.map((subcategory, index) => (
                 <div>
@@ -168,7 +191,7 @@ const CategoryContent = () => {
                         {truncateText(subcategory.description, 7)}
                       </div>
                       <div className={styles.priceIcons}>
-                        <div>AED {subcategory.oldPrice}</div>
+                        <div>AED {subcategory.pastPrice}</div>
                         <div className={styles.currentPrice}>
                           AED {subcategory.currentPrice}
                         </div>
@@ -184,12 +207,17 @@ const CategoryContent = () => {
                     />
                   </div>
                   {index !== categoryData.subcategories.length - 1 && (
-                    <Light key={`separator-${index}`} />
+                    <Light
+                      key={`separator-${index}`}
+                      additionalStyles={costumStylesLigth}
+                    />
                   )}
                 </div>
               ))}
             </div>
-            <Bold></Bold>
+            {index !== categoryData.category.length - 1 && (
+              <Bold additionalStyles={costumStyles} />
+            )}
           </Link>
         ))}
       </div>

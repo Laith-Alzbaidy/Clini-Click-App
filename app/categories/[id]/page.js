@@ -6,6 +6,9 @@ import RadioButtons from "../../../src/component/radioButton/radioButton";
 import backicon from "../assets/conhh.svg";
 import background from "../assets/g.png";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
+import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
+import Light from "@/src/component/lines/light";
+import Bold from "@/src/component/lines/bold";
 const free = [{ label: "Free", value: "Free" }];
 
 const Body = [
@@ -44,7 +47,10 @@ async function getData(id) {
 
 const SubCategory = async ({ params }) => {
   const data = await getData(params.id);
-
+  const linestyle = {
+    marginTop: "16px",
+    marginBottom: "20px",
+  };
   return (
     <>
       <Link href={"/categories"}>
@@ -66,21 +72,15 @@ const SubCategory = async ({ params }) => {
         />
       </div>
       <div className={styles.container}>
-        <div className={styles.subName}>{data.title}</div>
-        <div className={styles.subDuration}>20 min </div>
-        <div className={styles.subDiscreption}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
-          tempor incididunt ut.....
+        <div className={styles.mainContainer}>
+          <div className={styles.subName}>{data.title}</div>
+          <div className={styles.subDuration}>20 min </div>
+          <div className={styles.subDiscreption}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
+            tempor incididunt ut.....
+          </div>
         </div>
-        <Link
-          href={{
-            pathname: "/categories/sub-info",
-            query: { search: params.id },
-          }}
-          className={styles.learnMore1}
-        >
-          learn more
-        </Link>
+        <SlideUpPage data={data} />
         <div className={styles.constContainer}>
           <div className={styles.constChildContainer}>
             <div>constulate only</div>
@@ -91,13 +91,7 @@ const SubCategory = async ({ params }) => {
           </div>
         </div>
 
-        <div
-          style={{
-            width: "100%",
-            margin: "16px auto",
-            border: "solid 3px #E2E2E2",
-          }}
-        ></div>
+        <Bold additionalStyles={linestyle} />
 
         <div>
           <div className={styles.SelectHeader}>

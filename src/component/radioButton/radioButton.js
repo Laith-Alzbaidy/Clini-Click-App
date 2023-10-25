@@ -10,6 +10,7 @@ function RadioButton({ label, value, selectedOption, onChange, price }) {
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: "0.5rem",
+          padding:"0 28px 0 28px"
         }}>
         <span
           style={{

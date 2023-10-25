@@ -74,7 +74,7 @@ const Profile = () => {
     //   }
   };
   return (
-    <>
+    <div className={styles.costumContainer}>
       <Link href={"/sub-details"}>
         <Image src={backIcon} className={styles.backIcon} alt="back" />
       </Link>
@@ -111,7 +111,7 @@ const Profile = () => {
           <div className={styles.deleteAccount} onClick={handleShow}>
             Delete your account
           </div>
-          <p style={{textAlign:"center" , fontWeight:600 }}>or</p>
+          <p style={{textAlign:"center" , fontWeight:600 , color:"#A75CFF" }}>or</p>
           <div className={styles.logout}>Logout</div>
        
 
@@ -136,7 +136,7 @@ const Profile = () => {
           </Modal.Footer>
         </Modal>
       </>
-    </>
+    </div>
   );
 };
 
