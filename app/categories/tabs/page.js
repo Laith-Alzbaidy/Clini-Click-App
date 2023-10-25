@@ -22,7 +22,6 @@ const Tabs = () => {
     ]);
     setActiveTab(tab);
   };
-  
 
   return (
     <>

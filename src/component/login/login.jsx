@@ -71,8 +71,11 @@ const Login = () => {
   // };
 
   return (
-    <div>
+    <div className="container1">
+      {/* <div className="header-nav"> */}
       <ClosePrev close="/" back="/" />
+      {/* </div> */}
+
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 3 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>

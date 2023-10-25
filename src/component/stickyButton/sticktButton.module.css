@@ -11,8 +11,7 @@
   padding: 11px 20px !important;
   border-radius: 35px !important;
   font-family: "Quicksand", sans-serif !important;
-  position:fixed;
-  bottom:0;
-  z-index:2;
-
+  position: fixed;
+  bottom: 10px !important;
+  z-index: 2;
 }

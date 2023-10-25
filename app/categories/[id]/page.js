@@ -3,7 +3,6 @@ import styles from "./sub.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import RadioButtons from "../../../src/component/radioButton/radioButton";
-import Btn from "../../../src/component/button/button";
 import backicon from "../assets/conhh.svg";
 import background from "../assets/g.png";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
@@ -45,7 +44,7 @@ async function getData(id) {
 
 const SubCategory = async ({ params }) => {
   const data = await getData(params.id);
-  
+
   return (
     <>
       <Link href={"/categories"}>
@@ -78,7 +77,8 @@ const SubCategory = async ({ params }) => {
             pathname: "/categories/sub-info",
             query: { search: params.id },
           }}
-          className={styles.learnMore1}>
+          className={styles.learnMore1}
+        >
           learn more
         </Link>
         <div className={styles.constContainer}>
@@ -96,7 +96,8 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "16px auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
 
         <div>
           <div className={styles.SelectHeader}>
@@ -110,7 +111,8 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Device</div>
@@ -123,7 +125,8 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Body Area</div>
@@ -136,13 +139,14 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
         <p className={styles.noPayment}>
           No payment will be taken until your appointment
         </p>
 
-        <Link href="/practitioner">
-          <StickyButton title={"Continue to book AED 200"}/>
+        <Link href="/schedule-appointment">
+          <StickyButton title={"Continue to book AED 200"} />
         </Link>
       </div>
     </>

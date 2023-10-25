@@ -35,15 +35,21 @@ function PopupPayment({ selectedValue, setSelectedValue }) {
   return (
     <>
       {" "}
-      <input
-        type="text"
+      <button
+        onClick={handleShow}
+        id="choose-payment"
+        className={styles["btn-choose-payment"]}
+      >
+        Choose payment method
+      </button>
+      {/* type="text"
         id="choose-payment"
         name="choose-payment"
         placeholder="Choose payment method"
         required
         className={styles["input-choose-payment"]}
         onClick={handleShow}
-      />
+     */}
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>

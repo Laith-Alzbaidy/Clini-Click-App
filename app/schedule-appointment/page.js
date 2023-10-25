@@ -144,7 +144,8 @@ const Practitioner = () => {
           className={`${styles["container-scheduling"]} ${
             isActive ? styles.active : console.log(isActive)
           }`}
-          onClick={() => handleDayClick(item.day, item.date)}>
+          onClick={() => handleDayClick(item.day, item.date)}
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -152,7 +153,7 @@ const Practitioner = () => {
     );
   });
   return (
-    <div>
+    <div className="container1">
       <Link href="/">
         <ButtonPreviews />
       </Link>
@@ -167,34 +168,36 @@ const Practitioner = () => {
           <h2 className={styles["question"]}>
             Which practitioner do you prefer?
           </h2>
-        </div>
 
-        {/* Team Section*/}
-        <div className="mt-2">
-          <Swiper
-            centeredSlides={false}
-            slidesPerView={2.4}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}>
-            <SwiperSlide>
-              <div className={styles["container-card"]}>
-                <div className="d-flex flex-column align-items-center gap-2">
-                  <Image src={user} />
-                  <h3 className={styles["name-card"]}>No preference</h3>
-                  <div>
-                    <p className={styles["specialization"]}>
-                      Maximum availability
-                    </p>
+          {/* Team Section*/}
+          <div className="mt-2">
+            <Swiper
+              centeredSlides={false}
+              slidesPerView={2.4}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SwiperSlide className={styles["swiper-slide"]}>
+                <div className={styles["container-card"]}>
+                  <div className="d-flex flex-column align-items-center gap-2">
+                    <Image src={user} />
+                    <h3 className={styles["name-card"]}>No preference</h3>
+                    <div>
+                      <p className={styles["specialization"]}>
+                        Maximum availability
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-            {team} {/* Render practitioner cards */}
-          </Swiper>
+              </SwiperSlide>
+              {team} {/* Render practitioner cards */}
+            </Swiper>
+          </div>
         </div>
       </div>
 
       {/* Scheduling date and day */}
+
       <div className={styles["container-question"]}>
         <div>
           <h2 className={styles["question"]}>
@@ -209,13 +212,15 @@ const Practitioner = () => {
             centeredSlides={false}
             slidesPerView={5.6}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}>
+            onSwiper={(swiper) => console.log(swiper)}
+          >
             {schedulingSlides} {/* Render scheduling options */}
           </Swiper>
         </div>
       </div>
 
       {/* Scheduling Time*/}
+
       <div className={styles["container-question"]}>
         <div className="mt-2">
           <div className={styles["container-question"]}>
@@ -230,7 +235,8 @@ const Practitioner = () => {
                     className={styles["time"]}
                     key={index}
                     value={time}
-                    onClick={() => handleTimeSelect(time)}>
+                    onClick={() => handleTimeSelect(time)}
+                  >
                     {time}
                   </p>
                 </div>
@@ -239,13 +245,14 @@ const Practitioner = () => {
           </div>
         </div>
       </div>
-
       <div className={styles["line"]}></div>
-      <p className="text-center">
-        No payment will be taken until your appointment
-      </p>
+      <div className="mt-5">
+        <p className="text-center">
+          No payment will be taken until your appointment
+        </p>
 
-      <Btn title="Continue" marginTop="10px" onClick={handleConfirm} />
+        <Btn title="Continue" margin="10px 0" onClick={handleConfirm} />
+      </div>
     </div>
   );
 };

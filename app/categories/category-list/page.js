@@ -48,38 +48,39 @@ const CategoryContent = () => {
   const [activeTab, setActiveTab] = useState(fakeData[0].category);
 
   useEffect(() => {
-    const spaceFromTop = 80; 
+    const spaceFromTop = 80;
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + spaceFromTop; 
-  
+      const scrollPosition = window.scrollY + spaceFromTop;
+
       const categories = fakeData.map((category) => category.category);
-  
+
       for (let i = categories.length - 1; i >= 0; i--) {
         const category = categories[i];
         const categoryElement = document.getElementById(category);
-  
+
         if (
           categoryElement.offsetTop <= scrollPosition &&
-          categoryElement.offsetTop + categoryElement.offsetHeight > scrollPosition 
+          categoryElement.offsetTop + categoryElement.offsetHeight >
+            scrollPosition
         ) {
           setActiveTab(category);
           break;
         }
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
-  
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
-  const spaceFromTop = 65; 
+
+  const spaceFromTop = 65;
   const handleTabClick = (category) => {
     setActiveTab(category);
     const categoryElement = document.getElementById(category);
-  
+
     if (categoryElement) {
       const scrollPosition = categoryElement.offsetTop - spaceFromTop;
       window.scrollTo({
@@ -95,7 +96,8 @@ const CategoryContent = () => {
         className={` ${styles.tab} ${
           activeTab === categoryData.category && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.category)}>
+        onClick={() => handleTabClick(categoryData.category)}
+      >
         {categoryData.category}
       </div>
     </SwiperSlide>
@@ -143,7 +145,8 @@ const CategoryContent = () => {
               slidesPerView: 8,
               spaceBetween: 120,
             },
-          }}>
+          }}
+        >
           {TabSlider}
         </Swiper>
       </div>
@@ -152,7 +155,8 @@ const CategoryContent = () => {
           <Link
             key={categoryData.category}
             href={`/categories/${categoryData.id}`}
-            className={styles.link}>
+            className={styles.link}
+          >
             <div id={categoryData.category} className="category-section">
               <div className={styles.header}>{categoryData.category}</div>
               {categoryData.subcategories.map((subcategory, index) => (
@@ -180,9 +184,7 @@ const CategoryContent = () => {
                     />
                   </div>
                   {index !== categoryData.subcategories.length - 1 && (
-                    <Light
-                    key={`separator-${index}`}
-                      />
+                    <Light key={`separator-${index}`} />
                   )}
                 </div>
               ))}
@@ -190,7 +192,6 @@ const CategoryContent = () => {
             <Bold></Bold>
           </Link>
         ))}
-   
       </div>
     </div>
   );

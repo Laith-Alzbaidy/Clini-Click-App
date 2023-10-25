@@ -8,24 +8,27 @@ import Location from "@/src/component/location/location";
 import OurAmenities from "@/src/component/OurAmenities/ourAmenities";
 import OurBusiness from "@/src/component/ourBusiness/ourBusiness";
 import Icon from "@/src/component/icon/icon";
-import Btn from "@/src/component/button/button";
-
-import { use } from "react";
-
+import StickyButton from "@/src/component/stickyButton/stickyButton";
+import Footer from "@/src/component/footer/footer";
 export default function Home() {
   return (
     <>
-      <Header />
-      <Hero />
-      <About />
-      <OurTeam />
-      <Location />
-      <OurAmenities />
-      <OurBusiness />
-      <Icon />
-      <Link href="categories">
-        <Btn title="Book appointment" />
-      </Link>
+      <div className="container1">
+        <Header />
+        <Hero />
+        <About />
+        <OurTeam />
+        <Location />
+        <OurAmenities />
+        <OurBusiness />
+        <Icon />
+        <Link href="categories">
+          <StickyButton title="Book appointment" />
+        </Link>
+        <div className="container-footer">
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }

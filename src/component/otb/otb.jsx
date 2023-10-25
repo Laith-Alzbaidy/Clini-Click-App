@@ -25,13 +25,15 @@ const OTB = () => {
   };
 
   return (
-    <div>
+    <div className="container1">
       <ClosePrev close="/" back="/login" />
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 3 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>
       </div>
-      <p>We sent you a WhatsApp message with the OTP to +971503897270.</p>
+      <p style={{ maxWidth: "220px" }}>
+        We sent you a WhatsApp message with the OTP to +971503897270.
+      </p>
       <div className={styles["container-input"]}>
         <OTPInput
           value={otp}
