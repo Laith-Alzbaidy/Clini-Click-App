@@ -185,7 +185,8 @@
 .line {
   background: #e2e2e2;
   height: 3px;
-  margin: 20px 0;
+  /* margin: 20px 0; */
+  width: 100%;
 }
 
 @media (max-width: 365px) and (min-width: 280px) {

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
 import image from "./assets/image/image.png";
 import star from "./assets/image/Star.svg";
 import styles from "./styles/ourteam.module.css";
@@ -41,17 +40,17 @@ const slider = [
     alt: "image personal",
   },
 ];
-const getData = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  console.log("---------", res.data);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-};
+// const getData = async () => {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+//   console.log("---------", res.data);
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
+//   return res.json();
+// };
 
 const OurTeam = async () => {
-  const data = await getData();
+  // const data = await getData();
 
   const ouerTeam = slider.map((item, index) => {
     return (

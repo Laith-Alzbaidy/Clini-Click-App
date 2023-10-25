@@ -34,7 +34,7 @@ const PractitionerDetails = () => {
     console.log("Form data submitted:", formData);
   };
   return (
-    <>
+    <div className="container1">
       <Link href="payment">
         <ButtonPreviews />
       </Link>
@@ -109,10 +109,10 @@ const PractitionerDetails = () => {
           <p className="text-center">
             No payment will be taken until your appointment
           </p>
-          <Btn title="Continue" marginTop="10px" onClick={handleConfirm} />
+          <Btn title="Continue" margin="10px 0" onClick={handleConfirm} />
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

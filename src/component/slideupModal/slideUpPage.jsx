@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import "./slideUpPage.css";
-import styles from './subInfo.module.css';
+import styles from "./subInfo.module.css";
 import back from "./assets/back.svg";
 import Image from "next/image";
-const SlideUpPage = ({data}) => {
+const SlideUpPage = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalclass, SetClass] = useState("modal-content");
   function close() {
@@ -18,13 +18,15 @@ const SlideUpPage = ({data}) => {
 
   return (
     <div>
-      <p className="learnMore" onClick={() => setIsModalOpen(true)}>learn more</p>
+      <p className="learnMore" onClick={() => setIsModalOpen(true)}>
+        learn more
+      </p>
       {isModalOpen && (
         <div className={`modal-overlay`}>
           <div className={modalclass}>
             <div className="feedbackModalHeader">
               <div className={styles.container}>
-              <Image src={back} onClick={() => close()}/>
+                <Image src={back} onClick={() => close()} />
                 <div className={styles.title}>sub category</div>
                 <div className={styles.infoText}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -53,7 +55,6 @@ const SlideUpPage = ({data}) => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       )}

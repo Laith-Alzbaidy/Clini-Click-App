@@ -43,6 +43,9 @@
   margin-bottom: 5px;
 }
 
+.list-qualifications {
+  margin-left: 15px !important;
+}
 /* Section Icon */
 .title-icon,
 .date {

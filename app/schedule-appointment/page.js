@@ -154,102 +154,107 @@ const Practitioner = () => {
   });
   return (
     <div>
-      <Link href="/">
-        <ButtonPreviews />
-      </Link>
+      <div className="container1">
+        <Link href="/">
+          <ButtonPreviews />
+        </Link>
 
-      <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 1 of 3</p>
-        <h1 className={styles["title"]}>Select Date and Time</h1>
-      </div>
-
-      <div className={styles["container-question"]}>
-        <div>
-          <h2 className={styles["question"]}>
-            Which practitioner do you prefer?
-          </h2>
+        <div className={styles["header"]}>
+          <p className={styles["step"]}>Step 1 of 3</p>
+          <h1 className={styles["title"]}>Select Date and Time</h1>
         </div>
 
-        {/* Team Section*/}
-        <div className="mt-2">
-          <Swiper
-            centeredSlides={false}
-            slidesPerView={2.4}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
-            <SwiperSlide className={styles["swiper-slide"]}>
-              <div className={`${styles["container-card"]} `}>
-                <div className="d-flex flex-column align-items-center gap-2">
-                  <Image src={user} />
-                  <h3 className={styles["name-card"]}>No preference</h3>
-                  <div>
-                    <p className={styles["specialization"]}>
-                      Maximum availability
+        <div className={styles["container-question"]}>
+          <div>
+            <h2 className={styles["question"]}>
+              Which practitioner do you prefer?
+            </h2>
+
+            {/* Team Section*/}
+            <div className="mt-2">
+              <Swiper
+                centeredSlides={false}
+                slidesPerView={2.4}
+                onSlideChange={() => console.log("slide change")}
+                onSwiper={(swiper) => console.log(swiper)}
+              >
+                <SwiperSlide className={styles["swiper-slide"]}>
+                  <div className={`${styles["container-card"]} `}>
+                    <div className="d-flex flex-column align-items-center gap-2">
+                      <Image src={user} />
+                      <h3 className={styles["name-card"]}>No preference</h3>
+                      <div>
+                        <p className={styles["specialization"]}>
+                          Maximum availability
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                {team} {/* Render practitioner cards */}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+
+        {/* Scheduling date and day */}
+
+        <div className={styles["container-question"]}>
+          <div>
+            <h2 className={styles["question"]}>
+              Which day would you like to book?
+            </h2>
+            <p className="mt-2">July</p>
+          </div>
+
+          <div className="mt-2">
+            <Swiper
+              spaceBetween={10}
+              centeredSlides={false}
+              slidesPerView={5.6}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {schedulingSlides} {/* Render scheduling options */}
+            </Swiper>
+          </div>
+        </div>
+
+        {/* Scheduling Time*/}
+
+        <div className={styles["container-question"]}>
+          <div className="mt-2">
+            <div className={styles["container-question"]}>
+              <div className={styles["question"]}>
+                Which time would you like to book?
+              </div>
+
+              <div className={styles.Bigcontainer}>
+                {timeSlots.map((time, index) => (
+                  <div className={styles.timeContainer}>
+                    <p
+                      className={styles["time"]}
+                      key={index}
+                      value={time}
+                      onClick={() => handleTimeSelect(time)}
+                    >
+                      {time}
                     </p>
                   </div>
-                </div>
+                ))}
               </div>
-            </SwiperSlide>
-            {team} {/* Render practitioner cards */}
-          </Swiper>
-        </div>
-      </div>
-
-      {/* Scheduling date and day */}
-      <div className={styles["container-question"]}>
-        <div>
-          <h2 className={styles["question"]}>
-            Which day would you like to book?
-          </h2>
-          <p className="mt-2">July</p>
-        </div>
-
-        <div className="mt-2">
-          <Swiper
-            spaceBetween={10}
-            centeredSlides={false}
-            slidesPerView={5.6}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
-            {schedulingSlides} {/* Render scheduling options */}
-          </Swiper>
-        </div>
-      </div>
-
-      {/* Scheduling Time*/}
-      <div className={styles["container-question"]}>
-        <div className="mt-2">
-          <div className={styles["container-question"]}>
-            <div className={styles["question"]}>
-              Which time would you like to book?
-            </div>
-
-            <div className={styles.Bigcontainer}>
-              {timeSlots.map((time, index) => (
-                <div className={styles.timeContainer}>
-                  <p
-                    className={styles["time"]}
-                    key={index}
-                    value={time}
-                    onClick={() => handleTimeSelect(time)}
-                  >
-                    {time}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
       </div>
-
       <div className={styles["line"]}></div>
-      <p className="text-center">
-        No payment will be taken until your appointment
-      </p>
+      <div className="mt-3 px-3">
+        <p className="text-center">
+          No payment will be taken until your appointment
+        </p>
 
-      <Btn title="Continue" marginTop="10px" onClick={handleConfirm} />
+        <Btn title="Continue" margin="10px 0" onClick={handleConfirm} />
+      </div>
     </div>
   );
 };

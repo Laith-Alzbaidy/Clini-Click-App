@@ -6,7 +6,7 @@ import promocode from "./assets/image/promo-code.svg";
 import Image from "next/image";
 import call from "./assets/image/call.svg";
 import location from "./assets/image/location.svg";
-import Btn from "../button/button";
+import StickyButton from "../stickyButton/stickyButton";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
 const Payment = () => {
@@ -20,39 +20,43 @@ const Payment = () => {
 
   return (
     <div>
-      <ClosePrev close="/" back="/user-details" />
-      <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 3 of 3</p>
-        <h1 className={styles["title"]}>Confirm and book</h1>
+      <div className={styles["nav-header"]}>
+        <ClosePrev close="/" back="/user-details" />
       </div>
-
-      <form>
-        <label htmlFor="promo-code">
-          <div className={styles.subTitle}>offer</div>
-        </label>
-        <div className={styles.inputContainer}>
-          <Image
-            className={styles["icon-promo"]}
-            src={promocode}
-            alt="icon code"
-            width={29}
-            height={18}
-          />
-          <input
-            type="text"
-            id="promo-code"
-            name="promoCode"
-            placeholder="Enter promo code"
-            required
-            onChange={(e) => setOffer(e.target.value)}
-            className={styles["input-promocode"]}
-          />
+      <div className={styles["container1"]}>
+        <div className={styles["header"]}>
+          <p className={styles["step"]}>Step 3 of 3</p>
+          <h1 className={styles["title"]}>Confirm and book</h1>
         </div>
-      </form>
+
+        <form>
+          <label htmlFor="promo-code">
+            <div className={styles.subTitle}>offers</div>
+          </label>
+          <div className={styles.inputContainer}>
+            <Image
+              className={styles["icon-promo"]}
+              src={promocode}
+              alt="icon code"
+              width={29}
+              height={18}
+            />
+            <input
+              type="text"
+              id="promo-code"
+              name="promoCode"
+              placeholder="Enter promo code"
+              required
+              onChange={(e) => setOffer(e.target.value)}
+              className={styles["input-promocode"]}
+            />
+          </div>
+        </form>
+      </div>
 
       <div className={styles["line"]}></div>
 
-      <div>
+      <div className={styles["container1"]}>
         <div className={styles.subTitle}>Your appointment details</div>
         <div className={styles.bookingContainer}>
           <div className={styles.treatmentContainer}>
@@ -120,7 +124,7 @@ const Payment = () => {
 
       {/* <div className={styles["line"]}></div> */}
 
-      <div>
+      <div className={styles["container1"]}>
         <div className={styles.subTitle}>Pay with</div>
         <PopupPayment
           selectedValue={selectedValue}
@@ -132,7 +136,8 @@ const Payment = () => {
       </div>
 
       <div className={styles["line"]}></div>
-      <div>
+
+      <div className={styles["container1"]}>
         <div className={styles.subTitle}>Cancellation policy</div>
         <p>
           A fee of <b>AED 100 </b>may be charged if you cancel within{" "}
@@ -140,18 +145,22 @@ const Payment = () => {
           your appointment.
         </p>
       </div>
-      <div className={styles["line"]}></div>
-      <p className={styles["privacy"]}>
-        By selecting the button below, I agree to the <b>T&Cs</b> and{" "}
-        <b>Privacy Policy</b>
-        and confirm that I am 18 years or older
-      </p>
 
-      <Btn
-        title={`${"Book appointment"}${selectedValue}`}
-        marginTop={10}
-        onClick={handleConfirm}
-      />
+      <div className={styles["line"]}></div>
+
+      <div className={styles["container1"]}>
+        <p className={styles["privacy"]}>
+          By selecting the button below, I agree to the <b>T&Cs</b> and{" "}
+          <b>Privacy Policy</b>
+          and confirm that I am 18 years or older
+        </p>
+
+        <StickyButton
+          title={`${"Book appointment"}${selectedValue}`}
+          marginTop={10}
+          onClick={handleConfirm}
+        />
+      </div>
     </div>
   );
 };

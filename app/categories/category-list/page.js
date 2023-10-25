@@ -119,7 +119,8 @@ const CategoryContent = () => {
         className={` ${styles.tab} ${
           activeTab === categoryData.category && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.category)}>
+        onClick={() => handleTabClick(categoryData.category)}
+      >
         {categoryData.category}
       </div>
     </SwiperSlide>
@@ -167,7 +168,8 @@ const CategoryContent = () => {
               slidesPerView: 8,
               spaceBetween: 120,
             },
-          }}>
+          }}
+        >
           {TabSlider}
         </Swiper>
       </div>
@@ -176,7 +178,8 @@ const CategoryContent = () => {
           <Link
             key={categoryData.category}
             href={`/categories/${categoryData.id}`}
-            className={styles.link}>
+            className={styles.link}
+          >
             <div id={categoryData.category} className={styles.categorySection}>
               <div className={styles.header}>{categoryData.category}</div>
               {categoryData.subcategories.map((subcategory, index) => (

@@ -67,7 +67,7 @@ function RadioButtons({ options }) {
         />
         {index !== options.length - 1 && <div
           style={{
-            width: "90%",
+            width: "85%",
             margin: "1rem auto",
             border: "solid 1px #E8F3F1",
           }}></div>}

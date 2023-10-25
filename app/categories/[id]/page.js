@@ -3,7 +3,6 @@ import styles from "./sub.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import RadioButtons from "../../../src/component/radioButton/radioButton";
-import Btn from "../../../src/component/button/button";
 import backicon from "../assets/conhh.svg";
 import background from "../assets/g.png";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
@@ -49,9 +48,9 @@ async function getData(id) {
 const SubCategory = async ({ params }) => {
   const data = await getData(params.id);
   const linestyle = {
-    marginTop:"16px",
-    marginBottom:"20px"
-  }
+    marginTop: "16px",
+    marginBottom: "20px",
+  };
   return (
     <div className={styles.holder}>
       <Link href={"/categories"}>
@@ -92,7 +91,7 @@ const SubCategory = async ({ params }) => {
           </div>
         </div>
 
-       <Bold additionalStyles={linestyle}/>
+        <Bold additionalStyles={linestyle} />
 
         <div>
           <div className={styles.SelectHeader}>
@@ -136,10 +135,11 @@ const SubCategory = async ({ params }) => {
         <p className={styles.noPayment}>
           No payment will be taken until your appointment
         </p>
-
-        <Link href="/schedule-appointment">
-          <StickyButton title={"Continue to book AED 200"} />
-        </Link>
+        <div style={{padding:"0 28px"}}>
+          <Link href="/schedule-appointment">
+            <StickyButton title={"Continue to book AED 200"} />
+          </Link>
+        </div>
       </div>
     </div>
   );

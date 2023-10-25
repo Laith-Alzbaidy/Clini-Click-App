@@ -3,8 +3,10 @@ import Icon from "@/src/component/icon/icon";
 const Layout = ({ children }) => {
   return (
     <>
-      {children}
-      <Icon />
+      <div className="container1">
+        {children}
+        <Icon />
+      </div>
     </>
   );
 };
