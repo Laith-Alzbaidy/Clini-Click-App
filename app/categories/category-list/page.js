@@ -10,16 +10,22 @@ import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import "swiper/css";
 async function getData() {
-  try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    return res.json();
-  } catch (error) {
-    throw error;
+  const res = await fetch(
+    "https://mashserver2.com/clinic/categories?clinicName=AbdullahClinic"
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
   }
+  return res.json();
 }
+const costumStyles = {
+  marginTop: "25px",
+  marginBottom: "18px",
+};
+const costumStylesLigth = {
+  marginTop: "18px",
+  marginBottom: "18px",
+};
 
 const truncateText = (text, maxWords) => {
   const words = text.split(" ");
@@ -29,37 +35,15 @@ const truncateText = (text, maxWords) => {
   return text;
 };
 
-const CategoryContent = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const costumStyles = {
-    marginTop: "25px",
-    marginBottom: "18px",
-  };
-  const costumStylesLigth = {
-    marginTop: "18px",
-    marginBottom: "18px",
-  };
-  useEffect(() => {
-    getData()
-      .then((fetchedData) => {
-        setData(fetchedData);
-      })
-      .catch((err) => {
-        setError(err);
-      });
-  }, []);
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
+const CategoryContent = async () => {
+  const data = await getData();
 
   const [activeTab, setActiveTab] = useState(fakeData[0].category);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const categories = fakeData.map((category) => category.category);
+      const categories = data.responseData.map((category) => category.category);
 
       for (let i = categories.length - 1; i >= 0; i--) {
         const category = categories[i];
@@ -174,13 +158,13 @@ const CategoryContent = () => {
         </Swiper>
       </div>
       <div className={styles.categoryContent}>
-        {fakeData.map((categoryData, index) => (
+        {data.responseData.map((categoryData, index) => (
           <Link
-            key={categoryData.category}
-            href={`/categories/${categoryData.id}`}
+            key={categoryData.name}
+            href={`/categories/${categoryData.index}`}
             className={styles.link}>
             <div id={categoryData.category} className={styles.categorySection}>
-              <div className={styles.header}>{categoryData.category}</div>
+              <div className={styles.header}>{categoryData.name}</div>
               {categoryData.subcategories.map((subcategory, index) => (
                 <div>
                   <div key={index} className={styles.mainContainer}>

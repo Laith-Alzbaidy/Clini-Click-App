@@ -145,12 +145,7 @@ const SubCategory = async ({ params }) => {
           </Link>
         </div>
       </div>
-<<<<<<< HEAD
-
-      <Footer />
-=======
       <Footer additiionalStyles={style}/>
->>>>>>> 911e19a7b939df572a2ef95404a2123b682b9604
     </div>
   );
 };
