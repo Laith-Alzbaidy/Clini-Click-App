@@ -11,8 +11,16 @@ import Icon from "@/src/component/icon/icon";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
 import Footer from "@/src/component/footer/footer";
 import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
-export default function Home() {
-  const data = "hello"
+import api from "@/config-API/config-API";
+
+const getData = async () => {
+  const response = await api.get("clinic?clinicName=AbdullahClinic");
+  return response;
+};
+export default async function Home() {
+  const data = await getData();
+  console.log("**************", data);
+
   return (
     <>
       <div className="container1">

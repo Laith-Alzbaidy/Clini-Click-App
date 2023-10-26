@@ -13,9 +13,8 @@ import Footer from "@/src/component/footer/footer";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 const free = [{ label: "Free", value: "Free" }];
 const style = {
-  marginBottom:"55px !important",
-
-}
+  marginBottom: "55px !important",
+};
 const Body = [
   { label: "Arms", value: "Arms" },
   { label: "Back", value: "Back", price: "+ AED 400" },
