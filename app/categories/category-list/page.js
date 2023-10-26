@@ -132,34 +132,42 @@ const CategoryContent = () => {
           breakpoints={{
             // when window width is >= 320px
             280: {
-              slidesPerView: 2.15,
-              spaceBetween: 2,
+              slidesPerView: 2.25,
+              spaceBetween: 5,
             },
             320: {
               slidesPerView: 2.5,
               spaceBetween: 10,
             },
             375: {
-              slidesPerView: 3,
-              spaceBetween: 30,
+              slidesPerView: 3.25,
+              spaceBetween: 20,
+            },
+            425: {
+              slidesPerView: 3.5,
+              spaceBetween: 20,
             },
 
             480: {
               slidesPerView: 3.5,
-              spaceBetween: 30,
+              spaceBetween: 20,
             },
 
             640: {
               slidesPerView: 4,
-              spaceBetween: 40,
+              spaceBetween: 30,
             },
             768: {
               slidesPerView: 6,
-              spaceBetween: 40,
+              spaceBetween: 70,
+            },
+            768: {
+              slidesPerView: 5,
+              spaceBetween: 70,
             },
             1280: {
-              slidesPerView: 8,
-              spaceBetween: 40,
+              slidesPerView: 10,
+              spaceBetween: 110,
             },
           }}>
           {TabSlider}

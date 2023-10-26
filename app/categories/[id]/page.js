@@ -69,6 +69,7 @@ const SubCategory = async ({ params }) => {
           src={background}
           className={styles.background}
           alt="background"
+  
         />
       </div>
       <div className={styles.container}>

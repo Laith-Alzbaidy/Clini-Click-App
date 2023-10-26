@@ -3,6 +3,7 @@
 }
 .background {
   border-radius: 25px;
+  padding: 0 28px 0 28px;
 }
 .holder{
   padding: 28px 0 28px 0;
@@ -12,8 +13,6 @@
   border-radius: 0;
   margin: 20px auto;
   position: relative;
-  width: 90%;
-  
 }
 .mainContainer{
   padding: 0 28px 0 28px;
