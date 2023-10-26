@@ -11,7 +11,10 @@ import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import Footer from "@/src/component/footer/footer";
 const free = [{ label: "Free", value: "Free" }];
+const style = {
+  marginBottom:"55px !important",
 
+}
 const Body = [
   { label: "Arms", value: "Arms" },
   { label: "Back", value: "Back", price: "+ AED 400" },
@@ -143,7 +146,7 @@ const SubCategory = async ({ params }) => {
           </Link>
         </div>
       </div>
-      <Footer />
+      <Footer additiionalStyles={style}/>
     </div>
   );
 };
