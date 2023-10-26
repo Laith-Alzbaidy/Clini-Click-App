@@ -10,6 +10,7 @@ import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import Footer from "@/src/component/footer/footer";
+import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 const free = [{ label: "Free", value: "Free" }];
 
 const Body = [
@@ -55,13 +56,9 @@ const SubCategory = async ({ params }) => {
   return (
     <div className={styles.holder}>
       <Link href={"/categories"}>
-        <Image
-          className={styles.backIcon}
-          src={backicon}
-          alt="Description of the image"
-          width={15}
-          height={15}
-        />
+        <div className={styles.backIcon}>
+          <ButtonPreviews />
+        </div>
       </Link>
 
       <div className={styles.containerHero}>
@@ -70,7 +67,6 @@ const SubCategory = async ({ params }) => {
           src={background}
           className={styles.background}
           alt="background"
-  
         />
       </div>
       <div className={styles.container}>
@@ -107,7 +103,8 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Device</div>
@@ -120,7 +117,8 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Body Area</div>
@@ -133,16 +131,18 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}></div>
+          }}
+        ></div>
         <p className={styles.noPayment}>
           No payment will be taken until your appointment
         </p>
-        <div style={{padding:"0 28px"}}>
+        <div style={{ padding: "0 28px" }}>
           <Link href="/schedule-appointment">
             <StickyButton title={"Continue to book AED 200"} />
           </Link>
         </div>
       </div>
+
       <Footer />
     </div>
   );

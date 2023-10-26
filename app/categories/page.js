@@ -5,24 +5,22 @@ import backicon from "./assets/conhh.svg";
 import Link from "next/link";
 import CategoryContent from "./category-list/page";
 import Footer from "@/src/component/footer/footer";
+import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
+
 const style = {
-  marginTop:"45px"
-}
+  marginTop: "45px",
+};
 const Categories = () => {
   return (
     <div className={styles.holder}>
-      <Link href="/">
-        <Image
-          className={styles.backIcon}
-          src={backicon}
-          alt="Description of the image"
-          width={15}
-          height={15}
-        />
-      </Link>
+      <div className={styles.backIcon}>
+        <Link href="/">
+          <ButtonPreviews />
+        </Link>
+      </div>
       <div className={styles.treatmentText}>Our treatments</div>
       <CategoryContent />
-      <Footer additiionalStyles={style}/>
+      <Footer additiionalStyles={style} />
     </div>
   );
 };
