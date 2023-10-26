@@ -23,7 +23,7 @@ const Confirmed = async ({params}) => {
   const data = await getData(params.id);
 
   return (
-    <>
+    <div className={styles.warapper}>
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <Link href={`/my-appointments`}>
@@ -99,7 +99,7 @@ const Confirmed = async ({params}) => {
       <Btn title={'Back to Clinic Profile'} />
       </Link>
       </div>
-    </>
+    </div>
   );
 };
 

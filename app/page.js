@@ -12,6 +12,7 @@ import StickyButton from "@/src/component/stickyButton/stickyButton";
 import Footer from "@/src/component/footer/footer";
 import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
 export default function Home() {
+  const data = "hello"
   return (
     <>
       <div className="container1">

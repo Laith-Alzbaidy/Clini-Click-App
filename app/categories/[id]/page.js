@@ -52,7 +52,7 @@ const SubCategory = async ({ params }) => {
     marginBottom: "20px",
   };
   return (
-    <>
+    <div className={styles.holder}>
       <Link href={"/categories"}>
         <Image
           className={styles.backIcon}
@@ -69,6 +69,7 @@ const SubCategory = async ({ params }) => {
           src={background}
           className={styles.background}
           alt="background"
+  
         />
       </div>
       <div className={styles.container}>
@@ -105,8 +106,7 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}
-        ></div>
+          }}></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Device</div>
@@ -119,8 +119,7 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}
-        ></div>
+          }}></div>
         <div>
           <div className={styles.SelectHeader}>
             <div>Body Area</div>
@@ -133,17 +132,17 @@ const SubCategory = async ({ params }) => {
             width: "100%",
             margin: "1rem auto",
             border: "solid 3px #E2E2E2",
-          }}
-        ></div>
+          }}></div>
         <p className={styles.noPayment}>
           No payment will be taken until your appointment
         </p>
-
-        <Link href="/schedule-appointment">
-          <StickyButton title={"Continue to book AED 200"} />
-        </Link>
+        <div style={{padding:"0 28px"}}>
+          <Link href="/schedule-appointment">
+            <StickyButton title={"Continue to book AED 200"} />
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

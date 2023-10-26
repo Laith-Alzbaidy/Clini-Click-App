@@ -10,7 +10,7 @@ function RadioButton({ label, value, selectedOption, onChange, price }) {
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: "0.5rem",
-          padding:"0 28px 0 28px"
+          padding: "0 28px 0 28px",
         }}>
         <span
           style={{
@@ -55,25 +55,27 @@ function RadioButtons({ options }) {
 
   return (
     <div>
-    {options.map((option, index) => (
-      <div key={index}>
-        <RadioButton
-          label={option.label}
-          label2={option.label2}
-          value={option.value}
-          price={option.price}
-          selectedOption={selectedOption}
-          onChange={handleOptionChange}
-        />
-        {index !== options.length - 1 && <div
-          style={{
-            width: "90%",
-            margin: "1rem auto",
-            border: "solid 1px #E8F3F1",
-          }}></div>}
-      </div>
-    ))}
-  </div>
+      {options.map((option, index) => (
+        <div key={index}>
+          <RadioButton
+            label={option.label}
+            label2={option.label2}
+            value={option.value}
+            price={option.price}
+            selectedOption={selectedOption}
+            onChange={handleOptionChange}
+          />
+          {index !== options.length - 1 && (
+            <div
+              style={{
+                width: "85%",
+                margin: "1rem auto",
+                border: "solid 1px #E8F3F1",
+              }}></div>
+          )}
+        </div>
+      ))}
+    </div>
   );
 }
 

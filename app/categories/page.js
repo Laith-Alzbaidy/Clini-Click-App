@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./categories.module.css";
 import Image from "next/image";
-import Tabs from "./tabs/page";
 import backicon from "./assets/conhh.svg";
 import Link from "next/link";
+import CategoryContent from "./category-list/page";
 const Categories = () => {
   return (
-    <>
+    <div className={styles.holder}>
       <Link href="/">
         <Image
           className={styles.backIcon}
@@ -17,8 +17,8 @@ const Categories = () => {
         />
       </Link>
       <div className={styles.treatmentText}>Our treatments</div>
-      <Tabs />
-    </>
+      <CategoryContent />
+    </div>
   );
 };
 

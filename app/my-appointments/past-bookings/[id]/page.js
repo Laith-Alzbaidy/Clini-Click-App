@@ -19,7 +19,7 @@ async function getData(id) {
 const PastBookings = async ({ params }) => {
   const data = await getData(params.id);
   return (
-    <>
+    <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <Link href={"/my-appointments"}>
@@ -86,7 +86,7 @@ const PastBookings = async ({ params }) => {
           <div>Dubai Marina,Dubai.</div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

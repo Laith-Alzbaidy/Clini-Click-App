@@ -23,7 +23,7 @@ const CurrentBookings = async ({ params }) => {
   const data = await getData(params.id);
 
   return (
-    <>
+    <div className={styles.warpper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <Link href={"/my-appointments"}>
@@ -120,7 +120,7 @@ const CurrentBookings = async ({ params }) => {
           <div>Dubai Marina,Dubai.</div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
