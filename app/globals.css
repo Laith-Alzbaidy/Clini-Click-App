@@ -99,15 +99,49 @@ a {
   width: 250px !important;
 }
 
-/* .arrow {
+.arrow {
+  border: none !important;
   background-image: url("../arrow.svg") !important;
   background-repeat: no-repeat !important;
+  background-size: cover;
   width: 20px !important;
   height: 20px !important;
   background-color: white;
-  z-index: ;
-} */
+  display: flex;
+  align-items: center;
+  top: -4px !important;
+  /* padding: 0 40px 0 20px !important; */
+  margin-left: 17px;
+}
 
+.up {
+  border: none !important;
+  background-image: url("../arrow.svg") !important;
+  background-repeat: no-repeat !important;
+  transform: rotate(180deg) !important;
+  background-size: cover;
+  width: 20px !important;
+  height: 20px !important;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  top: -4px !important;
+  /* padding: 0 40px 0 20px !important; */
+  z-index: 100 !important;
+  margin-right: 17px;
+}
+
+.selected-flag {
+  width: 100px !important;
+  padding-left: 20px !important;
+}
+
+.form-control {
+  padding-left: 100px !important;
+  color: #adadad !important;
+  font-size: 12px;
+  font-weight: 400;
+}
 @media (min-width: 1280px) {
   .container1 {
     padding: 65px !important;
