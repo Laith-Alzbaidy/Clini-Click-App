@@ -4,6 +4,10 @@ import Image from "next/image";
 import backicon from "./assets/conhh.svg";
 import Link from "next/link";
 import CategoryContent from "./category-list/page";
+import Footer from "@/src/component/footer/footer";
+const style = {
+  marginTop:"45px"
+}
 const Categories = () => {
   return (
     <div className={styles.holder}>
@@ -18,6 +22,7 @@ const Categories = () => {
       </Link>
       <div className={styles.treatmentText}>Our treatments</div>
       <CategoryContent />
+      <Footer additiionalStyles={style}/>
     </div>
   );
 };

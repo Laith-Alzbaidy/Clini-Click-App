@@ -214,7 +214,7 @@ const CategoryContent = () => {
                 </div>
               ))}
             </div>
-            {index !== categoryData.category.length - 1 && (
+            {index !== fakeData.length - 1 && (
               <Bold additionalStyles={costumStyles} />
             )}
           </Link>

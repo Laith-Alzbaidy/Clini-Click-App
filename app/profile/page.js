@@ -13,7 +13,10 @@ import { useRouter } from "next/navigation";
 import InputField from "@/src/component/inputField/inputField";
 import Popup from "reactjs-popup";
 import "./modal.css";
-
+import Footer from "@/src/component/footer/footer";
+const style = {
+  marginTop:"45px"
+}
 const Profile = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
@@ -136,6 +139,7 @@ const Profile = () => {
           </Modal.Footer>
         </Modal>
       </>
+      <Footer additiionalStyles={style}/>
     </div>
   );
 };
