@@ -6,7 +6,10 @@ import image from "./assets/img.svg";
 import backIcon from "./assets/conhh.svg";
 import user from "./assets/user.svg";
 import left from "./assets/left.svg";
-
+import Footer from "@/src/component/footer/footer";
+const style = {
+  marginTop:"45px"
+}
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   if (!res.ok) {
@@ -36,7 +39,7 @@ const MyAppointments = async () => {
       <div className={styles.main}>
         {data.map((appointment, index) => (
           <div className={styles.cardContainer} key={index}>
-            <Image src={image} className={styles.cardImage} />
+            <Image src={image} className={styles.cardImage} alt="image"/>
             <div className={styles.details}>
               <div>Thu 22/7/2023 3:00 PM</div>
               <div>{appointment.name}</div>
@@ -46,7 +49,7 @@ const MyAppointments = async () => {
             <Link
               href={`my-appointments/current-bookings/${appointment.id}`}
               className={styles.link}>
-              <Image src={left} />
+              <Image src={left} alt="left"/>
             </Link>
           </div>
         ))}
@@ -71,6 +74,7 @@ const MyAppointments = async () => {
           </div>
         ))}
       </div>
+      <Footer additiionalStyles={style}/>
     </div>
   );
 };

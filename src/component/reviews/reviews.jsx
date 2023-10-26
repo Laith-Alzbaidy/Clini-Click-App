@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Reviews = ({ title }) => {
   return (
-    <div>
+    <div className="container1">
       <div className={styles["header-reviews"]}>
         <h1 className={styles["title"]}>{title}</h1>
         <Link href="./">

@@ -9,7 +9,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Btn from "@/src/component/button/button";
 import { useRouter } from "next/navigation";
-
+import Footer from "@/src/component/footer/footer";
+const style = {
+  marginTop:"45px"
+}
 const timeSlots = [
   "09:00 AM",
   "10:00 AM",
@@ -176,6 +179,7 @@ const Reschedule = ({ searchParams }) => {
         </div>
       <Btn title={"confirm"} onClick={handleConfirm} />
       </div>
+      <Footer additiionalStyles={style}/>
     </div>
   );
 };

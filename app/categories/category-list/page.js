@@ -29,9 +29,9 @@ const truncateText = (text, maxWords) => {
   return text;
 };
 
-const CategoryContent = async() => {
-const data = await getData();
-console.log(data ,"ge")
+const CategoryContent = () => {
+// const data = await getData();
+// console.log(data ,"ge")
   // const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const costumStyles = {

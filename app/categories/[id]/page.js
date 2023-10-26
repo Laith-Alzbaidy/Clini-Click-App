@@ -9,6 +9,7 @@ import StickyButton from "@/src/component/stickyButton/stickyButton";
 import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
+import Footer from "@/src/component/footer/footer";
 const free = [{ label: "Free", value: "Free" }];
 
 const Body = [
@@ -142,6 +143,7 @@ const SubCategory = async ({ params }) => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

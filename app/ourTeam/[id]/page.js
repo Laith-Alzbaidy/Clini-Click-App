@@ -7,11 +7,10 @@ import star from "./assets/image/Star.svg";
 import global from "./assets/image/global.svg";
 import license from "./assets/image/license-number.svg";
 import { Row, Col } from "react-bootstrap";
-import { useState } from "react";
 import Link from "next/link";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
-import ReadMore from "@/src/component/read-more/read-more";
-
+// import ReadMore from "@/src/component/read-more/read-more";
+import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout";
 const getData = async (id) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   if (!res.ok) {
@@ -80,7 +79,12 @@ const OurTeamSpecific = async ({ params }) => {
       {/* Section About Me  */}
       <div className={styles["container-content"]}>
         <h1 className={`${styles["title"]} mb-2`}>About</h1>
-        <ReadMore />
+        {/* <ReadMore /> */}
+        <p className={styles["description"]}>
+          Clinique de la Belle au Bois Dormant is Dubai’s most prestigiousbeauty
+          parlour. With high skilled...
+        </p>
+        <SlideUpAbout />
         <div className={styles["container-content"]}>
           <Row className={styles["card"]}>
             <Col className="d-flex gap-3">
@@ -108,3 +112,24 @@ const OurTeamSpecific = async ({ params }) => {
 };
 
 export default OurTeamSpecific;
+
+// "use client";
+// import React from "react";
+// import imageHero from "./assets/image/hero.png";
+// import Image from "next/image";
+// import styles from "./styles/ourTeamSpecific.module.css";
+// import star from "./assets/image/Star.svg";
+// import global from "./assets/image/global.svg";
+// import license from "./assets/image/license-number.svg";
+// import { Row, Col } from "react-bootstrap";
+// import { useState } from "react";
+// import Link from "next/link";
+// import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
+// // import ReadMore from "@/src/component/read-more/read-more";
+// import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
+
+// const OurTeamSpecific = () => {
+//   return <div>our team Id</div>;
+// };
+
+// export default OurTeamSpecific;

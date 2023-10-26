@@ -9,7 +9,10 @@ import user from "../../../assets/user.svg";
 import call from "../../../assets/call.svg";
 import location from "../../../assets/location.svg";
 import Btn from '@/src/component/button/button';
-
+import Footer from "@/src/component/footer/footer";
+const style = {
+  marginTop:"45px"
+}
 async function getData(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) {
@@ -99,6 +102,7 @@ const Confirmed = async ({params}) => {
       <Btn title={'Back to Clinic Profile'} />
       </Link>
       </div>
+      <Footer additiionalStyles={style}/>
     </div>
   );
 };
