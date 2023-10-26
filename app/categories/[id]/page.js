@@ -13,9 +13,8 @@ import Footer from "@/src/component/footer/footer";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 const free = [{ label: "Free", value: "Free" }];
 const style = {
-  marginBottom:"55px !important",
-
-}
+  marginBottom: "55px !important",
+};
 const Body = [
   { label: "Arms", value: "Arms" },
   { label: "Back", value: "Back", price: "+ AED 400" },
@@ -145,12 +144,7 @@ const SubCategory = async ({ params }) => {
           </Link>
         </div>
       </div>
-<<<<<<< HEAD
-
-      <Footer />
-=======
-      <Footer additiionalStyles={style}/>
->>>>>>> 911e19a7b939df572a2ef95404a2123b682b9604
+      <Footer additiionalStyles={style} />
     </div>
   );
 };
