@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         {/* <div className="container1"></div> */}
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

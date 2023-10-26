@@ -49,42 +49,46 @@ const slider = [
 //   return res.json();
 // };
 
-const OurTeam = async () => {
+const OurTeam = ({ setIsModalOpen }) => {
   // const data = await getData();
 
   const ouerTeam = slider.map((item, index) => {
     return (
-      <SwiperSlide className={styles["swiper-slide"]} key={index}>
-        <Link href={`ourTeam/${item.id}`}>
-          <div className={styles["container-card"]}>
-            <div className={styles["container-image"]}>
-              <Image
-                fill
-                src={item.image}
-                alt={item.alt}
-                className={styles["image"]}
-              />
-            </div>
-
-            <div>
-              <h3 className={styles["name-card"]}>{item.name}</h3>
-              <p className={styles["specialization"]}>{item.specialization}</p>
-            </div>
-
-            <p className={styles["exp"]}>{item.exp}</p>
-
-            <div className={styles["container-rate-review"]}>
-              <div>
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-              </div>
-              <p className={styles["text-review"]}>{item.review}</p>
-            </div>
+      <SwiperSlide
+        onClick={() => setIsModalOpen(true)}
+        className={styles["swiper-slide"]}
+        key={index}
+      >
+        {/* <Link href={`ourTeam/${item.id}`}> */}
+        <div className={styles["container-card"]}>
+          <div className={styles["container-image"]}>
+            <Image
+              fill
+              src={item.image}
+              alt={item.alt}
+              className={styles["image"]}
+            />
           </div>
-        </Link>
+
+          <div>
+            <h3 className={styles["name-card"]}>{item.name}</h3>
+            <p className={styles["specialization"]}>{item.specialization}</p>
+          </div>
+
+          <p className={styles["exp"]}>{item.exp}</p>
+
+          <div className={styles["container-rate-review"]}>
+            <div>
+              <Image src={star} className={styles["star-image"]} alt="star" />
+              <Image src={star} className={styles["star-image"]} alt="star" />
+              <Image src={star} className={styles["star-image"]} alt="star" />
+              <Image src={star} className={styles["star-image"]} alt="star" />
+              <Image src={star} className={styles["star-image"]} alt="star" />
+            </div>
+            <p className={styles["text-review"]}>{item.review}</p>
+          </div>
+        </div>
+        {/* </Link> */}
       </SwiperSlide>
     );
   });

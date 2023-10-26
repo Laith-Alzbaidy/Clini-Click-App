@@ -10,6 +10,7 @@ import OurBusiness from "@/src/component/ourBusiness/ourBusiness";
 import Icon from "@/src/component/icon/icon";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
 import Footer from "@/src/component/footer/footer";
+import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
 export default function Home() {
   return (
     <>
@@ -17,7 +18,8 @@ export default function Home() {
         <Header />
         <Hero />
         <About />
-        <OurTeam />
+        {/* <OurTeam /> */}
+        <SlideUpDoctor />
         <Location />
         <OurAmenities />
         <OurBusiness />
