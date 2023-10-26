@@ -1,7 +1,6 @@
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Montserrat } from "next/font/google";
-import Footer from "@/src/component/footer/footer";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,7 +16,6 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         {/* <div className="container1"></div> */}
         {children}
-        <Footer />
       </body>
     </html>
   );
