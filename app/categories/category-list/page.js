@@ -11,7 +11,7 @@ import Bold from "@/src/component/lines/bold";
 import "swiper/css";
 async function getData() {
   try {
-    const res = await fetch("https://mashserver2.com/clinic/categories?clinicName=AbdullahClinic");
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -30,9 +30,7 @@ const truncateText = (text, maxWords) => {
 };
 
 const CategoryContent = () => {
-// const data = await getData();
-// console.log(data ,"ge")
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const costumStyles = {
     marginTop: "25px",
@@ -42,15 +40,15 @@ const CategoryContent = () => {
     marginTop: "18px",
     marginBottom: "18px",
   };
-  // useEffect(() => {
-  //   getData()
-  //     .then((fetchedData) => {
-  //       setData(fetchedData);
-  //     })
-  //     .catch((err) => {
-  //       setError(err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    getData()
+      .then((fetchedData) => {
+        setData(fetchedData);
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  }, []);
 
   if (error) {
     return <p>Error: {error.message}</p>;
@@ -216,7 +214,7 @@ const CategoryContent = () => {
                 </div>
               ))}
             </div>
-            {index !== categoryData.category.length - 1 && (
+            {index !== fakeData.length - 1 && (
               <Bold additionalStyles={costumStyles} />
             )}
           </Link>
