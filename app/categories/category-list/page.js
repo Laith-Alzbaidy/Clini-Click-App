@@ -4,20 +4,12 @@ import styles from "./tabs.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import img from "../assets/img.svg";
-import fakeData from "../data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import "swiper/css";
-async function getData() {
-  const res = await fetch(
-    "https://mashserver2.com/clinic/categories?clinicName=AbdullahClinic"
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-}
+import api from "@/config-API/config-API";
+
 const costumStyles = {
   marginTop: "25px",
   marginBottom: "18px",
@@ -35,15 +27,28 @@ const truncateText = (text, maxWords) => {
   return text;
 };
 
-const CategoryContent = async () => {
-  const data = await getData();
+const CategoryContent = () => {
+  const [list, setList] = useState([]);
+  const [activeTab, setActiveTab] = useState("");
 
-  const [activeTab, setActiveTab] = useState(fakeData[0].category);
+  async function getData() {
+    try {
+      const response = await api.get("clinic/AbdullahClinic/categories");
+      const data = response.data.responseData;
+      setList(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const categories = data.responseData.map((category) => category.category);
+      const categories = list.map((category) => category.name);
 
       for (let i = categories.length - 1; i >= 0; i--) {
         const category = categories[i];
@@ -64,8 +69,7 @@ const CategoryContent = async () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
+  }, [list]);
   const spaceFromTop = 65;
   const handleTabClick = (category) => {
     setActiveTab(category);
@@ -80,9 +84,9 @@ const CategoryContent = async () => {
     }
   };
 
-  const TabSlider = fakeData.map((categoryData) => (
+  const TabSlider = list.map((categoryData) => (
     <SwiperSlide
-      key={categoryData.category}
+      key={categoryData.name}
       spaceBetween={20}
       centeredSlides={false}
       navigation={{
@@ -92,10 +96,10 @@ const CategoryContent = async () => {
       slidesPerView={1}>
       <div
         className={` ${styles.tab} ${
-          activeTab === categoryData.category && styles.active
+          activeTab === categoryData.name && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.category)}>
-        {categoryData.category}
+        onClick={() => handleTabClick(categoryData.name)}>
+        {categoryData.name}
       </div>
     </SwiperSlide>
   ));
@@ -131,12 +135,10 @@ const CategoryContent = async () => {
               slidesPerView: 3.5,
               spaceBetween: 20,
             },
-
             480: {
               slidesPerView: 3.5,
               spaceBetween: 20,
             },
-
             640: {
               slidesPerView: 4,
               spaceBetween: 30,
@@ -158,27 +160,35 @@ const CategoryContent = async () => {
         </Swiper>
       </div>
       <div className={styles.categoryContent}>
-        {data.responseData.map((categoryData, index) => (
-          <Link
-            key={categoryData.name}
-            href={`/categories/${categoryData.index}`}
-            className={styles.link}>
-            <div id={categoryData.category} className={styles.categorySection}>
-              <div className={styles.header}>{categoryData.name}</div>
-              {categoryData.subcategories.map((subcategory, index) => (
+        {list.map((categoryData, index) => (
+          <div id={categoryData.name} className={styles.categorySection}>
+            <div className={styles.header}>{categoryData.name}</div>
+            {categoryData.subCategories.map((subcategoryData, index) => (
+              <Link
+                key={index}
+                href={{
+                  pathname: `categories/${categoryData.id}/${subcategoryData.id}`,
+                  query: {
+                    category: categoryData.id,
+                    subcategory: subcategoryData.id,
+                  },
+                }}
+                className={styles.link}>
                 <div>
                   <div key={index} className={styles.mainContainer}>
                     <div>
-                      <div className={styles.subTitle}>{subcategory.title}</div>
+                      <div className={styles.subTitle}>
+                        {subcategoryData.name}
+                      </div>
                       <div className={styles.subCategoryText}>
-                        {truncateText(subcategory.description, 7)}
+                        {truncateText(subcategoryData.description, 7)}
                       </div>
                       <div className={styles.priceIcons}>
-                        <div>AED {subcategory.pastPrice}</div>
+                        <div>AED {subcategoryData.price}</div>
                         <div className={styles.currentPrice}>
-                          AED {subcategory.currentPrice}
+                          AED {subcategoryData.promotionPrice}
                         </div>
-                        <div>{subcategory.discount}% off</div>
+                        <div>{subcategoryData.discount}% off</div>
                       </div>
                     </div>
                     <Image
@@ -189,19 +199,19 @@ const CategoryContent = async () => {
                       height={90}
                     />
                   </div>
-                  {index !== categoryData.subcategories.length - 1 && (
+                  {index !== categoryData.subCategories.length - 1 && (
                     <Light
                       key={`separator-${index}`}
                       additionalStyles={costumStylesLigth}
                     />
                   )}
                 </div>
-              ))}
-            </div>
-            {index !== fakeData.length - 1 && (
-              <Bold additionalStyles={costumStyles} />
-            )}
-          </Link>
+              </Link>
+            ))}
+          </div>
+          // {index !== list.length - 1 && (
+          //   <Bold additionalStyles={costumStyles} />
+          // )}
         ))}
       </div>
     </div>

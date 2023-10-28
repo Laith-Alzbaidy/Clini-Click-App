@@ -1,11 +1,11 @@
-.backIcon {
-  margin: 0 0 0 25px;
+.backIcon{
+  margin: 28px 0 0 25px;
 }
 .background {
   border-radius: 25px;
   padding: 0 28px 0 28px;
 }
-.holder {
+.holder{
   padding: 28px 0 28px 0;
 }
 .containerHero {
@@ -14,7 +14,7 @@
   margin: 20px auto;
   position: relative;
 }
-.mainContainer {
+.mainContainer{
   padding: 0 28px 0 28px;
 }
 .subName {
@@ -45,11 +45,11 @@
 .container {
   margin: 2rem auto;
 }
-.button {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
+.button{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  z-index:100;
 }
 .constContainer {
   display: flex;
@@ -113,9 +113,10 @@
   padding: 11px 20px !important;
   border-radius: 35px !important;
   font-family: "Quicksand", sans-serif !important;
-  position: fixed;
-  bottom: 0;
-  z-index: 2;
+  position:fixed;
+  bottom:0;
+  z-index:2;
+
 }
 
 @media (min-width: 1280px) {
@@ -153,7 +154,6 @@
 
   .noPayment {
     font-size: 18px;
-    margin-bottom: 5px !important;
   }
 }
 
