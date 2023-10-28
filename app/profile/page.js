@@ -15,8 +15,8 @@ import Popup from "reactjs-popup";
 import "./modal.css";
 import Footer from "@/src/component/footer/footer";
 const style = {
-  marginTop:"45px"
-}
+  marginTop: "45px",
+};
 const Profile = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
@@ -110,18 +110,19 @@ const Profile = () => {
         <Btn title={"Manage my appointments"} type={"submit"} />
       </form>
       <>
-        
-          <div className={styles.deleteAccount} onClick={handleShow}>
-            Delete your account
-          </div>
-          <p style={{textAlign:"center" , fontWeight:600 , color:"#A75CFF" }}>or</p>
-          <div className={styles.logout}>Logout</div>
-       
+        <div className={styles.deleteAccount} onClick={handleShow}>
+          Delete your account
+        </div>
+        <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
+          or
+        </p>
+        <div className={styles.logout}>Logout</div>
 
         <Modal show={show} onHide={handleClose} animation={false} centered>
           <Modal.Header
             closeButton
-            className={styles.modalHeader}></Modal.Header>
+            className={styles.modalHeader}
+          ></Modal.Header>
 
           <Modal.Body className={styles.modal}>
             <div className={styles.modalBody}>
@@ -139,7 +140,7 @@ const Profile = () => {
           </Modal.Footer>
         </Modal>
       </>
-      <Footer additiionalStyles={style}/>
+      <Footer additiionalStyles={style} />
     </div>
   );
 };

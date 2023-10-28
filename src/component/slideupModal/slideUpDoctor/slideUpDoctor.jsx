@@ -14,15 +14,12 @@ import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 // import ReadMore from "@/src/component/read-more/read-more";
 import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout";
 import OurTeam from "../../ourTeam/ourteam";
-// const getData = async (id) => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return res.json();
-// };
+import Practitioner from "@/app/schedule-appointment/page";
 
-const SlideUpDoctor = () => {
+const SlideUpDoctor = ({ data }) => {
+  const [practitioner, setPractitioner] = useState({});
+
+  console.log("***************", practitioner.qualifications);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalclass, SetClass] = useState("modal-content");
   function close() {
@@ -34,11 +31,14 @@ const SlideUpDoctor = () => {
     }, 300);
   }
 
-  console.log("---------------", isModalOpen);
   // const data = await getData(params.id);
   return (
     <div className="container-ourteam-details">
-      <OurTeam setIsModalOpen={setIsModalOpen} />
+      <OurTeam
+        setIsModalOpen={setIsModalOpen}
+        data={data}
+        setPractitioner={setPractitioner}
+      />
       {isModalOpen && (
         <div className={`modal-overlay`}>
           <div className={modalclass}>
@@ -49,15 +49,17 @@ const SlideUpDoctor = () => {
               <Image
                 fill
                 // priority
-                src={imageHero}
+                src={practitioner.picture}
                 className={styles["image"]}
                 alt="Dr. Basel Habayeb" // Alt text for the image
               />
             </div>
             <div className={styles["container-content"]}>
-              <h1 className={styles["title"]}>Dr. Basel Habayeb</h1>
+              <h1 className={styles["title"]}>{`${practitioner.title.name} ${
+                practitioner.firstName + practitioner.lastName
+              }`}</h1>
               <p className={styles["specialization"]}>
-                Dermatologist - 10 years of experience
+                {`${practitioner.speciality.name} - ${practitioner.experienceYears} years of experience`}
               </p>
               <div className="d-flex align-items-center gap-4">
                 <div>
@@ -98,20 +100,13 @@ const SlideUpDoctor = () => {
               <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
 
               <ul className={styles["list-qualifications"]}>
-                <li className={styles["item-list"]}>
-                  Medical Board of United States
-                </li>
-                <li className={styles["item-list"]}>
-                  Bachelors of science in Medicine
-                </li>
-                <li className={styles["item-list"]}>Board Membership</li>
-                <li className={styles["item-list"]}>
-                  Medical Board of United States
-                </li>
-                <li className={styles["item-list"]}>
-                  Bachelors of science in Medicine
-                </li>
-                <li className={styles["item-list"]}>Board Membership</li>
+                {practitioner.qualifications.map((qualifications) => {
+                  return (
+                    <li className={styles["item-list"]}>
+                      {qualifications.name}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -140,7 +135,9 @@ const SlideUpDoctor = () => {
                     <Image src={license} alt="License Number" />
                     <div>
                       <p className={styles["title-icon"]}>License Number</p>
-                      <p className={styles["sub-title-icon"]}>MOH-274-36970</p>
+                      <p className={styles["sub-title-icon"]}>
+                        {practitioner.medicalLicense}
+                      </p>
                     </div>
                   </Col>
                 </Row>

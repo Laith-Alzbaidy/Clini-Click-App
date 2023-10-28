@@ -3,7 +3,9 @@
 const nextConfig = {
   env: {
     BASE_URL: "https://mashserver2.com/",
-    // ENVIRONMENT: "development",
+  },
+  images: {
+    domains: ["mashserver2.com", "t4.ftcdn.net", "www.cdc.gov"],
   },
 };
 

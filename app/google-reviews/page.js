@@ -8,7 +8,6 @@ const Page = () => {
         title="Google Reviews - Your Website Name"
         description="Check out what our customers have to say about us on Google Reviews."
       />
-
       <Reviews title="Google Reviews" />
     </div>
   );
