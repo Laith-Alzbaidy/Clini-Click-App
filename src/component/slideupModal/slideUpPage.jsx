@@ -27,30 +27,27 @@ const SlideUpPage = ({ data }) => {
             <div className="feedbackModalHeader">
               <div className={styles.container}>
                 <Image src={back} onClick={() => close()} />
-                <div className={styles.title}>sub category</div>
+                <div className={styles.title}>{data.name}</div>
                 <div className={styles.infoText}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  eiusmod tempor incidLorem ipsum dolor sit amet, consectetur
-                  adipiscing elit, sed eiusmod tempor incidLorem ipsum dolor sit
-                  amet.
+                 {data.description}
                 </div>
 
                 <div className={styles.container}>
                   <div className={styles.stepsTitle}>Before Treatment</div>
                   <ul>
-                    <li className={styles.list}>{data.title}</li>
+                    <li className={styles.list}>{data.beforeTreatmentNotes}</li>
                   </ul>
 
                   <div className={styles.stepsTitle}>During Treatment</div>
 
                   <ul>
-                    <li className={styles.list}>{data.title}</li>
+                    <li className={styles.list}>{data.duringTreatmentNotes}</li>
                   </ul>
 
                   <div className={styles.stepsTitle}>After Treatment</div>
 
                   <ul>
-                    <li className={styles.list}>{data.title}</li>
+                    <li className={styles.list}>{data.afterTreatmentNotes}</li>
                   </ul>
                 </div>
               </div>
