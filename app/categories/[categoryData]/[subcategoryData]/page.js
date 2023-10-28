@@ -66,7 +66,7 @@ const SubCategory = () => {
   }, [category, subcategory]); 
 
   if (!data) {
-    return <div>Error fetching data</div>;
+    return <div style={{display:"grid" , placeItems:"center" , height:"100vh" ,fontWeight:700}}>No data found !</div>;
   }
   const linestyle = {
     marginTop:"16px",
