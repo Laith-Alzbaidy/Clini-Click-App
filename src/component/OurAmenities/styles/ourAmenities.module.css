@@ -8,13 +8,15 @@
 .content-icon {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   gap: 8px;
   margin: 5px 0;
+  width: 122px !important;
 }
 
 .icon {
   color: var(--primary-color);
+  width: 28px !important;
+  height: 28px !important;
 }
 
 .text-icon {

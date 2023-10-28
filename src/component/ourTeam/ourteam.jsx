@@ -40,6 +40,7 @@ const slider = [
     alt: "image personal",
   },
 ];
+
 // const getData = async () => {
 //   const res = await fetch("https://jsonplaceholder.typicode.com/users");
 //   console.log("---------", res.data);
@@ -49,13 +50,16 @@ const slider = [
 //   return res.json();
 // };
 
-const OurTeam = ({ setIsModalOpen }) => {
+const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
   // const data = await getData();
-
-  const ouerTeam = slider.map((item, index) => {
+  const handleDataPractitioner = (item) => {
+    setIsModalOpen(true);
+    setPractitioner(item);
+  };
+  const ouerTeam = data.practitioners.map((item, index) => {
     return (
       <SwiperSlide
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => handleDataPractitioner(item)}
         className={styles["swiper-slide"]}
         key={index}
       >
@@ -64,18 +68,22 @@ const OurTeam = ({ setIsModalOpen }) => {
           <div className={styles["container-image"]}>
             <Image
               fill
-              src={item.image}
-              alt={item.alt}
+              src={`${item.picture}`}
+              alt="picture personal"
               className={styles["image"]}
             />
           </div>
 
           <div>
-            <h3 className={styles["name-card"]}>{item.name}</h3>
-            <p className={styles["specialization"]}>{item.specialization}</p>
+            <h3 className={styles["name-card"]}>{`${item.title.name} ${
+              item.firstName + item.lastName
+            }`}</h3>
+            <p className={styles["specialization"]}>{item.speciality.name}</p>
           </div>
 
-          <p className={styles["exp"]}>{item.exp}</p>
+          <p
+            className={styles["exp"]}
+          >{`${item.experienceYears}  years of experience`}</p>
 
           <div className={styles["container-rate-review"]}>
             <div>
@@ -85,7 +93,7 @@ const OurTeam = ({ setIsModalOpen }) => {
               <Image src={star} className={styles["star-image"]} alt="star" />
               <Image src={star} className={styles["star-image"]} alt="star" />
             </div>
-            <p className={styles["text-review"]}>{item.review}</p>
+            <p className={styles["text-review"]}>4.5</p>
           </div>
         </div>
         {/* </Link> */}

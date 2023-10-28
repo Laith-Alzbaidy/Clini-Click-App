@@ -19,19 +19,19 @@ const getData = async () => {
 };
 export default async function Home() {
   const data = await getData();
-  console.log("**************", data);
+  // console.log("**************", data.data.responseData);
 
   return (
     <>
       <div className="container1">
-        <Header />
-        <Hero />
-        <About />
+        <Header data={data.data.responseData} />
+        <Hero data={data.data.responseData} />
+        <About data={data.data.responseData} />
         {/* <OurTeam /> */}
-        <SlideUpDoctor />
-        <Location />
-        <OurAmenities />
-        <OurBusiness />
+        <SlideUpDoctor data={data.data.responseData} />
+        <Location data={data.data.responseData} />
+        <OurAmenities data={data.data.responseData} />
+        <OurBusiness data={data.data.responseData} />
         <Icon />
         <Link href="categories">
           <StickyButton title="Book appointment"/>

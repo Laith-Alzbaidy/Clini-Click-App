@@ -11,19 +11,19 @@ const Icon = () => {
     <div className={styles["container-icon"]}>
       <Link href="#">
         {" "}
-        <Image src={instagram} width={18} height={15} />
+        <Image src={instagram} width={18} height={15} alt="instagram-icon" />
       </Link>
       <Link href="#">
         {" "}
-        <Image src={facebook} width={18} height={15} />
+        <Image src={facebook} width={18} height={15} alt="facebook-icon" />
       </Link>
       <Link href="#">
         {" "}
-        <Image src={linkedin} width={18} height={15} />
+        <Image src={linkedin} width={18} height={15} alt="linkedin icon" />
       </Link>
       <Link href="#">
         {" "}
-        <Image src={frame} width={18} height={15} />
+        <Image src={frame} width={18} height={15} alt="X-icon" />
       </Link>
     </div>
   );

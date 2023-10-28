@@ -10,18 +10,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import "swiper/css";
 
-const Hero = () => {
+const Hero = ({ data }) => {
   const [index, setIndex] = useState(0);
-  const image = [imageHero, imageHero, imageHero, imageHero, imageHero];
 
   const handleSlideChange = (swiper) => {
     setIndex(swiper.activeIndex);
   };
-  const sliderHero = image.map((item, index) => {
+  const sliderHero = data.images.map((item, index) => {
     return (
       <SwiperSlide key={index}>
         <div className={styles["container-hero"]}>
-          <Image fill src={item} className={styles["image"]} alt="hero" />
+          <Image
+            fill
+            src={item.imageUrl}
+            className={styles["image"]}
+            alt="hero"
+          />
         </div>
       </SwiperSlide>
     );
@@ -29,18 +33,20 @@ const Hero = () => {
 
   return (
     <main className="section-hero">
-      <Swiper onSlideChange={handleSlideChange} slidesPerView={1}>
+      <Swiper
+        spaceBetween={20}
+        onSlideChange={handleSlideChange}
+        slidesPerView={1}
+      >
         {sliderHero}
         <div className={styles["number-image"]}>
-          <span>{`${index + 1}/5`}</span>
+          <span>{`${index + 1}/${sliderHero.length}`}</span>
         </div>
       </Swiper>
 
       {/* content hero */}
       <div className={styles["content-hero"]}>
-        <h1 className={styles["title-hero"]}>
-          Clinique de la belle au bois dormant
-        </h1>
+        <h1 className={styles["title-hero"]}>{data.name}</h1>
         <div className="d-flex align-items-center gap-4">
           <div>
             <Image src={star} className={styles["star-image"]} alt="star" />
@@ -59,12 +65,12 @@ const Hero = () => {
 
         <div className={styles["content-icon"]}>
           <Image src={location} className={styles["icon"]} alt="location" />
-          <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
+          <p className={styles["text-icon"]}>{data.country.name}</p>
         </div>
 
         <div className={styles["content-icon"]}>
           <Image src={call} className={styles["icon"]} alt="call" />
-          <p className={styles["text-icon"]}>+971-5-000000000</p>
+          <p className={styles["text-icon"]}>{data.phone}</p>
         </div>
       </div>
     </main>

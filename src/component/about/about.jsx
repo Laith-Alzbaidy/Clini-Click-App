@@ -9,7 +9,9 @@ import ReadMore from "../read-more/read-more";
 import ButtonPreviews from "../buttonPreviews/buttonPreviews";
 import Link from "next/link";
 import SlideUpAbout from "../slideupModal/slideUpAbout/slideUpAbout";
-const About = () => {
+const About = ({ data }) => {
+  const establishDate = data.establishDate;
+  const year = new Date(establishDate).getFullYear();
   return (
     <div className="about-section">
       <div>
@@ -19,13 +21,13 @@ const About = () => {
             <Image src={building} alt="building" />
             <div>
               <p className={styles["title-icon"]}>Established</p>
-              <p className={styles["date"]}>2010</p>
+              <p className={styles["date"]}>{year}</p>
             </div>
           </Col>
           <Col className="d-flex align-items-center gap-3 p-0 justify-content-center">
             <Image src={line} alt="building" />
             <div>
-              <p className={styles["title-icon"]}>License Number</p>
+              <p className={styles["title-icon"]}>{data.medicalLicense}</p>
               <p className={styles["date"]}>MOH-274-36970</p>
             </div>
           </Col>

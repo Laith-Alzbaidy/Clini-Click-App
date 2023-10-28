@@ -148,3 +148,8 @@ a {
     padding-top: 35px !important;
   }
 }
+
+.location iframe {
+  height: 150px;
+  border-radius: 20px;
+}
