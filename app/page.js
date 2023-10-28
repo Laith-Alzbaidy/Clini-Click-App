@@ -32,7 +32,7 @@ export default async function Home() {
         <Location data={data.data.responseData} />
         <OurAmenities data={data.data.responseData} />
         <OurBusiness data={data.data.responseData} />
-        <Icon />
+        <Icon data={data.data.responseData} />
         <Link href="categories">
           <StickyButton title="Book appointment" />
         </Link>

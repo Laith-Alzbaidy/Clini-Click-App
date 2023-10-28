@@ -17,14 +17,14 @@ const About = ({ data }) => {
       <div>
         <h1 className={styles["title"]}>About us</h1>
         <Row className={styles["card"]}>
-          <Col className="d-flex align-items-center gap-3 p-0 justify-content-center">
+          <Col className="d-flex align-items-center gap-2 p-0 justify-content-center">
             <Image src={building} alt="building" />
             <div>
               <p className={styles["title-icon"]}>Established</p>
               <p className={styles["date"]}>{year}</p>
             </div>
           </Col>
-          <Col className="d-flex align-items-center gap-3 p-0 justify-content-center">
+          <Col className="d-flex align-items-center gap-2 p-0 justify-content-center">
             <Image src={line} alt="building" />
             <div>
               <p className={styles["title-icon"]}>{data.medicalLicense}</p>
