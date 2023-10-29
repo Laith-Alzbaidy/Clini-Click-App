@@ -89,9 +89,9 @@ const SlideUpDoctor = ({ data }) => {
                     alt="star"
                   />
                 </div>
-                {/* <Link className={styles["link-review"]} href={`${1}/reviews`}>
-            <p className={styles["text-review"]}>106 reviews</p>
-          </Link> */}
+                <Link className={styles["link-review"]} href={`${1}/reviews`}>
+                  <p className={styles["text-review"]}>106 reviews</p>
+                </Link>
               </div>
             </div>
 
@@ -121,7 +121,7 @@ const SlideUpDoctor = ({ data }) => {
               <SlideUpAbout />
               <div className={styles["container-content"]}>
                 <Row className={styles["card"]}>
-                  <Col className="d-flex gap-3">
+                  <Col className="d-flex gap-2">
                     <Image src={global} alt="Languages" />
                     <div>
                       <p className={styles["title-icon"]}>Languages</p>
@@ -131,7 +131,7 @@ const SlideUpDoctor = ({ data }) => {
                       </p>
                     </div>
                   </Col>
-                  <Col className="d-flex gap-3">
+                  <Col className="d-flex gap-2">
                     <Image src={license} alt="License Number" />
                     <div>
                       <p className={styles["title-icon"]}>License Number</p>

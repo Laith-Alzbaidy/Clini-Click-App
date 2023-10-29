@@ -3,28 +3,35 @@ import Image from "next/image";
 import instagram from "./assets/image/instagram.svg";
 import linkedin from "./assets/image/linkedin.svg";
 import facebook from "./assets/image/facebook.svg";
-import frame from "./assets/image/frame.svg";
+import X from "./assets/image/frame.svg";
 import styles from "./styles/icon.module.css";
 import Link from "next/link";
-const Icon = () => {
+
+const Icon = ({ data }) => {
+  const socialMediaIcons = {
+    instagram: instagram,
+    facebook: facebook,
+    linkedin: linkedin,
+    x: X,
+  };
+
   return (
     <div className={styles["container-icon"]}>
-      <Link href="#">
-        {" "}
-        <Image src={instagram} width={18} height={15} alt="instagram-icon" />
-      </Link>
-      <Link href="#">
-        {" "}
-        <Image src={facebook} width={18} height={15} alt="facebook-icon" />
-      </Link>
-      <Link href="#">
-        {" "}
-        <Image src={linkedin} width={18} height={15} alt="linkedin icon" />
-      </Link>
-      <Link href="#">
-        {" "}
-        <Image src={frame} width={18} height={15} alt="X-icon" />
-      </Link>
+      {data.mediaLinks.map((linkData) => (
+        <Link
+          rel="noopener noreferrer"
+          target="_blank"
+          key={linkData.name}
+          href={linkData.link}
+        >
+          <Image
+            src={socialMediaIcons[linkData.name]}
+            width={18}
+            height={15}
+            alt={`${linkData.name}-icon`}
+          />
+        </Link>
+      ))}
     </div>
   );
 };
