@@ -9,7 +9,7 @@ import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import "swiper/css";
 import api from "@/config-API/config-API";
-
+import './a.css'
 const costumStyles = {
   marginTop: "25px",
   marginBottom: "18px",
@@ -167,7 +167,7 @@ const CategoryContent = () => {
               <Link
                 key={index}
                 href={{
-                  pathname: `categories/${categoryData.id}/${subcategoryData.id}`,
+                  pathname: `categories/treatment`,
                   query: {
                     category: categoryData.id,
                     subcategory: subcategoryData.id,

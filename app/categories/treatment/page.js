@@ -3,10 +3,10 @@ import React , {useEffect , useState}from "react";
 import styles from "./sub.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import RadioButtons from "../../../../src/component/radioButton/radioButton";
-import Btn from "../../../../src/component/button/button";
-import backicon from "../../assets/conhh.svg";
-import background from "../../assets/g.png";
+import RadioButtons from "../../../src/component/radioButton/radioButton";
+import Btn from "../../../src/component/button/button";
+import backicon from "../assets/conhh.svg";
+import background from "../assets/g.png";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
 import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
@@ -157,7 +157,9 @@ const SubCategory = () => {
           No payment will be taken until your appointment
         </p>
 
-        <Link href="/schedule-appointment">
+        <Link href={{ pathname :"/schedule-appointment",
+        
+      }} >
           <StickyButton title={"Continue to book AED 200"} />
         </Link>
       </div>
