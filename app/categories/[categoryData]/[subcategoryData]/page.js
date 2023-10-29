@@ -11,9 +11,9 @@ import StickyButton from "@/src/component/stickyButton/stickyButton";
 import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
-import { useRouter } from "next/navigation";
 import api from '@/config-API/config-API';
 import { useSearchParams } from 'next/navigation'
+
 const free = [{ label: "Free", value: "Free" }];
 const Body = [
   { label: "Arms", value: "Arms" },
@@ -107,9 +107,9 @@ const SubCategory = () => {
             <div>- 20 min</div>
 
           </div>
-          <div className={styles.customradio}>
+   
             <RadioButtons options={free} />
-          </div>
+
         </div>
 
        <Bold additionalStyles={linestyle}/>
