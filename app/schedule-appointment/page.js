@@ -3,149 +3,197 @@ import React from "react";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 import styles from "./styles/schedule-appointment.module.css";
 import star from "./assets/image/Star.svg";
-import image from "./assets/image/image.png";
 import Image from "next/image";
 import user from "./assets/image/user.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Btn from "@/src/component/button/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "swiper/css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import api from "@/config-API/config-API";
+import image from "./assets/image/user.svg";
+import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
+
+const date = new Date();
+const month = date.toLocaleString("default", { month: "long" });
+const monthAsOneBasedNumber = date.getMonth() + 1;
+
 const Practitioner = () => {
   const router = useRouter();
-
   const [selectedTime, setSelectedTime] = useState();
   const [selectedDay, setSelectedDay] = useState();
   const [selectedDate, setSelectedDate] = useState();
-  const [slecetedDoctor, setSelectedDoctor] = useState();
+  const [selectedDateId, setSelectedDateId] = useState();
+  const [slecetedDoctor, setSelectedDoctor] = useState(null);
+  const [data, setData] = useState([]);
+  const searchParams = useSearchParams();
+  const subcategory = searchParams.get("subcategoryId");
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await api.get(
+          `clinic/AbdullahClinic/Treatments/${subcategory}/practitioners`
+        );
+        const responseData = response.data.responseData;
+        setData(responseData);
+        console.log(responseData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setData(null);
+      }
+    }
+    fetchData();
+  }, [subcategory]);
+
+  const [availability, setAvailability] = useState([]);
+
+  const fetchAvailableHours = async (practitionerId, selectedDate) => {
+    try {
+      const response = await api.get(
+        `PractitionerAvailability/${practitionerId}?date=${selectedDate}`
+      );
+      const data = response.data.responseData;
+      setAvailability(data);
+    } catch (error) {
+      console.error("Error fetching available hours:", error);
+    }
+  };
+
+  const handlePractitionerSelect = (practitionerId) => {
+    setSelectedDoctor(practitionerId);
+    if (practitionerId && selectedDate) {
+      fetchAvailableHours(practitionerId, selectedDate);
+    }
+  };
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
+    console.log(Time);
   };
 
-  const handleDayClick = (day, date) => {
+  const handleDayClick = (day, date, id, value) => {
     setSelectedDay(day);
-    setSelectedDate(date);
-    console.log(day);
-    console.log(date);
+    setSelectedDate(value);
+    console.log(value);
+    setSelectedDateId(id);
+    if (slecetedDoctor) {
+      fetchAvailableHours(slecetedDoctor, value);
+    }
   };
 
-  const handleConfirm = () => {
-    router.push(`/login`);
-  };
-  // Data for practitioner information
-  const slider = [
-    {
-      id: 1,
-      image: image,
-      name: "Dr. Marcus Horizon",
-      specialization: "Cardiologist",
-      exp: "10 years of experience",
-      review: "106 reviews",
-      alt: "image personal",
-    },
-    {
-      id: 2,
-      image: image,
-      name: "Dr. Maria Helena",
-      specialization: "Psychologist",
-      exp: "6 years of experience",
-      review: "156 reviews",
-      alt: "image personal",
-    },
-    {
-      id: 3,
-      image: image,
-      name: "Dr. Smeer Horizon",
-      specialization: "Cardiologist",
-      exp: "12 years of experience",
-      review: "200 reviews",
-      alt: "image personal",
-    },
-  ];
+  const team = data
+    ? data.map((practitioner, index) => {
+        const isActive = practitioner.id == slecetedDoctor;
 
-  // Map practitioner data to create cards
-  const team = slider.map((item, index) => {
-    const isActive = item.name == slecetedDoctor;
+        return (
+          <SwiperSlide className={styles["swiper-slide"]} key={index}>
+            <div
+              onClick={() => {
+                handlePractitionerSelect(practitioner.id);
+                setSelectedDoctor(practitioner.id);
+              }}
+              className={`${styles["container-card"]} ${
+                isActive ? styles["active-container-card"] : ""
+              }`}>
+              <div className={styles["container-image"]}>
+                {practitioner.picture !== null ? (
+                  <Image
+                    fill
+                    src={practitioner.picture}
+                    alt={"practitioner"}
+                    className={styles["image"]}
+                    priority
+                  />
+                ) : (
+                  <Image
+                    src={image}
+                    alt={"practitioner"}
+                    className={styles["image"]}
+                    priority
+                  />
+                )}
+              </div>
 
-    return (
-      <SwiperSlide className={styles["swiper-slide"]} key={index}>
-        <div
-          onClick={() => setSelectedDoctor(item.name)}
-          className={`${styles["container-card"]} ${
-            isActive ? styles["active-container-card"] : ""
-          }`}
-        >
-          <div className={styles["container-image"]}>
-            <Image
-              fill
-              src={item.image}
-              alt={item.alt}
-              className={styles["image"]}
-              priority
-            />
-          </div>
+              <div>
+                <h1 className={styles["name-card"]}>{`${practitioner.title} ${
+                  practitioner.firstName + practitioner.lastName
+                }`}</h1>
+                <p className={styles["specialization"]}>
+                  {practitioner.speciality}
+                </p>
+                <p className={styles["exp"]}>
+                  {practitioner.experienceYears} years of experience
+                </p>
+              </div>
 
-          <div>
-            <h3 className={styles["name-card"]}>{item.name}</h3>
-            <p className={styles["specialization"]}>{item.specialization}</p>
-          </div>
+              <p className={styles["exp"]}>{practitioner.exp}</p>
+              <div className={styles["container-rate-review"]}>
+                <div>
+                  {/* Display star images */}
+                  <Image
+                    src={star}
+                    className={styles["star-image"]}
+                    alt="star"
+                  />
+                  <Image
+                    src={star}
+                    className={styles["star-image"]}
+                    alt="star"
+                  />
+                  <Image
+                    src={star}
+                    className={styles["star-image"]}
+                    alt="star"
+                  />
+                  <Image
+                    src={star}
+                    className={styles["star-image"]}
+                    alt="star"
+                  />
+                  <Image
+                    src={star}
+                    className={styles["star-image"]}
+                    alt="star"
+                  />
+                </div>
+                <p className={styles["text-review"]}>
+                  {practitioner.rating} reviews
+                </p>
+              </div>
 
-          <p className={styles["exp"]}>{item.exp}</p>
-          <div className={styles["container-rate-review"]}>
-            <div>
-              {/* Display star images */}
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
-              <Image src={star} className={styles["star-image"]} alt="star" />
+              <p className={styles["view-profile"]}>View Profile</p>
             </div>
-            <p className={styles["text-review"]}>{item.review}</p>
-          </div>
-          <p className={styles["view-profile"]}>View Profile</p>
-        </div>
-      </SwiperSlide>
-    );
-  });
+          </SwiperSlide>
+        );
+      })
+    : null;
 
   // Data for scheduling options
 
-  const timeSlots = [
-    "09:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "01:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-    "05:00 PM",
-    "06:00 PM",
-    "07:00 PM",
-    "08:00 PM",
-  ];
   const schedulingData = [
-    { day: "Mon", date: 24 },
-    { day: "Tue", date: 25 },
-    { day: "Wed", date: 26 },
-    { day: "Thu", date: 27 },
-    { day: "Fri", date: 28 },
-    { day: "Sat", date: 29 },
-    { day: "Sun", date: 30 },
+    { day: "Mon", date: 24, id: 1, value: "10-11-23" },
+    { day: "Tue", date: 25, id: 2, value: "10-23-23" },
+    { day: "Wed", date: 26, id: 3, value: "10-12-23" },
+    { day: "Thu", date: 27, id: 4, value: "10-21-23" },
+    { day: "Fri", date: 28, id: 5, value: "10-14-23" },
+    { day: "Sat", date: 29, id: 6, value: "10-17-23" },
+    { day: "Sun", date: 30, id: 7, value: "10-24-23" },
   ];
 
   // Map scheduling data to create scheduling slides
   const schedulingSlides = schedulingData.map((item, index) => {
-    const isActive = item.day === selectedDay && item.date === selectedDate;
+    const isActive = item.day === selectedDay && item.value === selectedDate;
     return (
-      <SwiperSlide key={index}>
+      <SwiperSlide key={item.id}>
         <div
           className={`${styles["container-scheduling"]} ${
-            isActive ? styles.active : console.log(isActive)
+            isActive ? styles.active : ""
           }`}
-          onClick={() => handleDayClick(item.day, item.date)}
-        >
+          onClick={() =>
+            handleDayClick(item.day, item.date, item.id, item.value)
+          }>
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -176,8 +224,7 @@ const Practitioner = () => {
                 centeredSlides={false}
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-              >
+                onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div className={`${styles["container-card"]} `}>
                     <div className="d-flex flex-column align-items-center gap-2">
@@ -204,7 +251,7 @@ const Practitioner = () => {
             <h2 className={styles["question"]}>
               Which day would you like to book?
             </h2>
-            <p className="mt-2">July</p>
+            <p className="mt-2">{month}</p>
           </div>
 
           <div className="mt-2">
@@ -213,8 +260,7 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
+              onSwiper={(swiper) => console.log(swiper)}>
               {schedulingSlides} {/* Render scheduling options */}
             </Swiper>
           </div>
@@ -230,18 +276,23 @@ const Practitioner = () => {
               </div>
 
               <div className={styles.Bigcontainer}>
-                {timeSlots.map((time, index) => (
-                  <div className={styles.timeContainer}>
-                    <p
-                      className={styles["time"]}
+                {availability && availability.data ? (
+                  availability.data.map((time, index) => (
+                    <div
+                      className={`${styles.timeContainer} ${
+                        time.erId === selectedTime ? styles.activeTime : ""
+                      }`}
                       key={index}
-                      value={time}
-                      onClick={() => handleTimeSelect(time)}
-                    >
-                      {time}
-                    </p>
-                  </div>
-                ))}
+                      onClick={() => handleTimeSelect(time.erId)}>
+                      <p className={styles["time"]}>{time.er_time}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>
+                    * Please select a practitioner and a date to display the
+                    available times.
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -252,8 +303,17 @@ const Practitioner = () => {
         <p className="text-center">
           No payment will be taken until your appointment
         </p>
-
-        <Btn title="Continue" margin="10px 0" onClick={handleConfirm} />
+        <Link
+          href={{
+            pathname: "/login",
+            query: {
+              subcategoryId: subcategory,
+              practitionerId: slecetedDoctor,
+              timeId: selectedTime,
+            },
+          }}>
+          <Btn title="Continue" margin="10px 0" />
+        </Link>
       </div>
     </div>
   );
