@@ -1,24 +1,37 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import arrow from "./assets/image/ChevronLeft.svg";
-import ClosePrev from "@/src/component/close-prev/close-prev";
-import styles from "./styles/login.module.css";
+import { useRouter, usePathname } from "next/navigation";
 import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import api from "@/config-API/config-API";
+import ClosePrev from "@/src/component/close-prev/close-prev";
 import Btn from "@/src/component/button/button";
-import "react-phone-input-2/lib/style.css";
-import { countries } from "./phone-countries/phone-country";
-import "react-phone-input-2/lib/style.css";
-import { useRouter } from "next/navigation";
+import styles from "./styles/login.module.css";
 
 const Login = () => {
   const router = useRouter();
   const [phone, setPhone] = useState("");
+  const [show, setShow] = useState(true);
 
-  const handleConfirm = () => {
-    console.log(phone);
-    router.push(`/otb`);
+  const handleConfirm = async () => {
+    try {
+      const response = await sendPhoneOTP(phone);
+
+      router.push("/otb");
+      localStorage.setItem("phone", phone);
+
+      console.log(response.data);
+    } catch (error) {
+      console.log("Error sending OTP:", error);
+    }
+  };
+
+  const sendPhoneOTP = async (phoneNumber) => {
+    const response = await api.post("OTP/Send", {
+      phoneNumber,
+    });
+    return response;
   };
 
   return (
@@ -41,7 +54,7 @@ const Login = () => {
         <PhoneInput
           country={"ae"}
           value={phone}
-          onChange={(phone) => console.log({ phone })}
+          onChange={(phone) => setPhone(phone)}
         />
         {/* </div> */}
       </div>

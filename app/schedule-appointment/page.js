@@ -65,7 +65,7 @@ const Practitioner = () => {
   ];
 
   // Map practitioner data to create cards
-  const team = slider.map((item, index) => {
+  const practitioner = slider.map((item, index) => {
     const isActive = item.name == slecetedDoctor;
 
     return (
@@ -191,7 +191,7 @@ const Practitioner = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                {team} {/* Render practitioner cards */}
+                {practitioner} {/* Render practitioner cards */}
               </Swiper>
             </div>
           </div>

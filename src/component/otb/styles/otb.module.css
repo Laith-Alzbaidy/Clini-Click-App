@@ -20,6 +20,9 @@
   color: var(--secondary-color);
   text-align: center;
   font-weight: 600;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
 }
 
 .input-digit {
