@@ -34,7 +34,7 @@ export default async function Home() {
         <OurBusiness data={data.data.responseData} />
         <Icon data={data.data.responseData} />
         <Link href="categories">
-          <StickyButton title="Book appointment"/>
+          <StickyButton title="Book appointment" />
         </Link>
         <div className="container-footer">
           <Footer />

@@ -238,7 +238,7 @@ const Practitioner = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                {team} {/* Render practitioner cards */}
+                {practitioner} {/* Render practitioner cards */}
               </Swiper>
             </div>
           </div>
