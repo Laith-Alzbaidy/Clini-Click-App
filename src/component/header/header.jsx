@@ -18,7 +18,7 @@ const Header = ({ data }) => {
       <Image src={data.logo} width={120} height={50} alt="logo" />
 
       {token ? (
-        <Link href={"/user-details"}>
+        <Link href={"/profile"}>
           <Image src={UserIcon} alt="User-Icon" />
         </Link>
       ) : (

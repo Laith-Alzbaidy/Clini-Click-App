@@ -8,7 +8,7 @@ import Image from "next/image";
 import user from "./assets/image/user.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Btn from "@/src/component/button/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "swiper/css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -18,6 +18,31 @@ const Practitioner = () => {
   const [selectedTime, setSelectedTime] = useState();
   const [selectedDay, setSelectedDay] = useState();
   const [selectedDate, setSelectedDate] = useState();
+  const [schedulingData, setSchedulingData] = useState([]);
+  const [selectedMonth, setSelectedMonth] = useState(new Date());
+
+  useEffect(() => {
+    // Calculate the number of days in the selected month and year
+    const year = selectedMonth.getFullYear();
+    const month = selectedMonth.getMonth();
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    // Generate scheduling data for the entire month
+    const generatedSchedulingData = [];
+    for (let date = 1; date <= daysInMonth; date++) {
+      const day = getDayName(new Date(year, month, date));
+      generatedSchedulingData.push({ day, date });
+    }
+
+    setSchedulingData(generatedSchedulingData);
+  }, [selectedMonth]);
+
+  const getDayName = (date) => {
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayIndex = date.getDay();
+    return dayNames[dayIndex];
+  };
   const [slecetedDoctor, setSelectedDoctor] = useState();
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
@@ -125,15 +150,15 @@ const Practitioner = () => {
     "07:00 PM",
     "08:00 PM",
   ];
-  const schedulingData = [
-    { day: "Mon", date: 24 },
-    { day: "Tue", date: 25 },
-    { day: "Wed", date: 26 },
-    { day: "Thu", date: 27 },
-    { day: "Fri", date: 28 },
-    { day: "Sat", date: 29 },
-    { day: "Sun", date: 30 },
-  ];
+  // const schedulingData = [
+  //   { day: "Mon", date: 24 },
+  //   { day: "Tue", date: 25 },
+  //   { day: "Wed", date: 26 },
+  //   { day: "Thu", date: 27 },
+  //   { day: "Fri", date: 28 },
+  //   { day: "Sat", date: 29 },
+  //   { day: "Sun", date: 30 },
+  // ];
 
   // Map scheduling data to create scheduling slides
   const schedulingSlides = schedulingData.map((item, index) => {
@@ -142,7 +167,7 @@ const Practitioner = () => {
       <SwiperSlide key={index}>
         <div
           className={`${styles["container-scheduling"]} ${
-            isActive ? styles.active : console.log(isActive)
+            isActive ? styles.active : ""
           }`}
           onClick={() => handleDayClick(item.day, item.date)}
         >

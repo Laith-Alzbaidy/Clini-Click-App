@@ -14,6 +14,7 @@ import InputField from "@/src/component/inputField/inputField";
 import Popup from "reactjs-popup";
 import "./modal.css";
 import Footer from "@/src/component/footer/footer";
+
 const style = {
   marginTop: "45px",
 };
@@ -78,7 +79,7 @@ const Profile = () => {
   };
   return (
     <div className={styles.costumContainer}>
-      <Link href={"/sub-details"}>
+      <Link href={"/"}>
         <Image src={backIcon} className={styles.backIcon} alt="back" />
       </Link>
       <div className={styles.title}>My details</div>

@@ -62,3 +62,9 @@
 .form-input {
   margin-top: 40px;
 }
+
+.error {
+  border: 1px solid #ff8e8e;
+  background: #ffc6c6;
+  padding: 10px;
+}
