@@ -110,10 +110,11 @@ const Practitioner = () => {
       .toString()
       .padStart(2, "0");
     const dateFormatted = date.toString().padStart(2, "0");
+    const yearFormatted = selectedDate.getFullYear();
 
-    const yearFormatted = (selectedDate.getFullYear() % 100)
-      .toString()
-      .padStart(2, "0");
+    // const yearFormatted = (selectedDate.getFullYear() % 100)
+    //   .toString()
+    //   .padStart(2, "0");
     const selected = `${selectedMonthFormatted}-${dateFormatted}-${yearFormatted}`;
     setDate(selected);
     console.log(selected);
