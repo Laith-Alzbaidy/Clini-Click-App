@@ -23,7 +23,8 @@ const SubCategory = () => {
   const [data, setData] = useState(null);
   const [optionsData, setOptionsData] = useState();
   const searchParams = useSearchParams();
-
+  const [optionSelect, setOptionSelect] = useState(null);
+  const [responseData, setResponseData] = useState(null);
   const category = searchParams.get("category");
   const subcategory = searchParams.get("subcategoryId");
   console.log(subcategory);
@@ -77,6 +78,24 @@ const SubCategory = () => {
       </div>
     );
   }
+
+  const handleOptionSelect = async (event) => {
+    const selectedOption = event.target.value;
+    setOptionSelect(selectedOption);
+    try {
+      const response = await api.post(
+        `clinic/AbdullahClinic/subcategories/${subcategory}/options`,
+        { selectedOption }
+      );
+
+      const responseData = response.data.responseData;
+      setResponseData(responseData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setResponseData(null);
+    }
+  };
+
   return (
     <>
       <Link href={"/categories"}>
@@ -119,54 +138,124 @@ const SubCategory = () => {
                     </div>
                     <div>
                       <div>AED {item.consultation.price}</div>
-                      <input type="radio"></input>
+                      <input
+                        type="radio"
+                        value="consultation"
+                        onClick={handleOptionSelect}
+                      />
                     </div>
                   </div>
                 )}
                 <Bold additionalStyles={linestyle} />
-                {item.bodyAreas.map((area, index) => (
-                  <div key={index}>
-                    <div className={styles.SelectHeader}>
-                      <div>Body area</div>
-                      <div>Required</div>
-                    </div>
+                <div className={styles.SelectHeader}>
+                  <div>Body area</div>
+                  <div>Required</div>
+                </div>
+                {item.bodyAreas.map((area, areaIndex) => (
+                  <div key={areaIndex}>
                     <div className={styles.optionsContainer}>
                       <div>
                         <p>{area.name}</p>
                         <p>{area.duration} min</p>
                       </div>
                       <div>
-                      <p> AED {area.price}</p>
-                      <input type="radio"></input>
+                        <p>AED {area.price}</p>
+                        <input
+                          type="radio"
+                          value={area.name}
+                          onClick={handleOptionSelect}
+                        />
                       </div>
                     </div>
                   </div>
                 ))}
+                {/* Render "Devices" if available */}
+                {item.devices && (
+                  <div>
+                    <Bold additionalStyles={linestyle} />
+                    <div className={styles.SelectHeader}>
+                      <div>Devices</div>
+                      <div>Required</div>
+                    </div>
+                    {item.devices.map((device, deviceIndex) => (
+                      <div key={deviceIndex}>
+                        <div className={styles.optionsContainer}>
+                          <div>
+                            <p>{device.name}</p>
+                            <p>{device.duration} min</p>
+                          </div>
+                          <div>
+                            <p>AED {device.price}</p>
+                            <input
+                              type="radio"
+                              value={device.name}
+                              onClick={handleOptionSelect}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {/* Render "Sessions" if available */}
+                {item.sessions && (
+                  <div>
+                    <Bold additionalStyles={linestyle} />
+                    <div className={styles.SelectHeader}>
+                      <div>Sessions</div>
+                      <div>Required</div>
+                    </div>
+                    {item.sessions.map((session, sessionIndex) => (
+                      <div key={sessionIndex}>
+                        <div className={styles.optionsContainer}>
+                          <div>
+                            <p>{session.name}</p>
+                            <p>{session.duration} min</p>
+                          </div>
+                          <div>
+                            <p>AED {session.price}</p>
+                            <input
+                              type="radio"
+                              value={session.name}
+                              onClick={handleOptionSelect}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ) : (
               <div>
-                {item.default && (
-                  <div className={styles.constContainer}>
-                    <div className={styles.constChildContainer}>
-                      <p>Default name</p>
-                      <p>- {item.default.duration} min</p>
-                    </div>
-                    <div>
-                      <div>AED {item.consultation.price}</div>
-                      <input type="radio"/>
-                    </div>
+                <div className={styles.constContainer}>
+                  <div className={styles.constChildContainer}>
+                    <p>Default name</p>
+                    <p>- {item.default.duration} min</p>
                   </div>
-                )}
+                  <div>
+                    <div>AED {item.consultation.price}</div>
+                    <input
+                      type="radio"
+                      value="default"
+                      onClick={handleOptionSelect}
+                    />
+                  </div>
+                </div>
                 <Bold additionalStyles={linestyle} />
                 {item.consultation && (
                   <div className={styles.constContainer}>
                     <div className={styles.constChildContainer}>
-                      <div>Consultation only</div>
-                      <div> - {item.consultation.duration} min</div>
+                      <p>Consultation only</p>
+                      <p> - {item.consultation.duration} min</p>
                     </div>
                     <div>
                       <div>AED {item.consultation.price}</div>
-                      <input type="radio"></input>
+                      <input
+                        type="radio"
+                        value="consultation"
+                        onClick={handleOptionSelect}
+                      />
                     </div>
                   </div>
                 )}
