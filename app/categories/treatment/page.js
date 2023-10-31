@@ -44,7 +44,7 @@ const SubCategory = () => {
   const searchParams = useSearchParams();
 
   const category = searchParams.get('category');
-  const subcategory = searchParams.get('subcategory');
+  const subcategory = searchParams.get('subcategoryId');
 
   useEffect(() => {
     async function fetchData() {
@@ -157,9 +157,7 @@ const SubCategory = () => {
           No payment will be taken until your appointment
         </p>
 
-        <Link href={{ pathname :"/schedule-appointment",
-        
-      }} >
+        <Link href={`/schedule-appointment?subcategoryId=${subcategory}`} >
           <StickyButton title={"Continue to book AED 200"} />
         </Link>
       </div>

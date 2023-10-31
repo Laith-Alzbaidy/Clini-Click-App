@@ -150,10 +150,13 @@
   font-weight: 400;
 }
 
-.card-time:hover .time {
+/* .card-time:hover .time {
   color: white;
+} */
+.activeTime{
+  background-color: #a75cff;
+  color: #fff;
 }
-
 .timeContainer {
   border-radius: 15px;
   border: 1px solid #adadad;
@@ -166,9 +169,9 @@
   margin-top: 20px;
 }
 
-.timeContainer:hover {
+/* .timeContainer:hover {
   background-color: var(--secondary-color);
-}
+} */
 
 .timeContainer:hover .time {
   color: white;

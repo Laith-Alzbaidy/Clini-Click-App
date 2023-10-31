@@ -170,7 +170,7 @@ const CategoryContent = () => {
                   pathname: `categories/treatment`,
                   query: {
                     category: categoryData.id,
-                    subcategory: subcategoryData.id,
+                    subcategoryId: subcategoryData.id,
                   },
                 }}
                 className={styles.link}>
