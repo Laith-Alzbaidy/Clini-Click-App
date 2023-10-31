@@ -9,10 +9,20 @@ import location from "./assets/image/location.svg";
 import StickyButton from "../stickyButton/stickyButton";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+
 const Payment = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const subcategory = searchParams.get("subcategoryId");
+  const practitionerId = searchParams.get("practitionerId");
+  const timeId = searchParams.get("timeId");
+  const DateId = searchParams.get("DateId");
+
+  console.log(DateId, timeId, practitionerId, subcategory);
   const [selectedValue, setSelectedValue] = useState(""); // Set the default value here
 
-  const router = useRouter();
   const [offer, setOffer] = useState("");
   const handleConfirm = () => {
     router.push(`/payment/confirm-book`);

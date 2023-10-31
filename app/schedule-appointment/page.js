@@ -58,7 +58,6 @@ const Practitioner = () => {
     return dayNames[dayIndex];
   };
 
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -104,20 +103,23 @@ const Practitioner = () => {
     setSelectedDay(day);
     setSelectedDate(date);
     setSelectedDateId(id);
-  
+
     const selectedDate = new Date(selectedMonth);
-    const selectedMonthFormatted = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
-    const dateFormatted = date.toString().padStart(2, '0');
-    const yearFormatted = (selectedDate.getFullYear() % 100).toString().padStart(2, '0');
+    const selectedMonthFormatted = (selectedDate.getMonth() + 1)
+      .toString()
+      .padStart(2, "0");
+    const dateFormatted = date.toString().padStart(2, "0");
+    const yearFormatted = (selectedDate.getFullYear() % 100)
+      .toString()
+      .padStart(2, "0");
     const selected = `${selectedMonthFormatted}-${dateFormatted}-${yearFormatted}`;
-    setDate(selected)
+    setDate(selected);
     console.log(selected);
-  
+
     if (slecetedDoctor) {
       fetchAvailableHours(slecetedDoctor, date);
     }
   };
-  
 
   const team = data
     ? data.map((practitioner, index) => {
@@ -218,7 +220,8 @@ const Practitioner = () => {
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }>
+          }
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -287,7 +290,8 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}>
+              onSwiper={(swiper) => console.log(swiper)}
+            >
               {schedulingSlides} {/* Render scheduling options */}
             </Swiper>
           </div>

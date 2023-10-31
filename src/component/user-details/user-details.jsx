@@ -12,6 +12,7 @@ import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
 import { useRouter } from "next/navigation";
 import validator from "validator";
+import { useSearchParams } from "next/navigation";
 const PractitionerDetails = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -19,6 +20,14 @@ const PractitionerDetails = () => {
     lastName: "",
     email: "",
   });
+
+  const searchParams = useSearchParams();
+
+  //params Id
+  const subcategory = searchParams.get("subcategoryId");
+  const practitionerId = searchParams.get("practitionerId");
+  const timeId = searchParams.get("timeId");
+  const DateId = searchParams.get("DateId");
 
   const [errors, setErrors] = useState({});
 
@@ -72,7 +81,13 @@ const PractitionerDetails = () => {
     if (handleConfirm()) {
       console.log(" handleConfirm();", handleConfirm());
       sendUserDetails();
-      router.push("/payment");
+      Cookies.set("token", token, {
+        expires: 1 / 24,
+        secure: true,
+      });
+      router.push(
+        `/payment?subcategoryId=${subcategory}&practitionerId=${practitionerId}&timeId${timeId}&DateId=${DateId}`
+      );
     }
     // console.log("Form data submitted:", formData);
   };
@@ -84,7 +99,7 @@ const PractitionerDetails = () => {
       },
     });
 
-    console.log(response.data);
+    console.log("use-details", response.data.responseData);
   };
   return (
     <div className="container1">
