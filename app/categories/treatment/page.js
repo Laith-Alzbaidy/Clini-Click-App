@@ -23,8 +23,8 @@ const SubCategory = () => {
   const [data, setData] = useState(null);
   const [optionsData, setOptionsData] = useState();
   const searchParams = useSearchParams();
-  const [optionSelect, setOptionSelect] = useState(null);
-  const [responseData, setResponseData] = useState(null);
+  const [selectedBodyArea, setSelectedBodyArea] = useState(null);
+  const [deviceSelect, setDeviceSelect] = useState(null);
   const category = searchParams.get("category");
   const subcategory = searchParams.get("subcategoryId");
   console.log(subcategory);
@@ -80,22 +80,26 @@ const SubCategory = () => {
   }
 
   const handleOptionSelect = async (event) => {
-    const selectedOption = event.target.value;
-    setOptionSelect(selectedOption);
     try {
-      const response = await api.post(
-        `clinic/AbdullahClinic/subcategories/${subcategory}/options`,
-        { selectedOption }
-      );
+      const selectedOption = event.target.value;
 
-      const responseData = response.data.responseData;
-      setResponseData(responseData);
+      if (selectedOption === "default") {
+        setSelectedBodyArea(null);
+      } else {
+        setSelectedBodyArea(selectedOption);
+        const response = await api.get(
+          `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
+        );
+        const responseData = response.data.responseData;
+        setDeviceSelect(responseData);
+        console.log(responseData, "irure");
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
-      setResponseData(null);
+      setDeviceSelect(null);
     }
   };
-
+  console.log(deviceSelect, "device");
   return (
     <>
       <Link href={"/categories"}>
@@ -134,7 +138,10 @@ const SubCategory = () => {
                   <div className={styles.constContainer}>
                     <div className={styles.constChildContainer}>
                       <div>Consultation only</div>
-                      <div> - {item.consultation.duration} min</div>
+                      <div className={styles.duration}>
+                        {" "}
+                        - {item.consultation.duration} min
+                      </div>
                     </div>
                     <div>
                       <div>AED {item.consultation.price}</div>
@@ -155,8 +162,11 @@ const SubCategory = () => {
                   <div key={areaIndex}>
                     <div className={styles.optionsContainer}>
                       <div>
-                        <p>{area.name}</p>
-                        <p>{area.duration} min</p>
+                        <p className={styles.name}>{area.name}</p>
+                        <p className={styles.duration}>
+                          {" "}
+                          - {area.duration} min
+                        </p>
                       </div>
                       <div>
                         <p>AED {area.price}</p>
@@ -164,67 +174,76 @@ const SubCategory = () => {
                           type="radio"
                           value={area.name}
                           onClick={handleOptionSelect}
+                          name="bodyArea"
                         />
                       </div>
                     </div>
                   </div>
                 ))}
-                {/* Render "Devices" if available */}
-                {item.devices && (
+                {deviceSelect && deviceSelect.devices && (
                   <div>
                     <Bold additionalStyles={linestyle} />
                     <div className={styles.SelectHeader}>
                       <div>Devices</div>
                       <div>Required</div>
                     </div>
-                    {item.devices.map((device, deviceIndex) => (
-                      <div key={deviceIndex}>
+                    {deviceSelect.devices.map((device, index) => (
+                      <div key={index}>
                         <div className={styles.optionsContainer}>
                           <div>
                             <p>{device.name}</p>
-                            <p>{device.duration} min</p>
+                            <p className={styles.duration}>
+                              - {device.duration} min
+                            </p>
                           </div>
                           <div>
                             <p>AED {device.price}</p>
                             <input
                               type="radio"
+                              name="device"
                               value={device.name}
-                              onClick={handleOptionSelect}
                             />
                           </div>
                         </div>
+                        {index !== deviceSelect.devices.length - 1 && (
+                          <div
+                            style={{
+                              width: "100%",
+                              margin: "1rem auto",
+                              border: "solid 1px #E8F3F1",
+                            }}></div>
+                        )}
                       </div>
                     ))}
                   </div>
                 )}
-                {/* Render "Sessions" if available */}
-                {item.sessions && (
-                  <div>
-                    <Bold additionalStyles={linestyle} />
-                    <div className={styles.SelectHeader}>
-                      <div>Sessions</div>
-                      <div>Required</div>
+                {/* {responseData && selectedBodyArea === item.name && responseData.sessions && (
+                <div>
+                  <Bold additionalStyles={linestyle} />
+                  <div className={styles.SelectHeader}>
+                    <div>Sessions</div>
+                    <div>Required</div>
+                  </div>
+                  {responseData.sessions.map((session, sessionIndex) => (
+                    <div key={sessionIndex}>
+                      <div className={styles.optionsContainer}>
+                        <div>
+                          <p>{session.name}</p>
+                          <p>{session.duration} min</p>
+                        </div>
+                        <div>
+                          <p>AED {session.price}</p>
+                          <input
+                            type="radio"
+                            value={session.name}
+                            onClick={handleOptionSelect}
+                          />
+                        </div>
+                      </div>
                     </div>
-                    {item.sessions.map((session, sessionIndex) => (
-                      <div key={sessionIndex}>
-                        <div className={styles.optionsContainer}>
-                          <div>
-                            <p>{session.name}</p>
-                            <p>{session.duration} min</p>
-                          </div>
-                          <div>
-                            <p>AED {session.price}</p>
-                            <input
-                              type="radio"
-                              value={session.name}
-                              onClick={handleOptionSelect}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                  ))}
+                </div>
+              )} */}
               </div>
             ) : (
               <div>
