@@ -1,11 +1,11 @@
-.backIcon{
+.backIcon {
   margin: 28px 0 0 25px;
 }
 .background {
   border-radius: 25px;
   padding: 0 28px 0 28px;
 }
-.holder{
+.holder {
   padding: 28px 0 28px 0;
 }
 .containerHero {
@@ -14,7 +14,7 @@
   margin: 20px auto;
   position: relative;
 }
-.mainContainer{
+.mainContainer {
   padding: 0 28px 0 28px;
 }
 .subName {
@@ -45,42 +45,53 @@
 .container {
   margin: 2rem auto 1rem auto;
 }
-.button{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  z-index:100;
+.button {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
 .constContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0 0 0;
+  margin: 1rem 0 0 0;
   padding: 0 0px 0 28px;
 }
 .constChildContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
 }
 .constChildContainer :nth-child(1) {
   color: #000;
   font-size: 14px;
   font-weight: 700;
-  margin-bottom: 0.5rem;
 }
 .constChildContainer :nth-child(2) {
   color: #828282;
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 0.5rem;
+}
+.constContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  padding-right: 28px;
+  gap: 0.5rem;
+}
+.constContainer input[type="radio"] {
+  accent-color: #a75cff;
+  width: 15px;
+  height: 15px;
 }
 .SelectHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.5rem 0 30px 0;
+  margin: 0.5rem 0 10px 0;
   padding: 0 28px 0 28px;
 }
 .SelectHeader div {
@@ -88,9 +99,29 @@
   font-size: 14px;
   font-weight: 700;
 }
-
-.customradio input[type="radio"] {
-  accent-color: var(--icon-btn-color);
+.optionsContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px 0 28px;
+}
+.optionsContainer :nth-child(1){
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.optionsContainer :nth-child(2){
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.optionsContainer p {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.optionsContainer input[type="radio"] {
+  accent-color: #a75cff;
   width: 15px;
   height: 15px;
 }
@@ -99,6 +130,7 @@
   text-align: center;
   font-size: 12px;
   font-weight: 400;
+  padding-bottom: 5rem;
 }
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
@@ -113,10 +145,9 @@
   padding: 11px 20px !important;
   border-radius: 35px !important;
   font-family: "Quicksand", sans-serif !important;
-  position:fixed;
-  bottom:0;
-  z-index:2;
-
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
 }
 
 @media (min-width: 1280px) {

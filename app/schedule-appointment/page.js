@@ -134,8 +134,7 @@ const Practitioner = () => {
               }}
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
-              }`}
-            >
+              }`}>
               <div className={styles["container-image"]}>
                 {practitioner.picture !== null ? (
                   <Image
@@ -253,8 +252,7 @@ const Practitioner = () => {
                 centeredSlides={false}
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-              >
+                onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div className={`${styles["container-card"]} `}>
                     <div className="d-flex flex-column align-items-center gap-2">
@@ -313,8 +311,7 @@ const Practitioner = () => {
                         time.erId === selectedTime ? styles.activeTime : ""
                       }`}
                       key={index}
-                      onClick={() => handleTimeSelect(time.erId)}
-                    >
+                      onClick={() => handleTimeSelect(time.erId)}>
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -338,13 +335,12 @@ const Practitioner = () => {
           href={{
             pathname: "/login",
             query: {
-              subcategoryId: subcategory,
+              treatmentId: subcategory,
               practitionerId: slecetedDoctor,
-              DateId: selectedDateId,
-              timeId: selectedTime,
+              date: date,
+              timeSlotId: selectedTime,
             },
-          }}
-        >
+          }}>
           <Btn title="Continue" margin="10px 0" />
         </Link>
       </div>
