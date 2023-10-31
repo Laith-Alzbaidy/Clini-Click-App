@@ -12,7 +12,6 @@ import styles from "./styles/login.module.css";
 const Login = () => {
   const router = useRouter();
   const [phone, setPhone] = useState("");
-  const [show, setShow] = useState(true);
 
   const handleConfirm = async () => {
     try {
@@ -36,10 +35,10 @@ const Login = () => {
 
   return (
     <div className="container1">
-      <ClosePrev close="/" back="/" />
+      <ClosePrev close="/" back="/schedule-appointment" />
 
       <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 3 of 3</p>
+        <p className={styles["step"]}>Step 2 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>
       </div>
 
@@ -56,7 +55,6 @@ const Login = () => {
           value={phone}
           onChange={(phone) => setPhone(phone)}
         />
-        {/* </div> */}
       </div>
 
       <Btn title="Send code" onClick={handleConfirm} />

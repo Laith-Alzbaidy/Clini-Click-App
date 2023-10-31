@@ -48,7 +48,6 @@ const OTB = () => {
           router.push("/user-details");
           setOTP("");
         }
-
         //set token in cookies
         Cookies.set("token", token, {
           expires: 1 / 24,
@@ -62,7 +61,7 @@ const OTB = () => {
     }
   };
 
-  // Function to resend OTP
+  // Api to resend OTP
   const resendOTP = async () => {
     try {
       const response = await api.post("OTP/Resend", {
@@ -96,7 +95,7 @@ const OTB = () => {
     <div className="container1">
       <ClosePrev close="/" back="/login" />
       <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 3 of 3</p>
+        <p className={styles["step"]}>Step 2 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>
       </div>
       <p style={{ maxWidth: "220px" }}>

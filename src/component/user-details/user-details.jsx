@@ -11,6 +11,7 @@ import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
 import { useRouter } from "next/navigation";
+import validator from "validator";
 const PractitionerDetails = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -19,11 +20,43 @@ const PractitionerDetails = () => {
     email: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const handleConfirm = () => {
+    const newErrors = {};
+    let flag = true;
+    //validation firstName
+    if (formData.firstName === "") {
+      newErrors.firstName = "The firstName field is required.";
+      flag = false;
+    } else if (formData.firstName.length < 3) {
+      newErrors.firstName = "The firstName must be at least 3 characters long.";
+      flag = false;
+    }
+
+    //validation lastName
+    if (formData.lastName === "") {
+      newErrors.lastName = "The lastName field is required.";
+      flag = false;
+    } else if (formData.lastName.length < 3) {
+      newErrors.lastName = "The lastName must be at least 3 characters long.";
+      flag = false;
+    }
+
+    //validation email
+    if (formData.email === "") {
+      newErrors.email = "The email field is required.";
+      flag = false;
+    } else if (!validator.isEmail(formData.email)) {
+      newErrors.email = "Please, enter a valid email!";
+      flag = false;
+    }
+    setErrors(newErrors);
+    return flag;
+  };
+
   //get token in cookies
   const token = Cookies.get("token");
-
-  //handle confirm data
-  const handleConfirm = () => {};
 
   //handle input to get value
   const handleChange = (e) => {
@@ -34,7 +67,13 @@ const PractitionerDetails = () => {
   // handle the form submission here
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendUserDetails();
+    handleConfirm();
+
+    if (handleConfirm()) {
+      console.log(" handleConfirm();", handleConfirm());
+      sendUserDetails();
+      router.push("/payment");
+    }
     // console.log("Form data submitted:", formData);
   };
 
@@ -49,11 +88,13 @@ const PractitionerDetails = () => {
   };
   return (
     <div className="container1">
-      <Link href="payment">
-        <ButtonPreviews />
-      </Link>
+      <div className="mb-2">
+        <Link href="payment">
+          <ButtonPreviews />
+        </Link>
+      </div>
       <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 2 of 3</p>
+        <p className={styles["step"]}>Step 3 of 3</p>
         <h1 className={styles["title"]}>My details</h1>
       </div>
 
@@ -73,7 +114,7 @@ const PractitionerDetails = () => {
               placeholder="Enter your first name"
               value={formData.firstName}
               onChange={handleChange}
-              required
+              // required
               className={styles.input}
             />
           </div>
@@ -93,7 +134,7 @@ const PractitionerDetails = () => {
               placeholder="Enter your last name"
               value={formData.lastName}
               onChange={handleChange}
-              required
+              // required
               className={styles.input}
             />
           </div>
@@ -107,16 +148,21 @@ const PractitionerDetails = () => {
               height={24}
             />
             <input
-              type="email"
+              type="text"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
               className={styles.input}
               placeholder="Enter your email"
             />
           </div>
+        </div>
+
+        <div className={Object.keys(errors).length > 0 ? styles["error"] : ""}>
+          <p>{errors.firstName && errors.firstName}</p>
+          <p>{errors.lastName && errors.lastName}</p>
+          <p>{errors.email && errors.email}</p>
         </div>
 
         <div className="mt-5">
