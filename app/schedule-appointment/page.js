@@ -18,7 +18,6 @@ import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoc
 
 const date = new Date();
 const month = date.toLocaleString("default", { month: "long" });
-const monthAsOneBasedNumber = date.getMonth() + 1;
 
 const Practitioner = () => {
   const router = useRouter();
@@ -26,10 +25,39 @@ const Practitioner = () => {
   const [selectedDay, setSelectedDay] = useState();
   const [selectedDate, setSelectedDate] = useState();
   const [selectedDateId, setSelectedDateId] = useState();
+  const [schedulingData, setSchedulingData] = useState([]);
+  const [selectedMonth, setSelectedMonth] = useState(new Date());
+  const [date, setDate] = useState();
   const [slecetedDoctor, setSelectedDoctor] = useState(null);
   const [data, setData] = useState([]);
   const searchParams = useSearchParams();
   const subcategory = searchParams.get("subcategoryId");
+
+  useEffect(() => {
+    const year = selectedMonth.getFullYear();
+    const month = selectedMonth.getMonth();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const generatedSchedulingData = [];
+
+    const generateDayId = (date) => {
+      return `${date - 1}`;
+    };
+
+    for (let date = 1; date <= daysInMonth; date++) {
+      const day = getDayName(new Date(year, month, date));
+      const dayId = generateDayId(date);
+      generatedSchedulingData.push({ day, date, id: dayId });
+    }
+
+    setSchedulingData(generatedSchedulingData);
+  }, [selectedMonth]);
+
+  const getDayName = (date) => {
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayIndex = date.getDay();
+    return dayNames[dayIndex];
+  };
+
 
   useEffect(() => {
     async function fetchData() {
@@ -49,11 +77,10 @@ const Practitioner = () => {
   }, [subcategory]);
 
   const [availability, setAvailability] = useState([]);
-
-  const fetchAvailableHours = async (practitionerId, selectedDate) => {
+  const fetchAvailableHours = async (practitionerId) => {
     try {
       const response = await api.get(
-        `PractitionerAvailability/${practitionerId}?date=${selectedDate}`
+        `PractitionerAvailability/${practitionerId}?date=${date}`
       );
       const data = response.data.responseData;
       setAvailability(data);
@@ -73,15 +100,24 @@ const Practitioner = () => {
     console.log(Time);
   };
 
-  const handleDayClick = (day, date, id, value) => {
+  const handleDayClick = (day, date, id) => {
     setSelectedDay(day);
-    setSelectedDate(value);
-    console.log(value);
+    setSelectedDate(date);
     setSelectedDateId(id);
+  
+    const selectedDate = new Date(selectedMonth);
+    const selectedMonthFormatted = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+    const dateFormatted = date.toString().padStart(2, '0');
+    const yearFormatted = (selectedDate.getFullYear() % 100).toString().padStart(2, '0');
+    const selected = `${selectedMonthFormatted}-${dateFormatted}-${yearFormatted}`;
+    setDate(selected)
+    console.log(selected);
+  
     if (slecetedDoctor) {
-      fetchAvailableHours(slecetedDoctor, value);
+      fetchAvailableHours(slecetedDoctor, date);
     }
   };
+  
 
   const team = data
     ? data.map((practitioner, index) => {
@@ -170,36 +206,23 @@ const Practitioner = () => {
       })
     : null;
 
-  // Data for scheduling options
-
-  const schedulingData = [
-    { day: "Mon", date: 24, id: 1, value: "10-11-23" },
-    { day: "Tue", date: 25, id: 2, value: "10-23-23" },
-    { day: "Wed", date: 26, id: 3, value: "10-12-23" },
-    { day: "Thu", date: 27, id: 4, value: "10-21-23" },
-    { day: "Fri", date: 28, id: 5, value: "10-14-23" },
-    { day: "Sat", date: 29, id: 6, value: "10-17-23" },
-    { day: "Sun", date: 30, id: 7, value: "10-24-23" },
-  ];
-
-  // Map scheduling data to create scheduling slides
   const schedulingSlides = schedulingData.map((item, index) => {
-    const isActive = item.day === selectedDay && item.value === selectedDate;
+    const isActive = item.day === selectedDay && item.date === selectedDate;
+
     return (
-      <SwiperSlide key={item.id}>
+      <SwiperSlide key={index}>
         <div
           className={`${styles["container-scheduling"]} ${
             isActive ? styles.active : ""
           }`}
-          onClick={() =>
-            handleDayClick(item.day, item.date, item.id, item.value)
-          }>
+          onClick={() => handleDayClick(item.day, item.date, item.id)}>
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
       </SwiperSlide>
     );
   });
+
   return (
     <div>
       <div className="container1">
@@ -238,7 +261,7 @@ const Practitioner = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                {practitioner} {/* Render practitioner cards */}
+                {team}
               </Swiper>
             </div>
           </div>
@@ -261,11 +284,10 @@ const Practitioner = () => {
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}>
-              {schedulingSlides} {/* Render scheduling options */}
+              {schedulingSlides}
             </Swiper>
           </div>
         </div>
-
         {/* Scheduling Time*/}
 
         <div className={styles["container-question"]}>
@@ -309,6 +331,7 @@ const Practitioner = () => {
             query: {
               subcategoryId: subcategory,
               practitionerId: slecetedDoctor,
+              DateId: selectedDateId,
               timeId: selectedTime,
             },
           }}>

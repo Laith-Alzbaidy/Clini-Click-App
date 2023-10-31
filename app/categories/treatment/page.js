@@ -1,5 +1,5 @@
-'use client'
-import React , {useEffect , useState}from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./sub.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,40 +11,22 @@ import StickyButton from "@/src/component/stickyButton/stickyButton";
 import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
-import api from '@/config-API/config-API';
-import { useSearchParams } from 'next/navigation'
+import api from "@/config-API/config-API";
+import { useSearchParams } from "next/navigation";
 
-const free = [{ label: "Free", value: "Free" }];
-const Body = [
-  { label: "Arms", value: "Arms" },
-  { label: "Back", value: "Back", price: "+ AED 400" },
-  { label: "Legs", value: "Legs", price: "+ AED 100" },
-];
+const linestyle = {
+  marginTop: "16px",
+  marginBottom: "20px",
+};
 
-const Device = [
-  {
-    label: "Not sure? Let the clinic decide",
-    value: "Not sure? Let the clinic decide",
-  },
-  {
-    label: "Gentle Max Pro - 20 min",
-    value: "Gentle Max Pro - 20 min",
-    price: "",
-  },
-  { label: "Elite - 20 min", value: "Elite - 20 min", price: "+ AED 200" },
-];
-
-const Sessions = [
-  { label: "1 session", value: "1 session" },
-  { label: "2 session", value: "2 session", price: "+ AED 100" },
-  { label: "3 session", value: "3 session", price: "+ AED 200" },
-];
 const SubCategory = () => {
   const [data, setData] = useState(null);
+  const [optionsData, setOptionsData] = useState();
   const searchParams = useSearchParams();
 
-  const category = searchParams.get('category');
-  const subcategory = searchParams.get('subcategoryId');
+  const category = searchParams.get("category");
+  const subcategory = searchParams.get("subcategoryId");
+  console.log(subcategory);
 
   useEffect(() => {
     async function fetchData() {
@@ -55,22 +37,44 @@ const SubCategory = () => {
         const responseData = response.data.responseData;
         setData(responseData);
       } catch (error) {
-        console.error('Error fetching data:', error);
-        setData(null); 
+        console.error("Error fetching data:", error);
+        setData(null);
       }
     }
 
     if (category && subcategory) {
       fetchData();
     }
-  }, [category, subcategory]); 
+  }, []);
+
+  async function fetchOptionData() {
+    try {
+      const response = await api.get(
+        `clinic/AbdullahClinic/subcategories/25/options`
+      );
+      const data1 = response.data.responseData;
+      setOptionsData([data1]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+  useEffect(() => {
+    fetchOptionData();
+  }, []);
+  console.log(optionsData, "fdd");
 
   if (!data) {
-    return <div style={{display:"grid" , placeItems:"center" , height:"100vh" ,fontWeight:700}}>No data found !</div>;
-  }
-  const linestyle = {
-    marginTop:"16px",
-    marginBottom:"20px"
+    return (
+      <div
+        style={{
+          display: "grid",
+          placeItems: "center",
+          height: "100vh",
+          fontWeight: 700,
+        }}>
+        No data found !
+      </div>
+    );
   }
   return (
     <>
@@ -96,71 +100,82 @@ const SubCategory = () => {
         <div className={styles.mainContainer}>
           <div className={styles.subName}>{data.name}</div>
           <div className={styles.subDuration}>{data.defaultDuration} min</div>
-          <div className={styles.subDiscreption}>
-           {data.description}
-          </div>
+          <div className={styles.subDiscreption}>{data.description}</div>
         </div>
         <SlideUpPage data={data} />
-        <div className={styles.constContainer}>
-          <div className={styles.constChildContainer}>
-            <div>constulate only</div>
-            <div>- 20 min</div>
-
-          </div>
-   
+        {/* {optionsData.consultation && (
+          <div className={styles.constContainer}>
+            <div className={styles.constChildContainer}>
+              <div>Consultation only</div>
+              <div>- {optionsData.consultation.duration} min</div>
+            </div>
             <RadioButtons options={free} />
-
-        </div>
-
-       <Bold additionalStyles={linestyle}/>
-
-        <div>
-          <div className={styles.SelectHeader}>
-            <div>Body Area</div>
-            <div>Required</div>
           </div>
-          <RadioButtons options={Body} />
-        </div>
-        <div
-          style={{
-            width: "100%",
-            margin: "1rem auto",
-            border: "solid 3px #E2E2E2",
-          }}></div>
-        <div>
-          <div className={styles.SelectHeader}>
-            <div>Device</div>
-            <div>Required</div>
-          </div>
-          <RadioButtons options={Device} />
-        </div>
-        <div
-          style={{
-            width: "100%",
-            margin: "1rem auto",
-            border: "solid 3px #E2E2E2",
-          }}></div>
-        <div>
-          <div className={styles.SelectHeader}>
-            <div>Body Area</div>
-            <div>Required</div>
-          </div>
-          <RadioButtons options={Sessions} />
-        </div>
-        <div
-          style={{
-            width: "100%",
-            margin: "1rem auto",
-            border: "solid 3px #E2E2E2",
-          }}></div>
-        <p className={styles.noPayment}>
-          No payment will be taken until your appointment
-        </p>
-
-        <Link href={`/schedule-appointment?subcategoryId=${subcategory}`} >
-          <StickyButton title={"Continue to book AED 200"} />
-        </Link>
+        )} */}
       </div>
+
+      <Bold additionalStyles={linestyle} />
+
+      <div>
+        {optionsData.map((item, index) => (
+          <div key={index}>
+            {item.default === null ? (
+              <div>
+                {item.bodyAreas.map((area, index) => (
+                  <div key={index}>
+                    <div className={styles.constContainer}>
+                      <div className={styles.constChildContainer}>
+                        <div>Consultation only</div>
+                        <div>- {item.consultation.duration} min</div>
+                      </div>
+                      {/* <RadioButtons options={free} /> */}
+                      <Bold />
+                    </div>
+                    <p>body area</p>
+                    <p>Name: {area.name}</p>
+                    <p>Price: {area.price}</p>
+                    <p>Duration: {area.duration} min</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>
+                <div className={styles.constContainer}>
+                  <div className={styles.constChildContainer}>
+                    <div>Consultation only</div>
+                    <div>- {item.consultation.duration} min</div>
+                  </div>
+                  {/* <RadioButtons options={free} /> */}
+                </div>
+                  <Bold />
+                <p>Default name</p>
+                <p>Price: {item.default.price}</p>
+                <p>Duration: {item.default.duration} min</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div
+        style={{
+          width: "100%",
+          margin: "1rem auto",
+          border: "solid 3px #E2E2E2",
+        }}></div>
+
+      <div
+        style={{
+          width: "100%",
+          margin: "1rem auto",
+          border: "solid 3px #E2E2E2",
+        }}></div>
+      <p className={styles.noPayment}>
+        No payment will be taken until your appointment
+      </p>
+
+      <Link href={`/schedule-appointment?subcategoryId=${subcategory}`}>
+        <StickyButton title={"Continue to book AED 200"} />
+      </Link>
     </>
   );
 };

@@ -36,6 +36,7 @@ const CategoryContent = () => {
       const response = await api.get("clinic/AbdullahClinic/categories");
       const data = response.data.responseData;
       setList(data);
+      console.log(data)
     } catch (error) {
       console.error("Error fetching data:", error);
     }

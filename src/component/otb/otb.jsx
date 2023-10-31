@@ -109,7 +109,6 @@ const OTB = () => {
           onChange={(value) => {
             handleVerification(value);
           }}
-          disabled={openTimer}
           autoFocus
           OTPLength={4}
           otpType="number"

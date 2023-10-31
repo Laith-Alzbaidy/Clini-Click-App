@@ -47,7 +47,7 @@ function RadioButton({ label, value, selectedOption, onChange, price }) {
 
 function RadioButtons({ options }) {
   const [selectedOption, setSelectedOption] = useState();
-
+console.log(options ,"ggggggggggggg")
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     console.log(event.target.value);
