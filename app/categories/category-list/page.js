@@ -9,7 +9,7 @@ import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import "swiper/css";
 import api from "@/config-API/config-API";
-import './a.css'
+import "./a.css";
 const costumStyles = {
   marginTop: "25px",
   marginBottom: "18px",
@@ -36,7 +36,7 @@ const CategoryContent = () => {
       const response = await api.get("clinic/AbdullahClinic/categories");
       const data = response.data.responseData;
       setList(data);
-      console.log(data)
+      console.log(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -94,12 +94,14 @@ const CategoryContent = () => {
         nextEl: ".swiper-button-prev",
         prevEl: ".swiper-button-next",
       }}
-      slidesPerView={1}>
+      slidesPerView={1}
+    >
       <div
         className={` ${styles.tab} ${
           activeTab === categoryData.name && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.name)}>
+        onClick={() => handleTabClick(categoryData.name)}
+      >
         {categoryData.name}
       </div>
     </SwiperSlide>
@@ -156,7 +158,8 @@ const CategoryContent = () => {
               slidesPerView: 10,
               spaceBetween: 110,
             },
-          }}>
+          }}
+        >
           {TabSlider}
         </Swiper>
       </div>
@@ -174,7 +177,8 @@ const CategoryContent = () => {
                     subcategoryId: subcategoryData.id,
                   },
                 }}
-                className={styles.link}>
+                className={styles.link}
+              >
                 <div>
                   <div key={index} className={styles.mainContainer}>
                     <div>

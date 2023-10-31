@@ -8,16 +8,27 @@ import api from "@/config-API/config-API";
 import ClosePrev from "@/src/component/close-prev/close-prev";
 import Btn from "@/src/component/button/button";
 import styles from "./styles/login.module.css";
-
+import { useSearchParams } from "next/navigation";
 const Login = () => {
   const router = useRouter();
   const [phone, setPhone] = useState("");
+  const searchParams = useSearchParams();
+
+  //params Id
+  const subcategory = searchParams.get("subcategoryId");
+  const practitionerId = searchParams.get("practitionerId");
+  const timeId = searchParams.get("timeId");
+  const DateId = searchParams.get("DateId");
 
   const handleConfirm = async () => {
     try {
       const response = await sendPhoneOTP(phone);
+      console.log(subcategory, practitionerId, timeId);
 
-      router.push("/otb");
+      //route to OTP and passing query
+      router.push(
+        `/otb?subcategoryId=${subcategory}&practitionerId=${practitionerId}&timeId=${timeId}&DateId=${DateId}`
+      );
       localStorage.setItem("phone", phone);
 
       console.log(response.data);

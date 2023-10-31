@@ -8,9 +8,18 @@ import { useRouter } from "next/navigation";
 import api from "@/config-API/config-API";
 import ErrorModal from "../modal-verfy/modal-verfy";
 import Cookies from "js-cookie";
+import { useSearchParams } from "next/navigation";
 
 const OTB = () => {
   // Initialize the router and state variables
+  const searchParams = useSearchParams();
+
+  //params Id
+  const subcategory = searchParams.get("subcategoryId");
+  const practitionerId = searchParams.get("practitionerId");
+  const timeId = searchParams.get("timeId");
+  const DateId = searchParams.get("DateId");
+
   const router = useRouter();
   const [otp, setOTP] = useState(""); // State for OTP input
   const [timer, setTimer] = useState(0);
@@ -45,7 +54,9 @@ const OTB = () => {
         if (response.data.responseData.isConfigured) {
           router.push("/");
         } else {
-          router.push("/user-details");
+          router.push(
+            `/user-details?subcategoryId=${subcategory}&practitionerId=${practitionerId}&timeId${timeId}&DateId=${DateId}`
+          );
           setOTP("");
         }
         //set token in cookies

@@ -221,7 +221,8 @@ const Practitioner = () => {
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }>
+          }
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -289,7 +290,8 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}>
+              onSwiper={(swiper) => console.log(swiper)}
+            >
               {schedulingSlides} {/* Render scheduling options */}
             </Swiper>
           </div>
