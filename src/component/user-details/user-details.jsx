@@ -24,10 +24,10 @@ const PractitionerDetails = () => {
   const searchParams = useSearchParams();
 
   //params Id
-  const subcategory = searchParams.get("subcategoryId");
+  const treatmentId = searchParams.get("treatmentId");
   const practitionerId = searchParams.get("practitionerId");
-  const timeId = searchParams.get("timeId");
-  const DateId = searchParams.get("DateId");
+  const timeSlotId = searchParams.get("timeSlotId");
+  const date = searchParams.get("date");
 
   const [errors, setErrors] = useState({});
 
@@ -86,10 +86,9 @@ const PractitionerDetails = () => {
         secure: true,
       });
       router.push(
-        `/payment?subcategoryId=${subcategory}&practitionerId=${practitionerId}&timeId${timeId}&DateId=${DateId}`
+        `/payment?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
       );
     }
-    // console.log("Form data submitted:", formData);
   };
 
   const sendUserDetails = async () => {

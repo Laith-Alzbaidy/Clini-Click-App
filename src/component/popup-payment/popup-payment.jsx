@@ -12,7 +12,7 @@ import google from "./assets/image/google.png";
 import credit from "./assets/image/credit-debit.png";
 import payclinic from "./assets/image/pay-clinic.png";
 import PopupCardPayment from "../popup-card-payment/popup-card-payment";
-function PopupPayment({ selectedValue, setSelectedValue }) {
+function PopupPayment({ selectMethod, setSelectMethod }) {
   const [show, setShow] = useState(false);
   const [showPaymentCardPopup, setShowPaymentCardPopup] = useState(false);
 
@@ -23,8 +23,8 @@ function PopupPayment({ selectedValue, setSelectedValue }) {
     setShowPaymentCardPopup(false);
   };
 
-  const handleRadioChange = (event) => {
-    setSelectedValue(event.target.value);
+  const handleRadioChange = (method) => {
+    setSelectMethod(method);
 
     setTimeout(() => {
       handleClose(false);
@@ -32,24 +32,50 @@ function PopupPayment({ selectedValue, setSelectedValue }) {
     }, 1000);
   };
 
+  const paymentMethods = [
+    {
+      id: 1,
+      // id: "ApplePay",
+      value: "Apple Pay",
+      src: apple,
+      label: "Apple Pay",
+    },
+    {
+      id: 2,
+      // id: "GooglePay",
+      value: "Google Pay",
+      src: google,
+      label: "Google Pay",
+    },
+    {
+      id: 3,
+      // id: "CreditDebit",
+      value: "Credit/Debit card",
+      src: credit,
+      label: "Credit/Debit card",
+    },
+    {
+      id: 4,
+      // id: "PayInClinic",
+      value: "Pay in clinic",
+      src: payclinic,
+      label: "Pay in clinic",
+    },
+  ];
+
   return (
     <>
       {" "}
       <button
-        onClick={handleShow}
+        onClick={() => {
+          handleShow();
+        }}
         id="choose-payment"
         className={styles["btn-choose-payment"]}
       >
-        Choose payment method
+        {/* Choose payment method */}
+        {selectMethod?.value ? selectMethod.value : "Choose payment method"}
       </button>
-      {/* type="text"
-        id="choose-payment"
-        name="choose-payment"
-        placeholder="Choose payment method"
-        required
-        className={styles["input-choose-payment"]}
-        onClick={handleShow}
-     */}
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>
@@ -62,7 +88,7 @@ function PopupPayment({ selectedValue, setSelectedValue }) {
             </p>
 
             <div className={styles["container-payed"]}>
-              <label className="w-100" htmlFor="ApplePay">
+              {/* <label className="w-100" htmlFor="ApplePay">
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="d-flex gap-3 align-items-center">
                     <Image width={50} height={40} src={apple} />
@@ -123,7 +149,35 @@ function PopupPayment({ selectedValue, setSelectedValue }) {
                     onChange={handleRadioChange}
                   />
                 </div>
-              </label>
+              </label> */}
+
+              {paymentMethods.map((method) => (
+                <label className="w-100" key={method.id} htmlFor={method.id}>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="d-flex gap-3 align-items-center">
+                      <Image
+                        width={50}
+                        height={40}
+                        src={method.src}
+                        alt={method.label}
+                      />
+                      <span className={styles["text-lable"]}>
+                        {method.label}
+                      </span>
+                    </div>
+                    <input
+                      type="radio"
+                      id={method.id}
+                      value={method.value}
+                      checked={selectMethod.value === method.value}
+                      onChange={() => {
+                        handleRadioChange(method);
+                        // console.log(method);
+                      }}
+                    />
+                  </div>
+                </label>
+              ))}
             </div>
           </div>
         </Modal.Body>

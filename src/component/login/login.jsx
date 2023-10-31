@@ -15,19 +15,18 @@ const Login = () => {
   const searchParams = useSearchParams();
 
   //params Id
-  const subcategory = searchParams.get("subcategoryId");
+  const treatmentId = searchParams.get("treatmentId");
   const practitionerId = searchParams.get("practitionerId");
-  const timeId = searchParams.get("timeId");
-  const DateId = searchParams.get("DateId");
+  const timeSlotId = searchParams.get("timeSlotId");
+  const date = searchParams.get("date");
 
   const handleConfirm = async () => {
     try {
       const response = await sendPhoneOTP(phone);
-      console.log(subcategory, practitionerId, timeId);
 
       //route to OTP and passing query
       router.push(
-        `/otb?subcategoryId=${subcategory}&practitionerId=${practitionerId}&timeId=${timeId}&DateId=${DateId}`
+        `/otb?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
       );
       localStorage.setItem("phone", phone);
 

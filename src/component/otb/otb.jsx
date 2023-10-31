@@ -15,10 +15,10 @@ const OTB = () => {
   const searchParams = useSearchParams();
 
   //params Id
-  const subcategory = searchParams.get("subcategoryId");
+  const treatmentId = searchParams.get("treatmentId");
   const practitionerId = searchParams.get("practitionerId");
-  const timeId = searchParams.get("timeId");
-  const DateId = searchParams.get("DateId");
+  const timeSlotId = searchParams.get("timeSlotId");
+  const date = searchParams.get("date");
 
   const router = useRouter();
   const [otp, setOTP] = useState(""); // State for OTP input
@@ -55,7 +55,7 @@ const OTB = () => {
           router.push("/");
         } else {
           router.push(
-            `/user-details?subcategoryId=${subcategory}&practitionerId=${practitionerId}&timeId${timeId}&DateId=${DateId}`
+            `/user-details?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
           );
           setOTP("");
         }

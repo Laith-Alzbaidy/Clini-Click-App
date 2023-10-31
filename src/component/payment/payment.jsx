@@ -10,24 +10,45 @@ import StickyButton from "../stickyButton/stickyButton";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-
+import api from "@/config-API/config-API";
+import Cookies from "js-cookie";
 const Payment = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const subcategory = searchParams.get("subcategoryId");
-  const practitionerId = searchParams.get("practitionerId");
-  const timeId = searchParams.get("timeId");
-  const DateId = searchParams.get("DateId");
-
-  console.log(DateId, timeId, practitionerId, subcategory);
-  const [selectedValue, setSelectedValue] = useState(""); // Set the default value here
+  const [selectMethod, setSelectMethod] = useState({}); // Set the default value here
 
   const [offer, setOffer] = useState("");
-  const handleConfirm = () => {
-    router.push(`/payment/confirm-book`);
+  const token = Cookies.get("token");
+
+  const dataPyament = {
+    treatmentId: searchParams.get("treatmentId"),
+    practitionerId: searchParams.get("practitionerId"),
+    timeSlotId: searchParams.get("timeSlotId"),
+    date: searchParams.get("date"),
+    paymentId: selectMethod.id,
+    clinicName: "AbdullahClinic",
+    promoCode: offer,
   };
 
+  const handleConfirm = () => {
+    // router.push(`/payment/confirm-book`);
+    postPayment();
+    console.log(offer, selectMethod.id);
+  };
+
+  const postPayment = async () => {
+    console.log(dataPyament);
+    try {
+      const response = await api.post("/Appointments", dataPyament, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <div className={styles["nav-header"]}>
@@ -137,8 +158,8 @@ const Payment = () => {
       <div className={styles["container1"]}>
         <div className={styles.subTitle}>Pay with</div>
         <PopupPayment
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
+          selectMethod={selectMethod}
+          setSelectMethod={setSelectMethod}
         />
         <p className="text-left">
           No payment will be taken until your appointment
@@ -166,7 +187,8 @@ const Payment = () => {
         </p>
 
         <StickyButton
-          title={`${"Book appointment"}${selectedValue}`}
+          title={`${"Book appointment"}`}
+          selectMethod={selectMethod}
           marginTop={10}
           onClick={handleConfirm}
         />
