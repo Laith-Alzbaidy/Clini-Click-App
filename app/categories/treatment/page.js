@@ -50,7 +50,7 @@ const SubCategory = () => {
   async function fetchOptionData() {
     try {
       const response = await api.get(
-        `clinic/AbdullahClinic/subcategories/25/options`
+        `clinic/AbdullahClinic/subcategories/${subcategory}/options`
       );
       const data1 = response.data.responseData;
       setOptionsData([data1]);
@@ -58,12 +58,13 @@ const SubCategory = () => {
       console.error("Error fetching data:", error);
     }
   }
+
   useEffect(() => {
     fetchOptionData();
   }, []);
   console.log(optionsData, "fdd");
 
-  if (!data) {
+  if (!data || !optionsData) {
     return (
       <div
         style={{
@@ -72,7 +73,7 @@ const SubCategory = () => {
           height: "100vh",
           fontWeight: 700,
         }}>
-        No data found !
+        loading !
       </div>
     );
   }
@@ -103,65 +104,77 @@ const SubCategory = () => {
           <div className={styles.subDiscreption}>{data.description}</div>
         </div>
         <SlideUpPage data={data} />
-        {/* {optionsData.consultation && (
-          <div className={styles.constContainer}>
-            <div className={styles.constChildContainer}>
-              <div>Consultation only</div>
-              <div>- {optionsData.consultation.duration} min</div>
-            </div>
-            <RadioButtons options={free} />
-          </div>
-        )} */}
       </div>
-
-      <Bold additionalStyles={linestyle} />
 
       <div>
         {optionsData.map((item, index) => (
           <div key={index}>
             {item.default === null ? (
               <div>
+                {item.consultation && (
+                  <div className={styles.constContainer}>
+                    <div className={styles.constChildContainer}>
+                      <div>Consultation only</div>
+                      <div> - {item.consultation.duration} min</div>
+                    </div>
+                    <div>
+                      <div>AED {item.consultation.price}</div>
+                      <input type="radio"></input>
+                    </div>
+                  </div>
+                )}
+                <Bold additionalStyles={linestyle} />
                 {item.bodyAreas.map((area, index) => (
                   <div key={index}>
-                    <div className={styles.constContainer}>
-                      <div className={styles.constChildContainer}>
-                        <div>Consultation only</div>
-                        <div>- {item.consultation.duration} min</div>
-                      </div>
-                      {/* <RadioButtons options={free} /> */}
-                      <Bold />
+                    <div className={styles.SelectHeader}>
+                      <div>Body area</div>
+                      <div>Required</div>
                     </div>
-                    <p>body area</p>
-                    <p>Name: {area.name}</p>
-                    <p>Price: {area.price}</p>
-                    <p>Duration: {area.duration} min</p>
+                    <div className={styles.optionsContainer}>
+                      <div>
+                        <p>{area.name}</p>
+                        <p>{area.duration} min</p>
+                      </div>
+                      <div>
+                      <p> AED {area.price}</p>
+                      <input type="radio"></input>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
             ) : (
               <div>
-                <div className={styles.constContainer}>
-                  <div className={styles.constChildContainer}>
-                    <div>Consultation only</div>
-                    <div>- {item.consultation.duration} min</div>
+                {item.default && (
+                  <div className={styles.constContainer}>
+                    <div className={styles.constChildContainer}>
+                      <p>Default name</p>
+                      <p>- {item.default.duration} min</p>
+                    </div>
+                    <div>
+                      <div>AED {item.consultation.price}</div>
+                      <input type="radio"/>
+                    </div>
                   </div>
-                  {/* <RadioButtons options={free} /> */}
-                </div>
-                  <Bold />
-                <p>Default name</p>
-                <p>Price: {item.default.price}</p>
-                <p>Duration: {item.default.duration} min</p>
+                )}
+                <Bold additionalStyles={linestyle} />
+                {item.consultation && (
+                  <div className={styles.constContainer}>
+                    <div className={styles.constChildContainer}>
+                      <div>Consultation only</div>
+                      <div> - {item.consultation.duration} min</div>
+                    </div>
+                    <div>
+                      <div>AED {item.consultation.price}</div>
+                      <input type="radio"></input>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
         ))}
       </div>
-      <div
-        style={{
-          width: "100%",
-          margin: "1rem auto",
-          border: "solid 3px #E2E2E2",
-        }}></div>
 
       <div
         style={{

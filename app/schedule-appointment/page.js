@@ -58,7 +58,6 @@ const Practitioner = () => {
     return dayNames[dayIndex];
   };
 
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -104,20 +103,23 @@ const Practitioner = () => {
     setSelectedDay(day);
     setSelectedDate(date);
     setSelectedDateId(id);
-  
+
     const selectedDate = new Date(selectedMonth);
-    const selectedMonthFormatted = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
-    const dateFormatted = date.toString().padStart(2, '0');
-    const yearFormatted = (selectedDate.getFullYear() % 100).toString().padStart(2, '0');
+    const selectedMonthFormatted = (selectedDate.getMonth() + 1)
+      .toString()
+      .padStart(2, "0");
+    const dateFormatted = date.toString().padStart(2, "0");
+    const yearFormatted = (selectedDate.getFullYear() % 100)
+      .toString()
+      .padStart(2, "0");
     const selected = `${selectedMonthFormatted}-${dateFormatted}-${yearFormatted}`;
-    setDate(selected)
+    setDate(selected);
     console.log(selected);
-  
+
     if (slecetedDoctor) {
       fetchAvailableHours(slecetedDoctor, date);
     }
   };
-  
 
   const team = data
     ? data.map((practitioner, index) => {
@@ -132,8 +134,7 @@ const Practitioner = () => {
               }}
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
-              }`}
-            >
+              }`}>
               <div className={styles["container-image"]}>
                 {practitioner.picture !== null ? (
                   <Image
@@ -250,8 +251,7 @@ const Practitioner = () => {
                 centeredSlides={false}
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-              >
+                onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div className={`${styles["container-card"]} `}>
                     <div className="d-flex flex-column align-items-center gap-2">
@@ -309,8 +309,7 @@ const Practitioner = () => {
                         time.erId === selectedTime ? styles.activeTime : ""
                       }`}
                       key={index}
-                      onClick={() => handleTimeSelect(time.erId)}
-                    >
+                      onClick={() => handleTimeSelect(time.erId)}>
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -334,13 +333,12 @@ const Practitioner = () => {
           href={{
             pathname: "/login",
             query: {
-              subcategoryId: subcategory,
+              treatmentId: subcategory,
               practitionerId: slecetedDoctor,
-              DateId: selectedDateId,
-              timeId: selectedTime,
+              date: date,
+              timeSlotId: selectedTime,
             },
-          }}
-        >
+          }}>
           <Btn title="Continue" margin="10px 0" />
         </Link>
       </div>
