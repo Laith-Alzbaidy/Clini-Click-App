@@ -1,11 +1,20 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import styles from "./sticktButton.module.css";
-
-const StickyButton = ({ title, onClick, type }) => {
+import Image from "next/image";
+const StickyButton = ({ title, onClick, type, selectMethod }) => {
   return (
     <Button className={styles.btn} onClick={onClick} type={type}>
       {title}
+      {selectMethod.value && (
+        <Image
+          // width={100}
+          // height={100}
+          style={{ marginLeft: "10px" }}
+          src={selectMethod.src}
+          alt={selectMethod.value}
+        />
+      )}
     </Button>
   );
 };
