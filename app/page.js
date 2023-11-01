@@ -18,8 +18,8 @@ const getData = async () => {
   return response;
 };
 export default async function Home() {
-  const data = await getData();
-  // console.log("**************", data.data.responseData);
+  const data = (await getData()) || [];
+  console.log("**************", data.data.responseData);
 
   return (
     <>

@@ -6,7 +6,7 @@ const StickyButton = ({ title, onClick, type, selectMethod }) => {
   return (
     <Button className={styles.btn} onClick={onClick} type={type}>
       {title}
-      {selectMethod.value && (
+      {selectMethod?.value && (
         <Image
           // width={100}
           // height={100}
