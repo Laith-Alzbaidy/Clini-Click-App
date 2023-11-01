@@ -1,0 +1,32 @@
+.modal {
+    background-color: #e2e2e2;
+    border-color: #e2e2e2 !important;
+  }
+  
+  .modalFooter {
+    background-color: #e2e2e2;
+    border-color: #e2e2e2 !important;
+    justify-content: center;
+    gap: 24px;
+    border-bottom-right-radius: 40px !important;
+    border-bottom-left-radius: 40px !important;
+  }
+  .modal {
+    background-color: #e2e2e2;
+    border-color: #e2e2e2 !important;
+  }
+  .modalBody {
+    background-color: #e2e2e2;
+    border-color: #e2e2e2 !important;
+    text-align: center;
+    color: #828282;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .modalHeader {
+    background-color: #e2e2e2;
+    border-color: #e2e2e2 !important;
+    border-top-right-radius: 40px !important;
+    border-top-left-radius: 40px !important;
+  }
+  

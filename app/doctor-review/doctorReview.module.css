@@ -9,6 +9,11 @@
   font-weight: 800;
   margin: 0rem 0 2rem 0rem;
 }
+.title2 {
+  color: #001435;
+  font-size: 18px;
+  font-weight: 800;
+}
 
 .question {
   color: #000;
@@ -34,9 +39,22 @@
   margin-top: 0.5rem;
   border: #e2e2e2 2px solid;
   border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+  outline: none;
 }
 .textArea::placeholder {
   color: #8b8b8b;
   font-size: 12px;
-  padding: 10px;
+}
+.star{
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+}
+.input[type=radio] {
+ display: none;
+}
+.starsContainer{
+  display: flex;
+  gap: 5px;
 }

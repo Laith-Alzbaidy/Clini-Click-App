@@ -143,6 +143,7 @@ const SubCategory = () => {
                         type="radio"
                         value="consultation"
                         onClick={handleOptionSelect}
+                        name="option"
                       />
                     </div>
                   </div>
@@ -168,7 +169,7 @@ const SubCategory = () => {
                           type="radio"
                           value={area.name}
                           onClick={handleOptionSelect}
-                          name="bodyArea"
+                          name="option"
                         />
                       </div>
                     </div>
@@ -249,7 +250,7 @@ const SubCategory = () => {
                     <input
                       type="radio"
                       value="default"
-                    
+                      name="option"
                     />
                   </div>
                 </div>
@@ -265,6 +266,7 @@ const SubCategory = () => {
                       <input
                         type="radio"
                         value="consultation"
+                        name="option"
                       />
                     </div>
                   </div>
