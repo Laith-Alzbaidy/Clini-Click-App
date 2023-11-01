@@ -1,0 +1,42 @@
+.wrapper {
+  padding: 28px;
+  height: 100vh;
+}
+
+.title {
+  color: #001435;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0rem 0 2rem 0rem;
+}
+
+.question {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+}
+.question2 {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 2rem;
+}
+.subquestion {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 5px;
+}
+
+.textArea {
+  width: 100%;
+  min-height: 90px;
+  margin-top: 0.5rem;
+  border: #e2e2e2 2px solid;
+  border-radius: 10px;
+}
+.textArea::placeholder {
+  color: #8b8b8b;
+  font-size: 12px;
+  padding: 10px;
+}

@@ -7,6 +7,7 @@ import backIcon from "./assets/conhh.svg";
 import user from "./assets/user.svg";
 import left from "./assets/left.svg";
 import Footer from "@/src/component/footer/footer";
+import CategoriesModal from "@/src/component/categotyModal/categoriesModal";
 const style = {
   marginTop: "45px",
 };
@@ -38,45 +39,44 @@ const MyAppointments = async () => {
       <div className={styles.subTitle}>Upcoming appointments</div>
       <div className={styles.main}>
         {data.map((appointment, index) => (
-          <div className={styles.cardContainer} key={index}>
-            <Image src={image} className={styles.cardImage} alt="image" />
-            <div className={styles.details}>
-              <div>Thu 22/7/2023 3:00 PM</div>
-              <div>{appointment.name}</div>
-              <div>{appointment.id}</div>
-              <div>{appointment.username}</div>
-            </div>
-            <Link
-              href={`my-appointments/current-bookings/${appointment.id}`}
-              className={styles.link}
-            >
+          <Link
+            href={`my-appointments/current-bookings/${appointment.id}`}
+            className={styles.link}>
+            <div className={styles.cardContainer} key={index}>
+              <Image src={image} className={styles.cardImage} alt="image" />
+              <div className={styles.details}>
+                <div>Thu 22/7/2023 3:00 PM</div>
+                <div>{appointment.name}</div>
+                <div>{appointment.id}</div>
+                <div>{appointment.username}</div>
+              </div>
               <Image src={left} alt="left" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
       <div className={styles.subTitle}>Past appointments</div>
 
       <div className={styles.main}>
         {data.map((appointment, index) => (
-          <div className={styles.cardContainer} key={index}>
-            <Image src={image} className={styles.cardImage} alt="img" />
-            <div className={styles.details}>
-              <div>Thu 22/7/2023 3:00 PM</div>
-              <div>{appointment.name}</div>
-              <div>{appointment.id}</div>
-              <div>{appointment.username}</div>
-            </div>
-            <Link
-              href={`my-appointments/past-bookings/${appointment.id}`}
-              className={styles.link}
-            >
+          <Link
+            href={`my-appointments/past-bookings/${appointment.id}`}
+            className={styles.link}>
+            <div className={styles.cardContainer} key={index}>
+              <Image src={image} className={styles.cardImage} alt="img" />
+              <div className={styles.details}>
+                <div>Thu 22/7/2023 3:00 PM</div>
+                <div>{appointment.name}</div>
+                <div>{appointment.id}</div>
+                <div>{appointment.username}</div>
+              </div>
               <Image src={left} alt="left" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
       <Footer additiionalStyles={style} />
+      <CategoriesModal></CategoriesModal>
     </div>
   );
 };
