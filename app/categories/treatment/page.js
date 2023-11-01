@@ -23,7 +23,6 @@ const SubCategory = () => {
   const [data, setData] = useState(null);
   const [optionsData, setOptionsData] = useState();
   const searchParams = useSearchParams();
-  const [selectedBodyArea, setSelectedBodyArea] = useState(null);
   const [deviceSelect, setDeviceSelect] = useState(null);
   const category = searchParams.get("category");
   const subcategory = searchParams.get("subcategoryId");
@@ -31,7 +30,7 @@ const SubCategory = () => {
 
   useEffect(() => {
     async function fetchData() {
-      try {
+      try { 
         const response = await api.get(
           `categories/${category}/subcategories/${subcategory}`
         );
@@ -81,25 +80,20 @@ const SubCategory = () => {
 
   const handleOptionSelect = async (event) => {
     try {
-      const selectedOption = event.target.value;
-
-      if (selectedOption === "default") {
-        setSelectedBodyArea(null);
-      } else {
-        setSelectedBodyArea(selectedOption);
+      const selectedOption = event.target.value
         const response = await api.get(
           `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
         );
         const responseData = response.data.responseData;
         setDeviceSelect(responseData);
-        console.log(responseData, "irure");
-      }
-    } catch (error) {
+        console.log(responseData, "device");
+      } catch (error) {
       console.error("Error fetching data:", error);
       setDeviceSelect(null);
     }
-  };
+  }
   console.log(deviceSelect, "device");
+
   return (
     <>
       <Link href={"/categories"}>
@@ -158,8 +152,8 @@ const SubCategory = () => {
                   <div>Body area</div>
                   <div>Required</div>
                 </div>
-                {item.bodyAreas.map((area, areaIndex) => (
-                  <div key={areaIndex}>
+                {item.bodyAreas.map((area, index) => (
+                  <div key={index}>
                     <div className={styles.optionsContainer}>
                       <div>
                         <p className={styles.name}>{area.name}</p>
@@ -216,15 +210,14 @@ const SubCategory = () => {
                       </div>
                     ))}
                   </div>
-                )}
-                {/* {responseData && selectedBodyArea === item.name && responseData.sessions && (
+                )}{deviceSelect &&  deviceSelect.sessions && (
                 <div>
                   <Bold additionalStyles={linestyle} />
                   <div className={styles.SelectHeader}>
                     <div>Sessions</div>
                     <div>Required</div>
                   </div>
-                  {responseData.sessions.map((session, sessionIndex) => (
+                  {deviceSelect.sessions.map((session, sessionIndex) => (
                     <div key={sessionIndex}>
                       <div className={styles.optionsContainer}>
                         <div>
@@ -236,14 +229,13 @@ const SubCategory = () => {
                           <input
                             type="radio"
                             value={session.name}
-                            onClick={handleOptionSelect}
                           />
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-              )} */}
+              )} 
               </div>
             ) : (
               <div>
@@ -257,7 +249,7 @@ const SubCategory = () => {
                     <input
                       type="radio"
                       value="default"
-                      onClick={handleOptionSelect}
+                    
                     />
                   </div>
                 </div>
@@ -273,7 +265,6 @@ const SubCategory = () => {
                       <input
                         type="radio"
                         value="consultation"
-                        onClick={handleOptionSelect}
                       />
                     </div>
                   </div>

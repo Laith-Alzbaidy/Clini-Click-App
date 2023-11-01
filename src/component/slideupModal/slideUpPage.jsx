@@ -19,7 +19,7 @@ const SlideUpPage = ({ data }) => {
   return (
     <div>
       <p className="learnMore" onClick={() => setIsModalOpen(true)}>
-        learn more
+        Learn more
       </p>
       {isModalOpen && (
         <div className={`modal-overlay`}>
