@@ -95,8 +95,8 @@ a {
 }
 
 .country-list {
-  left: -14px !important;
-  width: 250px !important;
+  width: 240px !important;
+  left: -4px;
 }
 
 .arrow {
