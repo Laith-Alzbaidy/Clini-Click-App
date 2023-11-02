@@ -10,7 +10,7 @@ import ButtonPreviews from "../buttonPreviews/buttonPreviews";
 import Link from "next/link";
 import SlideUpAbout from "../slideupModal/slideUpAbout/slideUpAbout";
 const About = ({ data }) => {
-  const establishDate = data.establishDate;
+  const establishDate = data?.establishDate;
   const year = new Date(establishDate).getFullYear();
   return (
     <div className="about-section">
@@ -27,7 +27,7 @@ const About = ({ data }) => {
           <Col className="d-flex align-items-center gap-2 p-0 justify-content-start">
             <Image src={line} alt="building" />
             <div>
-              <p className={styles["title-icon"]}>{data.medicalLicense}</p>
+              <p className={styles["title-icon"]}>{data?.medicalLicense}</p>
               <p className={styles["date"]}>MOH-274-36970</p>
             </div>
           </Col>

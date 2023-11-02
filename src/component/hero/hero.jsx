@@ -8,15 +8,15 @@ import location from "./assets/image/icon _location_.svg";
 import call from "./assets/image/call.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
-import "swiper/css";
 
+import "swiper/css";
 const Hero = ({ data }) => {
   const [index, setIndex] = useState(0);
 
   const handleSlideChange = (swiper) => {
     setIndex(swiper.activeIndex);
   };
-  const sliderHero = data.images.map((item, index) => {
+  const sliderHero = data?.images?.map((item, index) => {
     return (
       <SwiperSlide key={index}>
         <div className={styles["container-hero"]}>
@@ -37,16 +37,17 @@ const Hero = ({ data }) => {
         spaceBetween={20}
         onSlideChange={handleSlideChange}
         slidesPerView={1}
+        // pagination={{ clickable: true }} // Add pagination
       >
         {sliderHero}
         <div className={styles["number-image"]}>
-          <span>{`${index + 1}/${sliderHero.length}`}</span>
+          <span>{`${index + 1}/${sliderHero?.length}`}</span>
         </div>
       </Swiper>
 
       {/* content hero */}
       <div className={styles["content-hero"]}>
-        <h1 className={styles["title-hero"]}>{data.name}</h1>
+        <h1 className={styles["title-hero"]}>{data?.name}</h1>
         <div className="d-flex align-items-center gap-4">
           <div>
             <Image src={star} className={styles["star-image"]} alt="star" />
@@ -65,12 +66,12 @@ const Hero = ({ data }) => {
 
         <div className={styles["content-icon"]}>
           <Image src={location} className={styles["icon"]} alt="location" />
-          <p className={styles["text-icon"]}>{data.country.name}</p>
+          <p className={styles["text-icon"]}>{data?.country?.name}</p>
         </div>
 
         <div className={styles["content-icon"]}>
           <Image src={call} className={styles["icon"]} alt="call" />
-          <p className={styles["text-icon"]}>{data.phone}</p>
+          <p className={styles["text-icon"]}>{data?.phone}</p>
         </div>
       </div>
     </main>

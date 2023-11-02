@@ -138,26 +138,28 @@ const Practitioner = () => {
 
         return (
           <SwiperSlide className={styles["swiper-slide"]} key={index}>
-             <div className={`${styles["container-card"]} `}>
-                    <div className="d-flex flex-column align-items-center gap-2">
-                      <Image src={user} />
-                      <h3 className={styles["name-card"]}>No preference</h3>
-                      <div>
-                        <p className={styles["specialization"]}>
-                          Maximum availability
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-            <div className={`${styles["container-card"]} ${
-                  isActive ? styles["active-container-card"] : ""
-                }`}>
+            <div className={`${styles["container-card"]} `}>
+              <div className="d-flex flex-column align-items-center gap-2">
+                <Image src={user} />
+                <h3 className={styles["name-card"]}>No preference</h3>
+                <div>
+                  <p className={styles["specialization"]}>
+                    Maximum availability
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className={`${styles["container-card"]} ${
+                isActive ? styles["active-container-card"] : ""
+              }`}
+            >
               <div
                 onClick={() => {
                   handlePractitionerSelect(practitioner.id);
                   setSelectedDoctor(practitioner.id);
                 }}
-                >
+              >
                 <div className={styles["container-image"]}>
                   {practitioner.picture !== null ? (
                     <Image
@@ -224,9 +226,12 @@ const Practitioner = () => {
                   </p>
                 </div>
               </div>
-              <p onClick={() => setIsModalOpen(true)} className={styles["view-profile"]}>View profile</p>
-
-   
+              <p
+                onClick={() => setIsModalOpen(true)}
+                className={styles["view-profile"]}
+              >
+                View profile
+              </p>
             </div>
           </SwiperSlide>
         );
@@ -244,7 +249,8 @@ const Practitioner = () => {
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }>
+          }
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -276,7 +282,8 @@ const Practitioner = () => {
                 centeredSlides={false}
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}>
+                onSwiper={(swiper) => console.log(swiper)}
+              >
                 {/* <SwiperSlide className={styles["swiper-slide"]}>
                   <div className={`${styles["container-card"]} `}>
                     <div className="d-flex flex-column align-items-center gap-2">
@@ -312,7 +319,8 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}>
+              onSwiper={(swiper) => console.log(swiper)}
+            >
               {schedulingSlides} {/* Render scheduling options */}
             </Swiper>
           </div>
@@ -334,7 +342,8 @@ const Practitioner = () => {
                         time.erId === selectedTime ? styles.activeTime : ""
                       }`}
                       key={index}
-                      onClick={() => handleTimeSelect(time.erId)}>
+                      onClick={() => handleTimeSelect(time.erId)}
+                    >
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -363,12 +372,15 @@ const Practitioner = () => {
               date: date,
               timeSlotId: selectedTime,
             },
-          }}>
+          }}
+        >
           <Btn title="Continue" margin="10px 0" />
         </Link>
       </div>
-      <SlideUpDoctor isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-
+      <SlideUpDoctor
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </div>
   );
 };

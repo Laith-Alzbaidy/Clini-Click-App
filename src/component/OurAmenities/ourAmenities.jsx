@@ -10,7 +10,7 @@ const OurAmenities = ({ data }) => {
 
       <Row>
         <Col>
-          {data.amenities.slice(0, 3).map((amenity, index) => (
+          {data?.amenities?.slice(0, 3).map((amenity, index) => (
             <div className={styles["content-icon"]} key={index}>
               <Image
                 src={amenity.icon}
@@ -25,7 +25,7 @@ const OurAmenities = ({ data }) => {
           ))}
         </Col>
         <Col>
-          {data.amenities.slice(3, 6).map((amenity, index) => (
+          {data?.amenities?.slice(3, 6).map((amenity, index) => (
             <div className={styles["content-icon"]} key={index}>
               <Image
                 src={amenity.icon}

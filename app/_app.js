@@ -1,21 +1,13 @@
-"use client";
-import api from "@/config-API/config-API";
-export async function getServerSideProps() {
-  try {
-    const response = await api.get("clinic?clinicName=AbdullahClinic");
-    const data = response.data.responseData;
+// _app.js
 
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {
-      props: {
-        data: null,
-      },
-    };
-  }
+import AppContext from "@/context";
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <AppContext>
+      <Component {...pageProps} />
+    </AppContext>
+  );
 }
+
+export default MyApp;

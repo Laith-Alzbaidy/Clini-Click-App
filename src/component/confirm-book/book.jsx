@@ -9,7 +9,11 @@ import call from "./assets/image/call.svg";
 import location from "./assets/image/location.svg";
 import Btn from "../button/button";
 import Footer from "../footer/footer";
+import { DataContext } from "@/context";
+import { useContext } from "react";
 const BookFinish = () => {
+  const { dataPayment } = useContext(DataContext);
+  console.log(dataPayment);
   return (
     <div className={styles.container}>
       <div className="container1">

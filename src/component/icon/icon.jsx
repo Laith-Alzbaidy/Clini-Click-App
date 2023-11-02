@@ -17,7 +17,7 @@ const Icon = ({ data }) => {
 
   return (
     <div className={styles["container-icon"]}>
-      {data.mediaLinks.map((linkData) => (
+      {data?.mediaLinks?.map((linkData) => (
         <Link
           rel="noopener noreferrer"
           target="_blank"

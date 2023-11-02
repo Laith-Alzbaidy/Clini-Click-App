@@ -14,18 +14,18 @@ const Location = ({ data }) => {
 
       <div
         className="location"
-        dangerouslySetInnerHTML={{ __html: data.location }}
+        dangerouslySetInnerHTML={{ __html: data?.location }}
       />
 
       {/* Location and Call Icons */}
       <div className={styles["container-icon"]}>
         <div className={styles["content-icon"]}>
           <Image src={location} className={styles["icon"]} alt="location" />
-          <p className={styles["text-icon"]}>{data.country.name}</p>
+          <p className={styles["text-icon"]}>{data?.country?.name}</p>
         </div>
         <div className={styles["content-icon"]}>
           <Image src={call} className={styles["icon"]} alt="call" />
-          <p className={styles["text-icon"]}>{data.phone}</p>
+          <p className={styles["text-icon"]}>{data?.phone}</p>
         </div>{" "}
       </div>
     </div>

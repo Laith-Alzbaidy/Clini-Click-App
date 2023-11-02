@@ -12,44 +12,27 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
+
+import { useContext } from "react";
+import { DataContext } from "@/context";
 const Payment = () => {
+  const { postPayment } = useContext(DataContext);
+
+  // const { laith } = useContext(DataContext);
+
+  // console.log("share data context", laith);
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const [selectMethod, setSelectMethod] = useState({}); // Set the default value here
 
   const [offer, setOffer] = useState("");
-  const token = Cookies.get("token");
-
-  const dataPyament = {
-    clinicName: "AbdullahClinic",
-    treatmentId: searchParams.get("treatmentId"),
-    practitionerId: searchParams.get("practitionerId"),
-    timeSlotId: searchParams.get("timeSlotId"),
-    date: searchParams.get("date"),
-    paymentId: selectMethod.id,
-    // promoCode: offer,
-  };
 
   const handleConfirm = () => {
-    // router.push(`/payment/confirm-book`);
-    // postPayment();
-    console.log(dataPyament);
+    postPayment(selectMethod.id);
+    console.log(dataPayment);
   };
 
-  const postPayment = async () => {
-    console.log(dataPyament);
-    try {
-      const response = await api.post("/Appointments", dataPyament, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
   return (
     <div>
       <div className={styles["nav-header"]}>

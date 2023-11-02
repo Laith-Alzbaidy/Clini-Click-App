@@ -56,7 +56,7 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
     setIsModalOpen(true);
     setPractitioner(item);
   };
-  const ouerTeam = data.practitioners.map((item, index) => {
+  const ouerTeam = data?.practitioners?.map((item, index) => {
     return (
       <SwiperSlide
         onClick={() => handleDataPractitioner(item)}
