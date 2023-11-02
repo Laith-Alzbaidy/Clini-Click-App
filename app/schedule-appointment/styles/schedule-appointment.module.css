@@ -184,6 +184,9 @@
   justify-content: space-between;
   margin-top: 0.5rem;
 }
+.borderActive {
+  border: 2px solid #a75cff;
+}
 
 .line {
   background: #e2e2e2;

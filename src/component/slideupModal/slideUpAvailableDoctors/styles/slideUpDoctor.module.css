@@ -1,0 +1,67 @@
+.container-image {
+  height: 220px;
+  border-radius: 0;
+  margin: 20px 0;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  border-radius: 20px !important;
+  position: static !important;
+}
+.container-content {
+  margin-top: 30px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 18px;
+}
+.link-review {
+  padding: 5px 0;
+}
+
+.specialization {
+  color: #adadad;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 2px !important;
+}
+
+.text-review {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--secondary-color);
+  margin-top: 6px !important;
+}
+
+/* Setcion Qualifications  */
+.item-list {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.list-qualifications {
+  margin-left: 15px !important;
+}
+/* Section Icon */
+.title-icon,
+.date {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.title-icon {
+  color: #828282;
+}
+.sub-title-icon {
+  color: var(--primary-color);
+}
+
+.card {
+  display: flex;
+}

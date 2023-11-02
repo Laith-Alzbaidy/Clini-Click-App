@@ -17,6 +17,15 @@
 .mainContainer {
   padding: 0 28px 0 28px;
 }
+.wrapper div {
+  font-size: 14px;
+}
+.wrapper p {
+  font-size: 14px;
+}
+.wrapper span {
+  font-size: 14px;
+}
 .subName {
   color: #001435;
   font-size: 18px;
@@ -69,7 +78,7 @@
   font-weight: 700;
 }
 .duration {
-  color: #828282;
+  color: #828282 !important;
   font-size: 14px;
   font-weight: 400;
   padding-left: 5px;
@@ -81,7 +90,7 @@
   display: flex;
   align-items: center;
   padding-right: 28px;
-  gap: 0.5rem;
+  gap: 5px;
 }
 .constContainer input[type="radio"] {
   accent-color: #a75cff;
@@ -100,17 +109,19 @@
   font-size: 14px;
   font-weight: 700;
 }
-.optionsContainer{
+.optionsContainer {
   display: flex;
   justify-content: space-between;
+  gap: 0.5rem;
   align-items: center;
   padding: 0 28px 0 28px;
 }
-.optionsContainer :nth-child(1){
+.right {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
-.optionsContainer :nth-child(2){
+.optionsContainer :nth-child(2) {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -132,6 +143,9 @@
   font-size: 12px;
   font-weight: 400;
   padding-bottom: 5rem;
+}
+.price{
+width: 50px
 }
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
@@ -204,7 +218,7 @@
   }
 }
 
-@media (max-width: 365px) and (min-width: 278px) {
+@media (max-width: 365px) and (min-width: 0px) {
   .subName {
     font-size: 14px;
   }
@@ -222,4 +236,20 @@
   .constChildContainer :nth-child(2) {
     font-size: 12px;
   }
+  .wrapper div {
+    font-size: 12px;
+  }
+  .wrapper p {
+    font-size: 12px;
+  }
+  .wrapper span {
+    font-size: 12px;
+  }
+  .price{
+    width: 45px;
+  }
+  .constChildContainer{
+    flex-wrap: wrap;
+  }
+  
 }

@@ -79,6 +79,7 @@ const DoctorReview = () => {
           );
         })}
       </div>
+  
       <p className={styles.subquestion}>Do you have any feedback to share ?</p>
       <textarea
         className={styles.textArea}
@@ -113,7 +114,7 @@ const DoctorReview = () => {
                   onMouseLeave={() => setHoverPractitioner(null)}
                 />
               ) : (
-                <FaRegStar // Use the empty star icon
+                <FaRegStar 
                   size={32}
                   className={styles.star}
                   color="#A75CFF"
