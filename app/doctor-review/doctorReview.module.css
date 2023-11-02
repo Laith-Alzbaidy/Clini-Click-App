@@ -47,14 +47,14 @@
   color: #8b8b8b;
   font-size: 12px;
 }
-.star{
+.star {
   margin: 10px 0 10px 0;
   cursor: pointer;
 }
-.input[type=radio] {
- display: none;
+.input[type="radio"] {
+  display: none;
 }
-.starsContainer{
+.starsContainer {
   display: flex;
   gap: 5px;
 }

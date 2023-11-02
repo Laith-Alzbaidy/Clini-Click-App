@@ -5,6 +5,7 @@ import Btn from "@/src/component/button/button";
 import Link from "next/link";
 import { FaStar, FaRegStar, FaRegStarHalf } from "react-icons/fa";
 
+
 const DoctorReview = () => {
   const [rateClinic, setRateClinic] = useState(0);
   const [hoverClinic, setHoverClinic] = useState(null);
@@ -52,6 +53,7 @@ const DoctorReview = () => {
           );
         })}
       </div>
+  
       <p className={styles.subquestion}>Do you have any feedback to share ?</p>
       <textarea
         className={styles.textArea}
@@ -86,7 +88,7 @@ const DoctorReview = () => {
                   onMouseLeave={() => setHoverPractitioner(null)}
                 />
               ) : (
-                <FaRegStar // Use the empty star icon
+                <FaRegStar 
                   size={32}
                   className={styles.star}
                   color="#A75CFF"

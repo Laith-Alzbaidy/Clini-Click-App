@@ -125,7 +125,7 @@ const SubCategory = () => {
 
       <div>
         {optionsData.map((item, index) => (
-          <div key={index}>
+          <div key={index} className={styles.wrapper}>
             {item.default === null ? (
               <div>
                 {item.consultation && (
@@ -138,7 +138,7 @@ const SubCategory = () => {
                       </div>
                     </div>
                     <div>
-                      <div>AED {item.consultation.price}</div>
+                      <div className={styles.price}>AED {item.consultation.price}</div>
                       <input
                         type="radio"
                         value="consultation"
@@ -157,11 +157,8 @@ const SubCategory = () => {
                   <div key={index}>
                     <div className={styles.optionsContainer}>
                       <div>
-                        <p className={styles.name}>{area.name}</p>
-                        <p className={styles.duration}>
-                          {" "}
-                          - {area.duration} min
-                        </p>
+                        <div className={styles.name}>{area.name} <span className={styles.duration}>-{area.duration} min</span></div>
+                        
                       </div>
                       <div>
                         <p>AED {area.price}</p>
@@ -185,14 +182,12 @@ const SubCategory = () => {
                     {deviceSelect.devices.map((device, index) => (
                       <div key={index}>
                         <div className={styles.optionsContainer}>
-                          <div>
-                            <p>{device.name}</p>
-                            <p className={styles.duration}>
-                              - {device.duration} min
-                            </p>
+                          <div className={styles.right}>
+                            <div>{device.name}<span className={styles.duration}>-{device.duration} min</span></div>
+                            
                           </div>
                           <div>
-                            <p>AED {device.price}</p>
+                            <div className={styles.price}>AED {device.price}</div>
                             <input
                               type="radio"
                               name="device"
