@@ -127,7 +127,7 @@ const OTB = () => {
       </div>
       <div className="d-flex flex-column align-items-center justify-content-center">
         {/* Display timer if it's open */}
-        {openTimer && <span>{timer}</span>}
+        {openTimer && <span className={styles["timer"]}>{timer}</span>}
         <button
           onClick={resendOTP}
           disabled={openTimer}

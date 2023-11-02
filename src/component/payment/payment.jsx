@@ -22,19 +22,19 @@ const Payment = () => {
   const token = Cookies.get("token");
 
   const dataPyament = {
+    clinicName: "AbdullahClinic",
     treatmentId: searchParams.get("treatmentId"),
     practitionerId: searchParams.get("practitionerId"),
     timeSlotId: searchParams.get("timeSlotId"),
     date: searchParams.get("date"),
     paymentId: selectMethod.id,
-    clinicName: "AbdullahClinic",
-    promoCode: offer,
+    // promoCode: offer,
   };
 
   const handleConfirm = () => {
     // router.push(`/payment/confirm-book`);
-    postPayment();
-    console.log(offer, selectMethod.id);
+    // postPayment();
+    console.log(dataPyament);
   };
 
   const postPayment = async () => {
@@ -45,6 +45,7 @@ const Payment = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
