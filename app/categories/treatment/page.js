@@ -30,7 +30,7 @@ const SubCategory = () => {
 
   useEffect(() => {
     async function fetchData() {
-      try { 
+      try {
         const response = await api.get(
           `categories/${category}/subcategories/${subcategory}`
         );
@@ -80,18 +80,18 @@ const SubCategory = () => {
 
   const handleOptionSelect = async (event) => {
     try {
-      const selectedOption = event.target.value
-        const response = await api.get(
-          `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
-        );
-        const responseData = response.data.responseData;
-        setDeviceSelect(responseData);
-        console.log(responseData, "device");
-      } catch (error) {
+      const selectedOption = event.target.value;
+      const response = await api.get(
+        `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
+      );
+      const responseData = response.data.responseData;
+      setDeviceSelect(responseData);
+      console.log(responseData, "device");
+    } catch (error) {
       console.error("Error fetching data:", error);
       setDeviceSelect(null);
     }
-  }
+  };
   console.log(deviceSelect, "device");
 
   return (
@@ -138,7 +138,9 @@ const SubCategory = () => {
                       </div>
                     </div>
                     <div>
-                      <div className={styles.price}>AED {item.consultation.price}</div>
+                      <div className={styles.price}>
+                        AED {item.consultation.price}
+                      </div>
                       <input
                         type="radio"
                         value="consultation"
@@ -157,8 +159,12 @@ const SubCategory = () => {
                   <div key={index}>
                     <div className={styles.optionsContainer}>
                       <div>
-                        <div className={styles.name}>{area.name} <span className={styles.duration}>-{area.duration} min</span></div>
-                        
+                        <div className={styles.name}>
+                          {area.name}{" "}
+                          <span className={styles.duration}>
+                            -{area.duration} min
+                          </span>
+                        </div>
                       </div>
                       <div>
                         <p>AED {area.price}</p>
@@ -183,11 +189,17 @@ const SubCategory = () => {
                       <div key={index}>
                         <div className={styles.optionsContainer}>
                           <div className={styles.right}>
-                            <div>{device.name}<span className={styles.duration}>-{device.duration} min</span></div>
-                            
+                            <div>
+                              {device.name}
+                              <span className={styles.duration}>
+                                -{device.duration} min
+                              </span>
+                            </div>
                           </div>
                           <div>
-                            <div className={styles.price}>AED {device.price}</div>
+                            <div className={styles.price}>
+                              AED {device.price}
+                            </div>
                             <input
                               type="radio"
                               name="device"
@@ -206,66 +218,74 @@ const SubCategory = () => {
                       </div>
                     ))}
                   </div>
-                )}{deviceSelect &&  deviceSelect.sessions && (
-                <div>
-                  <Bold additionalStyles={linestyle} />
-                  <div className={styles.SelectHeader}>
-                    <div>Sessions</div>
-                    <div>Required</div>
-                  </div>
-                  {deviceSelect.sessions.map((session, sessionIndex) => (
-                    <div key={sessionIndex}>
-                      <div className={styles.optionsContainer}>
-                        <div>
-                          <p>{session.name}</p>
-                          <p>{session.duration} min</p>
-                        </div>
-                        <div>
-                          <p>AED {session.price}</p>
-                          <input
-                            type="radio"
-                            value={session.name}
-                          />
+                )}
+                {deviceSelect && deviceSelect.sessions && (
+                  <div>
+                    <Bold additionalStyles={linestyle} />
+                    <div className={styles.SelectHeader}>
+                      <div>Sessions</div>
+                      <div>Required</div>
+                    </div>
+                    {deviceSelect.sessions.map((session, sessionIndex) => (
+                      <div key={sessionIndex}>
+                        <div className={styles.optionsContainer}>
+                          <div>
+                            <p>{session.name}</p>
+                            <p>{session.duration} min</p>
+                          </div>
+                          <div>
+                            <p>AED {session.price}</p>
+                            <input type="radio" value={session.name} />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )} 
+                    ))}
+                  </div>
+                )}
               </div>
             ) : (
               <div>
-                <div className={styles.constContainer}>
-                  <div className={styles.constChildContainer}>
-                    <p>Default name</p>
-                    <p>- {item.default.duration} min</p>
-                  </div>
-                  <div>
-                    <div>AED {item.consultation.price}</div>
-                    <input
-                      type="radio"
-                      value="default"
-                      name="option"
-                    />
-                  </div>
-                </div>
-                <Bold additionalStyles={linestyle} />
                 {item.consultation && (
                   <div className={styles.constContainer}>
                     <div className={styles.constChildContainer}>
-                      <p>Consultation only</p>
-                      <p> - {item.consultation.duration} min</p>
+                      <div>Consultation only</div>
+                      <div className={styles.duration}>
+                        {" "}
+                        - {item.consultation.duration} min
+                      </div>
                     </div>
                     <div>
-                      <div>AED {item.consultation.price}</div>
+                      <div className={styles.price}>
+                        AED {item.consultation.price}
+                      </div>
                       <input
                         type="radio"
                         value="consultation"
+                        onClick={handleOptionSelect}
                         name="option"
                       />
                     </div>
                   </div>
                 )}
+                <Bold additionalStyles={linestyle} />
+                <div className={styles.constContainer}>
+                  <div className={styles.constChildContainer}>
+                    <div>Default name</div>
+                    <div className={styles.duration}>
+                      {" "}
+                      - {item.default.duration} min
+                    </div>
+                  </div>
+                  <div>
+                    <div className={styles.price}>AED {item.default.price}</div>
+                    <input
+                      type="radio"
+                      value="consultation"
+                      onClick={handleOptionSelect}
+                      name="option"
+                    />
+                  </div>
+                </div>
               </div>
             )}
           </div>

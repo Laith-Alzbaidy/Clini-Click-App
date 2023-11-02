@@ -1,0 +1,15 @@
+.modal-dialog {
+    max-width: 878.97px !important;
+
+    height: fit-content !important;
+  }
+  
+  .modal-content {
+    border-radius: 40px !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+    background: #fff !important;
+
+  }
+  .btn-close{
+    padding-right: 64px !important;
+  }
