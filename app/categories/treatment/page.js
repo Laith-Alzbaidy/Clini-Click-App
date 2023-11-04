@@ -167,7 +167,7 @@ const SubCategory = () => {
                         </div>
                       </div>
                       <div>
-                        <p>AED {area.price}</p>
+                        <p className={styles.price}>AED {area.price}</p>
                         <input
                           type="radio"
                           value={area.name}
