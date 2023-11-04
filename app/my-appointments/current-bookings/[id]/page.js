@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./current-bookings.module.css";
 import Link from "next/link";
@@ -9,18 +10,31 @@ import user from "../../assets/user.svg";
 import location from "../../assets/location.svg";
 import phone from "../../assets/call.svg";
 import Image from "next/image";
+import api from "@/config-API/config-API";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
-async function getData(id) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+import Location from "@/src/component/location/location";
+const CurrentBookings = ({ params }) => {
+  const [data, setData] = useState({});
+  const token = Cookies.get("token");
+  const getAppointemntSpecific = async () => {
+    try {
+      const res = await api.get(`Appointments/${params.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("----------------------", res.data.responseData);
+      setData(res.data.responseData);
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
-  return res.json();
-}
-
-const CurrentBookings = async ({ params }) => {
-  const data = await getData(params.id);
+  useEffect(() => {
+    getAppointemntSpecific();
+  }, []);
 
   return (
     <div className={styles.warpper}>
@@ -35,14 +49,15 @@ const CurrentBookings = async ({ params }) => {
           </Link>
         </div>
 
-        <div className={styles.title}>Wed, 23 July at 5:00 PM</div>
+        <div className={styles.title}>{data?.startTime}</div>
         <Link
           href={{
             pathname: "/my-appointments/reschedule",
             query: {
-              search: data.id,
+              search: data?.id,
             },
-          }}>
+          }}
+        >
           <Btn title={"Reschedule appointment"} />
         </Link>
 
@@ -58,26 +73,26 @@ const CurrentBookings = async ({ params }) => {
           <div className={styles.treatmentContainer}>
             <div>Treatment:</div>
             <div className={styles.treatmentDeatils}>
-              <div className={styles.treatmentName}>Laser hair removal</div>
-              <p>Body area: Arms</p>
-              <p>Device: Gentle Max Pro</p>
-              <p>Sessions: 1</p>
+              <div className={styles.treatmentName}>{data?.treatmentName}</div>
+              <p>Body area: {data?.bodyArea}</p>
+              <p>Device: {data?.device}</p>
+              <p>Sessions: {data?.sessions}</p>
             </div>
           </div>
           <div className={styles.practitionerContainer}>
             <div>Practitioner</div>
-            <div>Dr. Basel Habayeb</div>
+            <div>{data?.practitionerName}</div>
           </div>
           <div className={styles.timingContainer}>
             <div>Timing:</div>
-            <div>Wed, 23 Jul at 2:00 PM</div>
+            <div>{data?.startTime}</div>
           </div>
         </div>
         <div className={styles.totalContainer}>
           <div>
             Order total <span>(incl.tax)</span>
           </div>
-          <div>AED 300</div>
+          <div>AED {data?.price}</div>
         </div>
       </div>
       <div
@@ -85,7 +100,8 @@ const CurrentBookings = async ({ params }) => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}></div>
+        }}
+      ></div>
 
       <div className={styles.CancelTitle}>Cancellation policy</div>
       <div className={styles.cancellation}>
@@ -98,19 +114,23 @@ const CurrentBookings = async ({ params }) => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}></div>
+        }}
+      ></div>
       <div className={styles.container}>
         <div className={styles.subTitle}>Location</div>
         <Head>
           <title>My Map</title>
         </Head>
-        <iframe
+        {/* <iframe
           width="100%"
           style={{ borderRadius: 20 }}
           referrerPolicy="no-referrer-when-downgrade"
           src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
           allowFullScreen
-          title="My Map"></iframe>
+          title="My Map"
+        ></iframe> */}
+
+        <Location />
         <div className={styles.call}>
           <Image src={phone} alt="phone" />
           <div>+971-5-000000000</div>

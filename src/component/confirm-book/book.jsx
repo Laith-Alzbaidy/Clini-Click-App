@@ -11,7 +11,31 @@ import Btn from "../button/button";
 import Footer from "../footer/footer";
 import { DataContext } from "@/context";
 import { useContext } from "react";
-const BookFinish = () => {
+import api from "@/config-API/config-API";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
+import { useState } from "react";
+const BookFinish = ({ bookingId }) => {
+  const [dataAppointments, setDataAppointments] = useState({});
+  const token = Cookies.get("token");
+
+  const getAppointmentsSpecific = async () => {
+    try {
+      const response = await api.get(`Appointments/${bookingId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data.responseData);
+      setDataAppointments(response.data.responseData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getAppointmentsSpecific();
+  }, []);
   const { dataPayment } = useContext(DataContext);
   console.log(dataPayment);
   return (
@@ -37,26 +61,28 @@ const BookFinish = () => {
           <div className={styles.treatmentContainer}>
             <div>Treatment:</div>
             <div className={styles.treatmentDeatils}>
-              <div className={styles.treatmentName}>Laser hair removal</div>
-              <div>Body area: Arms</div>
-              <div>Device: Gentle Max Pro</div>
-              <div>Sessions: 1</div>
+              <div className={styles.treatmentName}>
+                {dataAppointments?.treatmentName}
+              </div>
+              <div>Body area: {dataAppointments?.bodyArea}</div>
+              <div>Device: {dataAppointments?.device}</div>
+              <div>Sessions: {dataAppointments?.sessions}</div>
             </div>
           </div>
           <div className={styles.practitionerContainer}>
             <div>Practitioner</div>
-            <div>Dr. Basel Habayeb</div>
+            <div>{dataAppointments?.practitionerName}</div>
           </div>
           <div className={styles.practitionerContainer}>
             <div>Timing:</div>
-            <div>Wed, 23 Jul at 2:00 PM</div>
+            <div>{dataAppointments?.startTime}</div>
           </div>
         </div>
         <div className={styles.totalContainer}>
           <div>
             Order total <span>(incl.tax)</span>
           </div>
-          <div>AED 300</div>
+          <div>AED {dataAppointments?.price}</div>
         </div>
       </div>
       <div

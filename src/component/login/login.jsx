@@ -64,7 +64,7 @@ const Login = () => {
           country={"ae"}
           value={phone}
           onChange={(phone) => setPhone(phone)}
-          containerStyle={{width:"300px !important"}}
+          containerStyle={{ width: "300px !important" }}
         />
       </div>
 
