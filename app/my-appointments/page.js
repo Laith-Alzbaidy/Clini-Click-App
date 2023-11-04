@@ -11,6 +11,7 @@ import CategoriesModal from "@/src/component/categotyModal/categoriesModal";
 const style = {
   marginTop: "45px",
 };
+
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   if (!res.ok) {
@@ -41,7 +42,8 @@ const MyAppointments = async () => {
         {data.map((appointment, index) => (
           <Link
             href={`my-appointments/current-bookings/${appointment.id}`}
-            className={styles.link}>
+            className={styles.link}
+          >
             <div className={styles.cardContainer} key={index}>
               <Image src={image} className={styles.cardImage} alt="image" />
               <div className={styles.details}>
@@ -61,7 +63,8 @@ const MyAppointments = async () => {
         {data.map((appointment, index) => (
           <Link
             href={`my-appointments/past-bookings/${appointment.id}`}
-            className={styles.link}>
+            className={styles.link}
+          >
             <div className={styles.cardContainer} key={index}>
               <Image src={image} className={styles.cardImage} alt="img" />
               <div className={styles.details}>

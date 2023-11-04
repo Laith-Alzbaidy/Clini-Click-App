@@ -33,6 +33,9 @@
 .active-container-card {
   border: 1px solid var(--secondary-color) !important;
 }
+.active-container-card4 {
+  border: 1px solid red !important;
+}
 .swiper-slide {
   width: 150px;
   margin-right: 10px !important;

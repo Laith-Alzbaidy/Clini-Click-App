@@ -138,17 +138,6 @@ const Practitioner = () => {
 
         return (
           <SwiperSlide className={styles["swiper-slide"]} key={index}>
-            <div className={`${styles["container-card"]} `}>
-              <div className="d-flex flex-column align-items-center gap-2">
-                <Image src={user} />
-                <h3 className={styles["name-card"]}>No preference</h3>
-                <div>
-                  <p className={styles["specialization"]}>
-                    Maximum availability
-                  </p>
-                </div>
-              </div>
-            </div>
             <div
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
@@ -284,7 +273,7 @@ const Practitioner = () => {
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
               >
-                {/* <SwiperSlide className={styles["swiper-slide"]}>
+                <SwiperSlide className={styles["swiper-slide"]}>
                   <div className={`${styles["container-card"]} `}>
                     <div className="d-flex flex-column align-items-center gap-2">
                       <Image src={user} />
@@ -296,7 +285,7 @@ const Practitioner = () => {
                       </div>
                     </div>
                   </div>
-                </SwiperSlide> */}
+                </SwiperSlide>
                 {team}
               </Swiper>
             </div>
