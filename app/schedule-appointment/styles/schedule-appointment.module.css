@@ -86,10 +86,6 @@
   background-color: #a75cff;
   color: #fff;
 }
-.activeTime  {
-  background-color: #a75cff;
-  color: #fff;
-}
 
 .active .date {
   color: #fff;
@@ -153,14 +149,13 @@
   font-size: 12px;
   font-weight: 400;
 }
-
-/* .card-time:hover .time {
-  color: white;
-} */
-.activeTime{
-  background-color: #a75cff;
+.time:hover{
   color: #fff;
+  font-size: 12px;
+  font-weight: 400;
 }
+
+
 .timeContainer {
   border-radius: 15px;
   border: 1px solid #adadad;
@@ -171,6 +166,12 @@
   width: 31%;
   height: 37px;
   margin-top: 20px;
+}
+.timeContainer:hover {
+
+  background: #a75cff;
+  color: #fff;
+
 }
 
 

@@ -27,7 +27,7 @@ const Practitioner = () => {
   const [selectedMonth, setSelectedMonth] = useState(new Date());
   const [date, setDate] = useState();
   const [slecetedDoctor, setSelectedDoctor] = useState(null);
-  const [selectNoPrefrence, setSelectNoPrefrence] = useState(null);
+  const [selectNoPrefrence, setSelectNoPrefrence] = useState();
   const [NoPrefrence, setNoPrefrence] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -35,6 +35,7 @@ const Practitioner = () => {
 
   const subcategory = searchParams.get("treatmentId");
   const [modalclass, SetClass] = useState("modal-content");
+  const [availability, setAvailability] = useState([]);
   function close() {
     SetClass("modal-content closing");
     setTimeout(() => {
@@ -84,8 +85,6 @@ const Practitioner = () => {
     }
     fetchData();
   }, [subcategory]);
-
-  const [availability, setAvailability] = useState([]);
   const fetchAvailableHours = async (practitionerId, date) => {
     try {
       const response = await api.get(
@@ -108,25 +107,6 @@ const Practitioner = () => {
       console.error("Error fetching available hours:", error);
     }
   };
-  const handleNoPreference = () => {
-    setNoPrefrence("selected");
-    setSelectedDoctor(null);
-    if (NoPrefrence !== null && date) {
-      fetchPrefernceIdAvailableHours(date);
-    }
-  };
-  const handlePractitionerSelect = (practitionerId) => {
-    setNoPrefrence(null);
-    setSelectedDoctor(practitionerId);
-    if (practitionerId && date) {
-      fetchAvailableHours(practitionerId, date);
-    }
-  };
-
-  const handleTimeSelect = (Time) => {
-    setSelectedTime(Time);
-  };
-
   const handleDayClick = (day, date, id) => {
     setSelectedDay(day);
     setSelectedDate(date);
@@ -138,10 +118,30 @@ const Practitioner = () => {
     const yearFormatted = selectedDate.getFullYear();
     const selected = `${yearFormatted}-${selectedMonthFormatted}-${dateFormatted}`;
     setDate(selected);
-    if (slecetedDoctor) {
+    if (slecetedDoctor && selected) {
       fetchAvailableHours(slecetedDoctor, selected);
     }
+    if (NoPrefrence === "selected" && selected) {
+      fetchPrefernceIdAvailableHours(selected);
+    }
   };
+
+  const handleNoPreference = () => {
+    setNoPrefrence("selected");
+    setSelectedDoctor(null);
+
+    if (date) {
+      fetchPrefernceIdAvailableHours(date);
+    }
+  };
+  const handlePractitionerSelect = (practitionerId) => {
+    setNoPrefrence(null);
+    setSelectedDoctor(practitionerId);
+    if (practitionerId && date) {
+      fetchAvailableHours(practitionerId, date);
+    }
+  };
+
 
   const team = data
     ? data.map((practitioner, index) => {
@@ -282,7 +282,9 @@ const Practitioner = () => {
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div
                     className={`${styles["container-card"]} ${
-                     NoPrefrence !== null ? styles["active-container-card"] : ""
+                      NoPrefrence !== null
+                        ? styles["active-container-card"]
+                        : ""
                     } `}
                     onClick={handleNoPreference}>
                     <div className="d-flex flex-column align-items-center gap-2">
@@ -336,14 +338,14 @@ const Practitioner = () => {
                 {availability && availability.data ? (
                   availability.data.map((time, index) => (
                     <div
-                      className={`${styles.timeContainer} ${
-                        time.erId === selectedTime ? styles.active : ""
-                      }`}
                       key={index}
                       onClick={() => {
-                        handleTimeSelect(time.erId);
+                        setSelectedTime(time.erId);
                         setSelectNoPrefrence(time.practitionerId);
-                      }}>
+                      }}
+                      className={`${styles.timeContainer} ${
+                        time.erId === selectedTime ? styles.active : ""
+                      }`}>
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
