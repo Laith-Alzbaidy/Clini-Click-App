@@ -27,6 +27,8 @@ const Practitioner = () => {
   const [selectedMonth, setSelectedMonth] = useState(new Date());
   const [date, setDate] = useState();
   const [slecetedDoctor, setSelectedDoctor] = useState(null);
+  const [selectNoPrefrence, setSelectNoPrefrence] = useState(null);
+  const [NoPrefrence, setNoPrefrence] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const searchParams = useSearchParams();
@@ -106,8 +108,9 @@ const Practitioner = () => {
       console.error("Error fetching available hours:", error);
     }
   };
-  const handleNoPreference = () => {
-    if (date) {
+  const handleNoPreference = (NoPrefrence) => {
+    setNoPrefrence("selected");
+    if (NoPrefrence !== null && date) {
       fetchPrefernceIdAvailableHours(date);
     }
   };
@@ -119,8 +122,6 @@ const Practitioner = () => {
   };
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
-    console.log(selectedTime);
-    console.log(Time, "time22");
   };
 
   const handleDayClick = (day, date, id) => {
@@ -132,14 +133,8 @@ const Practitioner = () => {
       .padStart(2, "0");
     const dateFormatted = date.toString().padStart(2, "0");
     const yearFormatted = selectedDate.getFullYear();
-    // const yeardate = (selectedDate.getFullYear() % 100)
-    //   .toString()
-    //   .padStart(2, "0");
     const selected = `${yearFormatted}-${selectedMonthFormatted}-${dateFormatted}`;
-
     setDate(selected);
-    console.log(date);
-
     if (slecetedDoctor) {
       fetchAvailableHours(slecetedDoctor, selected);
     }
@@ -281,9 +276,8 @@ const Practitioner = () => {
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}>
-                <SwiperSlide>
+                <SwiperSlide className={styles["swiper-slide"]}>
                   <div
-                
                     className={`${styles["container-card"]} `}
                     onClick={handleNoPreference}>
                     <div className="d-flex flex-column align-items-center gap-2">
@@ -341,7 +335,10 @@ const Practitioner = () => {
                         time.erId === selectedTime ? styles.active : ""
                       }`}
                       key={index}
-                      onClick={() => handleTimeSelect(time.erId)}>
+                      onClick={() => {
+                        handleTimeSelect(time.erId);
+                        setSelectNoPrefrence(time.practitionerId);
+                      }}>
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -366,7 +363,8 @@ const Practitioner = () => {
             pathname: "/login",
             query: {
               treatmentId: subcategory,
-              practitionerId: slecetedDoctor,
+              practitionerId:
+                slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor,
               date: date,
               timeSlotId: selectedTime,
             },

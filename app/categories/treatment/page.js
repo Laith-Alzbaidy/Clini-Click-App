@@ -101,6 +101,7 @@ const SubCategory = () => {
         );
         const responseData = response.data.responseData;
         setAreaSelect(responseData);
+        setSelectedTreatmentId(null);
         console.log(responseData, "area");
       }
     } catch (error) {
