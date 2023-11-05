@@ -93,6 +93,9 @@ const SubCategory = () => {
         );
         const responseData = response.data.responseData.consultation.treatmentId;
         setSelectedTreatmentId(responseData);
+        setAreaSelect(null)
+        setDeviceOption(null)
+        setSessionOption(null)
         console.log(responseData, "cons");
       }
       else {
@@ -274,7 +277,7 @@ const SubCategory = () => {
                     ))}
                   </div>
                 )}
-                {deviceOption && (
+                {deviceOption !== null  && AreaSelect.devices !== null && (
                   <div>
                     <Bold additionalStyles={linestyle} />
                     <div className={styles.SelectHeader}>
