@@ -108,18 +108,21 @@ const Practitioner = () => {
       console.error("Error fetching available hours:", error);
     }
   };
-  const handleNoPreference = (NoPrefrence) => {
+  const handleNoPreference = () => {
     setNoPrefrence("selected");
+    setSelectedDoctor(null);
     if (NoPrefrence !== null && date) {
       fetchPrefernceIdAvailableHours(date);
     }
   };
   const handlePractitionerSelect = (practitionerId) => {
+    setNoPrefrence(null);
     setSelectedDoctor(practitionerId);
     if (practitionerId && date) {
       fetchAvailableHours(practitionerId, date);
     }
   };
+
   const handleTimeSelect = (Time) => {
     setSelectedTime(Time);
   };
@@ -278,7 +281,9 @@ const Practitioner = () => {
                 onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div
-                    className={`${styles["container-card"]} `}
+                    className={`${styles["container-card"]} ${
+                     NoPrefrence !== null ? styles["active-container-card"] : ""
+                    } `}
                     onClick={handleNoPreference}>
                     <div className="d-flex flex-column align-items-center gap-2">
                       <Image src={user} />
