@@ -83,13 +83,14 @@
 }
 
 .active {
-  background-color: var(--secondary-color) !important;
-  color: #ffffff !important;
-}
-.active {
   background-color: #a75cff;
   color: #fff;
 }
+.activeTime  {
+  background-color: #a75cff;
+  color: #fff;
+}
+
 .active .date {
   color: #fff;
   font-size: 18px;
@@ -172,13 +173,6 @@
   margin-top: 20px;
 }
 
-/* .timeContainer:hover {
-  background-color: var(--secondary-color);
-} */
-
-.timeContainer:hover .time {
-  color: white;
-}
 
 .Bigcontainer {
   width: 100%;

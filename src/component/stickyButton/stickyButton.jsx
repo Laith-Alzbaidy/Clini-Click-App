@@ -2,9 +2,9 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import styles from "./sticktButton.module.css";
 import Image from "next/image";
-const StickyButton = ({ title, onClick, type, selectMethod }) => {
+const StickyButton = ({ title, onClick, type, selectMethod ,disabled }) => {
   return (
-    <Button className={styles.btn} onClick={onClick} type={type}>
+    <Button className={styles.btn} onClick={onClick} type={type} disabled={disabled}> 
       {title}
       {selectMethod?.value && (
         <Image

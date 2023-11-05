@@ -79,7 +79,6 @@ const MyAppointments = async () => {
         ))}
       </div>
       <Footer additiionalStyles={style} />
-      <CategoriesModal></CategoriesModal>
     </div>
   );
 };
