@@ -6,16 +6,18 @@ import Modal from "react-bootstrap/Modal";
 import close from "./assets/image/close.svg";
 import Image from "next/image";
 import styles from "./styles/popup-payment.module.css";
-
+import api from "@/config-API/config-API";
 import apple from "./assets/image/apple.png";
 import google from "./assets/image/google.png";
 import credit from "./assets/image/credit-debit.png";
 import payclinic from "./assets/image/pay-clinic.png";
 import PopupCardPayment from "../popup-card-payment/popup-card-payment";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 function PopupPayment({ selectMethod, setSelectMethod }) {
   const [show, setShow] = useState(false);
   const [showPaymentCardPopup, setShowPaymentCardPopup] = useState(false);
-
+  const [paymentMethods, setpaymentMethods] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -32,36 +34,56 @@ function PopupPayment({ selectMethod, setSelectMethod }) {
     }, 1000);
   };
 
-  const paymentMethods = [
-    {
-      id: 1,
-      // id: "ApplePay",
-      value: "Apple Pay",
-      src: apple,
-      label: "Apple Pay",
-    },
-    {
-      id: 2,
-      // id: "GooglePay",
-      value: "Google Pay",
-      src: google,
-      label: "Google Pay",
-    },
-    {
-      id: 3,
-      // id: "CreditDebit",
-      value: "Credit/Debit card",
-      src: credit,
-      label: "Credit/Debit card",
-    },
-    {
-      id: 4,
-      // id: "PayInClinic",
-      value: "Pay in clinic",
-      src: payclinic,
-      label: "Pay in clinic",
-    },
-  ];
+  const token = Cookies.get("token");
+  const getMethodPayment = async () => {
+    try {
+      const response = await api.get("/PaymentMethods", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("method", response.data.responseData);
+      setpaymentMethods(response.data.responseData);
+      // setData(response.data);
+    } catch (error) {
+      console.error("An error occurred:");
+    }
+  };
+
+  useEffect(() => {
+    getMethodPayment();
+  }, []);
+
+  // const paymentMethods = [
+  //   {
+  //     id: 1,
+  //     // id: "ApplePay",
+  //     value: "Apple Pay",
+  //     src: apple,
+  //     label: "Apple Pay",
+  //   },
+  //   {
+  //     id: 2,
+  //     // id: "GooglePay",
+  //     value: "Google Pay",
+  //     src: google,
+  //     label: "Google Pay",
+  //   },
+  //   {
+  //     id: 3,
+  //     // id: "CreditDebit",
+  //     value: "Credit/Debit card",
+  //     src: credit,
+  //     label: "Credit/Debit card",
+  //   },
+  //   {
+  //     id: 4,
+  //     // id: "PayInClinic",
+  //     value: "Pay in clinic",
+  //     src: payclinic,
+  //     label: "Pay in clinic",
+  //   },
+  // ];
 
   return (
     <>
@@ -151,25 +173,25 @@ function PopupPayment({ selectMethod, setSelectMethod }) {
                 </div>
               </label> */}
 
-              {paymentMethods.map((method) => (
+              {paymentMethods?.map((method) => (
                 <label className="w-100" key={method.id} htmlFor={method.id}>
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex gap-3 align-items-center">
-                      <Image
+                      {/* <Image
                         width={50}
                         height={40}
-                        src={method.src}
-                        alt={method.label}
-                      />
+                        src={method?.icon}
+                        alt={method.name}
+                      /> */}
                       <span className={styles["text-lable"]}>
-                        {method.label}
+                        {method?.name}
                       </span>
                     </div>
                     <input
                       type="radio"
                       id={method.id}
-                      value={method.value}
-                      checked={selectMethod.value === method.value}
+                      value={method.name}
+                      checked={selectMethod.name === method.name}
                       onChange={() => {
                         handleRadioChange(method);
                         // console.log(method);

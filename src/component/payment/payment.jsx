@@ -1,32 +1,79 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ClosePrev from "@/src/component/close-prev/close-prev";
 import styles from "./styles/payment.module.css";
 import promocode from "./assets/image/promo-code.svg";
 import Image from "next/image";
 import call from "./assets/image/call.svg";
-import location from "./assets/image/location.svg";
 import StickyButton from "../stickyButton/stickyButton";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
-
-import { useContext } from "react";
-import { DataContext } from "@/context";
+import ModalPrivacy from "./modal-privacy/modal.privacy";
 const Payment = () => {
-  const { postPayment } = useContext(DataContext);
-
-  // const { laith } = useContext(DataContext);
-
-  // console.log("share data context", laith);
   const searchParams = useSearchParams();
   const router = useRouter();
-
   const [selectMethod, setSelectMethod] = useState({}); // Set the default value here
-
   const [offer, setOffer] = useState("");
+  const [dataPayment, setDataPayment] = useState([]);
+  const [dataPreConfirm, setDataPreConfirm] = useState({});
+  const token = Cookies.get("token");
+
+  const data = {
+    clinicName: "AbdullahClinic",
+    treatmentId: searchParams.get("treatmentId") || 56,
+    practitionerId: searchParams.get("practitionerId") || 1,
+    timeSlotId: searchParams.get("timeSlotId") || 7,
+    date: searchParams.get("date") || "2023-11-11",
+    promoCode: offer || "",
+    paymentId: selectMethod.id,
+  };
+
+  //preconfirm data payment
+
+  const preConfirm = async () => {
+    try {
+      const response = await api.get(
+        "Appointments/preconfirm?treatmentId=56&practitionerId=1&timeslotId=7&date=11-11-2023",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log(response.data);
+      setDataPreConfirm(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    preConfirm();
+  }, []);
+  //confirm payment API
+  const postPayment = async () => {
+    // console.log(data);
+    console.log("data", data);
+    try {
+      const response = await api.post("/Appointments", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.data.isSuccess) {
+        console.log(response.data.responseData.id);
+        setDataPayment(response.data.responseData);
+        router.push(`/payment/${response.data.responseData.id}`);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleConfirm = () => {
     postPayment(selectMethod.id);
@@ -77,32 +124,34 @@ const Payment = () => {
           <div className={styles.treatmentContainer}>
             <div>Treatment:</div>
             <div className={styles.treatmentDeatils}>
-              <div className={styles.treatmentName}>Laser hair removal</div>
-              <div>Body area: Arms</div>
-              <div>Device: Gentle Max Pro</div>
-              <div>Sessions: 1</div>
+              <div className={styles.treatmentName}>
+                {dataPreConfirm?.treatment?.name}
+              </div>
+              <div>Body area: {dataPreConfirm?.treatment?.bodyArea}</div>
+              <div>Device: {dataPreConfirm?.treatment?.device}</div>
+              <div>Sessions: {dataPreConfirm?.treatment?.sessions}</div>
             </div>
           </div>
           <div className={styles.practitionerContainer}>
             <div>Practitioner</div>
-            <div>Dr. Basel Habayeb</div>
+            <div>{dataPreConfirm?.practitioner}</div>
           </div>
           <div className={styles.practitionerContainer}>
             <div>Timing:</div>
-            <div>Wed, 23 Jul at 2:00 PM</div>
+            <div>{dataPreConfirm?.timing}</div>
           </div>
         </div>
         <div className={styles.totalContainer}>
           <div>
             Order total <span>(incl.tax)</span>
           </div>
-          <div>AED 300</div>
+          <div>AED {dataPreConfirm?.total}</div>
         </div>
       </div>
 
       <div className={styles["line"]}></div>
 
-      {/* <div>
+      <div>
         <div className={styles.subTitle}>Location</div>
 
         <iframe
@@ -135,7 +184,7 @@ const Payment = () => {
             <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* <div className={styles["line"]}></div> */}
 
@@ -159,21 +208,25 @@ const Payment = () => {
           <b>24 hours</b>, or a fee of <b>AED 300</b> may be charged if you miss
           your appointment.
         </p>
+        {/* <div dangerouslySetInnerHTML={{ __html: dataPreConfirm.policy }}></div> */}
       </div>
 
       <div className={styles["line"]}></div>
 
       <div className={styles["container1"]}>
-        <p className={styles["privacy"]}>
-          By selecting the button below, I agree to the <b>T&Cs</b> and{" "}
-          <b>Privacy Policy</b>
-          and confirm that I am 18 years or older
-        </p>
+        <div className={styles["container-privacy"]}>
+          <p className={styles["privacy"]}>
+            By selecting the button below, I agree to the{" "}
+            <ModalPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and{" "}
+            <ModalPrivacy title="Privacy Policy" data={dataPreConfirm.terms} />{" "}
+            and confirm that I am 18 years or older
+          </p>
+        </div>
 
         <StickyButton
           title={`${"Book appointment"}`}
           selectMethod={selectMethod}
-          marginTop={10}
+          marginTop="20"
           onClick={handleConfirm}
         />
       </div>

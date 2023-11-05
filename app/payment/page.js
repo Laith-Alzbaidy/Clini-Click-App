@@ -6,11 +6,7 @@ import Payment from "@/src/component/payment/payment";
 const Page = () => {
   // const { gender } = useContext(DataContext);
 
-  return (
-    <div>
-      <Payment />
-    </div>
-  );
+  return <Payment />;
 };
 
 export default Page;

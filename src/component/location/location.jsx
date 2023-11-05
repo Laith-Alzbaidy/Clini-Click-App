@@ -8,6 +8,7 @@ import map from "./assets/image/map.png";
 import "bootstrap/dist/css/bootstrap.css";
 import { Container } from "react-bootstrap";
 const Location = ({ data }) => {
+  console.log("datadatadatadata", data);
   return (
     <div className="section-location">
       <h1 className={styles["title"]}>Our location</h1>

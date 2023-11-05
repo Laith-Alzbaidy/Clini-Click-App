@@ -176,9 +176,13 @@
 
 .privacy {
   font-size: 10px;
+  display: inline-block;
   text-align: center;
-  padding: 0 30px;
+  cursor: pointer;
+}
+.container-privacy {
   margin-bottom: 60px !important;
+  padding: 0 30px !important;
 }
 
 .btn-payment {
@@ -201,4 +205,15 @@
 
 .container1 {
   padding: 0 28px !important;
+}
+.navmodal {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.content-data-priv {
+  text-align: left !important;
+  margin-top: 10px;
 }

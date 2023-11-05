@@ -1,9 +1,10 @@
 import React from "react";
 import BookFinish from "@/src/component/confirm-book/book";
-const Page = () => {
+const Page = ({ params }) => {
+  console.log(params.id);
   return (
     <>
-      <BookFinish />
+      <BookFinish bookingId={params.id} />
     </>
   );
 };
