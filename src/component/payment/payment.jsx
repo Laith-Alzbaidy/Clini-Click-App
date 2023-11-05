@@ -8,13 +8,16 @@ import call from "./assets/image/call.svg";
 import StickyButton from "../stickyButton/stickyButton";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, redirect, usePathname } from "next/navigation";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
 import SlideUpPrivacy from "./modal-privacy/modal.privacy";
+import { useLayoutEffect } from "react";
 
 const Payment = () => {
   const searchParams = useSearchParams();
+
+  const pathname = usePathname();
   const router = useRouter();
   const [selectMethod, setSelectMethod] = useState({}); // Set the default value here
   const [offer, setOffer] = useState("");
@@ -31,6 +34,15 @@ const Payment = () => {
     // promoCode: offer || "",
     paymentId: selectMethod.id,
   };
+
+  useLayoutEffect(() => {
+    preConfirm();
+    if (!token) {
+      if (pathname == "/payment") {
+        redirect("/");
+      }
+    }
+  }, []);
 
   //preconfirm data payment
 
@@ -52,9 +64,7 @@ const Payment = () => {
     }
   };
 
-  useEffect(() => {
-    preConfirm();
-  }, []);
+  // useEffect(() => {}, []);
   //confirm payment API
   const postPayment = async () => {
     // console.log(data);

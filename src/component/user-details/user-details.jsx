@@ -92,14 +92,19 @@ const PractitionerDetails = () => {
   };
 
   const sendUserDetails = async () => {
-    const response = await api.put("Client/Update", formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    try {
+      const response = await api.put("Client/Update", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    console.log("use-details", response.data.responseData);
+      console.log("use-details", response.data.responseData);
+    } catch (err) {
+      console.log("err", err);
+    }
   };
+
   return (
     <div className="container1">
       <div className="mb-2">
