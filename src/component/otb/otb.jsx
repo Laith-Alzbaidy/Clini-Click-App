@@ -61,7 +61,7 @@ const OTB = () => {
         }
         //set token in cookies
         Cookies.set("token", token, {
-          expires: 1 / 24,
+          expires: 24,
           secure: true,
         });
       }

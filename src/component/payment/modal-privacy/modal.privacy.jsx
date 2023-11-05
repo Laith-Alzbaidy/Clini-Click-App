@@ -1,20 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import "./slideUpPage.css";
+import "./slideUpPagePrivacy.css";
 import Image from "next/image";
 import back from "./assets/back.svg";
 import styles from "../styles/payment.module.css";
-const slideUpAbout = ({ title, data }) => {
+const SlideUpPrivacy = ({ title, data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalclass, SetClass] = useState("modal-content");
+  const [modalclass, SetClass] = useState("modal-content-privacy");
   function close() {
-    SetClass("modal-content closing");
+    SetClass("modal-content-privacy closing");
     setTimeout(() => {
       setIsModalOpen(false);
       // setIsClosing(false);
-      SetClass("modal-content");
+      SetClass("modal-content-privacy");
     }, 300);
   }
+
   return (
     <>
       <span className={styles["privacy"]} onClick={() => setIsModalOpen(true)}>
@@ -26,7 +27,11 @@ const slideUpAbout = ({ title, data }) => {
             <div className={styles["navmodal"]}>
               <Image className="mb-3" src={back} onClick={() => close()} />
               <div>
-                <h1 className={styles["title"]}>{title}</h1>
+                {title == "T&Cs" ? (
+                  <h1 className={styles["title"]}>Terms</h1>
+                ) : (
+                  <h1 className={styles["title"]}>{title}</h1>
+                )}
               </div>
             </div>
             <div
@@ -40,4 +45,4 @@ const slideUpAbout = ({ title, data }) => {
   );
 };
 
-export default slideUpAbout;
+export default SlideUpPrivacy;

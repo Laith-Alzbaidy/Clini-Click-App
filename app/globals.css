@@ -164,6 +164,7 @@ a {
 .location iframe {
   height: 150px;
   border-radius: 20px;
+  width: 100%;
 }
 
 /* .modal-content {
