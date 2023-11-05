@@ -97,7 +97,6 @@ const MyAppointments = () => {
         ))} */}
       </div>
       <Footer additiionalStyles={style} />
-      <CategoriesModal></CategoriesModal>
     </div>
   );
 };

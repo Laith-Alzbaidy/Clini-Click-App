@@ -91,29 +91,9 @@ const Reschedule = ({ searchParams }) => {
         <div className={styles.title}>Reschedule appointment</div>
         <div className={styles.subTitle}>Which day would you like to book?</div>
 
-        {/* <div className="form-group"> */}
+
         <div>
           January
-          {/* <select
-          className="form-control"
-          id="exampleSelect"
-          onChange={(e) => setMonth(e.target.value)}
-          value={month}
-          style={{ border:"none !important", paddingLeft: 5, width: "120px" }}
-        >
-          <option>January</option>
-          <option>February</option>
-          <option>March</option>
-          <option>April</option>
-          <option>May</option>
-          <option>June</option>
-          <option>July</option>
-          <option>August</option>
-          <option>September</option>
-          <option>October</option>
-          <option>November</option>
-          <option>December</option>
-        </select> */}
         </div>
 
         <div className="mt-2">

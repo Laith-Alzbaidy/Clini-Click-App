@@ -23,17 +23,19 @@ const Practitioner = () => {
   const [selectedTime, setSelectedTime] = useState();
   const [selectedDay, setSelectedDay] = useState();
   const [selectedDate, setSelectedDate] = useState();
-  const [selectedDateId, setSelectedDateId] = useState();
   const [schedulingData, setSchedulingData] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(new Date());
   const [date, setDate] = useState();
   const [slecetedDoctor, setSelectedDoctor] = useState(null);
+  const [selectNoPrefrence, setSelectNoPrefrence] = useState();
+  const [NoPrefrence, setNoPrefrence] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const searchParams = useSearchParams();
 
-  const subcategory = searchParams.get("subcategoryId");
+  const subcategory = searchParams.get("treatmentId");
   const [modalclass, SetClass] = useState("modal-content");
+  const [availability, setAvailability] = useState([]);
   function close() {
     SetClass("modal-content closing");
     setTimeout(() => {
@@ -83,12 +85,10 @@ const Practitioner = () => {
     }
     fetchData();
   }, [subcategory]);
-
-  const [availability, setAvailability] = useState([]);
-  const fetchAvailableHours = async (practitionerId) => {
+  const fetchAvailableHours = async (practitionerId, date) => {
     try {
       const response = await api.get(
-        `PractitionerAvailability/${practitionerId}?date=${date}`
+        `PractitionerAvailability?practitionerId=${practitionerId}&treatmentId=${subcategory}&date=${date}`
       );
       const data = response.data.responseData;
       setAvailability(data);
@@ -96,41 +96,52 @@ const Practitioner = () => {
       console.error("Error fetching available hours:", error);
     }
   };
-
-  const handlePractitionerSelect = (practitionerId) => {
-    setSelectedDoctor(practitionerId);
-    if (practitionerId && selectedDate) {
-      fetchAvailableHours(practitionerId, selectedDate);
+  const fetchPrefernceIdAvailableHours = async (date) => {
+    try {
+      const response = await api.get(
+        `PractitionerAvailability?treatmentId=${subcategory}&date=${date}`
+      );
+      const data = response.data.responseData;
+      setAvailability(data);
+    } catch (error) {
+      console.error("Error fetching available hours:", error);
     }
   };
-  const handleTimeSelect = (Time) => {
-    setSelectedTime(Time);
-    console.log(Time);
-  };
-
   const handleDayClick = (day, date, id) => {
     setSelectedDay(day);
     setSelectedDate(date);
-    setSelectedDateId(id);
-
     const selectedDate = new Date(selectedMonth);
     const selectedMonthFormatted = (selectedDate.getMonth() + 1)
       .toString()
       .padStart(2, "0");
     const dateFormatted = date.toString().padStart(2, "0");
     const yearFormatted = selectedDate.getFullYear();
-
-    // const yearFormatted = (selectedDate.getFullYear() % 100)
-    //   .toString()
-    //   .padStart(2, "0");
     const selected = `${yearFormatted}-${selectedMonthFormatted}-${dateFormatted}`;
     setDate(selected);
-    console.log(selected);
-
-    if (slecetedDoctor) {
-      fetchAvailableHours(slecetedDoctor, date);
+    if (slecetedDoctor && selected) {
+      fetchAvailableHours(slecetedDoctor, selected);
+    }
+    if (NoPrefrence === "selected" && selected) {
+      fetchPrefernceIdAvailableHours(selected);
     }
   };
+
+  const handleNoPreference = () => {
+    setNoPrefrence("selected");
+    setSelectedDoctor(null);
+
+    if (date) {
+      fetchPrefernceIdAvailableHours(date);
+    }
+  };
+  const handlePractitionerSelect = (practitionerId) => {
+    setNoPrefrence(null);
+    setSelectedDoctor(practitionerId);
+    if (practitionerId && date) {
+      fetchAvailableHours(practitionerId, date);
+    }
+  };
+
 
   const team = data
     ? data.map((practitioner, index) => {
@@ -141,14 +152,12 @@ const Practitioner = () => {
             <div
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
-              }`}
-            >
+              }`}>
               <div
                 onClick={() => {
                   handlePractitionerSelect(practitioner.id);
                   setSelectedDoctor(practitioner.id);
-                }}
-              >
+                }}>
                 <div className={styles["container-image"]}>
                   {practitioner.picture !== null ? (
                     <Image
@@ -169,11 +178,11 @@ const Practitioner = () => {
                 </div>
 
                 <div>
-                  <h1 className={styles["name-card"]}>{`${practitioner.title} ${
-                    practitioner.firstName + practitioner.lastName
-                  }`}</h1>
+                  <h1 className={styles["name-card"]}>{`${
+                    practitioner.title.name
+                  } ${practitioner.firstName + practitioner.lastName}`}</h1>
                   <p className={styles["specialization"]}>
-                    {practitioner.speciality}
+                    {practitioner.speciality.name}
                   </p>
                   <p className={styles["exp"]}>
                     {practitioner.experienceYears} years of experience
@@ -217,8 +226,7 @@ const Practitioner = () => {
               </div>
               <p
                 onClick={() => setIsModalOpen(true)}
-                className={styles["view-profile"]}
-              >
+                className={styles["view-profile"]}>
                 View profile
               </p>
             </div>
@@ -238,8 +246,7 @@ const Practitioner = () => {
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }
-        >
+          }>
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -250,7 +257,7 @@ const Practitioner = () => {
   return (
     <div>
       <div className="container1">
-        <Link href="/">
+        <Link href="/categories">
           <ButtonPreviews />
         </Link>
 
@@ -271,10 +278,15 @@ const Practitioner = () => {
                 centeredSlides={false}
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-              >
+                onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide className={styles["swiper-slide"]}>
-                  <div className={`${styles["container-card"]} `}>
+                  <div
+                    className={`${styles["container-card"]} ${
+                      NoPrefrence !== null
+                        ? styles["active-container-card"]
+                        : ""
+                    } `}
+                    onClick={handleNoPreference}>
                     <div className="d-flex flex-column align-items-center gap-2">
                       <Image src={user} />
                       <h3 className={styles["name-card"]}>No preference</h3>
@@ -308,9 +320,8 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
-              {schedulingSlides} {/* Render scheduling options */}
+              onSwiper={(swiper) => console.log(swiper)}>
+              {schedulingSlides}
             </Swiper>
           </div>
         </div>
@@ -327,12 +338,14 @@ const Practitioner = () => {
                 {availability && availability.data ? (
                   availability.data.map((time, index) => (
                     <div
-                      className={`${styles.timeContainer} ${
-                        time.erId === selectedTime ? styles.activeTime : ""
-                      }`}
                       key={index}
-                      onClick={() => handleTimeSelect(time.erId)}
-                    >
+                      onClick={() => {
+                        setSelectedTime(time.erId);
+                        setSelectNoPrefrence(time.practitionerId);
+                      }}
+                      className={`${styles.timeContainer} ${
+                        time.erId === selectedTime ? styles.active : ""
+                      }`}>
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -357,12 +370,12 @@ const Practitioner = () => {
             pathname: "/login",
             query: {
               treatmentId: subcategory,
-              practitionerId: slecetedDoctor,
+              practitionerId:
+                slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor,
               date: date,
               timeSlotId: selectedTime,
             },
-          }}
-        >
+          }}>
           <Btn title="Continue" margin="10px 0" />
         </Link>
       </div>

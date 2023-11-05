@@ -23,7 +23,12 @@ const SubCategory = () => {
   const [data, setData] = useState(null);
   const [optionsData, setOptionsData] = useState();
   const searchParams = useSearchParams();
-  const [deviceSelect, setDeviceSelect] = useState(null);
+  const [selectedOption, setSelectedOption] = useState();
+  const [AreaSelect, setAreaSelect] = useState(null);
+  const [deviceOption, setDeviceOption] = useState(null);
+  const [sessionOption, setSessionOption] = useState();
+  const [selectedTreatmentId, setSelectedTreatmentId] = useState(null);
+
   const category = searchParams.get("category");
   const subcategory = searchParams.get("subcategoryId");
   console.log(subcategory);
@@ -81,18 +86,65 @@ const SubCategory = () => {
   const handleOptionSelect = async (event) => {
     try {
       const selectedOption = event.target.value;
-      const response = await api.get(
+      setSelectedOption(event.target.value);
+      if (selectedOption === "consultation" || selectedOption === "default") {
+        const response = await api.get(
+          `clinic/AbdullahClinic/subcategories/${subcategory}/options`
+        );
+        const responseData = response.data.responseData.consultation.treatmentId;
+        setSelectedTreatmentId(responseData);
+        console.log(responseData, "cons");
+      }
+      else {
+        const response = await api.get(
         `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
-      );
-      const responseData = response.data.responseData;
-      setDeviceSelect(responseData);
-      console.log(responseData, "device");
+        );
+        const responseData = response.data.responseData;
+        setAreaSelect(responseData);
+        setSelectedTreatmentId(null);
+        console.log(responseData, "area");
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
-      setDeviceSelect(null);
+      setSelectedTreatmentId(null);
     }
   };
-  console.log(deviceSelect, "device");
+  console.log(AreaSelect, "area");
+
+  const handledeviceSelect = async (event) => {
+    try {
+      const deviceOption = event.target.value;
+      setDeviceOption(event.target.value);
+      const response = await api.get(
+        `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}`
+      );
+      const responseData = response.data.responseData;
+      setAreaSelect(responseData);
+      console.log(responseData, "selected device");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setAreaSelect(null);
+    }
+  };
+  console.log(deviceOption, "selected device");
+
+  const handleSessionSelect = async (event) => {
+    try {
+      const sessionOption = event.target.value;
+      setSessionOption(event.target.value);
+      const response = await api.get(
+        `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}&selectedSession=${sessionOption}`
+      );
+      const responseData = response.data.responseData;
+      setAreaSelect(responseData);
+      setSelectedTreatmentId(responseData.selectedId);
+      console.log(responseData, "session data");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setAreaSelect(null);
+    }
+  };
+  console.log(sessionOption, "selected session");
 
   return (
     <>
@@ -128,7 +180,7 @@ const SubCategory = () => {
           <div key={index} className={styles.wrapper}>
             {item.default === null ? (
               <div>
-                {item.consultation && (
+                {item.consultation !== null ? (
                   <div className={styles.constContainer}>
                     <div className={styles.constChildContainer}>
                       <div>Consultation only</div>
@@ -149,6 +201,8 @@ const SubCategory = () => {
                       />
                     </div>
                   </div>
+                ) : (
+                  ""
                 )}
                 <Bold additionalStyles={linestyle} />
                 <div className={styles.SelectHeader}>
@@ -178,14 +232,14 @@ const SubCategory = () => {
                     </div>
                   </div>
                 ))}
-                {deviceSelect && deviceSelect.devices && (
+                {AreaSelect && AreaSelect.devices !== null && (
                   <div>
                     <Bold additionalStyles={linestyle} />
                     <div className={styles.SelectHeader}>
                       <div>Devices</div>
                       <div>Required</div>
                     </div>
-                    {deviceSelect.devices.map((device, index) => (
+                    {AreaSelect.devices.map((device, index) => (
                       <div key={index}>
                         <div className={styles.optionsContainer}>
                           <div className={styles.right}>
@@ -204,10 +258,11 @@ const SubCategory = () => {
                               type="radio"
                               name="device"
                               value={device.name}
+                              onClick={handledeviceSelect}
                             />
                           </div>
                         </div>
-                        {index !== deviceSelect.devices.length - 1 && (
+                        {index !== AreaSelect.devices.length - 1 && (
                           <div
                             style={{
                               width: "100%",
@@ -219,23 +274,31 @@ const SubCategory = () => {
                     ))}
                   </div>
                 )}
-                {deviceSelect && deviceSelect.sessions && (
+                {deviceOption && (
                   <div>
                     <Bold additionalStyles={linestyle} />
                     <div className={styles.SelectHeader}>
                       <div>Sessions</div>
                       <div>Required</div>
                     </div>
-                    {deviceSelect.sessions.map((session, sessionIndex) => (
+                    {AreaSelect.sessions?.map((session, sessionIndex) => (
                       <div key={sessionIndex}>
                         <div className={styles.optionsContainer}>
                           <div>
-                            <p>{session.name}</p>
-                            <p>{session.duration} min</p>
+                            <div>
+                              {session.name}{" "}
+                              <span className={styles.duration}>
+                                -{session.duration} min
+                              </span>
+                            </div>
                           </div>
                           <div>
-                            <p>AED {session.price}</p>
-                            <input type="radio" value={session.name} />
+                            <p className={styles.price}>AED {session.price}</p>
+                            <input
+                              type="radio"
+                              value={session.sessions}
+                              onClick={handleSessionSelect}
+                            />
                           </div>
                         </div>
                       </div>
@@ -280,7 +343,7 @@ const SubCategory = () => {
                     <div className={styles.price}>AED {item.default.price}</div>
                     <input
                       type="radio"
-                      value="consultation"
+                      value="default"
                       onClick={handleOptionSelect}
                       name="option"
                     />
@@ -302,8 +365,9 @@ const SubCategory = () => {
         No payment will be taken until your appointment
       </p>
 
-      <Link href={`/schedule-appointment?subcategoryId=${subcategory}`}>
-        <StickyButton title={"Continue to book AED 200"} />
+      <Link
+        href={`/schedule-appointment?treatmentId=${selectedTreatmentId}`}>
+       <StickyButton title={"Continue to book AED 200"} disabled={selectedTreatmentId === null} />
       </Link>
     </>
   );
