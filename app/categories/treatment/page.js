@@ -341,7 +341,7 @@ const SubCategory = () => {
               </div>
             ) : (
               <div>
-                {item.consultation && (
+                 {item.consultation !== null ?  (
                   <div className={styles.constContainer}>
                     <div className={styles.constChildContainer}>
                       <div>Consultation only</div>
@@ -362,7 +362,9 @@ const SubCategory = () => {
                       />
                     </div>
                   </div>
-                )}
+               ) : (
+                ""
+              )}
                 <Bold additionalStyles={linestyle} />
                 <div className={styles.constContainer}>
                   <div className={styles.constChildContainer}>
