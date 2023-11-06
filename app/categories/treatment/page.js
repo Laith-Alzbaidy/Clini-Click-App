@@ -134,11 +134,22 @@ const SubCategory = () => {
   const handleSessionSelect = async (event) => {
     try {
       const sessionOption = event.target.value;
-      setSessionOption(event.target.value);
-      const response = await api.get(
-        `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}&selectedSession=${sessionOption}`
-      );
+      setSessionOption(sessionOption);
+  
+      let response;
+  
+      if (AreaSelect && AreaSelect.devices) {
+        response = await api.get(
+          `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}&selectedSession=${sessionOption}`
+        );
+      } else {
+        response = await api.get(
+          `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedSession=${sessionOption}`
+        );
+      }
+  
       const responseData = response.data.responseData;
+  
       setAreaSelect(responseData);
       setSelectedTreatmentId(responseData.selectedId);
       console.log(responseData, "session data");

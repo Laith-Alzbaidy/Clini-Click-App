@@ -31,6 +31,7 @@ const Practitioner = () => {
   const [NoPrefrence, setNoPrefrence] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [selectedPractitioner, setSelectedPractitioner] = useState(null);
   const searchParams = useSearchParams();
 
   const subcategory = searchParams.get("treatmentId");
@@ -142,7 +143,6 @@ const Practitioner = () => {
     }
   };
 
-
   const team = data
     ? data.map((practitioner, index) => {
         const isActive = practitioner.id == slecetedDoctor;
@@ -225,7 +225,10 @@ const Practitioner = () => {
                 </div>
               </div>
               <p
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setSelectedPractitioner(practitioner);
+                }}
                 className={styles["view-profile"]}>
                 View profile
               </p>
@@ -382,6 +385,7 @@ const Practitioner = () => {
       <SlideUpDoctor
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        data={selectedPractitioner}
       />
     </div>
   );
