@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Loading() {
-  return <LoadingSkeleton />;
+  return <div>Loading ,,</div>;
 }

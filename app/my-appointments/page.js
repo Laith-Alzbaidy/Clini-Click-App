@@ -61,8 +61,9 @@ const MyAppointments = () => {
           <Link
             href={`my-appointments/current-bookings/${appointment?.id}`}
             className={styles.link}
+            key={appointment.id}
           >
-            <div className={styles.cardContainer} key={index}>
+            <div className={styles.cardContainer}>
               <Image src={image} className={styles.cardImage} alt="image" />
               <div className={styles.details}>
                 <div>{appointment?.startTime}</div>

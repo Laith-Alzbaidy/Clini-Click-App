@@ -14,8 +14,7 @@ import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 // import ReadMore from "@/src/component/read-more/read-more";
 import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout";
 
-
-const SlideUpDoctor = ({ data  , isModalOpen , setIsModalOpen}) => {
+const SlideUpDoctor = ({ data, isModalOpen, setIsModalOpen }) => {
   const practitioner = data;
   const [modalclass, SetClass] = useState("modal-content");
   function close() {
@@ -29,7 +28,6 @@ const SlideUpDoctor = ({ data  , isModalOpen , setIsModalOpen}) => {
   // const data = await getData(params.id);
   return (
     <div className="container-ourteam-details">
-       
       {isModalOpen && (
         <div className={`modal-overlay`}>
           <div className={modalclass}>
@@ -37,10 +35,9 @@ const SlideUpDoctor = ({ data  , isModalOpen , setIsModalOpen}) => {
               <ButtonPreviews />
             </div>
             <div className={`${styles["container-image"]}`}>
-                
               <Image
                 fill
-                 priority
+                priority
                 src={practitioner.picture}
                 className={styles["image"]}
                 alt="Dr." // Alt text for the image
@@ -48,11 +45,11 @@ const SlideUpDoctor = ({ data  , isModalOpen , setIsModalOpen}) => {
             </div>
             <div className={styles["container-content"]}>
               <h1 className={styles["title"]}>{`${practitioner.title.name} ${
-                practitioner.firstName +"  "+ practitioner.lastName
+                practitioner.firstName + "  " + practitioner.lastName
               }`}</h1>
               <p className={styles["specialization"]}>
                 {`${practitioner.speciality.name} - ${practitioner.experienceYears} years of experience`}
-              </p> 
+              </p>
               <div className="d-flex align-items-center gap-4">
                 <div>
                   <Image
@@ -90,15 +87,15 @@ const SlideUpDoctor = ({ data  , isModalOpen , setIsModalOpen}) => {
             <div className={styles["container-content"]}>
               <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
 
-             <ul className={styles["list-qualifications"]}>
-                {practitioner.qualifications?.map((qualifications) => {
+              <ul className={styles["list-qualifications"]}>
+                {practitioner.qualifications?.map((qualifications, index) => {
                   return (
-                    <li className={styles["item-list"]}>
+                    <li key={index} className={styles["item-list"]}>
                       {qualifications.name}
                     </li>
                   );
                 })}
-              </ul> 
+              </ul>
             </div>
 
             {/* Section About Me  */}
@@ -128,7 +125,7 @@ const SlideUpDoctor = ({ data  , isModalOpen , setIsModalOpen}) => {
                       <p className={styles["title-icon"]}>License Number</p>
                       <p className={styles["sub-title-icon"]}>
                         {practitioner.medicalLicense}
-                      </p> 
+                      </p>
                     </div>
                   </Col>
                 </Row>

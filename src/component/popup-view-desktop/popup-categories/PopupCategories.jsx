@@ -13,7 +13,7 @@ import Bold from "@/src/component/lines/bold";
 import "swiper/css";
 import api from "@/config-API/config-API";
 import ButtonPreviews from "../../buttonPreviews/buttonPreviews";
-import backIcon from './assets/conhh.svg'
+import backIcon from "./assets/conhh.svg";
 const costumStyles = {
   marginTop: "25px",
   marginBottom: "18px",
@@ -98,12 +98,14 @@ function PopupCategories() {
         nextEl: ".swiper-button-prev",
         prevEl: ".swiper-button-next",
       }}
-      slidesPerView={1}>
+      slidesPerView={1}
+    >
       <div
         className={` ${styles.tab} ${
           activeTab === categoryData.name && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.name)}>
+        onClick={() => handleTabClick(categoryData.name)}
+      >
         {categoryData.name}
       </div>
     </SwiperSlide>
@@ -121,9 +123,10 @@ function PopupCategories() {
         // size="lg"
         onHide={() => setShow(false)}
         dialogClassName="modal-90w"
-        aria-labelledby="example-custom-modal-styling-title">
+        aria-labelledby="example-custom-modal-styling-title"
+      >
         <Modal.Header closeButton>
-            <div className={styles.treatmentText}>Our treatments</div>
+          <div className={styles.treatmentText}>Our treatments</div>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -176,13 +179,18 @@ function PopupCategories() {
                     slidesPerView: 10,
                     spaceBetween: 110,
                   },
-                }}>
+                }}
+              >
                 {TabSlider}
               </Swiper>
             </div>
             <div className={styles.categoryContent}>
               {list.map((categoryData, index) => (
-                <div id={categoryData.name} className={styles.categorySection}>
+                <div
+                  key={categoryData.id}
+                  id={categoryData.name}
+                  className={styles.categorySection}
+                >
                   <div className={styles.header}>{categoryData.name}</div>
                   {categoryData.subCategories.map((subcategoryData, index) => (
                     <Link
@@ -194,7 +202,8 @@ function PopupCategories() {
                           subcategoryId: subcategoryData.id,
                         },
                       }}
-                      className={styles.link}>
+                      className={styles.link}
+                    >
                       <div>
                         <div key={index} className={styles.mainContainer}>
                           <div>

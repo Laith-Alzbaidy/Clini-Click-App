@@ -100,9 +100,9 @@ const SlideUpDoctor = ({ data }) => {
               <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
 
               <ul className={styles["list-qualifications"]}>
-                {practitioner.qualifications?.map((qualifications) => {
+                {practitioner.qualifications?.map((qualifications, index) => {
                   return (
-                    <li className={styles["item-list"]}>
+                    <li key={index} className={styles["item-list"]}>
                       {qualifications.name}
                     </li>
                   );

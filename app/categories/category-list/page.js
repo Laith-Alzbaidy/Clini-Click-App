@@ -165,7 +165,11 @@ const CategoryContent = () => {
       </div>
       <div className={styles.categoryContent}>
         {list.map((categoryData, index) => (
-          <div id={categoryData.name} className={styles.categorySection}>
+          <div
+            key={categoryData.id}
+            id={categoryData.name}
+            className={styles.categorySection}
+          >
             <div className={styles.header}>{categoryData.name}</div>
             {categoryData.subCategories.map((subcategoryData, index) => (
               <Link

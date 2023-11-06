@@ -11,8 +11,8 @@ import Btn from "@/src/component/button/button";
 import { useRouter } from "next/navigation";
 import Footer from "@/src/component/footer/footer";
 const style = {
-  marginTop:"45px"
-}
+  marginTop: "45px",
+};
 const timeSlots = [
   "09:00 AM",
   "10:00 AM",
@@ -62,7 +62,8 @@ const Reschedule = ({ searchParams }) => {
           className={`${styles["container-scheduling"]} ${
             isActive ? styles.active : ""
           }`}
-          onClick={() => handleDayClick(item.day, item.date)}>
+          onClick={() => handleDayClick(item.day, item.date)}
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -91,10 +92,7 @@ const Reschedule = ({ searchParams }) => {
         <div className={styles.title}>Reschedule appointment</div>
         <div className={styles.subTitle}>Which day would you like to book?</div>
 
-
-        <div>
-          January
-        </div>
+        <div>January</div>
 
         <div className="mt-2">
           <Swiper
@@ -126,7 +124,8 @@ const Reschedule = ({ searchParams }) => {
                 slidesPerView: 12.5,
                 spaceBetween: 40,
               },
-            }}>
+            }}
+          >
             {schedulingSlides}
           </Swiper>
         </div>
@@ -136,7 +135,8 @@ const Reschedule = ({ searchParams }) => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 1px #E8F3F1",
-        }}></div>
+        }}
+      ></div>
       <div className={styles.container}>
         <div className={styles["container-question"]}>
           <div className={styles["question"]}>
@@ -145,21 +145,22 @@ const Reschedule = ({ searchParams }) => {
 
           <div className={styles.Bigcontainer}>
             {timeSlots.map((time, index) => (
-              <div className={styles.timeContainer}>
+              <div key={index} className={styles.timeContainer}>
                 <p
                   className={styles["time"]}
                   key={index}
                   value={time}
-                  onClick={() => handleTimeSelect(time)}>
+                  onClick={() => handleTimeSelect(time)}
+                >
                   {time}
                 </p>
               </div>
             ))}
           </div>
         </div>
-      <Btn title={"confirm"} onClick={handleConfirm} />
+        <Btn title={"confirm"} onClick={handleConfirm} />
       </div>
-      <Footer additiionalStyles={style}/>
+      <Footer additiionalStyles={style} />
     </div>
   );
 };
