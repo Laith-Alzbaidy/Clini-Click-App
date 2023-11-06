@@ -36,12 +36,12 @@ const Payment = () => {
   };
 
   useLayoutEffect(() => {
-    preConfirm();
     if (!token) {
       if (pathname == "/payment") {
         redirect("/");
       }
     }
+    preConfirm();
   }, []);
 
   //preconfirm data payment

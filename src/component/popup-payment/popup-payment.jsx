@@ -12,6 +12,7 @@ import google from "./assets/image/google.png";
 import credit from "./assets/image/credit-debit.png";
 import payclinic from "./assets/image/pay-clinic.png";
 import PopupCardPayment from "../popup-card-payment/popup-card-payment";
+
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 function PopupPayment({ selectMethod, setSelectMethod }) {

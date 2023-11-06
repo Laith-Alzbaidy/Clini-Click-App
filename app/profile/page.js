@@ -16,20 +16,24 @@ import "./modal.css";
 import Footer from "@/src/component/footer/footer";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
+// import { useLayoutEffect } from "react";
+// import { useEffect } from "react";
 const style = {
   marginTop: "45px",
 };
 const Profile = () => {
+  const userDetails = JSON.parse(localStorage.getItem("user-details"));
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [err, setErr] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [showPopup, setShowPopup] = useState(false);
+
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
+    firstName: userDetails?.firstName || "",
+    lastName: userDetails?.lastName || "",
+    email: userDetails?.email || "",
   });
 
   const token = Cookies.get("token");
@@ -58,13 +62,18 @@ const Profile = () => {
 
       if (response.data.isSuccess) {
         console.log("Profile-update", response.data);
-        router.push("my-appointments/reschedule");
+        router.push("/my-appointments");
       }
     } catch (err) {
       console.log("err", err);
     }
   };
 
+  const logOut = () => {
+    Cookies.remove("token");
+    localStorage.clear();
+    router.push("/");
+  };
   // try {
   //   const response = await fetch("/api/", {
   //     method: "POST",
@@ -130,6 +139,7 @@ const Profile = () => {
           icon={user}
           onChange={handleChange}
           name="firstName"
+          value={formData.firstName}
         />
         <InputField
           type={"text"}
@@ -137,6 +147,7 @@ const Profile = () => {
           icon={user}
           onChange={handleChange}
           name="lastName"
+          value={formData.lastName}
         />
         <InputField
           type={"email"}
@@ -144,6 +155,7 @@ const Profile = () => {
           icon={email}
           onChange={handleChange}
           name="email"
+          value={formData.email}
         />
         {err && <div>{err}</div>}
         <Btn title={"Manage my appointments"} type={"submit"} />
@@ -155,7 +167,9 @@ const Profile = () => {
         <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
           or
         </p>
-        <div className={styles.logout}>Logout</div>
+        <div onClick={logOut} className={styles.logout}>
+          Logout
+        </div>
 
         <Modal show={show} onHide={handleClose} animation={false} centered>
           <Modal.Header

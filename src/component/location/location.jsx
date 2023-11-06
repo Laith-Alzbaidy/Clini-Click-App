@@ -23,13 +23,13 @@ const Location = ({ data }) => {
         <div className={styles["content-icon"]}>
           <Image src={location} className={styles["icon"]} alt="location" />
           <p className={styles["text-icon"]}>
-            {data?.country?.name ? data?.country?.name : "dubu as"}
+            {data?.country?.name ? data?.country?.name : data?.country}
           </p>
         </div>
         <div className={styles["content-icon"]}>
           <Image src={call} className={styles["icon"]} alt="call" />
           <p className={styles["text-icon"]}>
-            {data?.phone ? data?.phone : "07878888788"}
+            {data?.phone ? data?.phone : data?.phone}
           </p>
         </div>{" "}
       </div>

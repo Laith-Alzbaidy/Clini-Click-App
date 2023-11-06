@@ -98,8 +98,11 @@ const PractitionerDetails = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log("use-details", response.data.responseData);
+      if (response.data.isSuccess) {
+        console.log("Profile-update", response.data);
+        localStorage.setItem("user-details", JSON.stringify(formData));
+      }
+      console.log("user-details", response.data.responseData);
     } catch (err) {
       console.log("err", err);
     }
