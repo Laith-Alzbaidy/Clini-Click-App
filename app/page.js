@@ -1,4 +1,3 @@
-// "use client";
 // import Link from "next/link";
 // import Header from "@/src/component/header/header";
 // import Hero from "@/src/component/hero/hero";
@@ -16,9 +15,6 @@
 // const getData = async () => {
 //   const response = await api.get("clinic?clinicName=AbdullahClinic");
 
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
 //   return response;
 // };
 

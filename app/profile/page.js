@@ -14,7 +14,8 @@ import InputField from "@/src/component/inputField/inputField";
 import Popup from "reactjs-popup";
 import "./modal.css";
 import Footer from "@/src/component/footer/footer";
-
+import Cookies from "js-cookie";
+import api from "@/config-API/config-API";
 const style = {
   marginTop: "45px",
 };
@@ -25,32 +26,62 @@ const Profile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [showPopup, setShowPopup] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    router.push("/my-appointments");
-    const firstName = e.target[0].value;
-    const lastName = e.target[1].value;
-    const email = e.target[2].value;
+  const token = Cookies.get("token");
+  //handle input to get value
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
 
-    // try {
-    //   const response = await fetch("/api/", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ firstName, lastName, email }),
-    //   });
-
-    //   if (response.ok) {
-    //     const data = await response.json();
-    //     console.log("Form submission successful:", data);
-    //     router.push("/my-appointments");
-    //   }
-    // } catch (error) {
-    //   setErr(true);
-    // }
+    console.log(formData);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateProfile();
+  };
+  const updateProfile = async () => {
+    try {
+      const response = await api.put("Client/Update", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.data.isSuccess) {
+        console.log("Profile-update", response.data);
+        router.push("my-appointments/reschedule");
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+
+  // try {
+  //   const response = await fetch("/api/", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ firstName, lastName, email }),
+  //   });
+
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     console.log("Form submission successful:", data);
+  //     router.push("/my-appointments");
+  //   }
+  // } catch (error) {
+  //   setErr(true);
+  // }
 
   const handleDeleteAccount = async () => {
     setShow(false);
@@ -77,6 +108,7 @@ const Profile = () => {
     //     console.error("Error deleting account:", error);
     //   }
   };
+
   return (
     <div className={styles.costumContainer}>
       <Link href={"/"}>
@@ -96,16 +128,22 @@ const Profile = () => {
           type={"text"}
           placeholder={"Enter your Firstname"}
           icon={user}
+          onChange={handleChange}
+          name="firstName"
         />
         <InputField
           type={"text"}
           placeholder={"Enter your Lastname"}
           icon={user}
+          onChange={handleChange}
+          name="lastName"
         />
         <InputField
           type={"email"}
           placeholder={"Enter your Email"}
           icon={email}
+          onChange={handleChange}
+          name="email"
         />
         {err && <div>{err}</div>}
         <Btn title={"Manage my appointments"} type={"submit"} />

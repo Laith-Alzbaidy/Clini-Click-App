@@ -11,10 +11,9 @@
   z-index: 9999;
   transition: opacity 0.3s ease;
 }
-
-* {
+/* body {
   max-width: 100%;
-}
+} */
 .learnMore {
   color: #a75cff !important;
   text-decoration: none;
@@ -22,7 +21,7 @@
   font-weight: 600;
   padding-left: 28px !important;
 }
-.modal-content {
+.modal-content-privacy {
   background: #ffffff !important;
   padding: 28px;
   border-radius: 4px;
@@ -85,4 +84,14 @@
 
 .closing {
   animation: slide-down 0.5s ease-in-out;
+}
+.privacy {
+  font-size: 10px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+.container-privacy {
+  margin-bottom: 60px !important;
+  padding: 0 30px !important;
 }

@@ -8,12 +8,16 @@ import call from "./assets/image/call.svg";
 import StickyButton from "../stickyButton/stickyButton";
 import PopupPayment from "../popup-payment/popup-payment";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, redirect, usePathname } from "next/navigation";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
-import ModalPrivacy from "./modal-privacy/modal.privacy";
+import SlideUpPrivacy from "./modal-privacy/modal.privacy";
+import { useLayoutEffect } from "react";
+
 const Payment = () => {
   const searchParams = useSearchParams();
+
+  const pathname = usePathname();
   const router = useRouter();
   const [selectMethod, setSelectMethod] = useState({}); // Set the default value here
   const [offer, setOffer] = useState("");
@@ -23,20 +27,29 @@ const Payment = () => {
 
   const data = {
     clinicName: "AbdullahClinic",
-    treatmentId: searchParams.get("treatmentId") || 56,
-    practitionerId: searchParams.get("practitionerId") || 1,
-    timeSlotId: searchParams.get("timeSlotId") || 7,
-    date: searchParams.get("date") || "2023-11-11",
-    promoCode: offer || "",
+    treatmentId: searchParams.get("treatmentId") || 57,
+    practitionerId: searchParams.get("practitionerId") || 2,
+    timeSlotId: searchParams.get("timeSlotId") || 10,
+    date: searchParams.get("date") || "2023-11-10",
+    // promoCode: offer || "",
     paymentId: selectMethod.id,
   };
+
+  useLayoutEffect(() => {
+    preConfirm();
+    if (!token) {
+      if (pathname == "/payment") {
+        redirect("/");
+      }
+    }
+  }, []);
 
   //preconfirm data payment
 
   const preConfirm = async () => {
     try {
       const response = await api.get(
-        "Appointments/preconfirm?treatmentId=56&practitionerId=1&timeslotId=7&date=11-11-2023",
+        "Appointments/preconfirm?treatmentId=56&practitionerId=1&timeslotId=25&date=11-11-2023",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -51,9 +64,7 @@ const Payment = () => {
     }
   };
 
-  useEffect(() => {
-    preConfirm();
-  }, []);
+  // useEffect(() => {}, []);
   //confirm payment API
   const postPayment = async () => {
     // console.log(data);
@@ -151,7 +162,7 @@ const Payment = () => {
 
       <div className={styles["line"]}></div>
 
-      <div>
+      {/* <div>
         <div className={styles.subTitle}>Location</div>
 
         <iframe
@@ -184,7 +195,7 @@ const Payment = () => {
             <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className={styles["line"]}></div> */}
 
@@ -204,9 +215,11 @@ const Payment = () => {
       <div className={styles["container1"]}>
         <div className={styles.subTitle}>Cancellation policy</div>
         <p>
-          A fee of <b>AED 100 </b>may be charged if you cancel within{" "}
-          <b>24 hours</b>, or a fee of <b>AED 300</b> may be charged if you miss
-          your appointment.
+          A fee of <b>AED {dataPreConfirm?.cancellationFee} </b>may be charged
+          if you cancel within{" "}
+          <b>{dataPreConfirm?.cancellationTimeFrame} hours</b>, or a fee of{" "}
+          <b>AED {dataPreConfirm?.noShowFee}</b> may be charged if you miss your
+          appointment.
         </p>
         {/* <div dangerouslySetInnerHTML={{ __html: dataPreConfirm.policy }}></div> */}
       </div>
@@ -217,8 +230,11 @@ const Payment = () => {
         <div className={styles["container-privacy"]}>
           <p className={styles["privacy"]}>
             By selecting the button below, I agree to the{" "}
-            <ModalPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and{" "}
-            <ModalPrivacy title="Privacy Policy" data={dataPreConfirm.terms} />{" "}
+            <SlideUpPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and{" "}
+            <SlideUpPrivacy
+              title="Privacy Policy"
+              data={dataPreConfirm.terms}
+            />{" "}
             and confirm that I am 18 years or older
           </p>
         </div>

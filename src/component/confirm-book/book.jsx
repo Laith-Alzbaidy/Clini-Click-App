@@ -7,6 +7,7 @@ import back from "./assets/image/conhh.svg";
 import user from "./assets/image/user.svg";
 import call from "./assets/image/call.svg";
 import location from "./assets/image/location.svg";
+import Location from "../location/location";
 import Btn from "../button/button";
 import Footer from "../footer/footer";
 import { DataContext } from "@/context";
@@ -26,7 +27,7 @@ const BookFinish = ({ bookingId }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data.responseData);
+      console.log("----------------", response.data.responseData);
       setDataAppointments(response.data.responseData);
     } catch (err) {
       console.log(err);
@@ -101,6 +102,10 @@ const BookFinish = ({ bookingId }) => {
         <Image src={location} alt="location" />
         <div>Dubai Marina,Dubai.</div>
       </div> */}
+      <div className={styles["container-location"]}>
+        <Location data={dataAppointments} />
+      </div>
+
       <div className={styles["container1"]}>
         <Link href="/">
           <Btn margin="0 0 10px 0" title="Back to Clinic Profile" />
