@@ -404,6 +404,7 @@ const SubCategory = () => {
         <StickyButton
           title={"Continue to book AED 200"}
           disabled={selectedTreatmentId === null}
+          content={"  No payment will be taken until your appointment"}
         />
       </Link>
     </>
