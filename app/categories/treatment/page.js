@@ -86,25 +86,34 @@ const SubCategory = () => {
   const handleOptionSelect = async (event) => {
     try {
       const selectedOption = event.target.value;
-      setSelectedOption(event.target.value);
+      setSelectedOption(selectedOption);
+
       if (selectedOption === "consultation" || selectedOption === "default") {
         const response = await api.get(
           `clinic/AbdullahClinic/subcategories/${subcategory}/options`
         );
-        const responseData = response.data.responseData.consultation.treatmentId;
-        setSelectedTreatmentId(responseData);
-        setAreaSelect(null)
-        setDeviceOption(null)
-        setSessionOption(null)
+        const responseData = response.data.responseData.consultation;
+        setSelectedTreatmentId(responseData.treatmentId);
+        setAreaSelect(null);
+        setDeviceOption(null);
+        setSessionOption(null);
         console.log(responseData, "cons");
-      }
-      else {
+      } else {
         const response = await api.get(
-        `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
+          `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
         );
         const responseData = response.data.responseData;
-        setAreaSelect(responseData);
-        setSelectedTreatmentId(null);
+
+        if (responseData.devices) {
+          setAreaSelect(responseData);
+          setSelectedTreatmentId(null);
+        } else if (responseData.sessions) {
+          setAreaSelect(responseData);
+          setSelectedTreatmentId(null);
+        } else {
+          setSelectedTreatmentId(responseData.selectedId);
+        }
+
         console.log(responseData, "area");
       }
     } catch (error) {
@@ -113,7 +122,6 @@ const SubCategory = () => {
     }
   };
   console.log(AreaSelect, "area");
-
   const handledeviceSelect = async (event) => {
     try {
       const deviceOption = event.target.value;
@@ -122,7 +130,12 @@ const SubCategory = () => {
         `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}`
       );
       const responseData = response.data.responseData;
-      setAreaSelect(responseData);
+      if (responseData.sessions) {
+        setAreaSelect(responseData);
+        setSelectedTreatmentId(null);
+      } else {
+        setSelectedTreatmentId(responseData.selectedId);
+      }
       console.log(responseData, "selected device");
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -135,9 +148,9 @@ const SubCategory = () => {
     try {
       const sessionOption = event.target.value;
       setSessionOption(sessionOption);
-  
+
       let response;
-  
+
       if (AreaSelect && AreaSelect.devices) {
         response = await api.get(
           `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}&selectedSession=${sessionOption}`
@@ -147,9 +160,9 @@ const SubCategory = () => {
           `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedSession=${sessionOption}`
         );
       }
-  
+
       const responseData = response.data.responseData;
-  
+
       setAreaSelect(responseData);
       setSelectedTreatmentId(responseData.selectedId);
       console.log(responseData, "session data");
@@ -246,79 +259,85 @@ const SubCategory = () => {
                     </div>
                   </div>
                 ))}
-                {AreaSelect && AreaSelect.devices !== null && (
-                  <div>
-                    <Bold additionalStyles={linestyle} />
-                    <div className={styles.SelectHeader}>
-                      <div>Devices</div>
-                      <div>Required</div>
-                    </div>
-                    {AreaSelect.devices.map((device, index) => (
-                      <div key={index}>
-                        <div className={styles.optionsContainer}>
-                          <div className={styles.right}>
+                {selectedOption !== "consultation" &&
+                  AreaSelect &&
+                  AreaSelect.devices !== null && (
+                    <div>
+                      <Bold additionalStyles={linestyle} />
+                      <div className={styles.SelectHeader}>
+                        <div>Devices</div>
+                        <div>Required</div>
+                      </div>
+                      {AreaSelect.devices.map((device, index) => (
+                        <div key={index}>
+                          <div className={styles.optionsContainer}>
+                            <div className={styles.right}>
+                              <div>
+                                {device.name}
+                                <span className={styles.duration}>
+                                  -{device.duration} min
+                                </span>
+                              </div>
+                            </div>
                             <div>
-                              {device.name}
-                              <span className={styles.duration}>
-                                -{device.duration} min
-                              </span>
+                              <div className={styles.price}>
+                                AED {device.price}
+                              </div>
+                              <input
+                                type="radio"
+                                name="device"
+                                value={device.name}
+                                onClick={handledeviceSelect}
+                              />
                             </div>
                           </div>
-                          <div>
-                            <div className={styles.price}>
-                              AED {device.price}
+                          {index !== AreaSelect.devices.length - 1 && (
+                            <div
+                              style={{
+                                width: "100%",
+                                margin: "1rem auto",
+                                border: "solid 1px #E8F3F1",
+                              }}></div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                {selectedOption !== "consultation" &&
+                  AreaSelect &&
+                  AreaSelect.sessions !== null && (
+                    <div>
+                      <Bold additionalStyles={linestyle} />
+                      <div className={styles.SelectHeader}>
+                        <div>Sessions</div>
+                        <div>Required</div>
+                      </div>
+                      {AreaSelect.sessions?.map((session, sessionIndex) => (
+                        <div key={sessionIndex}>
+                          <div className={styles.optionsContainer}>
+                            <div>
+                              <div>
+                                {session.name}{" "}
+                                <span className={styles.duration}>
+                                  -{session.duration} min
+                                </span>
+                              </div>
                             </div>
-                            <input
-                              type="radio"
-                              name="device"
-                              value={device.name}
-                              onClick={handledeviceSelect}
-                            />
+                            <div>
+                              <p className={styles.price}>
+                                AED {session.price}
+                              </p>
+                              <input
+                                type="radio"
+                                value={session.sessions}
+                                onClick={handleSessionSelect}
+                              />
+                            </div>
                           </div>
                         </div>
-                        {index !== AreaSelect.devices.length - 1 && (
-                          <div
-                            style={{
-                              width: "100%",
-                              margin: "1rem auto",
-                              border: "solid 1px #E8F3F1",
-                            }}></div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {deviceOption !== null  && AreaSelect.devices !== null && (
-                  <div>
-                    <Bold additionalStyles={linestyle} />
-                    <div className={styles.SelectHeader}>
-                      <div>Sessions</div>
-                      <div>Required</div>
+                      ))}
                     </div>
-                    {AreaSelect.sessions?.map((session, sessionIndex) => (
-                      <div key={sessionIndex}>
-                        <div className={styles.optionsContainer}>
-                          <div>
-                            <div>
-                              {session.name}{" "}
-                              <span className={styles.duration}>
-                                -{session.duration} min
-                              </span>
-                            </div>
-                          </div>
-                          <div>
-                            <p className={styles.price}>AED {session.price}</p>
-                            <input
-                              type="radio"
-                              value={session.sessions}
-                              onClick={handleSessionSelect}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                  )}
               </div>
             ) : (
               <div>
@@ -379,9 +398,11 @@ const SubCategory = () => {
         No payment will be taken until your appointment
       </p>
 
-      <Link
-        href={`/schedule-appointment?treatmentId=${selectedTreatmentId}`}>
-       <StickyButton title={"Continue to book AED 200"} disabled={selectedTreatmentId === null} />
+      <Link href={`/schedule-appointment?treatmentId=${selectedTreatmentId}`}>
+        <StickyButton
+          title={"Continue to book AED 200"}
+          disabled={selectedTreatmentId === null}
+        />
       </Link>
     </>
   );
