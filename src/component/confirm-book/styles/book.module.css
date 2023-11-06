@@ -33,9 +33,6 @@
   margin: 2rem 0 1rem 0;
 }
 
-.container {
-  margin: 0rem auto;
-}
 .bookingContainer {
   display: flex;
   flex-direction: column;
@@ -43,7 +40,7 @@
 }
 .treatmentContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 38px;
 }
 .treatmentContainer:first-child {
   color: #000;
@@ -58,12 +55,12 @@
 }
 .treatmentDeatils {
   color: #000;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
 }
 .practitionerContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 33px;
 }
 .practitionerContainer :nth-child(1) {
   color: #000;
@@ -71,6 +68,20 @@
   font-weight: 400;
 }
 .practitionerContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.timingContainer {
+  display: flex;
+  gap: 63px;
+}
+.timingContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.timingContainer :nth-child(2) {
   color: #000;
   font-size: 14px;
   font-weight: 700;
