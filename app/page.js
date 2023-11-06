@@ -88,8 +88,8 @@ export default function Home() {
         <Location data={data} />
         <OurAmenities data={data} />
         <OurBusiness data={data} />
-        <Icon data={data} />
       </div>
+      <Icon data={data} />
       <Link href="categories">
         <StickyButton title="Book appointment" />
       </Link>
