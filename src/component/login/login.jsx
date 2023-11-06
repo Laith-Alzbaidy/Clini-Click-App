@@ -45,7 +45,7 @@ const Login = () => {
 
   return (
     <div className="container1">
-      <ClosePrev close="/" back="/schedule-appointment" />
+      <ClosePrev close="/" back="./" />
 
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 2 of 3</p>

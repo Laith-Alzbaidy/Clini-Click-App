@@ -13,12 +13,13 @@ import Image from "next/image";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 import Location from "@/src/component/location/location";
 const CurrentBookings = ({ params }) => {
   const [data, setData] = useState({});
   const token = Cookies.get("token");
   const getAppointemntSpecific = async () => {
+    const router = useRouter();
     try {
       const res = await api.get(`Appointments/${params.id}`, {
         headers: {
@@ -40,7 +41,7 @@ const CurrentBookings = ({ params }) => {
     <div className={styles.warpper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <Link href={"/my-appointments"}>
+          <Link href="#" onClick={() => router.back()}>
             <Image src={backIcon} className={styles.backIcon} alt="back" />
           </Link>
 

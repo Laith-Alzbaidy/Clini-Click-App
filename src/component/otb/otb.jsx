@@ -103,7 +103,7 @@ const OTB = () => {
 
   return (
     <div className="container1">
-      <ClosePrev close="/" back="/login" />
+      <ClosePrev close="/" />
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 2 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>

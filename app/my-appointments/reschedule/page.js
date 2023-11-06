@@ -80,7 +80,7 @@ const Reschedule = ({ searchParams }) => {
     <div className={styles.warapper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <Link href={`/my-appointments`}>
+          <Link href="#" onClick={() => router.back()}>
             <Image src={back} className={styles.backIcon} />
           </Link>
 

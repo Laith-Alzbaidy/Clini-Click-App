@@ -10,7 +10,7 @@ import left from "./assets/left.svg";
 import Footer from "@/src/component/footer/footer";
 import CategoriesModal from "@/src/component/categotyModal/categoriesModal";
 import api from "@/config-API/config-API";
-
+import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -19,6 +19,7 @@ const style = {
 };
 
 const MyAppointments = () => {
+  const router = useRouter();
   const [data, setData] = useState([]);
 
   const token = Cookies.get("token");
@@ -45,7 +46,7 @@ const MyAppointments = () => {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <Link href={"/categories"}>
+        <Link href="#" onClick={() => router.back()}>
           <Image src={backIcon} className={styles.backIcon} alt="back" />
         </Link>
 

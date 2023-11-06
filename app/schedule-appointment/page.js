@@ -152,12 +152,14 @@ const Practitioner = () => {
             <div
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
-              }`}>
+              }`}
+            >
               <div
                 onClick={() => {
                   handlePractitionerSelect(practitioner.id);
                   setSelectedDoctor(practitioner.id);
-                }}>
+                }}
+              >
                 <div className={styles["container-image"]}>
                   {practitioner.picture !== null ? (
                     <Image
@@ -229,7 +231,8 @@ const Practitioner = () => {
                   setIsModalOpen(true);
                   setSelectedPractitioner(practitioner);
                 }}
-                className={styles["view-profile"]}>
+                className={styles["view-profile"]}
+              >
                 View profile
               </p>
             </div>
@@ -249,7 +252,8 @@ const Practitioner = () => {
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }>
+          }
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -260,7 +264,7 @@ const Practitioner = () => {
   return (
     <div>
       <div className="container1">
-        <Link href="/categories">
+        <Link href="#" onClick={() => router.back()}>
           <ButtonPreviews />
         </Link>
 
@@ -281,7 +285,8 @@ const Practitioner = () => {
                 centeredSlides={false}
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}>
+                onSwiper={(swiper) => console.log(swiper)}
+              >
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div
                     className={`${styles["container-card"]} ${
@@ -289,7 +294,8 @@ const Practitioner = () => {
                         ? styles["active-container-card"]
                         : ""
                     } `}
-                    onClick={handleNoPreference}>
+                    onClick={handleNoPreference}
+                  >
                     <div className="d-flex flex-column align-items-center gap-2">
                       <Image src={user} />
                       <h3 className={styles["name-card"]}>No preference</h3>
@@ -323,7 +329,8 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}>
+              onSwiper={(swiper) => console.log(swiper)}
+            >
               {schedulingSlides}
             </Swiper>
           </div>
@@ -348,7 +355,8 @@ const Practitioner = () => {
                       }}
                       className={`${styles.timeContainer} ${
                         time.erId === selectedTime ? styles.active : ""
-                      }`}>
+                      }`}
+                    >
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -378,7 +386,8 @@ const Practitioner = () => {
               date: date,
               timeSlotId: selectedTime,
             },
-          }}>
+          }}
+        >
           <Btn title="Continue" margin="10px 0" />
         </Link>
       </div>
