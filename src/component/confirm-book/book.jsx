@@ -74,7 +74,7 @@ const BookFinish = ({ bookingId }) => {
             <div>Practitioner</div>
             <div>{dataAppointments?.practitionerName}</div>
           </div>
-          <div className={styles.practitionerContainer}>
+          <div className={styles.timingContainer}>
             <div>Timing:</div>
             <div>{dataAppointments?.startTime}</div>
           </div>

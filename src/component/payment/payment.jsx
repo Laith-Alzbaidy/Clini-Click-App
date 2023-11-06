@@ -147,7 +147,7 @@ const Payment = () => {
             <div>Practitioner</div>
             <div>{dataPreConfirm?.practitioner}</div>
           </div>
-          <div className={styles.practitionerContainer}>
+          <div className={styles.timingContainer}>
             <div>Timing:</div>
             <div>{dataPreConfirm?.timing}</div>
           </div>
@@ -239,13 +239,13 @@ const Payment = () => {
           </p>
         </div>
 
+      </div>
         <StickyButton
           title={`${"Book appointment"}`}
           selectMethod={selectMethod}
           marginTop="20"
           onClick={handleConfirm}
         />
-      </div>
     </div>
   );
 };

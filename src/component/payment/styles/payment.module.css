@@ -60,7 +60,7 @@
   font-weight: 800;
   margin: 1rem 0 0 0;
   font-family: "Montserrat", sans-serif;
-  text-align: left;
+
 }
 .notification {
   width: 100%;
@@ -79,11 +79,10 @@
   color: #000;
   font-size: 12px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 15px 0 15px 0;
 }
-
 .container {
-  margin: 0rem auto;
+  padding: 0 28px 0 28px;
 }
 .bookingContainer {
   display: flex;
@@ -92,7 +91,7 @@
 }
 .treatmentContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 38px;
 }
 .treatmentContainer:first-child {
   color: #000;
@@ -107,12 +106,12 @@
 }
 .treatmentDeatils {
   color: #000;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
 }
 .practitionerContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 33px;
 }
 .practitionerContainer :nth-child(1) {
   color: #000;
@@ -120,6 +119,20 @@
   font-weight: 400;
 }
 .practitionerContainer :nth-child(2) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.timingContainer {
+  display: flex;
+  gap: 63px;
+}
+.timingContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.timingContainer :nth-child(2) {
   color: #000;
   font-size: 14px;
   font-weight: 700;
@@ -217,3 +230,5 @@
   text-align: left !important;
   margin-top: 10px;
 }
+
+
