@@ -80,9 +80,7 @@ export default function Home() {
   return (
     <>
       <div className="container1">
-        <Suspense fallback={<p>Loading feed...</p>}>
-          <Header data={data} />
-        </Suspense>
+        <Header data={data} />
         <Hero data={data} />
         <About data={data} />
         {/* <OurTeam /> */}
@@ -90,8 +88,8 @@ export default function Home() {
         <Location data={data} />
         <OurAmenities data={data} />
         <OurBusiness data={data} />
-        <Icon data={data} />
       </div>
+      <Icon data={data} />
       <Link href="categories">
         <StickyButton title="Book appointment" />
       </Link>

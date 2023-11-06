@@ -48,7 +48,7 @@ const Hero = ({ data }) => {
       {/* content hero */}
       <div className={styles["content-hero"]}>
         <h1 className={styles["title-hero"]}>{data?.name}</h1>
-        <div className="d-flex align-items-center gap-4">
+        <div className="d-flex align-items-center gap-3">
           <div>
             <Image src={star} className={styles["star-image"]} alt="star" />
             <Image src={star} className={styles["star-image"]} alt="star" />
