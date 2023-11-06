@@ -80,9 +80,7 @@ export default function Home() {
   return (
     <>
       <div className="container1">
-        <Suspense fallback={<p>Loading feed...</p>}>
-          <Header data={data} />
-        </Suspense>
+        <Header data={data} />
         <Hero data={data} />
         <About data={data} />
         {/* <OurTeam /> */}
