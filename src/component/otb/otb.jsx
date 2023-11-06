@@ -1,6 +1,5 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import OTPInput from "otp-input-react";
 import ClosePrev from "@/src/component/close-prev/close-prev";
 import styles from "./styles/otb.module.css";
@@ -27,7 +26,7 @@ const OTB = () => {
   const [errorVerfy, setErrorVerfy] = useState("");
   const [show, setShow] = useState(true);
 
-  const phone = localStorage.getItem("phone");
+  const phone = localStorage.getItem("phone") || "";
 
   // handle OTP verification
   const handleVerification = async (otpValue) => {

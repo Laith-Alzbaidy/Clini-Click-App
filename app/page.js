@@ -91,12 +91,12 @@ export default function Home() {
         <OurAmenities data={data} />
         <OurBusiness data={data} />
         <Icon data={data} />
-        <Link href="categories">
-          <StickyButton title="Book appointment" />
-        </Link>
-        <div className="container-footer">
-          <Footer />
-        </div>
+      </div>
+      <Link href="categories">
+        <StickyButton title="Book appointment" />
+      </Link>
+      <div className="container-footer">
+        <Footer />
       </div>
     </>
   );

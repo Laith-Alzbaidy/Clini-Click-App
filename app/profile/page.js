@@ -16,13 +16,12 @@ import "./modal.css";
 import Footer from "@/src/component/footer/footer";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
-// import { useLayoutEffect } from "react";
-// import { useEffect } from "react";
+
 const style = {
   marginTop: "45px",
 };
 const Profile = () => {
-  const userDetails = JSON.parse(localStorage.getItem("user-details"));
+  const userDetails = JSON.parse(localStorage?.getItem("user-details")) || {};
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [err, setErr] = useState(false);

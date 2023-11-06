@@ -3,7 +3,7 @@
 .btn {
   background-color: var(--secondary-color) !important;
   color: #f9fafb;
-  width: 86%;
+  width: 100%;
   font-size: 15px;
   font-weight: 700;
   border: none !important;
