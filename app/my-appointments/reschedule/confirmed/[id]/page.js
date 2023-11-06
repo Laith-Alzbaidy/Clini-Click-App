@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./confirmed.module.css";
 import Link from "next/link";
@@ -9,24 +10,30 @@ import call from "../../../assets/call.svg";
 import location from "../../../assets/location.svg";
 import Btn from "@/src/component/button/button";
 import Footer from "@/src/component/footer/footer";
-const style = {
-  marginTop: "45px",
-};
-async function getData(id, token) {
-  const res = await fetch(`Appointments/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+import Cookies from "js-cookie";
+import { useLayoutEffect } from "react";
+const Confirmed = ({ params }) => {
+  const style = {
+    marginTop: "45px",
+  };
 
-  return res.json();
-}
+  const token = Cookies.get("token");
 
-const Confirmed = async ({ params }) => {
-  const data = await getData(params.id);
+  // const getData = async () => {
+  //   try {
+  //     const response = await fetch(`Appointments/${params.id}`, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //     console.log(response.data);
+  //   } catch (err) {
+  //     console.log("err", err);
+  //   }
+  // };
+  // useLayoutEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div className={styles.warapper}>
