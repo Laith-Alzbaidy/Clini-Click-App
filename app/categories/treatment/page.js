@@ -12,14 +12,14 @@ import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import api from "@/config-API/config-API";
-import { useSearchParams } from "next/navigation";
-
+import { useSearchParams, useRouter } from "next/navigation";
 const linestyle = {
   marginTop: "16px",
   marginBottom: "20px",
 };
 
 const SubCategory = () => {
+  const router = useRouter();
   const [data, setData] = useState(null);
   const [optionsData, setOptionsData] = useState();
   const searchParams = useSearchParams();
@@ -77,7 +77,8 @@ const SubCategory = () => {
           placeItems: "center",
           height: "100vh",
           fontWeight: 700,
-        }}>
+        }}
+      >
         loading !
       </div>
     );
@@ -175,7 +176,7 @@ const SubCategory = () => {
 
   return (
     <>
-      <Link href={"/categories"}>
+      <Link href="#" onClick={() => router.back()}>
         <Image
           className={styles.backIcon}
           src={backicon}
@@ -297,7 +298,8 @@ const SubCategory = () => {
                                 width: "100%",
                                 margin: "1rem auto",
                                 border: "solid 1px #E8F3F1",
-                              }}></div>
+                              }}
+                            ></div>
                           )}
                         </div>
                       ))}
@@ -341,7 +343,7 @@ const SubCategory = () => {
               </div>
             ) : (
               <div>
-                 {item.consultation !== null ?  (
+                {item.consultation !== null ? (
                   <div className={styles.constContainer}>
                     <div className={styles.constChildContainer}>
                       <div>Consultation only</div>
@@ -362,9 +364,9 @@ const SubCategory = () => {
                       />
                     </div>
                   </div>
-               ) : (
-                ""
-              )}
+                ) : (
+                  ""
+                )}
                 <Bold additionalStyles={linestyle} />
                 <div className={styles.constContainer}>
                   <div className={styles.constChildContainer}>
@@ -395,7 +397,8 @@ const SubCategory = () => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}></div>
+        }}
+      ></div>
       <p className={styles.noPayment}>
         No payment will be taken until your appointment
       </p>

@@ -13,11 +13,12 @@ import Image from "next/image";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 import Location from "@/src/component/location/location";
 const CurrentBookings = ({ params }) => {
   const [data, setData] = useState({});
   const token = Cookies.get("token");
+  const router = useRouter();
   const getAppointemntSpecific = async () => {
     try {
       const res = await api.get(`Appointments/${params.id}`, {
@@ -25,7 +26,7 @@ const CurrentBookings = ({ params }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("----------------------", res.data.responseData);
+      console.log("----------------------", res.data);
       setData(res.data.responseData);
     } catch (err) {
       console.log("err", err);
@@ -40,7 +41,7 @@ const CurrentBookings = ({ params }) => {
     <div className={styles.warpper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <Link href={"/my-appointments"}>
+          <Link href="#" onClick={() => router.back()}>
             <Image src={backIcon} className={styles.backIcon} alt="back" />
           </Link>
 
@@ -102,7 +103,12 @@ const CurrentBookings = ({ params }) => {
           border: "solid 3px #E2E2E2",
         }}
       ></div>
-
+      {/* <p>
+        A fee of <b>AED {dataPreConfirm?.cancellationFee} </b>may be charged if
+        you cancel within <b>{dataPreConfirm?.cancellationTimeFrame} hours</b>,
+        or a fee of <b>AED {dataPreConfirm?.noShowFee}</b> may be charged if you
+        miss your appointment.
+      </p> */}
       <div className={styles.CancelTitle}>Cancellation policy</div>
       <div className={styles.cancellation}>
         A fee of <span>AED 100</span> may be charged if you cancel within{" "}
@@ -121,24 +127,16 @@ const CurrentBookings = ({ params }) => {
         <Head>
           <title>My Map</title>
         </Head>
-        {/* <iframe
-          width="100%"
-          style={{ borderRadius: 20 }}
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
-          allowFullScreen
-          title="My Map"
-        ></iframe> */}
 
-        <Location />
-        <div className={styles.call}>
+        <Location data={data} />
+        {/* <div className={styles.call}>
           <Image src={phone} alt="phone" />
           <div>+971-5-000000000</div>
         </div>
         <div className={styles.call}>
           <Image src={location} alt="location" />
           <div>Dubai Marina,Dubai.</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
