@@ -144,7 +144,7 @@ const Practitioner = () => {
   };
   const handleConfirm = () => {
     router.push(
-      `/login?treatmentId=${subcategory}&practitionerId=${slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor}&date=${date}$timeSlotId=${selectedTime}`
+      `/login?treatmentId=${subcategory}&practitionerId=${slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor}&date=${date}&timeSlotId=${selectedTime}`
     );
   };
   const team = data
