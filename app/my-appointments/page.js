@@ -25,6 +25,8 @@ const MyAppointments = () => {
   const token = Cookies.get("token");
 
   //get data MyAppointments
+
+  // console.log("FilterData", FilterData);
   const isUpcoming = async () => {
     try {
       const response = await api.get("/Appointments", {
@@ -58,45 +60,53 @@ const MyAppointments = () => {
       <div className={styles.title}>My appointments</div>
       <div className={styles.subTitle}>Upcoming appointments</div>
       <div className={styles.main}>
-        {data?.map((appointment, index) => (
-          <Link
-            href={`my-appointments/current-bookings/${appointment?.id}`}
-            className={styles.link}
-            key={appointment.id}
-          >
-            <div className={styles.cardContainer}>
-              <Image src={image} className={styles.cardImage} alt="image" />
-              <div className={styles.details}>
-                <div>{appointment?.startTime}</div>
-                <div>{appointment?.treatmentName}</div>
-                <div>{appointment?.id}</div>
-                <div>Confirmed</div>
+        {data
+          ?.filter((elem) => {
+            return elem.isUpcoming === true;
+          })
+          .map((appointment, index) => (
+            <Link
+              href={`my-appointments/current-bookings/${appointment?.id}`}
+              className={styles.link}
+              key={appointment.id}
+            >
+              <div className={styles.cardContainer}>
+                <Image src={image} className={styles.cardImage} alt="image" />
+                <div className={styles.details}>
+                  <div>{appointment?.startTime}</div>
+                  <div>{appointment?.treatmentName}</div>
+                  <div>{appointment?.id}</div>
+                  <div>Confirmed</div>
+                </div>
+                <Image src={left} alt="left" />
               </div>
-              <Image src={left} alt="left" />
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
       <div className={styles.subTitle}>Past appointments</div>
 
       <div className={styles.main}>
-        {/* {data.map((appointment, index) => (
-          <Link
-            href={`my-appointments/past-bookings/${appointment.id}`}
-            className={styles.link}
-          >
-            <div className={styles.cardContainer} key={index}>
-              <Image src={image} className={styles.cardImage} alt="img" />
-              <div className={styles.details}>
-                <div>Thu 22/7/2023 3:00 PM</div>
-                <div>{appointment.name}</div>
-                <div>{appointment.id}</div>
-                <div>{appointment.username}</div>
+        {data
+          ?.filter((elem) => {
+            return elem.isUpcoming === false;
+          })
+          .map((appointment, index) => (
+            <Link
+              href={`my-appointments/past-bookings/${appointment?.id}`}
+              className={styles.link}
+            >
+              <div className={styles.cardContainer} key={index}>
+                <Image src={image} className={styles.cardImage} alt="img" />
+                <div className={styles.details}>
+                  <div>{appointment?.startTime}</div>
+                  <div>{appointment?.treatmentName}</div>
+                  <div>{appointment?.id}</div>
+                  <div>Confirmed</div>
+                </div>
+                <Image src={left} alt="left" />
               </div>
-              <Image src={left} alt="left" />
-            </div>
-          </Link>
-        ))} */}
+            </Link>
+          ))}
       </div>
       <Footer additiionalStyles={style} />
     </div>

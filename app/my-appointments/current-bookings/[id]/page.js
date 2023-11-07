@@ -127,14 +127,6 @@ const CurrentBookings = ({ params }) => {
         </Head>
 
         <Location data={data} />
-        {/* <div className={styles.call}>
-          <Image src={phone} alt="phone" />
-          <div>+971-5-000000000</div>
-        </div>
-        <div className={styles.call}>
-          <Image src={location} alt="location" />
-          <div>Dubai Marina,Dubai.</div>
-        </div> */}
       </div>
     </div>
   );

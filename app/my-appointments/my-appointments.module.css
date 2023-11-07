@@ -1,4 +1,4 @@
-.container{
+.container {
   padding: 28px 28px 28px 28px;
 }
 .headerContainer {
@@ -18,14 +18,14 @@
   color: #000;
   font-size: 14px;
   font-weight: 700;
-  margin:2rem 0 1rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 .cardContainer {
   width: 100%;
   height: fit-content;
   padding: 16.5px 1rem 16.5px 1rem;
-  border: #E2E2E2 1px solid;
+  border: #e2e2e2 1px solid;
   border-radius: 20px;
   margin: 1rem 0 0 0;
   display: flex;
@@ -33,16 +33,16 @@
   align-items: center;
 }
 .cardImage {
- width: 25%;
+  width: 25%;
 }
 .cardContainer :nth-child(2) {
   color: #828282;
   font-size: 12px;
   font-weight: 400;
 }
-.details :nth-child(4){
-color: #A75CFF;
-font-style: italic;
+.details :nth-child(4) {
+  color: #a75cff;
+  font-style: italic;
 }
 @media (min-width: 1280px) {
   .title {
@@ -54,7 +54,7 @@ font-style: italic;
   .cardContainer {
     width: 31%;
   }
-  .main{
+  .main {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -63,7 +63,6 @@ font-style: italic;
   .cardContainer :nth-child(2) {
     font-size: 18px;
   }
-
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
@@ -77,18 +76,18 @@ font-style: italic;
     color: #000;
     font-size: 14px;
     font-weight: 700;
-    margin:2rem 0 1rem 0;
+    margin: 2rem 0 1rem 0;
   }
-  
+
   .container {
     margin: 0rem auto;
   }
-  
+
   .cardContainer {
     width: 100%;
     height: fit-content;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    border: #E2E2E2 1px solid;
+    border: #e2e2e2 1px solid;
     border-radius: 20px;
     margin: 1rem 0 0 0;
     display: flex;
@@ -96,13 +95,13 @@ font-style: italic;
     align-items: center;
   }
   .cardImage {
-   width: 25%;
+    width: 25%;
   }
   .cardContainer :nth-child(2) {
     color: #828282;
     font-size: 12px;
     font-weight: 400;
-    line-height: 20px; 
+    line-height: 20px;
   }
 }
 
@@ -117,18 +116,18 @@ font-style: italic;
     color: #000;
     font-size: 14px;
     font-weight: 700;
-    margin:2rem 0 1rem 0;
+    margin: 2rem 0 1rem 0;
   }
-  
+
   .container {
     margin: 0rem auto;
   }
-  
+
   .cardContainer {
     width: 100%;
     height: fit-content;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    border: #E2E2E2 1px solid;
+    border: #e2e2e2 1px solid;
     border-radius: 20px;
     margin: 1rem 0 0 0;
     display: flex;
@@ -136,21 +135,19 @@ font-style: italic;
     align-items: center;
   }
   .cardImage {
-   width: 25%;
+    width: 25%;
   }
   .cardContainer :nth-child(2) {
     color: #828282;
     font-size: 12px;
     font-weight: 400;
-    line-height: 20px; 
+    line-height: 20px;
   }
 }
 
 @media (max-width: 365px) and (min-width: 280px) {
-
   .cardContainer {
-    padding:  0.5rem 0.5rem ;
+    padding: 0.5rem 0.5rem;
     gap: 1rem;
   }
-
 }

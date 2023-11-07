@@ -62,6 +62,7 @@ const Profile = () => {
 
       if (response.data.isSuccess) {
         console.log("Profile-update", response.data);
+        localStorage.setItem("user-details", JSON.stringify(formData));
         router.push("/my-appointments");
       }
     } catch (err) {
