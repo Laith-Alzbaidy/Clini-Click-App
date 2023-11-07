@@ -59,7 +59,6 @@ import StickyButton from "@/src/component/stickyButton/stickyButton";
 import Footer from "@/src/component/footer/footer";
 import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
 import api from "@/config-API/config-API";
-import { Suspense } from "react";
 
 export default function Home() {
   const [data, setData] = useState(null);

@@ -36,11 +36,6 @@ const Payment = () => {
   };
 
   useLayoutEffect(() => {
-    if (!token) {
-      if (pathname == "/payment") {
-        redirect("/");
-      }
-    }
     preConfirm();
   }, []);
 
@@ -77,12 +72,15 @@ const Payment = () => {
       });
 
       if (response.data.isSuccess) {
-        console.log(response.data.responseData.id);
+        console.log(
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          response.data.responseData.id
+        );
         setDataPayment(response.data.responseData);
         router.push(`/payment/${response.data.responseData.id}`);
       }
     } catch (err) {
-      console.log(err);
+      console.log("eeeeeeeeeeeeeeeeeeeeeeeeee", err);
     }
   };
 
@@ -238,14 +236,13 @@ const Payment = () => {
             and confirm that I am 18 years or older
           </p>
         </div>
-
       </div>
-        <StickyButton
-          title={`${"Book appointment"}`}
-          selectMethod={selectMethod}
-          marginTop="20"
-          onClick={handleConfirm}
-        />
+      <StickyButton
+        title={`${"Book appointment"}`}
+        selectMethod={selectMethod}
+        marginTop="20"
+        onClick={handleConfirm}
+      />
     </div>
   );
 };

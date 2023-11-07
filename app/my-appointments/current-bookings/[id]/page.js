@@ -103,17 +103,15 @@ const CurrentBookings = ({ params }) => {
           border: "solid 3px #E2E2E2",
         }}
       ></div>
-      {/* <p>
-        A fee of <b>AED {dataPreConfirm?.cancellationFee} </b>may be charged if
-        you cancel within <b>{dataPreConfirm?.cancellationTimeFrame} hours</b>,
-        or a fee of <b>AED {dataPreConfirm?.noShowFee}</b> may be charged if you
-        miss your appointment.
-      </p> */}
+
       <div className={styles.CancelTitle}>Cancellation policy</div>
       <div className={styles.cancellation}>
-        A fee of <span>AED 100</span> may be charged if you cancel within{" "}
-        <span>24 hours</span>, or a fee of <span>AED 300</span> may be charged
-        if you miss your appointment.
+        <p>
+          A fee of <b>AED {data?.cancellationFee} </b> may be charged if you
+          cancel within <b> {data?.cancellationTimeFrame} hours</b>, or a fee of{" "}
+          <b>AED {data?.noShowFee}</b> may be charged if you miss your
+          appointment.
+        </p>
       </div>
       <div
         style={{
