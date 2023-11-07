@@ -20,12 +20,12 @@ const month = date.toLocaleString("default", { month: "long" });
 
 const Practitioner = () => {
   const router = useRouter();
-  const [selectedTime, setSelectedTime] = useState();
+  const [selectedTime, setSelectedTime] = useState(null);
   const [selectedDay, setSelectedDay] = useState();
   const [selectedDate, setSelectedDate] = useState();
   const [schedulingData, setSchedulingData] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(new Date());
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(null);
   const [slecetedDoctor, setSelectedDoctor] = useState(null);
   const [selectNoPrefrence, setSelectNoPrefrence] = useState();
   const [NoPrefrence, setNoPrefrence] = useState(null);
@@ -142,7 +142,11 @@ const Practitioner = () => {
       fetchAvailableHours(practitionerId, date);
     }
   };
-
+  const handleConfirm = () => {
+    router.push(
+      `/login?treatmentId=${subcategory}&practitionerId=${slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor}&date=${date}$timeSlotI=${selectedTime}`
+    );
+  };
   const team = data
     ? data.map((practitioner, index) => {
         const isActive = practitioner.id == slecetedDoctor;
@@ -152,14 +156,12 @@ const Practitioner = () => {
             <div
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
-              }`}
-            >
+              }`}>
               <div
                 onClick={() => {
                   handlePractitionerSelect(practitioner.id);
                   setSelectedDoctor(practitioner.id);
-                }}
-              >
+                }}>
                 <div className={styles["container-image"]}>
                   {practitioner.picture !== null ? (
                     <Image
@@ -231,8 +233,7 @@ const Practitioner = () => {
                   setIsModalOpen(true);
                   setSelectedPractitioner(practitioner);
                 }}
-                className={styles["view-profile"]}
-              >
+                className={styles["view-profile"]}>
                 View profile
               </p>
             </div>
@@ -252,8 +253,7 @@ const Practitioner = () => {
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }
-        >
+          }>
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -286,7 +286,23 @@ const Practitioner = () => {
                 slidesPerView={2.4}
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
-              >
+                breakpoints={{
+                  280: {
+                    slidesPerView: 1.5,
+                  },
+                  320: {
+                    slidesPerView: 1.75,
+                  },
+                  375: {
+                    slidesPerView: 2.15,
+                  },
+                  425: {
+                    slidesPerView: 2.25,
+                  },
+                  480: {
+                    slidesPerView: 2.75,
+                  },
+                }}>
                 <SwiperSlide className={styles["swiper-slide"]}>
                   <div
                     className={`${styles["container-card"]} ${
@@ -294,8 +310,7 @@ const Practitioner = () => {
                         ? styles["active-container-card"]
                         : ""
                     } `}
-                    onClick={handleNoPreference}
-                  >
+                    onClick={handleNoPreference}>
                     <div className="d-flex flex-column align-items-center gap-2">
                       <Image src={user} />
                       <h3 className={styles["name-card"]}>No preference</h3>
@@ -329,8 +344,7 @@ const Practitioner = () => {
               centeredSlides={false}
               slidesPerView={5.6}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
+              onSwiper={(swiper) => console.log(swiper)}>
               {schedulingSlides}
             </Swiper>
           </div>
@@ -355,8 +369,7 @@ const Practitioner = () => {
                       }}
                       className={`${styles.timeContainer} ${
                         time.erId === selectedTime ? styles.active : ""
-                      }`}
-                    >
+                      }`}>
                       <p className={styles["time"]}>{time.er_time}</p>
                     </div>
                   ))
@@ -376,20 +389,17 @@ const Practitioner = () => {
         <p className="text-center">
           No payment will be taken until your appointment
         </p>
-        <Link
-          href={{
-            pathname: "/login",
-            query: {
-              treatmentId: subcategory,
-              practitionerId:
-                slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor,
-              date: date,
-              timeSlotId: selectedTime,
-            },
-          }}
-        >
-          <Btn title="Continue" margin="10px 0" />
-        </Link>
+
+        <Btn
+          title="Continue"
+          margin="10px 0"
+          disabled={
+            (slecetedDoctor === null && selectNoPrefrence === null) || (date === null || selectedTime === null)
+          }
+          
+          onClick={handleConfirm}
+        />
+
       </div>
       <SlideUpDoctor
         isModalOpen={isModalOpen}
