@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./sub.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import RadioButtons from "../../../src/component/radioButton/radioButton";
 import Btn from "../../../src/component/button/button";
 import backicon from "../assets/conhh.svg";
 import background from "../assets/g.png";
@@ -28,10 +27,9 @@ const SubCategory = () => {
   const [deviceOption, setDeviceOption] = useState(null);
   const [sessionOption, setSessionOption] = useState();
   const [selectedTreatmentId, setSelectedTreatmentId] = useState(null);
-
   const category = searchParams.get("category");
   const subcategory = searchParams.get("subcategoryId");
-  console.log(subcategory);
+  const route = useRouter();
 
   useEffect(() => {
     async function fetchData() {
@@ -69,20 +67,19 @@ const SubCategory = () => {
   }, []);
   console.log(optionsData, "fdd");
 
-  if (!data || !optionsData) {
-    return (
-      <div
-        style={{
-          display: "grid",
-          placeItems: "center",
-          height: "100vh",
-          fontWeight: 700,
-        }}
-      >
-        loading !
-      </div>
-    );
-  }
+  // if (!data || !optionsData) {
+  //   return (
+  //     <div
+  //       style={{
+  //         display: "grid",
+  //         placeItems: "center",
+  //         height: "100vh",
+  //         fontWeight: 700,
+  //       }}>
+  //       loading !
+  //     </div>
+  //   );
+  // }
 
   const handleOptionSelect = async (event) => {
     try {
@@ -173,7 +170,9 @@ const SubCategory = () => {
     }
   };
   console.log(sessionOption, "selected session");
-
+  const handleConfirm = () => {
+    route.push(`/schedule-appointment?treatmentId=${selectedTreatmentId}`);
+  };
   return (
     <>
       <Link href="#" onClick={() => router.back()}>
@@ -194,17 +193,21 @@ const SubCategory = () => {
           alt="background"
         />
       </div>
-      <div className={styles.container}>
-        <div className={styles.mainContainer}>
-          <div className={styles.subName}>{data.name}</div>
-          <div className={styles.subDuration}>{data.defaultDuration} min</div>
-          <div className={styles.subDiscreption}>{data.description}</div>
+      {data ? (
+        <div className={styles.container}>
+          <div className={styles.mainContainer}>
+            <div className={styles.subName}>{data.name}</div>
+            <div className={styles.subDuration}>{data.defaultDuration} min</div>
+            <div className={styles.subDiscreption}>{data.description}</div>
+          </div>
+          <SlideUpPage data={data} />
         </div>
-        <SlideUpPage data={data} />
-      </div>
+      ) : (
+        ""
+      )}
 
       <div>
-        {optionsData.map((item, index) => (
+        {optionsData?.map((item, index) => (
           <div key={index} className={styles.wrapper}>
             {item.default === null ? (
               <div>
@@ -298,8 +301,7 @@ const SubCategory = () => {
                                 width: "100%",
                                 margin: "1rem auto",
                                 border: "solid 1px #E8F3F1",
-                              }}
-                            ></div>
+                              }}></div>
                           )}
                         </div>
                       ))}
@@ -397,19 +399,17 @@ const SubCategory = () => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}
-      ></div>
+        }}></div>
       <p className={styles.noPayment}>
         No payment will be taken until your appointment
       </p>
 
-      <Link href={`/schedule-appointment?treatmentId=${selectedTreatmentId}`}>
-        <StickyButton
-          title={"Continue to book AED 200"}
-          disabled={selectedTreatmentId === null}
-          content={"  No payment will be taken until your appointment"}
-        />
-      </Link>
+      <StickyButton
+        title={"Continue to book AED 200"}
+        disabled={selectedTreatmentId === null}
+        content={"  No payment will be taken until your appointment"}
+        onClick={handleConfirm}
+      />
     </>
   );
 };

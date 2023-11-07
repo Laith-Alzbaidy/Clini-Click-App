@@ -47,29 +47,31 @@ const CategoryContent = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const categories = list.map((category) => category.name);
+    if (typeof window !== "undefined") {
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const categories = list.map((category) => category.name);
 
-      for (let i = categories.length - 1; i >= 0; i--) {
-        const category = categories[i];
-        const categoryElement = document.getElementById(category);
+        for (let i = categories.length - 1; i >= 0; i--) {
+          const category = categories[i];
+          const categoryElement = document.getElementById(category);
 
-        if (
-          categoryElement.offsetTop <= scrollPosition + 100 &&
-          categoryElement.offsetTop + categoryElement.offsetHeight >
-            scrollPosition + 100
-        ) {
-          setActiveTab(category);
-          break;
+          if (
+            categoryElement.offsetTop <= scrollPosition + 100 &&
+            categoryElement.offsetTop + categoryElement.offsetHeight >
+              scrollPosition + 100
+          ) {
+            setActiveTab(category);
+            break;
+          }
         }
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
+      };
+      window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, [list]);
   const spaceFromTop = 65;
   const handleTabClick = (category) => {
@@ -77,14 +79,15 @@ const CategoryContent = () => {
     const categoryElement = document.getElementById(category);
 
     if (categoryElement) {
-      const scrollPosition = categoryElement.offsetTop - spaceFromTop;
-      window.scrollTo({
-        top: scrollPosition,
-        behavior: "smooth",
-      });
+      if (typeof window !== "undefined") {
+        const scrollPosition = categoryElement.offsetTop - spaceFromTop;
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: "smooth",
+        });
+      }
     }
   };
-
   const TabSlider = list.map((categoryData) => (
     <SwiperSlide
       key={categoryData.name}
@@ -94,14 +97,12 @@ const CategoryContent = () => {
         nextEl: ".swiper-button-prev",
         prevEl: ".swiper-button-next",
       }}
-      slidesPerView={1}
-    >
+      slidesPerView={1}>
       <div
         className={` ${styles.tab} ${
           activeTab === categoryData.name && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.name)}
-      >
+        onClick={() => handleTabClick(categoryData.name)}>
         {categoryData.name}
       </div>
     </SwiperSlide>
@@ -158,8 +159,7 @@ const CategoryContent = () => {
               slidesPerView: 10,
               spaceBetween: 110,
             },
-          }}
-        >
+          }}>
           {TabSlider}
         </Swiper>
       </div>
@@ -168,8 +168,7 @@ const CategoryContent = () => {
           <div
             key={categoryData.id}
             id={categoryData.name}
-            className={styles.categorySection}
-          >
+            className={styles.categorySection}>
             <div className={styles.header}>{categoryData.name}</div>
             {categoryData.subCategories.map((subcategoryData, index) => (
               <Link
@@ -181,8 +180,7 @@ const CategoryContent = () => {
                     subcategoryId: subcategoryData.id,
                   },
                 }}
-                className={styles.link}
-              >
+                className={styles.link}>
                 <div>
                   <div key={index} className={styles.mainContainer}>
                     <div>

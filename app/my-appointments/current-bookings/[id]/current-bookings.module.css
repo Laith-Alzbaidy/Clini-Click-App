@@ -1,17 +1,8 @@
-.warpper{
-  padding:28px 0 28px 0 ;
-}
 .headerContainer {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.subTitle {
-  color: #000;
-  font-size: 12px;
-  font-weight: 700;
-  margin: 25.75px 0 23px 0;
 }
 
 .title {
@@ -19,6 +10,15 @@
   font-size: 18px;
   font-weight: 800;
   margin: 1rem 0 0 0;
+}
+.subTitle {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 25.75px 0 23px 0;
+}
+.warpper{
+  padding:28px 0 28px 0 ;
 }
 .container {
   padding: 0 28px 0 28px;
@@ -45,7 +45,7 @@
 }
 .treatmentDeatils {
   color: #000;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
 }
 .practitionerContainer {
