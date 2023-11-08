@@ -81,19 +81,21 @@ export default function Home() {
       <div className="container1">
         <Header data={data} />
         <Hero data={data} />
-        <About data={data} />
-        {/* <OurTeam /> */}
-        <SlideUpDoctor data={data} />
-        <Location data={data} />
-        <OurAmenities data={data} />
-        <OurBusiness data={data} />
-      </div>
-      <Icon data={data} />
-      <Link href="categories">
-        <StickyButton title="Book appointment" />
-      </Link>
-      <div className="container-footer">
-        <Footer />
+        <div className="column-page">
+          <About data={data} />
+          {/* <OurTeam /> */}
+          <SlideUpDoctor data={data} />
+          <Location data={data} />
+          <OurAmenities data={data} />
+          <OurBusiness data={data} />
+        </div>
+        <Icon data={data} />
+        <Link href="categories">
+          <StickyButton title="Book appointment" />
+        </Link>
+        <div className="container-footer">
+          <Footer />
+        </div>
       </div>
     </>
   );

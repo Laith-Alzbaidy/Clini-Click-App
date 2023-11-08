@@ -144,13 +144,9 @@ const Practitioner = () => {
   };
   const handleConfirm = () => {
     router.push(
-<<<<<<< HEAD
       `/login?treatmentId=${subcategory}&practitionerId=${
         slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor
       }&date=${date}&timeSlotId=${selectedTime}`
-=======
-      `/login?treatmentId=${subcategory}&practitionerId=${slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor}&date=${date}&timeSlotId=${selectedTime}`
->>>>>>> f6458f9c43be66dbd43d94f1db56bff3c19e4bd2
     );
   };
   const team = data
