@@ -10,7 +10,7 @@
   color: #001435;
   font-size: 18px;
   font-weight: 800;
-  margin: 28px 0 13px 0rem;
+  margin: 15px 0 13px 0rem;
 }
 .stepsTitle {
   color: #001435;
@@ -99,9 +99,16 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
-
 }
-
+.learn {
+  color: #a75cff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 20px;
+  font-family: "Montserrat", sans-serif !important;
+  padding-left: 28px !important;
+}
 @keyframes slide-down {
   from {
     transform: translateY(0%);
@@ -115,3 +122,29 @@
 .closing {
   animation: slide-down 0.5s ease-in-out;
 }
+
+@media (min-width: 1280px) {
+  .learn {
+    display: block;
+  }
+  .learnMore {
+    display: none !important;
+  }
+}
+@media (max-width: 1279px) and (min-width: 769px) {
+  .learn {
+    display: block;
+  }
+  .learnMore {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) and (min-width: 200px) {
+  .learn {
+    display: none;
+  }
+  .learnMore {
+    display: block !important;
+  }
+}
+

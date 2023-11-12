@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./sub.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Btn from "../../../src/component/button/button";
 import backicon from "../assets/conhh.svg";
 import background from "../assets/g.png";
 import StickyButton from "@/src/component/stickyButton/stickyButton";
@@ -11,10 +10,17 @@ import SlideUpPage from "@/src/component/slideupModal/slideUpPage";
 import Light from "@/src/component/lines/light";
 import Bold from "@/src/component/lines/bold";
 import api from "@/config-API/config-API";
+import Loader from "@/src/component/Loader/Loader";
+import OptionSelector from "@/src/component/options/OptionSelector";
+import LearnMore from "@/src/component/learnMoreModal/LearnMore";
 import { useSearchParams, useRouter } from "next/navigation";
 const linestyle = {
   marginTop: "16px",
   marginBottom: "20px",
+};
+const ligthstyle = {
+  marginTop: "10px",
+  marginBottom: "10px",
 };
 
 const SubCategory = () => {
@@ -67,19 +73,9 @@ const SubCategory = () => {
   }, []);
   console.log(optionsData, "fdd");
 
-  // if (!data || !optionsData) {
-  //   return (
-  //     <div
-  //       style={{
-  //         display: "grid",
-  //         placeItems: "center",
-  //         height: "100vh",
-  //         fontWeight: 700,
-  //       }}>
-  //       loading !
-  //     </div>
-  //   );
-  // }
+  if (!data || !optionsData) {
+    return <Loader />;
+  }
 
   const handleOptionSelect = async (event) => {
     try {
@@ -201,205 +197,21 @@ const SubCategory = () => {
             <div className={styles.subDiscreption}>{data.description}</div>
           </div>
           <SlideUpPage data={data} />
+          <LearnMore data={data}/>
         </div>
       ) : (
         ""
       )}
+      <OptionSelector
+        optionsData={optionsData}
+        selectedOption={selectedOption}
+        handleOptionSelect={handleOptionSelect}
+        handleDeviceSelect={handledeviceSelect}
+        handleSessionSelect={handleSessionSelect}
+        AreaSelect={AreaSelect}
+      />
 
-      <div>
-        {optionsData?.map((item, index) => (
-          <div key={index} className={styles.wrapper}>
-            {item.default === null ? (
-              <div>
-                {item.consultation !== null ? (
-                  <div className={styles.constContainer}>
-                    <div className={styles.constChildContainer}>
-                      <div>Consultation only</div>
-                      <div className={styles.duration}>
-                        {" "}
-                        - {item.consultation.duration} min
-                      </div>
-                    </div>
-                    <div>
-                      <div className={styles.price}>
-                        AED {item.consultation.price}
-                      </div>
-                      <input
-                        type="radio"
-                        value="consultation"
-                        onClick={handleOptionSelect}
-                        name="option"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )}
-                <Bold additionalStyles={linestyle} />
-                <div className={styles.SelectHeader}>
-                  <div>Body area</div>
-                  <div>Required</div>
-                </div>
-                {item.bodyAreas.map((area, index) => (
-                  <div key={index}>
-                    <div className={styles.optionsContainer}>
-                      <div>
-                        <div className={styles.name}>
-                          {area.name}{" "}
-                          <span className={styles.duration}>
-                            -{area.duration} min
-                          </span>
-                        </div>
-                      </div>
-                      <div>
-                        <p className={styles.price}>AED {area.price}</p>
-                        <input
-                          type="radio"
-                          value={area.name}
-                          onClick={handleOptionSelect}
-                          name="option"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-                {selectedOption !== "consultation" &&
-                  AreaSelect &&
-                  AreaSelect.devices !== null && (
-                    <div>
-                      <Bold additionalStyles={linestyle} />
-                      <div className={styles.SelectHeader}>
-                        <div>Devices</div>
-                        <div>Required</div>
-                      </div>
-                      {AreaSelect.devices.map((device, index) => (
-                        <div key={index}>
-                          <div className={styles.optionsContainer}>
-                            <div className={styles.right}>
-                              <div>
-                                {device.name}
-                                <span className={styles.duration}>
-                                  -{device.duration} min
-                                </span>
-                              </div>
-                            </div>
-                            <div>
-                              <div className={styles.price}>
-                                AED {device.price}
-                              </div>
-                              <input
-                                type="radio"
-                                name="device"
-                                value={device.name}
-                                onClick={handledeviceSelect}
-                              />
-                            </div>
-                          </div>
-                          {index !== AreaSelect.devices.length - 1 && (
-                            <div
-                              style={{
-                                width: "100%",
-                                margin: "1rem auto",
-                                border: "solid 1px #E8F3F1",
-                              }}></div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                {selectedOption !== "consultation" &&
-                  AreaSelect &&
-                  AreaSelect.sessions !== null && (
-                    <div>
-                      <Bold additionalStyles={linestyle} />
-                      <div className={styles.SelectHeader}>
-                        <div>Sessions</div>
-                        <div>Required</div>
-                      </div>
-                      {AreaSelect.sessions?.map((session, sessionIndex) => (
-                        <div key={sessionIndex}>
-                          <div className={styles.optionsContainer}>
-                            <div>
-                              <div>
-                                {session.name}{" "}
-                                <span className={styles.duration}>
-                                  -{session.duration} min
-                                </span>
-                              </div>
-                            </div>
-                            <div>
-                              <p className={styles.price}>
-                                AED {session.price}
-                              </p>
-                              <input
-                                type="radio"
-                                value={session.sessions}
-                                onClick={handleSessionSelect}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-              </div>
-            ) : (
-              <div>
-                {item.consultation !== null ? (
-                  <div className={styles.constContainer}>
-                    <div className={styles.constChildContainer}>
-                      <div>Consultation only</div>
-                      <div className={styles.duration}>
-                        {" "}
-                        - {item.consultation.duration} min
-                      </div>
-                    </div>
-                    <div>
-                      <div className={styles.price}>
-                        AED {item.consultation.price}
-                      </div>
-                      <input
-                        type="radio"
-                        value="consultation"
-                        onClick={handleOptionSelect}
-                        name="option"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )}
-                <Bold additionalStyles={linestyle} />
-                <div className={styles.constContainer}>
-                  <div className={styles.constChildContainer}>
-                    <div>Default name</div>
-                    <div className={styles.duration}>
-                      {" "}
-                      - {item.default.duration} min
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.price}>AED {item.default.price}</div>
-                    <input
-                      type="radio"
-                      value="default"
-                      onClick={handleOptionSelect}
-                      name="option"
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div
-        style={{
-          width: "100%",
-          margin: "1rem auto",
-          border: "solid 3px #E2E2E2",
-        }}></div>
+      <Bold additionalStyles={linestyle} />
       <p className={styles.noPayment}>
         No payment will be taken until your appointment
       </p>

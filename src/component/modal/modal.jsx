@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import styles from "./modal.module.css";
 import "./modal.css";
 
-const ModalBox = ({ content  , content2}) => {
+const ModalBox = ({ content  , content2 , handleCancelAppoinment }) => {
   const [show, setShow] = useState(false);
   const [showSecondModal, setShowSecondModal] = useState(false); 
   const handleClose = () => setShow(false);
@@ -49,7 +49,7 @@ const ModalBox = ({ content  , content2}) => {
           </div>
         </Modal.Body>
         <Modal.Footer className={styles.modalFooter}>
-          <Button onClick={handleCloseSecondModal} className={styles.yesButton}>
+          <Button onClick={handleCancelAppoinment} className={styles.yesButton}>
             Yes
           </Button>
           <Button onClick={handleCloseSecondModal} className={styles.noButton}>

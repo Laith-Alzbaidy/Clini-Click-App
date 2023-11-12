@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./categories.module.css";
-import Image from "next/image";
-import backicon from "./assets/conhh.svg";
 import Link from "next/link";
 import CategoryContent from "./category-list/page";
 import Footer from "@/src/component/footer/footer";

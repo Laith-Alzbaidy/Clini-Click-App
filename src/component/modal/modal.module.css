@@ -27,17 +27,17 @@
   justify-content: center;
 }
 .yesButton {
-  background-color: #adadad;
-  border-radius: 35px;
+  background-color: #adadad !important;
+  border-radius: 35px !important;
   border: 1px solid #adadad !important;
-  display: flex;
+  display: flex !important;
   width: 68px;
   height: 30px;
   padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 12px !important;
 }
 .yesButton:hover {
   background-color: #adadad !important;
@@ -49,48 +49,48 @@
 }
 
 .noButton {
-  background-color: #a75cff;
-  border-radius: 35px;
-  border: 1px solid #fff;
-  display: flex;
+  background-color: #a75cff !important;
+  border-radius: 35px !important;
+  border: 1px solid #fff !important;
+  display: flex !important;
   width: 68px;
   height: 30px;
   padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 12px !important;
 }
 .modal {
-  background-color: #e2e2e2;
+  background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
 
 }
 
 .modalFooter {
-  background-color: #e2e2e2;
+  background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
-  justify-content: center;
-  gap: 24px;
+  justify-content: center !important;
+  gap: 24px !important;
   border-bottom-right-radius: 20px !important;
   border-bottom-left-radius: 20px !important;
 }
 .modal{
-  background-color: #e2e2e2;
+  background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
 
 }
 .modalBody {
-  background-color: #e2e2e2;
+  background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
-  text-align: center;
-  color: #828282; 
-  font-size: 12px;
-  font-weight: 400;
+  text-align: center !important;
+  color: #828282 !important; 
+  font-size: 12px !important;
+  font-weight: 400 !important;
 
 }
 .modalHeader {
-  background-color: #e2e2e2;
+  background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
   border-top-right-radius: 20px !important;
   border-top-left-radius: 20px !important;

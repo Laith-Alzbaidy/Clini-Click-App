@@ -1,0 +1,68 @@
+.active {
+  background-color: #a75cff;
+  color: #fff;
+}
+.active .date {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.active .day {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.container-scheduling {
+  border: 1px solid #e8f3f1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 46px;
+  height: 64px;
+}
+
+.container-scheduling:hover {
+  background-color: var(--secondary-color);
+}
+.container-scheduling:hover {
+  background-color: var(--secondary-color);
+}
+.container-scheduling:hover .day,
+.container-scheduling:hover .date {
+  color: white;
+}
+.day {
+  color: #a1a8b0;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.date {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.time {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+.time:hover {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.container-question {
+  margin: 2rem 0;
+}
+.question {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2rem;
+}
