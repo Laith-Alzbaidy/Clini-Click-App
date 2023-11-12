@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import styles from "./time.module.css";
 
 const TimeSelector = ({
@@ -9,8 +9,6 @@ const TimeSelector = ({
   practitioner,
   isLoading,
 }) => {
-  console.log(selectedTime, "ff");
-
   useEffect(() => {}, [availability]);
 
   return (
@@ -22,7 +20,7 @@ const TimeSelector = ({
       <div className={styles.Bigcontainer}>
         {isLoading ? (
           <p className={styles.loadingMessage}>
-            Loading available times {" "}<span className={styles.loadingDots}></span>
+            Loading available times <span className={styles.loadingDots}></span>
           </p>
         ) : availability && availability.data ? (
           availability.data.map((time, index) => (
