@@ -1,0 +1,80 @@
+.timeContainer {
+  border-radius: 15px;
+  border: 1px solid #adadad;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31%;
+  height: 37px;
+  margin-top: 20px;
+}
+.timeContainer:hover {
+  background-color: var(--secondary-color);
+}
+.timeContainer:hover .time {
+  color: white;
+}
+
+.Bigcontainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.time {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+.time:hover {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.container-question {
+  margin: 2rem 0;
+}
+.question {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    content: ".";
+  }
+  25% {
+    content: "..";
+  }
+  50% {
+    content: "...";
+  }
+  75% {
+    content: "..";
+  }
+  100% {
+    content: ".";
+  }
+}
+.loadingMessage {
+  color: #a75cff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.loadingDots::after {
+  content: ".";
+  animation: loadingAnimation 1s infinite;
+  display: inline-block;
+}
+
+@media (max-width: 365px) and (min-width: 280px) {
+  .timeContainer {
+    width: 45%;
+  }
+}

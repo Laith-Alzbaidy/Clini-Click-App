@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import Location from "@/src/component/location/location";
 const CurrentBookings = ({ params }) => {
   const [data, setData] = useState({});
+  const [cancelData, setCancelData] = useState({});
   const token = Cookies.get("token");
   const router = useRouter();
   const getAppointemntSpecific = async () => {
@@ -30,6 +31,25 @@ const CurrentBookings = ({ params }) => {
       setData(res.data.responseData);
     } catch (err) {
       console.log("err", err);
+    }
+  };
+
+  useEffect(() => {
+    getAppointemntSpecific();
+  }, []);
+
+  const handleCancelAppoinment = async () => {
+    try {
+      const res = await api.delete(`Appointments/${params.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(res.data , "Appoinment cancelled");
+      setCancelData(res.data.responseData);
+      
+    } catch (err) {
+      console.log("Error occurred while canceling", err);
     }
   };
 
@@ -67,6 +87,8 @@ const CurrentBookings = ({ params }) => {
           content2={
             "A cancellation fee of AED 100 may be charged as per the cancellation policy."
           }
+          handleCancelAppoinment={handleCancelAppoinment}
+          
         />
 
         <div className={styles.subTitle}>Your appointment details</div>

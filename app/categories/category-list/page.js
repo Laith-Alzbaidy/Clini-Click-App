@@ -10,6 +10,7 @@ import Bold from "@/src/component/lines/bold";
 import "swiper/css";
 import api from "@/config-API/config-API";
 import "./a.css";
+
 const costumStyles = {
   marginTop: "25px",
   marginBottom: "18px",
@@ -45,6 +46,8 @@ const CategoryContent = () => {
   useEffect(() => {
     getData();
   }, []);
+
+
 
   useEffect(() => {
     if (typeof window !== "undefined") {
