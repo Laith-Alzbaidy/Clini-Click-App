@@ -54,3 +54,36 @@
   margin-top: 5px !important;
   cursor: pointer;
 }
+
+@media (min-width: 769px) {
+  .title {
+    font-size: 25px;
+  }
+  .icon-medicalLicense {
+    width: 30px;
+    height: 30px;
+  }
+  .icon-established {
+    width: 28px;
+    height: 28px;
+  }
+  .description {
+    font-size: 20px !important;
+    line-height: 28px;
+  }
+  .title-icon,
+  .date-established,
+  .medicalLicense {
+    font-size: 20px;
+  }
+
+  .date-established,
+  .medicalLicense {
+    color: #828282;
+  }
+
+  .title-icon {
+    margin-top: 10px !important;
+    line-height: 32px;
+  }
+}

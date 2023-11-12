@@ -5,7 +5,31 @@
   margin-bottom: 15px !important;
 }
 
-.text {
+.text-day,
+.text-time {
   font-size: 12px !important;
-  font-weight: 500 !important;
+  /* font-weight: 500 !important; */
+}
+
+.text-day {
+  font-weight: 700;
+}
+
+.text-time {
+  font-weight: 400;
+}
+
+@media (min-width: 769px) {
+  .text-day {
+    font-size: 20px !important;
+    color: black !important;
+    margin-top: 15px !important;
+  }
+  .text-time {
+    font-size: 20px !important;
+    margin-top: 15px !important;
+  }
+  .title {
+    font-size: 25px;
+  }
 }

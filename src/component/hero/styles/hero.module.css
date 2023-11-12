@@ -1,16 +1,15 @@
 .container-hero {
-  /* overflow: hidden; */
-  height: 220px;
   border-radius: 0;
   margin: 20px 0;
   position: relative;
   width: 100%;
+  aspect-ratio: 2 / 0.93;
 }
 
 .image {
   border-radius: 20px !important;
   width: 100%;
-  height: 150px;
+  height: 100%;
 }
 .number-image {
   position: absolute;
@@ -56,4 +55,40 @@
   font-weight: 400;
   text-decoration-line: underline;
   margin-top: 5px !important;
+}
+
+@media (min-width: 769px) {
+  .title-hero {
+    font-size: 30px;
+  }
+  .star-image {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  /* .text-review {
+    font-size: 20px !important;
+  } */
+  .text-icon {
+    font-size: 20px !important;
+    text-decoration-line: none !important;
+  }
+  .container-communication {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between;
+  }
+  .content-hero {
+    max-width: 595px;
+    gap: 15px;
+  }
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+  .row {
+    gap: 113px !important;
+  }
+  /* p {
+    font-size: 20px !important;
+  } */
 }

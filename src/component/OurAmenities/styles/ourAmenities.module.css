@@ -23,3 +23,27 @@
   font-size: 12px !important;
   font-weight: 400;
 }
+
+@media (min-width: 769px) {
+  .icon {
+    width: 25px !important ;
+    height: 25px !important;
+  }
+  .text-icon {
+    font-size: 20px !important;
+    font-weight: 400;
+  }
+  .content-icon {
+    width: fit-content !important;
+  }
+  .title {
+    font-size: 25px !important;
+  }
+  .col-2-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .content-icon {
+    align-self: flex-start !important;
+  }
+}

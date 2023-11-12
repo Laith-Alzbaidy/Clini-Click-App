@@ -59,6 +59,7 @@ import StickyButton from "@/src/component/stickyButton/stickyButton";
 import Footer from "@/src/component/footer/footer";
 import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
 import api from "@/config-API/config-API";
+import CardBook from "@/src/component/view-desktop/card-book/card-book";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -76,6 +77,14 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const styleIcon = {
+    instagram: { width: 13, height: 17 },
+    facebook: { width: 14, height: 12 },
+    linkedin: { width: 14, height: 12 },
+    x: { width: 13, height: 12 },
+  };
+
+  // }
   return (
     <>
       <div className="container1">
@@ -89,13 +98,16 @@ export default function Home() {
           <OurAmenities data={data} />
           <OurBusiness data={data} />
         </div>
-        <Icon data={data} />
+        <div className="icon-mobile">
+          <Icon data={data} />
+        </div>
         <Link href="categories">
           <StickyButton title="Book appointment" />
         </Link>
         <div className="container-footer">
           <Footer />
         </div>
+        <CardBook />
       </div>
     </>
   );
