@@ -54,11 +54,6 @@
   .cardContainer {
     width:100%;
   }
-  .main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
 
   .cardContainer :nth-child(2) {
     font-size: 18px;
@@ -67,6 +62,7 @@
     max-width: 780px;
     margin: 0 auto;
   }
+  
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
