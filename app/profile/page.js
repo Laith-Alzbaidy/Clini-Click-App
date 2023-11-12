@@ -36,7 +36,6 @@ const Profile = () => {
   });
 
   const token = Cookies.get("token");
-  //handle input to get value
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -75,23 +74,7 @@ const Profile = () => {
     localStorage.clear();
     router.push("/");
   };
-  // try {
-  //   const response = await fetch("/api/", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ firstName, lastName, email }),
-  //   });
 
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     console.log("Form submission successful:", data);
-  //     router.push("/my-appointments");
-  //   }
-  // } catch (error) {
-  //   setErr(true);
-  // }
 
   const DeleteAccount = async () => {
     try {
@@ -114,23 +97,6 @@ const Profile = () => {
       router.push("/");
     }, 2000);
 
-    // try {
-    //   const response = await fetch("/api/deleteAccount", {
-    //     method: "DELETE",
-    //     headers: {
-    //       Authorization: `Bearer ${userToken}`,
-    //     },
-    //   });
-
-    //   if (response.ok) {
-    //     console.log("Account deleted successfully");
-
-    //     } else {
-    //       console.error("Failed to delete account");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error deleting account:", error);
-    //   }
   };
 
   return (
