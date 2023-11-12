@@ -50,6 +50,7 @@ const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateProfile();
+    router.push("my-appointments");
   };
   const updateProfile = async () => {
     try {
@@ -61,6 +62,7 @@ const Profile = () => {
 
       if (response.data.isSuccess) {
         console.log("Profile-update", response.data);
+        localStorage.setItem("user-details", JSON.stringify(formData));
         router.push("/my-appointments");
       }
     } catch (err) {
@@ -91,9 +93,23 @@ const Profile = () => {
   //   setErr(true);
   // }
 
+  const DeleteAccount = async () => {
+    try {
+      const response = await api.delete("Users", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("DeleteAccount", response.data);
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
   const handleDeleteAccount = async () => {
     setShow(false);
     setShowPopup(true);
+    DeleteAccount();
+    Cookies.remove("token");
     setTimeout(() => {
       router.push("/");
     }, 2000);

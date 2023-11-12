@@ -27,20 +27,15 @@ const Payment = () => {
 
   const data = {
     clinicName: "AbdullahClinic",
-    treatmentId: searchParams.get("treatmentId") || 57,
-    practitionerId: searchParams.get("practitionerId") || 2,
-    timeSlotId: searchParams.get("timeSlotId") || 10,
-    date: searchParams.get("date") || "2023-11-10",
+    treatmentId: searchParams.get("treatmentId"),
+    practitionerId: searchParams.get("practitionerId"),
+    timeSlotId: searchParams.get("timeSlotId"),
+    date: searchParams.get("date"),
     // promoCode: offer || "",
     paymentId: selectMethod.id,
   };
 
   useLayoutEffect(() => {
-    if (!token) {
-      if (pathname == "/payment") {
-        redirect("/");
-      }
-    }
     preConfirm();
   }, []);
 
@@ -49,7 +44,7 @@ const Payment = () => {
   const preConfirm = async () => {
     try {
       const response = await api.get(
-        "Appointments/preconfirm?treatmentId=56&practitionerId=1&timeslotId=25&date=11-11-2023",
+        `Appointments/preconfirm?treatmentId=${data.treatmentId}&practitionerId=${data.practitionerId}&timeslotId=${data.timeSlotId}&date=${data.date}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,12 +72,15 @@ const Payment = () => {
       });
 
       if (response.data.isSuccess) {
-        console.log(response.data.responseData.id);
+        console.log(
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          response.data.responseData.id
+        );
         setDataPayment(response.data.responseData);
         router.push(`/payment/${response.data.responseData.id}`);
       }
     } catch (err) {
-      console.log(err);
+      console.log("err ", err);
     }
   };
 
@@ -238,14 +236,13 @@ const Payment = () => {
             and confirm that I am 18 years or older
           </p>
         </div>
-
       </div>
-        <StickyButton
-          title={`${"Book appointment"}`}
-          selectMethod={selectMethod}
-          marginTop="20"
-          onClick={handleConfirm}
-        />
+      <StickyButton
+        title={`${"Book appointment"}`}
+        selectMethod={selectMethod}
+        marginTop="20"
+        onClick={handleConfirm}
+      />
     </div>
   );
 };

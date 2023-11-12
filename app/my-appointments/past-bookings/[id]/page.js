@@ -1,29 +1,44 @@
+"use client";
 import React from "react";
 import styles from "./past-bookings.module.css";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
-import back from "../../assets/conhh.svg";
+import backIcon from "../../assets/conhh.svg";
 import user from "../../assets/user.svg";
-import call from "../../assets/call.svg";
-import location from "../../assets/location.svg";
+import Image from "next/image";
+import api from "@/config-API/config-API";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Location from "@/src/component/location/location";
+const PastBookings = ({ params }) => {
+  const [data, setData] = useState({});
+  const token = Cookies.get("token");
+  const router = useRouter();
+  const getAppointemntSpecific = async () => {
+    try {
+      const res = await api.get(`Appointments/${params.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("----------------------", res.data);
+      setData(res.data.responseData);
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
-async function getData(id) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  useEffect(() => {
+    getAppointemntSpecific();
+  }, []);
 
-  return res.json();
-}
-const PastBookings = async ({ params }) => {
-  const data = await getData(params.id);
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.warpper}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <Link href={"/my-appointments"}>
-            <Image src={back} className={styles.backIcon} alt="back" />
+          <Link href="#" onClick={() => router.back()}>
+            <Image src={backIcon} className={styles.backIcon} alt="back" />
           </Link>
 
           <Link href={"/profile"}>
@@ -31,32 +46,33 @@ const PastBookings = async ({ params }) => {
           </Link>
         </div>
 
-        <div className={styles.title}>Manage Bookings</div>
+        <div className={styles.title}>{data?.startTime}</div>
+
         <div className={styles.subTitle}>Your appointment details</div>
         <div className={styles.bookingContainer}>
           <div className={styles.treatmentContainer}>
             <div>Treatment:</div>
             <div className={styles.treatmentDeatils}>
-              <div className={styles.treatmentName}>Laser hair removal</div>
-              <div>Body area: Arms</div>
-              <div>Device: Gentle Max Pro</div>
-              <div>Sessions: 1</div>
+              <div className={styles.treatmentName}>{data?.treatmentName}</div>
+              <p>Body area: {data?.bodyArea}</p>
+              <p>Device: {data?.device}</p>
+              <p>Sessions: {data?.sessions}</p>
             </div>
           </div>
           <div className={styles.practitionerContainer}>
-            <div>Practitioner:</div>
-            <div>Dr. Basel Habayeb</div>
+            <div>Practitioner</div>
+            <div>{data?.practitionerName}</div>
           </div>
           <div className={styles.timingContainer}>
             <div>Timing:</div>
-            <div>Wed, 23 Jul at 2:00 PM</div>
+            <div>{data?.startTime}</div>
           </div>
         </div>
         <div className={styles.totalContainer}>
           <div>
             Order total <span>(incl.tax)</span>
           </div>
-          <div>AED 300</div>
+          <div>AED {data?.price}</div>
         </div>
       </div>
       <div
@@ -64,27 +80,32 @@ const PastBookings = async ({ params }) => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}></div>
+        }}
+      ></div>
+
+      <div className={styles.CancelTitle}>Cancellation policy</div>
+      <div className={styles.cancellation}>
+        <p>
+          A fee of <b>AED {data?.cancellationFee} </b> may be charged if you
+          cancel within <b> {data?.cancellationTimeFrame} hours</b>, or a fee of{" "}
+          <b>AED {data?.noShowFee}</b> may be charged if you miss your
+          appointment.
+        </p>
+      </div>
+      <div
+        style={{
+          width: "100%",
+          margin: "1rem auto",
+          border: "solid 3px #E2E2E2",
+        }}
+      ></div>
       <div className={styles.container}>
         <div className={styles.subTitle}>Location</div>
         <Head>
           <title>My Map</title>
         </Head>
-        <iframe
-          width="100%"
-          style={{ borderRadius: 20 }}
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
-          allowFullScreen
-          title="My Map"></iframe>
-        <div className={styles.call}>
-          <Image src={call} alt="phone" />
-          <div>+971-5-000000000</div>
-        </div>
-        <div className={styles.call}>
-          <Image src={location} alt="location" />
-          <div>Dubai Marina,Dubai.</div>
-        </div>
+
+        <Location data={data} />
       </div>
     </div>
   );
