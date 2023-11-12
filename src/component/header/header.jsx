@@ -15,7 +15,13 @@ const Header = ({ data }) => {
 
   return (
     <header className="header-section">
-      <Image src={data?.logo} width={120} height={50} alt="logo" />
+      <Image
+        className={styles["logo"]}
+        src={data?.logo}
+        width={120}
+        height={50}
+        alt="logo"
+      />
 
       {token ? (
         <Link href={"/profile"}>

@@ -106,6 +106,7 @@
     align-self: flex-end !important;
     margin-right: 12px !important;
     margin-top: 4px !important;
+    cursor: pointer;
   }
   .title {
     font-size: 25px;

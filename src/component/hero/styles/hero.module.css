@@ -4,6 +4,8 @@
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 0.93;
+  min-height: 226.63px;
+  max-height: 640px;
 }
 
 .image {
@@ -76,6 +78,9 @@
     display: flex !important;
     align-items: center !important;
     justify-content: space-between;
+  }
+  .text-review {
+    font-size: 20px;
   }
   .content-hero {
     max-width: 595px;

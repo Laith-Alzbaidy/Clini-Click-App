@@ -28,9 +28,7 @@ const SlideUpPage = ({ data }) => {
               <div className={styles.container}>
                 <Image src={back} onClick={() => close()} />
                 <div className={styles.title}>{data.name}</div>
-                <div className={styles.infoText}>
-                 {data.description}
-                </div>
+                <div className={styles.infoText}>{data.description}</div>
 
                 <div className={styles.container}>
                   <div className={styles.stepsTitle}>Before Treatment</div>

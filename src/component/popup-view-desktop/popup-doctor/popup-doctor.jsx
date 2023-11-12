@@ -1,46 +1,74 @@
-"use client";
-import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import "../main.css";
+import React from "react";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import OurTeam from "../../ourTeam/ourteam";
+import styles from "./popup-doctor.module.css";
+// import ButtonPreviews from "../../buttonPreviews/buttonPreviews";
+import close from "./assets/image/close.svg";
+import Image from "next/image";
+import Link from "next/link";
+import { Row, Col } from "react-bootstrap";
+import star from "./assets/image/Star.svg";
+import global from "./assets/image/global.svg";
+import license from "./assets/image/license-number.svg";
+import SlideUpAbout from "../../slideupModal/slideUpAbout/slideUpAbout";
+import Icon from "../../icon/icon";
+import ReadMore from "../../read-more/read-more";
+SlideUpAbout;
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  border: "none",
+  borderRadius: "40px",
+  boxShadow: 24,
+  p: 4,
+  height: "90vh",
+  width: "878.967px",
+  outline: "none",
+  overflowY: "auto", // Corrected property name
+};
 
-function PopupDoctor() {
-  const [show, setShow] = useState(false);
+const theme = createTheme({
+  typography: {
+    fontFamily: "Montserrat , sans-serif ",
+    fontSize: 18,
+  },
+});
+
+const PopupDoctor = ({ data }) => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const handleOpen = () => setIsModalOpen(true);
+  const handleClose = () => setIsModalOpen(false);
 
   return (
-    <>
-      <Button variant="primary" onClick={() => setShow(true)}>
-        Custom Width Modal
-      </Button>
+    <div>
+      <ThemeProvider theme={theme}>
+        {/* <Typography onClick={handleOpen}>Learn more</Typography> */}
+      </ThemeProvider>
 
       <Modal
-        animation={false}
-        show={show}
-        centered
-        // size="lg"
-        onHide={() => setShow(false)}
-        dialogClassName="modal-90w"
-        aria-labelledby="example-custom-modal-styling-title"
+        open={isModalOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
-            Custom Modal Styling
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>
-            Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-            commodi aspernatur enim, consectetur. Cumque deleniti temporibus
-            ipsam atque a dolores quisquam quisquam adipisci possimus
-            laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
-            accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
-            reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
-            deleniti rem!
-          </p>
-        </Modal.Body>
+        <Box sx={style}>
+          <div className="d-flex align-items-center justify-content-end">
+            <Image
+              className={styles["close-btn"]}
+              onClick={handleClose}
+              src={close}
+              alt="close"
+            />
+          </div>
+        </Box>
       </Modal>
-    </>
+    </div>
   );
-}
+};
 
 export default PopupDoctor;
