@@ -119,6 +119,18 @@
 .container1 {
   padding: 10px 28px;
 }
+@media (min-width: 1280px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1279px) and (min-width: 769px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
 @media (max-width: 320px) and (min-width: 280px) {
   .treatmentName {
     font-size: 12px;
