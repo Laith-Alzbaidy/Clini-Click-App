@@ -26,9 +26,11 @@ const Icon = ({ data }) => {
         >
           <Image
             src={socialMediaIcons[linkData.name]}
-            width={18}
-            height={15}
+            // width={18}
+            // height={15}
+            fill
             alt={`${linkData.name}-icon`}
+            className={styles["icon"]}
           />
         </Link>
       ))}

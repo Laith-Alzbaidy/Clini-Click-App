@@ -7,7 +7,7 @@ import Image from "next/image";
 import building from "./assets/image/icon _building_.svg";
 import line from "./assets/image/icon _license line_.svg";
 import back from "../assets/back.svg";
-const SlideUpAbout = () => {
+const SlideUpAbout = ({ readMore }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalclass, SetClass] = useState("modal-content");
   function close() {

@@ -27,10 +27,10 @@ const OurBusiness = ({ data }) => {
     return (
       <Row key={item.day}>
         <Col>
-          <p className={styles["text"]}>{dayName}</p>
+          <p className={styles["text-day"]}>{dayName}</p>
         </Col>
         <Col>
-          <p className={styles["text"]}>
+          <p className={styles["text-time"]}>
             {item.isClosed ? "Closed" : `${item.from}-${item.to}`}
           </p>
         </Col>

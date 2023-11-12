@@ -13,7 +13,7 @@
   gap: 2px;
   border: 1px solid #e8f3f1;
   background: #fff;
-  height: 212px;
+  height: 155px;
 }
 
 .container-image {
@@ -65,4 +65,55 @@
 
 .swiper-slide {
   margin-right: 10px !important;
+}
+
+@media (min-width: 769px) {
+  .image {
+    border-radius: 50%;
+    width: 100px !important;
+    height: 100px !important;
+    margin: auto;
+  }
+  .container-card {
+    max-width: 170px !important;
+    height: 244px;
+  }
+
+  .name-card {
+    font-size: 14px;
+  }
+  .specialization {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .exp {
+    font-size: 11px;
+    color: #adadad !important;
+  }
+
+  .star-image {
+    width: 15px;
+    height: 15px;
+  }
+  .text-review {
+    font-size: 10px;
+  }
+  .view-profile {
+    color: var(--secondary-color) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    height: 12px !important;
+    align-self: flex-end !important;
+    margin-right: 12px !important;
+    margin-top: 4px !important;
+  }
+  .title {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .icon-desktop {
+    display: none !important;
+  }
 }

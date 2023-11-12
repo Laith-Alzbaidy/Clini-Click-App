@@ -51,6 +51,7 @@ const OTB = () => {
       const token = response.data.responseData.token;
       if (response.data.isSuccess) {
         if (response.data.responseData.isConfigured) {
+          console.log();
           router.push("/");
         } else {
           router.push(

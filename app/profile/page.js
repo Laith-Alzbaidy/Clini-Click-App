@@ -21,6 +21,9 @@ const style = {
   marginTop: "45px",
 };
 const Profile = () => {
+  // window.onbeforeunload = function () {
+  //   return "Are you sure you want to leave this page?";
+  // };
   const userDetails = JSON.parse(localStorage?.getItem("user-details")) || {};
   const router = useRouter();
   const [show, setShow] = useState(false);
@@ -152,7 +155,7 @@ const Profile = () => {
           Logout
         </div>
 
-        <Modal show={show} onHide={handleClose} animation={false} centered>
+        {/* <Modal show={show} onHide={handleClose} animation={false} centered>
           <Modal.Header
             closeButton
             className={styles.modalHeader}
@@ -172,7 +175,7 @@ const Profile = () => {
               No
             </Button>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
       </>
       <Footer additiionalStyles={style} />
     </div>
