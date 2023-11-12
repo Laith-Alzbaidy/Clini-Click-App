@@ -1,32 +1,23 @@
 .backIcon {
   margin: 28px 0 0 25px;
 }
-.background {
-  border-radius: 25px;
-  padding: 0 28px 0 28px;
+
+.containerHero {
+  border-radius: 0;
+  position: relative;
+  width: 100%;
 }
 
-.holder {
-  padding: 28px 0 28px 0;
+.containerHero::before {
+  content: "";
+  display: block;
+  padding-top: 58.55%; 
 }
-.containerHero {
-  height: 220px;
-  border-radius: 0;
-  margin: 20px auto;
-  position: relative;
-}
-.mainContainer {
+
+.wrapper{
   padding: 0 28px 0 28px;
+
 }
-/* .wrapper div {
-  font-size: 14px;
-}
-.wrapper p {
-  font-size: 14px;
-}
-.wrapper span {
-  font-size: 14px;
-} */
 .subName {
   color: #001435;
   font-size: 18px;
@@ -74,10 +65,6 @@
   .background {
     border-radius: 55px;
   }
-  .containerHero {
-    height: 35vh;
-    margin: 0px auto;
-  }
   .subDuration {
     font-size: 18px;
   }
@@ -118,9 +105,12 @@
   .name{
     font-size: 20px;
   }
+  .containerHero{
+    margin: 28px 0 0 0px;
+  }
 }
 
-@media (max-width: 1279px) and (min-width: 769px) {
+@media (max-width: 1279px) and (min-width: 768px) {
   .wrapper {
     max-width: 768px;
     margin: 0 auto;
@@ -131,10 +121,10 @@
   .background {
     border-radius: 55px;
   }
-  .containerHero {
-    height: 35vh;
-    margin: 0px auto;
+  .backIcon {
+    display: none;
   }
+
   .subDuration {
     font-size: 18px;
   }
@@ -147,6 +137,9 @@
   .noPayment {
     font-size: 20px;
     padding-bottom: 7rem;
+  }
+  .containerHero{
+    margin: 28px 0 0 0px;
   }
 
   

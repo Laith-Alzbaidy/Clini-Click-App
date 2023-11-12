@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import styles from "./profile.module.css";
 import Link from "next/link";
 import Btn from "../../src/component/button/button";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import Image from "next/image";
 import user from "./assets/user.svg";
 import email from "./assets/email.svg";
@@ -12,11 +10,10 @@ import backIcon from "./assets/back.svg";
 import { useRouter } from "next/navigation";
 import InputField from "@/src/component/inputField/inputField";
 import Popup from "reactjs-popup";
-import "./modal.css";
 import Footer from "@/src/component/footer/footer";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
-
+import ModalBox from "@/src/component/modal/modal";
 const style = {
   marginTop: "45px",
 };
@@ -78,7 +75,6 @@ const Profile = () => {
     router.push("/");
   };
 
-
   const DeleteAccount = async () => {
     try {
       const response = await api.delete("Users", {
@@ -99,7 +95,6 @@ const Profile = () => {
     setTimeout(() => {
       router.push("/");
     }, 2000);
-
   };
 
   return (
@@ -145,37 +140,17 @@ const Profile = () => {
         <Btn title={"Manage my appointments"} type={"submit"} />
       </form>
       <>
-        <div className={styles.deleteAccount} onClick={handleShow}>
-          Delete your account
-        </div>
+        <ModalBox
+          content={" Are you sure you want to delete your account ?"}
+          confirm={false}
+          handleDeleteAccount={handleDeleteAccount}
+        />
         <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
           or
         </p>
         <div onClick={logOut} className={styles.logout}>
           Logout
         </div>
-
-        {/* <Modal show={show} onHide={handleClose} animation={false} centered>
-          <Modal.Header
-            closeButton
-            className={styles.modalHeader}
-          ></Modal.Header>
-
-          <Modal.Body className={styles.modal}>
-            <div className={styles.modalBody}>
-              Are you sure you want to delete
-              <br /> your account ?
-            </div>
-          </Modal.Body>
-          <Modal.Footer className={styles.modalFooter}>
-            <Button onClick={handleDeleteAccount} className={styles.yesButton}>
-              Yes
-            </Button>
-            <Button onClick={handleClose} className={styles.noButton}>
-              No
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
       </>
       <Footer additiionalStyles={style} />
     </div>

@@ -9,88 +9,12 @@ padding: 28px 28px 28px 28px;
   margin: 2rem 0 2rem 0rem;
 }
 
-.deleteAccount {
-  color: #000;
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center;
-  margin: 0.6rem 0 0 0;
-}
 .logout {
   color: #000;
   font-size: 12px;
   font-weight: 600;
   text-align: center;
   margin: 0 0 0 0;
-}
-.deleteAccount:hover {
-  cursor: pointer;
-}
-.yesButton {
-  background-color: #adadad;
-  border-radius: 35px;
-  border: 1px solid #adadad !important;
-  display: flex;
-  width: 68px;
-  height: 30px;
-  padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-}
-.yesButton:hover {
-  background-color: #adadad !important;
-  border: 1px solid #8f8f8f !important;
-}
-
-.yesButton:active {
-  background-color: #585858 !important;
-  border: 1px solid #585858 !important;
-}
-
-.noButton {
-  background-color: #a75cff;
-  border-radius: 35px;
-  border: 1px solid #fff;
-  display: flex;
-  width: 68px;
-  height: 30px;
-  padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-}
-.noButton:hover {
-  background-color: #a75cff !important;
-  border-color: #9d4bfa;
-}
-.modalHeader {
-  background-color: #e2e2e2;
-  border-color: #e2e2e2 !important;
-  border-top-right-radius: 20px !important;
-  border-top-left-radius: 20px !important;
-}
-.modalFooter {
-  background-color: #e2e2e2;
-  border-color: #e2e2e2 !important;
-  justify-content: center;
-  gap: 24px;
-  border-bottom-right-radius: 20px !important;
-  border-bottom-left-radius: 20px !important;
-}
-.modal {
-  background-color: #e2e2e2;
-  border-color: #e2e2e2 !important;
-}
-.modalBody {
-  background-color: #e2e2e2;
-  border-color: #e2e2e2 !important;
-  text-align: center;
-  color: #828282;
-  font-size: 12px;
-  font-weight: 400;
 }
 
 .input {
@@ -156,6 +80,17 @@ padding: 28px 28px 28px 28px;
   .deleteAccount {
     font-size: 18px;
   }
+  .costumContainer{
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  .backIcon{
+    display: none;
+  }
+  .title {
+    margin: 1rem 0 2rem 0rem;
+  }
+  
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
@@ -164,6 +99,16 @@ padding: 28px 28px 28px 28px;
   }
   .deleteAccount {
     font-size: 16px;
+  }
+  .costumContainer{
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  .backIcon{
+    display: none;
+  }
+  .title {
+    margin: 1rem 0 2rem 0rem;
   }
 }
 
@@ -174,4 +119,5 @@ padding: 28px 28px 28px 28px;
   .deleteAccount {
     font-size: 14px;
   }
+
 }

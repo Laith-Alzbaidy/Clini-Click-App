@@ -110,7 +110,7 @@ const Practitioner = () => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className="container1">
         <Link href="#" onClick={() => router.back()}>
           <ButtonPreviews />

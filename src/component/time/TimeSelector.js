@@ -15,7 +15,7 @@ const TimeSelector = ({
     <div className={styles["container-question"]}>
       <div className={styles["question"]}>
         Which time would you like to book?
-      </div>
+      </div >
 
       <div className={styles.Bigcontainer}>
         {isLoading ? (
@@ -24,6 +24,7 @@ const TimeSelector = ({
           </p>
         ) : availability && availability.data ? (
           availability.data.map((time, index) => (
+            
             <div
               key={index}
               onClick={() => {
@@ -34,6 +35,7 @@ const TimeSelector = ({
               }`}>
               <p className={styles["time"]}>{time.er_time}</p>
             </div>
+      
           ))
         ) : practitioner ? (
           <p>

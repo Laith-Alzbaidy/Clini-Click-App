@@ -176,9 +176,9 @@ a {
 } */
 
 @media (min-width: 769px) {
-  p {
+  /* p {
     color: #adadad !important;
-  }
+  } */
   .location iframe {
     height: 234px !important;
   }

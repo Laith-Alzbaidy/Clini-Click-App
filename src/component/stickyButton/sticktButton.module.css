@@ -30,6 +30,7 @@
   }
   .noPayment {
     font-size: 18px;
+    color: #000 !important;
   }
   
 }
@@ -43,9 +44,10 @@
     width: 725px;
   }
   .noPayment {
+    color: #000 !important;
     font-size: 18px;
     padding-bottom: 12px;
-    
+
   }
 }
 
