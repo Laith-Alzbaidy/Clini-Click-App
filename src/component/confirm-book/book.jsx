@@ -65,9 +65,19 @@ const BookFinish = ({ bookingId }) => {
               <div className={styles.treatmentName}>
                 {dataAppointments?.treatmentName}
               </div>
-              <div>Body area: {dataAppointments?.bodyArea}</div>
-              <div>Device: {dataAppointments?.device}</div>
-              <div>Sessions: {dataAppointments?.sessions}</div>
+
+              {dataAppointments.bodyArea ? (
+                <div>
+                  <p>Body area: {dataAppointments?.bodyArea}</p>
+                  <p>Device: {dataAppointments?.device}</p>
+                  <p>Sessions: {dataAppointments?.sessions}</p>
+                </div>
+              ) : dataAppointments.isConsultation === true ? (
+                <p>consultation only</p>
+              ) : (
+                <p>default</p>
+              )}
+              
             </div>
           </div>
           <div className={styles.practitionerContainer}>

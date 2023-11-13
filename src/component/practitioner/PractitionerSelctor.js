@@ -6,6 +6,7 @@ import user from "./assets/user.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import star from "./assets/star.svg";
+import LearnMore from "../learnMoreModal/LearnMore";
 const PractitionerSelctor = ({
   handlePractitionerSelect,
   setSelectedDoctor,
@@ -84,6 +85,9 @@ const PractitionerSelctor = ({
                 className={styles["view-profile"]}>
                 View profile
               </p>
+              <LearnMore learnMore={false} practitionerData={practitioner}/>
+        
+
             </div>
           </SwiperSlide>
         );

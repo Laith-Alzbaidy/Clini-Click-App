@@ -113,10 +113,11 @@
   }
   .text-review {
     font-size: 10px;
+    padding-bottom: 4px;
   }
   .view-profile {
     font-size: 12px;
-    padding-top: 4px;
+    display: none;
   }
   .question {
     font-size: 20px;
@@ -139,8 +140,12 @@
   }
   .view-profile {
     font-size: 12px;
+    display: none;
   }
   .question {
     font-size: 20px;
   }
+
+    
+
 }

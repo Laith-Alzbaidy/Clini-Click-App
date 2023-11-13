@@ -68,8 +68,7 @@ const MyAppointments = () => {
             <Link
               href={`my-appointments/current-bookings/${appointment?.id}`}
               className={styles.link}
-              key={appointment.id}
-            >
+              key={appointment.id}>
               <div className={styles.cardContainer}>
                 <Image src={image} className={styles.cardImage} alt="image" />
                 <div className={styles.details}>
@@ -93,15 +92,16 @@ const MyAppointments = () => {
           .map((appointment, index) => (
             <Link
               href={`my-appointments/past-bookings/${appointment?.id}`}
-              className={styles.link}
-            >
+              className={styles.link}>
               <div className={styles.cardContainer} key={index}>
-                <Image src={image} className={styles.cardImage} alt="img" />
-                <div className={styles.details}>
-                  <div>{appointment?.startTime}</div>
-                  <div>{appointment?.treatmentName}</div>
-                  <div>{appointment?.id}</div>
-                  <div>Confirmed</div>
+                <div className={styles.childContainer}>
+                  <Image src={image} className={styles.cardImage} alt="img" />
+                  <div className={styles.details}>
+                    <div>{appointment?.startTime}</div>
+                    <div>{appointment?.treatmentName}</div>
+                    <div>{appointment?.id}</div>
+                    <div>Confirmed</div>
+                  </div>
                 </div>
                 <Image src={left} alt="left" />
               </div>

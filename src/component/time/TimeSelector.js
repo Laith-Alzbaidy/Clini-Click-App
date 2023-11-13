@@ -26,14 +26,18 @@ const TimeSelector = ({
           availability.data.map((time, index) => (
             
             <div
-              key={index}
+              key={time.erId}
               onClick={() => {
                 setSelectedTime(time.erId);
               }}
               className={`${styles.timeContainer} ${
                 time.erId === selectedTime ? styles.active : ""
               }`}>
-              <p className={styles["time"]}>{time.er_time}</p>
+              <p 
+                className={`${styles.time} ${
+                  time.erId === selectedTime ? styles.activeTime : ""
+                }`}
+              >{time.er_time}</p>
             </div>
       
           ))

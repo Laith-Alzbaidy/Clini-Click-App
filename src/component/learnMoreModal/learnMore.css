@@ -7,6 +7,15 @@
   line-height: 20px;
   padding-left: 0px !important;
   }
+.practitionerStyle {
+  color: #A75CFF !important;
+  font-family: 'Montserrat' , sans-serif !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  padding-left: 0px !important;
+  }
   @media (min-width: 1280px) {
     .wrapper{
       width: 768px;
@@ -23,7 +32,7 @@
     
   }
   
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     .learn {
       color: #A75CFF !important;
       padding-left: 0px !important;

@@ -22,8 +22,8 @@ const SlideUpPage = ({ data }) => {
         Learn more
       </p>
       {isModalOpen && (
-        <div className={`modal-overlay`}>
-          <div className={modalclass}>
+        <div className={`modal-overlay`} onClick={() => close()}>
+          <div className={modalclass} onClick={() => close()}>
             <div className="feedbackModalHeader">
               <div className={styles.container}>
                 <Image src={back} onClick={() => close()} />

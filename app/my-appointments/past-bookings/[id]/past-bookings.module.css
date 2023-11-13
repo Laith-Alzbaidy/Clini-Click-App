@@ -206,13 +206,13 @@
     font-size: 20px;
   }
   .CancelTitle {
-    font-size: 18px;
+    font-size: 20px;
   }
-  .cancellation {
-    font-size: 18px;
+  .cancellation p {
+    font-size: 16px;
   }
   .cancellation span {
-    font-size: 18px;
+    font-size: 16px;
   }
   .button {
     font-size: 18px;
@@ -221,6 +221,18 @@
     max-width: 768px;
     margin: 0 auto;
   }
+  .treatmentDeatils p {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+  .timingContainer {
+    display: flex;
+    gap: 75px;
+  }
+  .backIcon{
+    display: none;
+  }
+ 
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
@@ -265,6 +277,13 @@
     max-width: 768px;
     margin: 0 auto;
   }
+  .cancellation p {
+    font-size: 16px;
+  }
+  .cancellation span {
+    font-size: 16px;
+  }
+
 }
 
 @media (max-width: 768px) and (min-width: 481px) {
@@ -304,6 +323,9 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;
+  }
+  .treatmentDeatils p {
+    font-size: 20px;
   }
 }
 

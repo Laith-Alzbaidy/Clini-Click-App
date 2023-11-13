@@ -54,9 +54,17 @@ const PastBookings = ({ params }) => {
             <div>Treatment:</div>
             <div className={styles.treatmentDeatils}>
               <div className={styles.treatmentName}>{data?.treatmentName}</div>
-              <p>Body area: {data?.bodyArea}</p>
-              <p>Device: {data?.device}</p>
-              <p>Sessions: {data?.sessions}</p>
+              {data.bodyArea ? (
+                <div>
+                  <p>Body area: {data?.bodyArea}</p>
+                  <p>Device: {data?.device}</p>
+                  <p>Sessions: {data?.sessions}</p>
+                </div>
+              ) : data.isConsultation === true ? (
+                <p>consultation only</p>
+              ) : (
+                <p>default</p>
+              )}
             </div>
           </div>
           <div className={styles.practitionerContainer}>
@@ -80,8 +88,7 @@ const PastBookings = ({ params }) => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}
-      ></div>
+        }}></div>
 
       <div className={styles.CancelTitle}>Cancellation policy</div>
       <div className={styles.cancellation}>
@@ -97,8 +104,7 @@ const PastBookings = ({ params }) => {
           width: "100%",
           margin: "1rem auto",
           border: "solid 3px #E2E2E2",
-        }}
-      ></div>
+        }}></div>
       <div className={styles.container}>
         <div className={styles.subTitle}>Location</div>
         <Head>
