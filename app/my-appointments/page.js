@@ -8,7 +8,6 @@ import backIcon from "./assets/conhh.svg";
 import user from "./assets/user.svg";
 import left from "./assets/left.svg";
 import Footer from "@/src/component/footer/footer";
-import CategoriesModal from "@/src/component/categotyModal/categoriesModal";
 import api from "@/config-API/config-API";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
@@ -68,9 +67,9 @@ const MyAppointments = () => {
             <Link
               href={`my-appointments/current-bookings/${appointment?.id}`}
               className={styles.link}
-              key={appointment.id}
-            >
+              key={appointment.id}>
               <div className={styles.cardContainer}>
+              <div className={styles.childContainer}>
                 <Image src={image} className={styles.cardImage} alt="image" />
                 <div className={styles.details}>
                   <div>{appointment?.startTime}</div>
@@ -84,6 +83,7 @@ const MyAppointments = () => {
                       appointment.status === 4) &&
                       "Cancel"}
                   </div>
+                </div>
                 </div>
                 <Image src={left} alt="left" />
               </div>
@@ -100,21 +100,22 @@ const MyAppointments = () => {
           .map((appointment, index) => (
             <Link
               href={`my-appointments/past-bookings/${appointment?.id}`}
-              className={styles.link}
-            >
+              className={styles.link}>
               <div className={styles.cardContainer} key={index}>
-                <Image src={image} className={styles.cardImage} alt="img" />
-                <div className={styles.details}>
-                  <div>{appointment?.startTime}</div>
-                  <div>{appointment?.treatmentName}</div>
-                  <div>{appointment?.id}</div>
-                  <div>
-                    {appointment.status === 1 && "Confirmed"}
-                    {appointment.status === 5 && "Complete"}
-                    {(appointment.status === 2 ||
-                      appointment.status === 3 ||
-                      appointment.status === 4) &&
-                      "Cancel"}
+                <div className={styles.childContainer}>
+                  <Image src={image} className={styles.cardImage} alt="img" />
+                  <div className={styles.details}>
+                    <div>{appointment?.startTime}</div>
+                    <div>{appointment?.treatmentName}</div>
+                    <div>{appointment?.id}</div>
+                    <div>
+                      {appointment.status === 1 && "Confirmed"}
+                      {appointment.status === 5 && "Complete"}
+                      {(appointment.status === 2 ||
+                        appointment.status === 3 ||
+                        appointment.status === 4) &&
+                        "Cancel"}
+                    </div>
                   </div>
                 </div>
                 <Image src={left} alt="left" />
