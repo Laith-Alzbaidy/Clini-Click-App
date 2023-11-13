@@ -121,14 +121,14 @@
 .form-control:focus {
   outline: none !important;
 }
-@media (max-width: 1280px) {
-  .warpper {
+@media (min-width: 1280px) {
+  .warapper {
     max-width: 768px;
     margin: 0 auto;
   }
 }
 @media (max-width: 1279px) and (min-width: 769px) {
-  .warpper {
+  .warapper {
     max-width: 768px;
     margin: 0 auto;
   }

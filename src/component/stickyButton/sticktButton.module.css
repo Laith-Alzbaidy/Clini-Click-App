@@ -11,46 +11,48 @@
   padding: 11px 20px !important;
   border-radius: 35px !important;
   font-family: "Quicksand", sans-serif !important;
+  margin-right: 4rem;
 }
+
 .noPayment {
   color: #000;
   text-align: center;
   font-size: 12px;
   font-weight: 400;
   padding-bottom: 10px;
+  padding-right: 4rem;
 }
 
 @media (min-width: 1280px) {
-  .wrapper{
+  .wrapper {
     width: 768px;
     right: 0px;
   }
-  .btn{
+  .btn {
     width: 725px;
+    margin-right: 0rem;
   }
   .noPayment {
     font-size: 18px;
     color: #000 !important;
   }
-  
 }
 
-@media (max-width: 1279px) and (min-width: 769px) {
-  .wrapper{
+@media (max-width: 1279px) and (min-width: 768px) {
+  .wrapper {
     width: 768px;
     right: 0px;
   }
-  .btn{
+  .btn {
     width: 725px;
+    margin-right: 0rem;
   }
   .noPayment {
     color: #000 !important;
     font-size: 18px;
     padding-bottom: 12px;
-
   }
 }
 
 @media (max-width: 768px) and (min-width: 481px) {
-
 }

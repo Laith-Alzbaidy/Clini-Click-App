@@ -23,6 +23,14 @@
     max-width: 768px;
     margin: 0 auto;
   }
+  .step {
+    font-size: 16px;
+  }
+  .title {
+    font-size: 25px;
+  }
+  
+
   
 }
 
@@ -30,5 +38,11 @@
   .wrapper {
     max-width: 768px;
     margin: 0 auto;
+  }
+  .step {
+    font-size: 16px;
+  }
+  .title {
+    font-size: 25px;
   }
 }

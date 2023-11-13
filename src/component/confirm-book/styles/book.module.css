@@ -11,7 +11,6 @@
   font-weight: 800;
   margin: 1rem 0 0 0;
   font-family: "Montserrat", sans-serif;
-  text-align: center;
 }
 .notification {
   width: 100%;
@@ -124,36 +123,135 @@
     max-width: 768px;
     margin: 0 auto;
   }
+  .title {
+    font-size: 20px;
+  }
+  .notification {
+    font-size: 16px;
+    height: 85px;
+  }
+  .subTitle {
+    font-size: 16px;
+  }
+  .treatmentContainer:first-child {
+    font-size: 16px;
+  }
+
+  .treatmentName {
+    font-size: 16px;
+  }
+  .treatmentDeatils {
+    font-size: 16px;
+  }
+
+  .practitionerContainer :nth-child(1) {
+    font-size: 16px;
+  }
+  .practitionerContainer :nth-child(2) {
+    font-size: 16px;
+  }
+
+  .timingContainer :nth-child(1) {
+    font-size: 16px;
+  }
+  .timingContainer :nth-child(2) {
+    font-size: 16px;
+  }
+
+  .totalContainer :nth-child(1) {
+    font-size: 16px;
+
+  }
+  .totalContainer :nth-child(2) {
+    font-size: 16px;
+  }
+  .totalContainer :nth-child(1) span {
+    font-size: 16px;
+  }
+  .call {
+    font-size: 16px;
+  }
+  .timingContainer {
+    gap: 66px;
+  }
 }
 @media (max-width: 1279px) and (min-width: 769px) {
   .container {
     max-width: 768px;
     margin: 0 auto;
   }
+  .title {
+    font-size: 25px;
+  }
+  .notification {
+    font-size: 20px;
+    width: 879.407px;
+    height: 85.086px;
+  }
+  .subTitle {
+    font-size: 20px;
+  }
+  .treatmentContainer:first-child {
+    font-size: 20px;
+  }
+
+  .treatmentName {
+    font-size: 20px;
+  }
+  .treatmentDeatils {
+    font-size: 20px;
+  }
+
+  .practitionerContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .practitionerContainer :nth-child(2) {
+    font-size: 20px;
+  }
+
+  .timingContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .timingContainer :nth-child(2) {
+    font-size: 20px;
+  }
+
+  .totalContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(2) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(1) span {
+    font-size: 20px;
+  }
+  .call {
+    font-size: 20px;
+  }
 }
 @media (max-width: 320px) and (min-width: 280px) {
   .treatmentName {
-    font-size: 12px;
+    font-size: 20px;
   }
   .treatmentDeatils {
     font-size: 11px;
   }
 
   .practitionerContainer :nth-child(1) {
-    font-size: 12px;
+    font-size: 20px;
   }
   .practitionerContainer :nth-child(2) {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .totalContainer :nth-child(1) {
-    font-size: 12px;
+    font-size: 20px;
   }
   .totalContainer :nth-child(2) {
-    font-size: 12px;
+    font-size: 20px;
   }
   .totalContainer :nth-child(1) span {
-    font-size: 12px;
+    font-size: 20px;
   }
   .title {
     font-size: 14px;

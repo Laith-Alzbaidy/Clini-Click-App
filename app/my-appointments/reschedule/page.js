@@ -26,6 +26,7 @@ const Reschedule = ({ searchParams }) => {
   const [practitioner, setPractitioner] = useState(null);
   const [treatmentId, setTreatmentId] = useState(null);
   const [availability, setAvailability] = useState([]);
+  const [reschduleData, setReschduleData] = useState({});
 
   const getAppointemntSpecific = async () => {
     try {
@@ -67,7 +68,6 @@ const Reschedule = ({ searchParams }) => {
       const res = await api.put(
         `Reschedule/${id}`,
         {
-          appointmentId: id,
           timeSlotId: selectedTime,
           date: dateq,
         },
@@ -77,8 +77,10 @@ const Reschedule = ({ searchParams }) => {
           },
         }
       );
-      console.log(res.data, "ddd");
+      console.log(res.data, "reschdule data");
+      setReschduleData(res.data.responseData)
       router.push(`/my-appointments/reschedule/confirmed/${id}`);
+
     } catch (err) {
       console.log("err", err);
     }

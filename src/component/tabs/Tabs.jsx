@@ -7,7 +7,7 @@ import "swiper/css";
 const Tabs = ({list}) => {
     const [activeTab, setActiveTab] = useState("");
   useEffect(() => {
-    if (typeof window !== "undefined") {
+
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
         const categories = list.map((category) => category.name);
@@ -32,7 +32,7 @@ const Tabs = ({list}) => {
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
-    }
+    
   }, [list]);
   const spaceFromTop = 65;
   const handleTabClick = (category) => {
@@ -40,13 +40,12 @@ const Tabs = ({list}) => {
     const categoryElement = document.getElementById(category);
 
     if (categoryElement) {
-      if (typeof window !== "undefined") {
+  
         const scrollPosition = categoryElement.offsetTop - spaceFromTop;
         window.scrollTo({
           top: scrollPosition,
           behavior: "smooth",
         });
-      }
     }
   };
   const TabSlider = list.map((categoryData) => (

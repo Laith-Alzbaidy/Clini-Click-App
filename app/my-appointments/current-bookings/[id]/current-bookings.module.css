@@ -164,7 +164,7 @@
 
 @media (min-width: 1280px) {
   .title {
-    font-size: 30px;
+    font-size: 25px;
   }
   .subTitle {
     font-size: 20px;
@@ -221,18 +221,22 @@
     max-width: 780px;
     margin: 0 auto;
   }
+  .timingContainer {
+    display: flex;
+    gap: 73px;
+  }
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
   .title {
     color: #001435;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 800;
     margin: 1rem 0 0 0;
   }
   .subTitle {
     color: #000;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
     margin: 2rem 0 1rem 0;
   }
@@ -265,6 +269,16 @@
     max-width: 768px;
     margin: 0 auto;
   }
+   .totalContainer :nth-child(1) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(2) {
+    font-size: 20px;
+  }
+  .totalContainer :nth-child(1) span {
+    font-size: 20px;
+  }
+
 }
 
 @media (max-width: 768px) and (min-width: 481px) {

@@ -197,7 +197,7 @@ const SubCategory = () => {
             <div className={styles.subDiscreption}>{data.description}</div>
           </div>
           <SlideUpPage data={data} />
-          <LearnMore data={data}/>
+          <LearnMore data={data} learnMore={true}/>
         </div>
       ) : (
         ""

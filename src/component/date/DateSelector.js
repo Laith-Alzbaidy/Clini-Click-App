@@ -95,7 +95,7 @@ const DateSelector = ({
         <h2 className={styles["question"]}>
           Which day would you like to book?
         </h2>
-        <p className="mt-2">{month}</p>
+        <p className={styles.month}>{month}</p>
       </div>
       <div className="mt-2">
         <Swiper

@@ -97,9 +97,17 @@ const CurrentBookings = ({ params }) => {
             <div>Treatment:</div>
             <div className={styles.treatmentDeatils}>
               <div className={styles.treatmentName}>{data?.treatmentName}</div>
-              <p>Body area: {data?.bodyArea}</p>
-              <p>Device: {data?.device}</p>
-              <p>Sessions: {data?.sessions}</p>
+              {data.bodyArea ? (
+                <div>
+                  <p>Body area: {data?.bodyArea}</p>
+                  <p>Device: {data?.device}</p>
+                  <p>Sessions: {data?.sessions}</p>
+                </div>
+              ) : data.isConsultation === true ? (
+                <p>consultation only</p>
+              ) : (
+                <p>default</p>
+              )}
             </div>
           </div>
           <div className={styles.practitionerContainer}>
