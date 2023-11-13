@@ -61,6 +61,7 @@ import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoc
 import api from "@/config-API/config-API";
 import CardBook from "@/src/component/view-desktop/card-book/card-book";
 import PopupDoctor from "@/src/component/popup-view-desktop/popup-doctor/popup-doctor";
+import PopupAbout from "@/src/component/popup-view-desktop/popup-about/popup-about";
 export default function Home() {
   const [data, setData] = useState(null);
 
@@ -93,7 +94,9 @@ export default function Home() {
         <div className="column-page">
           <About data={data} />
           {/* <OurTeam /> */}
-          <PopupDoctor data={data} />
+          <div className="popup-doctor">
+            <PopupDoctor data={data} />
+          </div>
           <div className="slide-up-doctor">
             <SlideUpDoctor data={data} />
           </div>

@@ -113,8 +113,13 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 769) {
   .icon-desktop {
     display: none !important;
+  }
+}
+@media (min-width: 769) {
+  .container-swiper-mobile {
+    display: none;
   }
 }

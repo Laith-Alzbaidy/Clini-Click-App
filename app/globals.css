@@ -171,6 +171,10 @@ a {
   max-width: 800px !important;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @media (min-width: 769px) {
   /* p {
     color: #adadad !important;

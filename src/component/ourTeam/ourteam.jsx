@@ -56,7 +56,7 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
   const ouerTeam = data?.practitioners?.map((item, index) => {
     return (
       <>
-        {size <= 769 ? (
+        <div className={styles["container-swiper-mobile"]}>
           <>
             {" "}
             <SwiperSlide
@@ -194,7 +194,9 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
               {/* </Link> */}
             </SwiperSlide>
           </>
-        ) : (
+        </div>
+
+        <div className={styles["container-swiper-mobile"]}>
           <>
             {" "}
             <SwiperSlide className={styles["swiper-slide"]} key={index}>
@@ -338,7 +340,7 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
               {/* </Link> */}
             </SwiperSlide>
           </>
-        )}
+        </div>
       </>
     );
   });
