@@ -10,6 +10,7 @@ import ButtonPreviews from "../buttonPreviews/buttonPreviews";
 import Link from "next/link";
 import SlideUpAbout from "../slideupModal/slideUpAbout/slideUpAbout";
 import { icon } from "@fortawesome/fontawesome-svg-core";
+import PopupAbout from "../popup-view-desktop/popup-about/popup-about";
 const About = ({ data }) => {
   const establishDate = data?.establishDate;
   const year = new Date(establishDate).getFullYear();
@@ -46,7 +47,12 @@ const About = ({ data }) => {
           Clinique de la Belle au Bois Dormant is Dubai’s most prestigiousbeauty
           parlour. With high skilled...
         </p>
-        <SlideUpAbout />
+        <div className={styles["slide-up-about"]}>
+          <SlideUpAbout />
+        </div>
+        <div className={styles["popup-about"]}>
+          <PopupAbout />
+        </div>
       </div>
     </div>
   );

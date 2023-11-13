@@ -43,6 +43,12 @@ const slider = [
 ];
 
 const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
+  const [size, setSize] = useState(window.innerWidth);
+  const updateSize = () => setSize(window.innerWidth);
+  console.log(size);
+
+  useEffect(() => (window.onresize = updateSize), [size]);
+
   const handleDataPractitioner = (item) => {
     setIsModalOpen(true);
     setPractitioner(item);
@@ -50,96 +56,291 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
   const ouerTeam = data?.practitioners?.map((item, index) => {
     return (
       <>
-        <SwiperSlide
-          onClick={() => handleDataPractitioner(item)}
-          className={styles["swiper-slide"]}
-          key={index}
-        >
-          {/* <Link href={`ourTeam/${item.id}`}> */}
-          <div className={styles["container-card"]}>
-            <div className={styles["container-image"]}>
-              <Image
-                fill
-                src={`${item.picture}`}
-                alt="picture personal"
-                className={styles["image"]}
-              />
-            </div>
+        <div className={styles["container-swiper-mobile"]}>
+          <>
+            {" "}
+            <SwiperSlide
+              onClick={() => handleDataPractitioner(item)}
+              className={styles["swiper-slide"]}
+              key={index}
+            >
+              {/* <Link href={`ourTeam/${item.id}`}> */}
+              <div className={styles["container-card"]}>
+                <div className={styles["container-image"]}>
+                  <Image
+                    fill
+                    src={`${item.picture}`}
+                    alt="picture personal"
+                    className={styles["image"]}
+                  />
+                </div>
 
-            <div>
-              <h3 className={styles["name-card"]}>{`${item.title.name} ${
-                item.firstName + item.lastName
-              }`}</h3>
-              <p className={styles["specialization"]}>{item.speciality.name}</p>
-            </div>
+                <div>
+                  <h3 className={styles["name-card"]}>{`${item.title.name} ${
+                    item.firstName + item.lastName
+                  }`}</h3>
+                  <p className={styles["specialization"]}>
+                    {item.speciality.name}
+                  </p>
+                </div>
 
-            <p
-              className={styles["exp"]}
-            >{`${item.experienceYears}  years of experience`}</p>
+                <p
+                  className={styles["exp"]}
+                >{`${item.experienceYears}  years of experience`}</p>
 
-            <div className={styles["container-rate-review"]}>
-              <div>
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
+                <div className={styles["container-rate-review"]}>
+                  <div>
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                  </div>
+                  <p className={styles["text-review"]}>4.5</p>
+                </div>
+
+                <div className={styles["icon-desktop"]}>
+                  <Icon data={data} />
+                  <p className={styles["view-profile"]}>View profile</p>
+                </div>
               </div>
-              <p className={styles["text-review"]}>4.5</p>
-            </div>
 
-            <div className={styles["icon-desktop"]}>
-              <Icon data={data} />
-              <p className={styles["view-profile"]}>View profile</p>
-            </div>
-          </div>
+              {/* </Link> */}
+            </SwiperSlide>
+            <SwiperSlide
+              onClick={() => handleDataPractitioner(item)}
+              className={styles["swiper-slide"]}
+              key={index}
+            >
+              {/* <Link href={`ourTeam/${item.id}`}> */}
+              <div className={styles["container-card"]}>
+                <div className={styles["container-image"]}>
+                  <Image
+                    fill
+                    src={`${item.picture}`}
+                    alt="picture personal"
+                    className={styles["image"]}
+                  />
+                </div>
 
-          {/* </Link> */}
-        </SwiperSlide>
-        <SwiperSlide
-          onClick={() => handleDataPractitioner(item)}
-          className={styles["swiper-slide"]}
-          key={index}
-        >
-          {/* <Link href={`ourTeam/${item.id}`}> */}
-          <div className={styles["container-card"]}>
-            <div className={styles["container-image"]}>
-              <Image
-                fill
-                src={`${item.picture}`}
-                alt="picture personal"
-                className={styles["image"]}
-              />
-            </div>
+                <div>
+                  <h3 className={styles["name-card"]}>{`${item.title.name} ${
+                    item.firstName + item.lastName
+                  }`}</h3>
+                  <p className={styles["specialization"]}>
+                    {item.speciality.name}
+                  </p>
+                </div>
 
-            <div>
-              <h3 className={styles["name-card"]}>{`${item.title.name} ${
-                item.firstName + item.lastName
-              }`}</h3>
-              <p className={styles["specialization"]}>{item.speciality.name}</p>
-            </div>
+                <p
+                  className={styles["exp"]}
+                >{`${item.experienceYears}  years of experience`}</p>
 
-            <p
-              className={styles["exp"]}
-            >{`${item.experienceYears}  years of experience`}</p>
-
-            <div className={styles["container-rate-review"]}>
-              <div>
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
-                <Image src={star} className={styles["star-image"]} alt="star" />
+                <div className={styles["container-rate-review"]}>
+                  <div>
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                  </div>
+                  <p className={styles["text-review"]}>4.5</p>
+                </div>
+                <div className={styles["icon-desktop"]}>
+                  <Icon data={data} />
+                  <p className={styles["view-profile"]}>View profile</p>
+                </div>
               </div>
-              <p className={styles["text-review"]}>4.5</p>
-            </div>
-            <div className={styles["icon-desktop"]}>
-              <Icon data={data} />
-              <p className={styles["view-profile"]}>View profile</p>
-            </div>
-          </div>
-          {/* </Link> */}
-        </SwiperSlide>
+              {/* </Link> */}
+            </SwiperSlide>
+          </>
+        </div>
+
+        <div className={styles["container-swiper-mobile"]}>
+          <>
+            {" "}
+            <SwiperSlide className={styles["swiper-slide"]} key={index}>
+              {/* <Link href={`ourTeam/${item.id}`}> */}
+              <div className={styles["container-card"]}>
+                <div className={styles["container-image"]}>
+                  <Image
+                    fill
+                    src={`${item.picture}`}
+                    alt="picture personal"
+                    className={styles["image"]}
+                  />
+                </div>
+
+                <div>
+                  <h3 className={styles["name-card"]}>{`${item.title.name} ${
+                    item.firstName + item.lastName
+                  }`}</h3>
+                  <p className={styles["specialization"]}>
+                    {item.speciality.name}
+                  </p>
+                </div>
+
+                <p
+                  className={styles["exp"]}
+                >{`${item.experienceYears}  years of experience`}</p>
+
+                <div className={styles["container-rate-review"]}>
+                  <div>
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                  </div>
+                  <p className={styles["text-review"]}>4.5</p>
+                </div>
+
+                <div className={styles["icon-desktop"]}>
+                  <Icon data={data} />
+                  <p
+                    onClick={() => handleDataPractitioner(item)}
+                    className={styles["view-profile"]}
+                  >
+                    View profile
+                  </p>
+                </div>
+              </div>
+
+              {/* </Link> */}
+            </SwiperSlide>
+            <SwiperSlide
+              onClick={() => handleDataPractitioner(item)}
+              className={styles["swiper-slide"]}
+              key={index}
+            >
+              {/* <Link href={`ourTeam/${item.id}`}> */}
+              <div className={styles["container-card"]}>
+                <div className={styles["container-image"]}>
+                  <Image
+                    fill
+                    src={`${item.picture}`}
+                    alt="picture personal"
+                    className={styles["image"]}
+                  />
+                </div>
+
+                <div>
+                  <h3 className={styles["name-card"]}>{`${item.title.name} ${
+                    item.firstName + item.lastName
+                  }`}</h3>
+                  <p className={styles["specialization"]}>
+                    {item.speciality.name}
+                  </p>
+                </div>
+
+                <p
+                  className={styles["exp"]}
+                >{`${item.experienceYears}  years of experience`}</p>
+
+                <div className={styles["container-rate-review"]}>
+                  <div>
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                    <Image
+                      src={star}
+                      className={styles["star-image"]}
+                      alt="star"
+                    />
+                  </div>
+                  <p className={styles["text-review"]}>4.5</p>
+                </div>
+                <div className={styles["icon-desktop"]}>
+                  <Icon data={data} />
+                  <p
+                    onClick={() => handleDataPractitioner(item)}
+                    className={styles["view-profile"]}
+                  >
+                    View profile
+                  </p>
+                </div>
+              </div>
+              {/* </Link> */}
+            </SwiperSlide>
+          </>
+        </div>
       </>
     );
   });

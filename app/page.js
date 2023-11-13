@@ -60,7 +60,8 @@ import Footer from "@/src/component/footer/footer";
 import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoctor";
 import api from "@/config-API/config-API";
 import CardBook from "@/src/component/view-desktop/card-book/card-book";
-
+import PopupDoctor from "@/src/component/popup-view-desktop/popup-doctor/popup-doctor";
+import PopupAbout from "@/src/component/popup-view-desktop/popup-about/popup-about";
 export default function Home() {
   const [data, setData] = useState(null);
 
@@ -93,21 +94,32 @@ export default function Home() {
         <div className="column-page">
           <About data={data} />
           {/* <OurTeam /> */}
-          <SlideUpDoctor data={data} />
-          <Location data={data} />
+          <div className="popup-doctor">
+            <PopupDoctor data={data} />
+          </div>
+          <div className="slide-up-doctor">
+            <SlideUpDoctor data={data} />
+          </div>
+          <div className="container-loc-mobile">
+            <Location data={data} />
+          </div>
           <OurAmenities data={data} />
           <OurBusiness data={data} />
+          <div className="container-loc-desktop">
+            <Location data={data} />
+          </div>
         </div>
         <div className="icon-mobile">
           <Icon data={data} />
         </div>
-        <Link href="categories">
+
+        <Link className="sticky-btn-desktop" href="categories">
           <StickyButton title="Book appointment" />
         </Link>
         <div className="container-footer">
           <Footer />
         </div>
-        <CardBook />
+        <CardBook data={data} />
       </div>
     </>
   );

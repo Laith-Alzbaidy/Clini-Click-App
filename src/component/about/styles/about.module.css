@@ -86,4 +86,7 @@
     margin-top: 10px !important;
     line-height: 32px;
   }
+  .slide-up-about {
+    display: none;
+  }
 }

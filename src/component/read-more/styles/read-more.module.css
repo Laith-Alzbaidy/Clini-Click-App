@@ -2,7 +2,7 @@
   font-size: 12px !important;
   font-weight: 400 !important;
   color: var(--primary-color);
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .read-more {
@@ -11,4 +11,13 @@
   color: var(--secondary-color);
   margin-top: 5px !important;
   cursor: pointer;
+}
+
+@media (min-width: 776px) {
+  .description {
+    font-size: 20px !important;
+  }
+  .read-more {
+    font-size: 20px !important;
+  }
 }
