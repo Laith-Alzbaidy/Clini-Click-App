@@ -170,7 +170,7 @@ const SubCategory = () => {
     route.push(`/schedule-appointment?treatmentId=${selectedTreatmentId}`);
   };
   return (
-    <>
+    <div className={styles.wrapper}>
       <Link href="#" onClick={() => router.back()}>
         <Image
           className={styles.backIcon}
@@ -213,7 +213,6 @@ const SubCategory = () => {
 
       <Bold additionalStyles={linestyle} />
       <p className={styles.noPayment}>
-        No payment will be taken until your appointment
       </p>
 
       <StickyButton
@@ -221,8 +220,9 @@ const SubCategory = () => {
         disabled={selectedTreatmentId === null}
         content={"  No payment will be taken until your appointment"}
         onClick={handleConfirm}
+ 
       />
-    </>
+    </div>
   );
 };
 

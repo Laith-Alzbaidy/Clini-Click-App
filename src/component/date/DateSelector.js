@@ -106,24 +106,32 @@ const DateSelector = ({
           onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             280: {
-              slidesPerView: 4,
-              spaceBetween: 20,
+              slidesPerView: 3.5,
+              spaceBetween: 10,
             },
             320: {
-              slidesPerView: 5,
-              spaceBetween: 20,
+              slidesPerView: 4.5,
+              spaceBetween: 10,
+            },
+            375: {
+              slidesPerView: 4.75,
+              spaceBetween: 10,
             },
             425: {
               slidesPerView: 6,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
             480: {
-              slidesPerView: 8,
-              spaceBetween: 30,
+              slidesPerView: 7,
+              spaceBetween: 10,
             },
             640: {
-              slidesPerView: 12.5,
-              spaceBetween: 40,
+              slidesPerView: 9.5,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 10.5,
+              spaceBetween: 10,
             },
           }}>
           {schedulingSlides}

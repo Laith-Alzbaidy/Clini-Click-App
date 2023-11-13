@@ -52,17 +52,17 @@
     font-size: 20px;
   }
   .cardContainer {
-    width: 31%;
-  }
-  .main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+    width:100%;
   }
 
   .cardContainer :nth-child(2) {
     font-size: 18px;
   }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {

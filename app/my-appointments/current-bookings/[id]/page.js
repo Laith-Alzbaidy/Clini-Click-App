@@ -88,7 +88,7 @@ const CurrentBookings = ({ params }) => {
             "A cancellation fee of AED 100 may be charged as per the cancellation policy."
           }
           handleCancelAppoinment={handleCancelAppoinment}
-          
+          confirm={true}
         />
 
         <div className={styles.subTitle}>Your appointment details</div>

@@ -118,6 +118,12 @@ const PractitionerSelctor = ({
               480: {
                 slidesPerView: 2.75,
               },
+             600: {
+                slidesPerView: 3.5,
+              },
+              768: {
+                slidesPerView: 4.25,
+              },
             }}>
             <SwiperSlide className={styles["swiper-slide"]}>
               <div

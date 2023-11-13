@@ -1,30 +1,22 @@
 .backIcon {
   margin: 28px 0 0 25px;
 }
-.background {
-  border-radius: 25px;
-  padding: 0 28px 0 28px;
-}
-.holder {
-  padding: 28px 0 28px 0;
-}
+
 .containerHero {
-  height: 220px;
   border-radius: 0;
-  margin: 20px auto;
   position: relative;
+  width: 100%;
 }
-.mainContainer {
+
+.containerHero::before {
+  content: "";
+  display: block;
+  padding-top: 58.55%; 
+}
+
+.wrapper{
   padding: 0 28px 0 28px;
-}
-.wrapper div {
-  font-size: 14px;
-}
-.wrapper p {
-  font-size: 14px;
-}
-.wrapper span {
-  font-size: 14px;
+
 }
 .subName {
   color: #001435;
@@ -60,120 +52,18 @@
   width: 100%;
   z-index: 100;
 }
-.constContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0 0 0;
-  padding: 0 0px 0 28px;
-}
-.constChildContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.constChildContainer :nth-child(1) {
-  color: #000;
-  font-size: 14px;
-  font-weight: 700;
-}
-.duration {
-  color: #828282 !important;
-  font-size: 14px;
-  font-weight: 400;
-  padding-left: 5px;
-}
-.constContainer :nth-child(2) {
-  color: #000;
-  font-size: 14px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  padding-right: 28px;
-  gap: 5px;
-}
-.constContainer input[type="radio"] {
-  accent-color: #a75cff;
-  width: 15px;
-  height: 15px;
-}
-.SelectHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.5rem 0 10px 0;
-  padding: 0 28px 0 28px;
-}
-.SelectHeader div {
-  color: #000;
-  font-size: 14px;
-  font-weight: 700;
-}
-.optionsContainer {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0 28px 0 28px;
-}
-.right {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.optionsContainer :nth-child(2) {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.optionsContainer p {
-  color: #000;
-  font-size: 14px;
-  font-weight: 400;
-}
-.optionsContainer input[type="radio"] {
-  accent-color: #a75cff;
-  width: 15px;
-  height: 15px;
-}
-.noPayment {
-  color: #000;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-  padding-bottom: 5rem;
-}
-.price{
-width: 55px
-}
-@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-
-.btn {
-  background-color: var(--secondary-color) !important;
-  color: #f9fafb;
-  width: 85%;
-  font-size: 15px;
-  font-weight: 700;
-  border: none !important;
-  outline: none !important;
-  padding: 11px 20px !important;
-  border-radius: 35px !important;
-  font-family: "Quicksand", sans-serif !important;
-  position: fixed;
-  bottom: 0;
-  z-index: 2;
-}
 
 @media (min-width: 1280px) {
+
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+  }
   .subName {
     font-size: 25px;
   }
   .background {
     border-radius: 55px;
-  }
-  .containerHero {
-    height: 35vh;
   }
   .subDuration {
     font-size: 18px;
@@ -199,17 +89,60 @@ width: 55px
   }
 
   .noPayment {
-    font-size: 18px;
+    font-size: 20px;
+    padding-bottom: 7rem;
+  }
+  .backIcon {
+    display: none;
+  }
+  .price{
+    width: 60px;
+    font-size: 20px;
+  }
+  .duration{
+    font-size: 20px;
+  }
+  .name{
+    font-size: 20px;
+  }
+  .containerHero{
+    margin: 28px 0 0 0px;
   }
 }
 
-@media (max-width: 1279px) and (min-width: 769px) {
+@media (max-width: 1279px) and (min-width: 768px) {
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+  }
   .subName {
-    font-size: 20px;
+    font-size: 25px;
   }
   .background {
-    border-radius: 45px;
+    border-radius: 55px;
   }
+  .backIcon {
+    display: none;
+  }
+
+  .subDuration {
+    font-size: 18px;
+  }
+  .subDiscreption {
+    font-size: 18px;
+  }
+  .learnMore1 {
+    font-size: 18px;
+  }
+  .noPayment {
+    font-size: 20px;
+    padding-bottom: 7rem;
+  }
+  .containerHero{
+    margin: 28px 0 0 0px;
+  }
+
+  
 }
 
 @media (max-width: 768px) and (min-width: 481px) {
@@ -229,27 +162,4 @@ width: 55px
     font-size: 12px;
   }
 
-  .constChildContainer :nth-child(1) {
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .constChildContainer :nth-child(2) {
-    font-size: 12px;
-  }
-  .wrapper div {
-    font-size: 12px;
-  }
-  .wrapper p {
-    font-size: 12px;
-  }
-  .wrapper span {
-    font-size: 12px;
-  }
-  .price{
-    width: 45px;
-  }
-  .constChildContainer{
-    flex-wrap: wrap;
-  }
-  
 }

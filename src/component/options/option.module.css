@@ -1,256 +1,248 @@
-.backIcon {
-    margin: 28px 0 0 25px;
+.wrapper div {
+  font-size: 14px;
+}
+.wrapper p {
+  font-size: 14px;
+}
+.wrapper span {
+  font-size: 14px;
+}
+
+.container {
+  margin: 2rem auto 1rem auto;
+}
+
+.constContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0 0 0;
+}
+.constChildContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.constChildContainer :nth-child(1) {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+.duration {
+  color: #828282 !important;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+.constContainer :nth-child(2) {
+  color: #000 !important;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.constContainer input[type="radio"] {
+  accent-color: #a75cff;
+  width: 15px;
+  height: 15px;
+}
+.SelectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0 10px 0;
+}
+.SelectHeader div {
+  color: #000 !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+.optionsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+.right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.optionsContainer :nth-child(2) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.optionsContainer p {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.optionsContainer input[type="radio"] {
+  accent-color: #a75cff;
+  width: 15px;
+  height: 15px;
+}
+.noPayment {
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  padding-bottom: 5rem;
+}
+.price {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+.btn {
+  background-color: var(--secondary-color) !important;
+  color: #f9fafb;
+  width: 85%;
+  font-size: 15px;
+  font-weight: 700;
+  border: none !important;
+  outline: none !important;
+  padding: 11px 20px !important;
+  border-radius: 35px !important;
+  font-family: "Quicksand", sans-serif !important;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+@media (min-width: 1280px) {
+  .subName {
+    font-size: 25px;
   }
   .background {
-    border-radius: 25px;
-    padding: 0 28px 0 28px;
-  }
-  .holder {
-    padding: 28px 0 28px 0;
+    border-radius: 55px;
   }
   .containerHero {
-    height: 220px;
-    border-radius: 0;
-    margin: 20px auto;
-    position: relative;
-  }
-  .mainContainer {
-    padding: 0 28px 0 28px;
-  }
-  .wrapper div {
-    font-size: 14px;
-  }
-  .wrapper p {
-    font-size: 14px;
-  }
-  .wrapper span {
-    font-size: 14px;
-  }
-  .subName {
-    color: #001435;
-    font-size: 18px;
-    font-weight: 800;
-    margin: 30.7px 0 19px 0;
+    height: 35vh;
   }
   .subDuration {
-    color: #000;
-    font-size: 12px;
-    font-weight: 700;
-    margin: 0 0 3px 0;
+    font-size: 18px;
   }
   .subDiscreption {
-    color: #000;
-    font-size: 12px;
-    font-weight: 400;
-    margin: 0 0 0.3px 0;
+    font-size: 18px;
   }
   .learnMore1 {
-    margin: 0 0 29px 0;
-    color: #a75cff !important;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 18px;
   }
-  .container {
-    margin: 2rem auto 1rem auto;
-  }
-  .button {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 100;
-  }
-  .constContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1rem 0 0 0;
-    padding: 0 0px 0 28px;
-  }
-  .constChildContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+
   .constChildContainer :nth-child(1) {
-    color: #000;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 20px;
   }
-  .duration {
-    color: #828282 !important;
-    font-size: 14px;
-    font-weight: 400;
-    padding-left: 5px;
+  .constChildContainer :nth-child(2) {
+    font-size: 20px;
   }
-  .constContainer :nth-child(2) {
-    color: #000;
-    font-size: 14px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    padding-right: 28px;
-    gap: 5px;
+  .constContainer :nth-child(2) div {
+    font-size: 20px;
   }
-  .constContainer input[type="radio"] {
-    accent-color: #a75cff;
-    width: 15px;
-    height: 15px;
-  }
-  .SelectHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0.5rem 0 10px 0;
-    padding: 0 28px 0 28px;
-  }
+
   .SelectHeader div {
     color: #000;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
   }
-  .optionsContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-    align-items: center;
-    padding: 0 28px 0 28px;
-  }
-  .right {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .optionsContainer :nth-child(2) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
+
   .optionsContainer p {
-    color: #000;
-    font-size: 14px;
+    color: #000 !important;
+    font-size: 20px;
     font-weight: 400;
   }
-  .optionsContainer input[type="radio"] {
-    accent-color: #a75cff;
-    width: 15px;
-    height: 15px;
+  .optionsContainer div {
+    font-size: 20px;
   }
-  .noPayment {
-    color: #000;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 400;
-    padding-bottom: 5rem;
+  .optionsContainer span {
+    font-size: 20px;
   }
-  .price{
-  width: 55px
+ .price{
+  width: fit-content;
+ }
+}
+
+@media (max-width: 1279px) and (min-width: 769px) {
+  .subName {
+    font-size: 20px;
   }
-  @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-  
-  .btn {
-    background-color: var(--secondary-color) !important;
-    color: #f9fafb;
-    width: 85%;
-    font-size: 15px;
+  .background {
+    border-radius: 45px;
+  }
+  .price {
+    width: fit-content;
+    font-size: 20px;
+  }
+  .SelectHeader div {
+    color: #000 !important;
+    font-size: 20px;
     font-weight: 700;
-    border: none !important;
-    outline: none !important;
-    padding: 11px 20px !important;
-    border-radius: 35px !important;
-    font-family: "Quicksand", sans-serif !important;
-    position: fixed;
-    bottom: 0;
-    z-index: 2;
   }
-  
-  @media (min-width: 1280px) {
-    .subName {
-      font-size: 25px;
-    }
-    .background {
-      border-radius: 55px;
-    }
-    .containerHero {
-      height: 35vh;
-    }
-    .subDuration {
-      font-size: 18px;
-    }
-    .subDiscreption {
-      font-size: 18px;
-    }
-    .learnMore1 {
-      font-size: 18px;
-    }
-  
-    .constChildContainer :nth-child(1) {
-      font-size: 20px;
-    }
-    .constChildContainer :nth-child(2) {
-      font-size: 20px;
-    }
-  
-    .SelectHeader div {
-      color: #000;
-      font-size: 20px;
-      font-weight: 700;
-    }
-  
-    .noPayment {
-      font-size: 18px;
-    }
+
+  .optionsContainer p {
+    color: #000 !important;
+    font-size: 20px;
+    font-weight: 400;
   }
-  
-  @media (max-width: 1279px) and (min-width: 769px) {
-    .subName {
-      font-size: 20px;
-    }
-    .background {
-      border-radius: 45px;
-    }
+  .optionsContainer div {
+    font-size: 20px;
   }
-  
-  @media (max-width: 768px) and (min-width: 481px) {
-    .subName {
-      font-size: 18px;
-    }
+  .optionsContainer span {
+    font-size: 20px;
   }
-  
-  @media (max-width: 365px) and (min-width: 0px) {
-    .subName {
-      font-size: 14px;
-    }
-    .subDuration {
-      font-size: 12px;
-    }
-    .subDiscreption {
-      font-size: 12px;
-    }
-  
-    .constChildContainer :nth-child(1) {
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .constChildContainer :nth-child(2) {
-      font-size: 12px;
-    }
-    .wrapper div {
-      font-size: 12px;
-    }
-    .wrapper p {
-      font-size: 12px;
-    }
-    .wrapper span {
-      font-size: 12px;
-    }
-    .price{
-      width: 45px;
-    }
-    .constChildContainer{
-      flex-wrap: wrap;
-    }
-    
+  .constChildContainer :nth-child(1) {
+    font-size: 20px;
   }
-  
+  .constChildContainer :nth-child(2) {
+    font-size: 20px;
+  }
+  .constContainer :nth-child(2) div {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .subName {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 365px) and (min-width: 0px) {
+  .subName {
+    font-size: 14px;
+  }
+  .subDuration {
+    font-size: 12px;
+  }
+  .subDiscreption {
+    font-size: 12px;
+  }
+
+  .constChildContainer :nth-child(1) {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .constChildContainer :nth-child(2) {
+    font-size: 12px;
+  }
+  .wrapper div {
+    font-size: 12px;
+  }
+  .wrapper p {
+    font-size: 12px;
+  }
+  .wrapper span {
+    font-size: 12px;
+  }
+  .price {
+    width: 45px;
+  }
+  .constChildContainer {
+    flex-wrap: wrap;
+  }
+}

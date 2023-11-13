@@ -23,7 +23,7 @@ const StickyButton = ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding:"10px 0px"
+    padding:"15px 0px"
   };
 
   const mix = { ...currentStyles, ...additionalStyles };

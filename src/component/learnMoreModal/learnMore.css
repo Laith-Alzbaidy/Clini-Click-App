@@ -1,9 +1,31 @@
 .learn {
-  color: #A75CFF;
+  color: #A75CFF !important;
   font-family: 'Montserrat' , sans-serif !important;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
-  padding-left: 28px;
+  padding-left: 0px !important;
+  }
+  @media (min-width: 1280px) {
+    .wrapper{
+      width: 768px;
+      right: 0px;
+    }
+    .btn{
+      width: 725px;
+    }
+    .noPayment {
+      font-size: 18px;
+      color: #000 !important;
+    }
+  
+    
+  }
+  
+  @media (min-width: 769px) {
+    .learn {
+      color: #A75CFF !important;
+      padding-left: 0px !important;
+      }
   }

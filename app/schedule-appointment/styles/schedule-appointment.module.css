@@ -17,4 +17,18 @@
   width: 100%;
 }
 
+@media (min-width: 1280px) {
 
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  
+}
+
+@media (max-width: 1279px) and (min-width: 768px) {
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}

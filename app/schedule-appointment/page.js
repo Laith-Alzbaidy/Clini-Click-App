@@ -79,7 +79,7 @@ const Practitioner = () => {
       setAvailability(data);
     } catch (error) {
       console.error("Error fetching available hours:", error);
-    }finally {
+    } finally {
       setIsLoading(false);
     }
   };
@@ -91,7 +91,6 @@ const Practitioner = () => {
     if (date) {
       fetchPrefernceIdAvailableHours(date);
     }
-
   };
 
   const handlePractitionerSelect = (practitionerId) => {
@@ -110,7 +109,7 @@ const Practitioner = () => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className="container1">
         <Link href="#" onClick={() => router.back()}>
           <ButtonPreviews />
