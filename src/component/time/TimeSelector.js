@@ -38,12 +38,12 @@ const TimeSelector = ({
       
           ))
         ) : practitioner ? (
-          <p>
+          <p className={styles.note}>
             * Please select a practitioner and a date to display the available
             times.
           </p>
         ) : (
-          <p>* Please select a date to display the available times.</p>
+          <p className={styles.note}>* Please select a date to display the available times.</p>
         )}
       </div>
     </div>

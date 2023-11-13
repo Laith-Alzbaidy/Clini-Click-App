@@ -27,9 +27,11 @@ const PractitionerSelctor = ({
                 isActive ? styles["active-container-card"] : ""
               }`}>
               <div
+              className={styles.wrapper}
                 onClick={() => {
                   handlePractitionerSelect(practitioner.id);
                   setSelectedDoctor(practitioner.id);
+                  
                 }}>
                 <div className={styles["container-image"]}>
                   {practitioner.picture !== null ? (
@@ -122,12 +124,13 @@ const PractitionerSelctor = ({
                 slidesPerView: 3.5,
               },
               768: {
-                slidesPerView: 4.25,
+                slidesPerView: 3.25,
               },
             }}>
             <SwiperSlide className={styles["swiper-slide"]}>
               <div
-                className={`${styles["container-card"]} ${
+              
+                className={`${styles["container-card2"]} ${
                   NoPrefrence !== null ? styles["active-container-card"] : ""
                 } `}
                 onClick={handleNoPreference}>

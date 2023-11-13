@@ -18,6 +18,17 @@
   background: #fff;
   height: 212px;
 }
+.container-card2 {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  gap: 2px;
+  border: 1px solid #e8f3f1;
+  background: #fff;
+  height: 212px;
+}
 
 .active-container-card {
   border: 1px solid var(--secondary-color) !important;
@@ -67,7 +78,6 @@
   height: 10px;
 }
 
-
 .text-review {
   font-size: 8px;
   font-weight: 400;
@@ -79,4 +89,58 @@
   font-size: 8px;
   font-weight: 600;
   height: 12px;
+}
+
+@media (min-width: 1280px) {
+  .container-card {
+    height: 250px;
+  }
+  .container-card2 {
+    height: 250px;
+  }
+  .name-card {
+    font-size: 16px;
+    padding-bottom: 2px;
+  }
+
+  .specialization {
+    font-size: 15px;
+    padding-bottom: 2px;
+  }
+  .exp {
+    font-size: 10px;
+    padding-bottom: 2px;
+  }
+  .text-review {
+    font-size: 10px;
+  }
+  .view-profile {
+    font-size: 12px;
+    padding-top: 4px;
+  }
+  .question {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 768px) {
+  .name-card {
+    font-size: 16px;
+  }
+
+  .specialization {
+    font-size: 15px;
+  }
+  .exp {
+    font-size: 10px;
+  }
+  .text-review {
+    font-size: 10px;
+  }
+  .view-profile {
+    font-size: 12px;
+  }
+  .question {
+    font-size: 20px;
+  }
 }

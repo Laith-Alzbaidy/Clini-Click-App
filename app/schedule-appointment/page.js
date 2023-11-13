@@ -120,6 +120,7 @@ const Practitioner = () => {
           <p className={styles["step"]}>Step 1 of 3</p>
           <h1 className={styles["title"]}>Select Date and Time</h1>
         </div>
+        
         <PractitionerSelctor
           setSelectedDoctor={setSelectedDoctor}
           slecetedDoctor={slecetedDoctor}

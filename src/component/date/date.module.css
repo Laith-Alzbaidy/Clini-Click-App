@@ -66,3 +66,28 @@
   font-weight: 700;
   margin-top: 2rem;
 }
+.month{
+  font-size: 12px;
+  padding-top: 0.7rem;
+}
+
+@media (min-width: 1280px) {
+
+  .question {
+    font-size: 20px;
+  }
+  .month{
+    font-size: 20px;
+
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 768px) {
+  .question {
+    font-size: 20px;
+  }
+  .month{
+    font-size: 20px;
+
+  }
+}

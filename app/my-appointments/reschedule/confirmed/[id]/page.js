@@ -17,7 +17,7 @@ const Confirmed = ({ params }) => {
   const style = {
     marginTop: "45px",
   };
-
+console.log(params.id , "params id")
   // const token = Cookies.get("token");
 
   // const getData = async () => {
