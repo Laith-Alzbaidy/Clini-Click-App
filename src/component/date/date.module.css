@@ -66,19 +66,17 @@
   font-weight: 700;
   margin-top: 2rem;
 }
-.month{
+.month {
   font-size: 12px;
   padding-top: 0.7rem;
 }
 
 @media (min-width: 1280px) {
-
   .question {
     font-size: 20px;
   }
-  .month{
+  .month {
     font-size: 20px;
-
   }
 }
 
@@ -86,8 +84,7 @@
   .question {
     font-size: 20px;
   }
-  .month{
+  .month {
     font-size: 20px;
-
   }
 }

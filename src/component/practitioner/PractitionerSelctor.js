@@ -26,14 +26,15 @@ const PractitionerSelctor = ({
             <div
               className={`${styles["container-card"]} ${
                 isActive ? styles["active-container-card"] : ""
-              }`}>
+              }`}
+            >
               <div
-              className={styles.wrapper}
+                className={styles.wrapper}
                 onClick={() => {
                   handlePractitionerSelect(practitioner.id);
                   setSelectedDoctor(practitioner.id);
-                  
-                }}>
+                }}
+              >
                 <div className={styles["container-image"]}>
                   {practitioner.picture !== null ? (
                     <Image
@@ -82,12 +83,11 @@ const PractitionerSelctor = ({
                   setIsModalOpen(true);
                   setSelectedPractitioner(practitioner);
                 }}
-                className={styles["view-profile"]}>
+                className={styles["view-profile"]}
+              >
                 View profile
               </p>
-              <LearnMore learnMore={false} practitionerData={practitioner}/>
-        
-
+              <LearnMore learnMore={false} practitionerData={practitioner} />
             </div>
           </SwiperSlide>
         );
@@ -124,20 +124,21 @@ const PractitionerSelctor = ({
               480: {
                 slidesPerView: 2.75,
               },
-             600: {
+              600: {
                 slidesPerView: 3.5,
               },
               768: {
                 slidesPerView: 3.25,
               },
-            }}>
+            }}
+          >
             <SwiperSlide className={styles["swiper-slide"]}>
               <div
-              
                 className={`${styles["container-card2"]} ${
                   NoPrefrence !== null ? styles["active-container-card"] : ""
                 } `}
-                onClick={handleNoPreference}>
+                onClick={handleNoPreference}
+              >
                 <div className="d-flex flex-column align-items-center gap-2">
                   <Image src={user} />
                   <h3 className={styles["name-card"]}>No preference</h3>

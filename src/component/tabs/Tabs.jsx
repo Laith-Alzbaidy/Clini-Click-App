@@ -1,38 +1,35 @@
-'use client'
-import React , {useState , useEffect} from "react";
-import styles from './tabs.module.css'
+"use client";
+import React, { useState, useEffect } from "react";
+import styles from "./tabs.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-const Tabs = ({list}) => {
-    const [activeTab, setActiveTab] = useState("");
+const Tabs = ({ list }) => {
+  const [activeTab, setActiveTab] = useState("");
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const categories = list.map((category) => category.name);
 
-      const handleScroll = () => {
-        const scrollPosition = window.scrollY;
-        const categories = list.map((category) => category.name);
+      for (let i = categories.length - 1; i >= 0; i--) {
+        const category = categories[i];
+        const categoryElement = document.getElementById(category);
 
-
-        for (let i = categories.length - 1; i >= 0; i--) {
-          const category = categories[i];
-          const categoryElement = document.getElementById(category);
-
-          if (
-            categoryElement.offsetTop <= scrollPosition + 100 &&
-            categoryElement.offsetTop + categoryElement.offsetHeight >
-              scrollPosition + 100
-          ) {
-            setActiveTab(category);
-            break;
-          }
+        if (
+          categoryElement.offsetTop <= scrollPosition + 100 &&
+          categoryElement.offsetTop + categoryElement.offsetHeight >
+            scrollPosition + 100
+        ) {
+          setActiveTab(category);
+          break;
         }
-      };
-      window.addEventListener("scroll", handleScroll);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
 
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [list]);
   const spaceFromTop = 65;
   const handleTabClick = (category) => {
@@ -40,12 +37,11 @@ const Tabs = ({list}) => {
     const categoryElement = document.getElementById(category);
 
     if (categoryElement) {
-  
-        const scrollPosition = categoryElement.offsetTop - spaceFromTop;
-        window.scrollTo({
-          top: scrollPosition,
-          behavior: "smooth",
-        });
+      const scrollPosition = categoryElement.offsetTop - spaceFromTop;
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
     }
   };
   const TabSlider = list.map((categoryData) => (
@@ -57,12 +53,14 @@ const Tabs = ({list}) => {
         nextEl: ".swiper-button-prev",
         prevEl: ".swiper-button-next",
       }}
-      slidesPerView={1}>
+      slidesPerView={1}
+    >
       <div
         className={` ${styles.tab} ${
           activeTab === categoryData.name && styles.active
         }`}
-        onClick={() => handleTabClick(categoryData.name)}>
+        onClick={() => handleTabClick(categoryData.name)}
+      >
         {categoryData.name}
       </div>
     </SwiperSlide>
@@ -118,7 +116,8 @@ const Tabs = ({list}) => {
             slidesPerView: 10,
             spaceBetween: 110,
           },
-        }}>
+        }}
+      >
         {TabSlider}
       </Swiper>
     </div>

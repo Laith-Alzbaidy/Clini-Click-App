@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import styles from "./time.module.css";
 
 const TimeSelector = ({
@@ -15,7 +15,7 @@ const TimeSelector = ({
     <div className={styles["container-question"]}>
       <div className={styles["question"]}>
         Which time would you like to book?
-      </div >
+      </div>
 
       <div className={styles.Bigcontainer}>
         {isLoading ? (
@@ -24,7 +24,6 @@ const TimeSelector = ({
           </p>
         ) : availability && availability.data ? (
           availability.data.map((time, index) => (
-            
             <div
               key={time.erId}
               onClick={() => {
@@ -32,14 +31,16 @@ const TimeSelector = ({
               }}
               className={`${styles.timeContainer} ${
                 time.erId === selectedTime ? styles.active : ""
-              }`}>
-              <p 
+              }`}
+            >
+              <p
                 className={`${styles.time} ${
                   time.erId === selectedTime ? styles.activeTime : ""
                 }`}
-              >{time.er_time}</p>
+              >
+                {time.er_time}
+              </p>
             </div>
-      
           ))
         ) : practitioner ? (
           <p className={styles.note}>
@@ -47,7 +48,9 @@ const TimeSelector = ({
             times.
           </p>
         ) : (
-          <p className={styles.note}>* Please select a date to display the available times.</p>
+          <p className={styles.note}>
+            * Please select a date to display the available times.
+          </p>
         )}
       </div>
     </div>

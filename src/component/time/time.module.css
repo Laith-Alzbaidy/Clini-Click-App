@@ -1,4 +1,3 @@
-
 .timeContainer {
   border-radius: 15px;
   border: 1px solid #adadad;
@@ -24,7 +23,7 @@
   flex-wrap: wrap;
   width: 100%;
   margin-top: 0.5rem;
- column-gap: 13px;
+  column-gap: 13px;
 }
 .time {
   color: var(--primary-color);
@@ -37,11 +36,10 @@
   font-weight: 600;
   background-color: #a75cff;
 }
-.activeTime{
+.activeTime {
   color: #fff;
   font-size: 12px;
   font-weight: 600;
-
 }
 
 .container-question {
@@ -85,7 +83,7 @@
 
 @media (min-width: 1280px) {
   .Bigcontainer {
-   column-gap: 17px;
+    column-gap: 17px;
   }
   .timeContainer {
     width: 114px;
@@ -93,27 +91,27 @@
   .question {
     font-size: 20px;
   }
-  .note{
+  .note {
     font-size: 16px;
   }
-} 
-
- @media (max-width: 1279px) and (min-width: 769px) {
-  .Bigcontainer {
-    column-gap: 20px;
-   }
-   .timeContainer {
-     width: 120px;
-   }
 }
- @media (width: 768px) {
+
+@media (max-width: 1279px) and (min-width: 769px) {
   .Bigcontainer {
     column-gap: 20px;
-   }
-   .timeContainer {
-     width: 120px;
-   }
-   .question {
+  }
+  .timeContainer {
+    width: 120px;
+  }
+}
+@media (width: 768px) {
+  .Bigcontainer {
+    column-gap: 20px;
+  }
+  .timeContainer {
+    width: 120px;
+  }
+  .question {
     font-size: 20px;
   }
 }
@@ -121,37 +119,34 @@
 @media (max-width: 621px) and (min-width: 507px) {
   .Bigcontainer {
     column-gap: 17px;
-   }
-   .timeContainer {
-     width: 114px;
-   }
+  }
+  .timeContainer {
+    width: 114px;
+  }
 }
 
-@media (max-width: 500px){
+@media (max-width: 500px) {
   .Bigcontainer {
     column-gap: 13px;
-   }
-   .timeContainer {
-     width: 103px;
-   }
+  }
+  .timeContainer {
+    width: 103px;
+  }
 }
 @media (max-width: 425px) and (min-width: 376px) {
   .Bigcontainer {
     column-gap: 17px;
-   }
-   .timeContainer {
-     width: 115px;
-   }
+  }
+  .timeContainer {
+    width: 115px;
+  }
 }
 
-@media (max-width: 375px){
+@media (max-width: 375px) {
   .Bigcontainer {
     column-gap: 20px;
-   }
-   .timeContainer {
-     width: 120px;
-   }
+  }
+  .timeContainer {
+    width: 120px;
+  }
 }
-
-
-

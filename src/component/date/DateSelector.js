@@ -19,7 +19,7 @@ const DateSelector = ({
   const [selectedMonth, setSelectedMonth] = useState(new Date());
   const date = new Date();
   const month = date.toLocaleString("default", { month: "long" });
-  
+
   useEffect(() => {
     const year = selectedMonth.getFullYear();
     const month = selectedMonth.getMonth();
@@ -81,7 +81,8 @@ const DateSelector = ({
           }`}
           onClick={() =>
             handleDayClick(item.day, item.date, item.id, item.value)
-          }>
+          }
+        >
           <p className={styles["day"]}>{item.day}</p>
           <p className={styles["date"]}>{item.date}</p>
         </div>
@@ -133,7 +134,8 @@ const DateSelector = ({
               slidesPerView: 10.5,
               spaceBetween: 10,
             },
-          }}>
+          }}
+        >
           {schedulingSlides}
         </Swiper>
       </div>
