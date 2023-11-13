@@ -43,7 +43,12 @@ function PopupCardPayment({ onHide, show }) {
           <div className={styles["container-body"]}>
             <div className={styles["header"]}>
               <h2 className={styles["title-header"]}>Card details</h2>
-              <Image src={close} onClick={handleClose} alt="close" />
+              <Image
+                className="close-btn"
+                src={close}
+                onClick={handleClose}
+                alt="close"
+              />
             </div>
             <p className={styles["sub-title"]}>
               Card details are required to confirm your appointment

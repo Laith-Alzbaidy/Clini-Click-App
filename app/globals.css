@@ -150,7 +150,9 @@ a {
 .modal-header {
   border: none !important;
 }
-
+.close-btn {
+  cursor: pointer !important;
+}
 @media (min-width: 1280px) {
   .container1 {
     padding: 65px !important;

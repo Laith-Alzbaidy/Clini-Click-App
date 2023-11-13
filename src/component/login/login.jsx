@@ -44,7 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container1">
+    <div className={`container1 ${styles["holder"]}`}>
       <ClosePrev close="/" back="./" />
 
       <div className={styles["header"]}>

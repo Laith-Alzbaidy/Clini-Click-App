@@ -32,8 +32,8 @@ const ModalBox = ({
           </button>
         ) : (
           <div className={styles.deleteAccount} onClick={handleShow}>
-          Delete your account
-        </div>
+            Delete your account
+          </div>
         )}
       </div>
       <Modal show={show} onHide={handleClose} animation={false} centered>
@@ -45,7 +45,8 @@ const ModalBox = ({
           {confirm ? (
             <Button
               onClick={handleShowSecondModal}
-              className={styles.yesButton}>
+              className={styles.yesButton}
+            >
               Yes
             </Button>
           ) : (
@@ -64,10 +65,12 @@ const ModalBox = ({
           show={showSecondModal}
           onHide={handleCloseSecondModal}
           animation={false}
-          centered>
+          centered
+        >
           <Modal.Header
             closeButton
-            className={styles.modalHeader}></Modal.Header>
+            className={styles.modalHeader}
+          ></Modal.Header>
           <Modal.Body className={styles.modal}>
             <div className={styles.modalBody}>
               <p
@@ -75,7 +78,8 @@ const ModalBox = ({
                   marginBottom: "25px !important",
                   color: "#828282",
                   paddingBottom: "10px",
-                }}>
+                }}
+              >
                 Are you sure you want to cancel your appointment?
               </p>
               {content2}
@@ -84,12 +88,14 @@ const ModalBox = ({
           <Modal.Footer className={styles.modalFooter}>
             <Button
               onClick={handleCancelAppoinment}
-              className={styles.yesButton}>
+              className={styles.yesButton}
+            >
               Yes
             </Button>
             <Button
               onClick={handleCloseSecondModal}
-              className={styles.noButton}>
+              className={styles.noButton}
+            >
               No
             </Button>
           </Modal.Footer>

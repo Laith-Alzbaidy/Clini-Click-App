@@ -110,7 +110,7 @@ const PractitionerDetails = () => {
   };
 
   return (
-    <div className="container1">
+    <div className={`container1 ${styles["holder"]}`}>
       <div className="mb-2">
         <Link href="payment">
           <ButtonPreviews />

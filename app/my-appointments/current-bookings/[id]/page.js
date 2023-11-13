@@ -39,15 +39,15 @@ const CurrentBookings = ({ params }) => {
   }, []);
 
   const handleCancelAppoinment = async () => {
+    console.log("params", params, params, params, params);
     try {
       const res = await api.delete(`Appointments/${params.id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(res.data , "Appoinment cancelled");
+      console.log(res.data, "Appoinment cancelled");
       setCancelData(res.data.responseData);
-      
     } catch (err) {
       console.log("Error occurred while canceling", err);
     }

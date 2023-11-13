@@ -97,14 +97,19 @@ function PopupPayment({ selectMethod, setSelectMethod }) {
         className={styles["btn-choose-payment"]}
       >
         {/* Choose payment method */}
-        {selectMethod?.value ? selectMethod.value : "Choose payment method"}
+        {selectMethod?.name ? selectMethod.name : "Choose payment method"}
       </button>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>
             <div className={styles["header"]}>
               <h2 className={styles["title-header"]}>Pay with</h2>
-              <Image src={close} onClick={handleClose} alt="close" />
+              <Image
+                className="close-btn"
+                src={close}
+                onClick={handleClose}
+                alt="close"
+              />
             </div>
             <p className={styles["sub-title"]}>
               No payment will be taken until your appointment

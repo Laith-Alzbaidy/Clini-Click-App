@@ -41,3 +41,9 @@
   font-size: 14px !important;
   font-weight: 800;
 }
+
+@media (min-width: 769px) {
+  .btn-choose-payment {
+    font-size: 25px;
+  }
+}

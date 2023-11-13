@@ -76,7 +76,14 @@ const MyAppointments = () => {
                   <div>{appointment?.startTime}</div>
                   <div>{appointment?.treatmentName}</div>
                   <div>{appointment?.id}</div>
-                  <div>Confirmed</div>
+                  <div>
+                    {appointment.status === 1 && "Confirmed"}
+                    {appointment.status === 5 && "Complete"}
+                    {(appointment.status === 2 ||
+                      appointment.status === 3 ||
+                      appointment.status === 4) &&
+                      "Cancel"}
+                  </div>
                 </div>
                 <Image src={left} alt="left" />
               </div>
@@ -101,7 +108,14 @@ const MyAppointments = () => {
                   <div>{appointment?.startTime}</div>
                   <div>{appointment?.treatmentName}</div>
                   <div>{appointment?.id}</div>
-                  <div>Confirmed</div>
+                  <div>
+                    {appointment.status === 1 && "Confirmed"}
+                    {appointment.status === 5 && "Complete"}
+                    {(appointment.status === 2 ||
+                      appointment.status === 3 ||
+                      appointment.status === 4) &&
+                      "Cancel"}
+                  </div>
                 </div>
                 <Image src={left} alt="left" />
               </div>

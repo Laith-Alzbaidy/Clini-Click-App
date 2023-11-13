@@ -25,7 +25,11 @@ const SlideUpPrivacy = ({ title, data }) => {
         <div className={`modal-overlay`}>
           <div className={modalclass}>
             <div className={styles["navmodal"]}>
-              <Image className="mb-3" src={back} onClick={() => close()} />
+              <Image
+                className="mb-3 close-btn"
+                src={back}
+                onClick={() => close()}
+              />
               <div>
                 {title == "T&Cs" ? (
                   <h1 className={styles["title"]}>Terms</h1>

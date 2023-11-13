@@ -13,7 +13,7 @@ import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
 import SlideUpPrivacy from "./modal-privacy/modal.privacy";
 import { useLayoutEffect } from "react";
-
+import PopupPrivacy from "../view-desktop/popup-privacy/popup-privacy-payment";
 const Payment = () => {
   const searchParams = useSearchParams();
 
@@ -90,7 +90,7 @@ const Payment = () => {
   };
 
   return (
-    <div>
+    <div className={styles["holder"]}>
       <div className={styles["nav-header"]}>
         <ClosePrev close="/" back="/user-details" />
       </div>
@@ -132,6 +132,7 @@ const Payment = () => {
         <div className={styles.bookingContainer}>
           <div className={styles.treatmentContainer}>
             <div>Treatment:</div>
+
             <div className={styles.treatmentDeatils}>
               <div className={styles.treatmentName}>
                 {dataPreConfirm?.treatment?.name}
@@ -160,50 +161,13 @@ const Payment = () => {
 
       <div className={styles["line"]}></div>
 
-      {/* <div>
-        <div className={styles.subTitle}>Location</div>
-
-        <iframe
-          width="100%"
-          style={{ borderRadius: 20 }}
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS`}
-          allowFullScreen
-          title="My Map"
-        ></iframe>
-        <div className={styles["container-icon"]}>
-          <div className={styles["content-icon"]}>
-            <Image
-              width={24}
-              height={24}
-              src={call}
-              className={styles["icon"]}
-              alt="call"
-            />
-            <p className={styles["text-icon"]}>+971-5-000000000</p>
-          </div>
-          <div className={styles["content-icon"]}>
-            <Image
-              width={24}
-              height={24}
-              src={location}
-              className={styles["icon"]}
-              alt="location"
-            />
-            <p className={styles["text-icon"]}>Dubai Marina, Dubai</p>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className={styles["line"]}></div> */}
-
       <div className={styles["container1"]}>
         <div className={styles.subTitle}>Pay with</div>
         <PopupPayment
           selectMethod={selectMethod}
           setSelectMethod={setSelectMethod}
         />
-        <p className="text-left">
+        <p className={styles["text-left"]}>
           No payment will be taken until your appointment
         </p>
       </div>
@@ -212,7 +176,7 @@ const Payment = () => {
 
       <div className={styles["container1"]}>
         <div className={styles.subTitle}>Cancellation policy</div>
-        <p>
+        <p className={styles["text-cancellation"]}>
           A fee of <b>AED {dataPreConfirm?.cancellationFee} </b>may be charged
           if you cancel within{" "}
           <b>{dataPreConfirm?.cancellationTimeFrame} hours</b>, or a fee of{" "}
@@ -228,15 +192,22 @@ const Payment = () => {
         <div className={styles["container-privacy"]}>
           <p className={styles["privacy"]}>
             By selecting the button below, I agree to the{" "}
-            <SlideUpPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and{" "}
-            <SlideUpPrivacy
-              title="Privacy Policy"
-              data={dataPreConfirm.terms}
-            />{" "}
+            <div className={styles["slide-up-privacy"]}>
+              <SlideUpPrivacy title="T&Cs" data={dataPreConfirm.policy} />
+            </div>
+            <PopupPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and
+            <div className={styles["slide-up-privacy"]}>
+              <SlideUpPrivacy
+                title="Privacy Policy"
+                data={dataPreConfirm.terms}
+              />
+            </div>{" "}
+            <PopupPrivacy title="Privacy Policy" data={dataPreConfirm.terms} />{" "}
             and confirm that I am 18 years or older
           </p>
         </div>
       </div>
+
       <StickyButton
         title={`${"Book appointment"}`}
         selectMethod={selectMethod}

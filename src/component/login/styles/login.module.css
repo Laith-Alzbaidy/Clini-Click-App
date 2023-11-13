@@ -41,3 +41,16 @@
   height: 16px;
   width: 40px;
 }
+
+@media (min-width: 769px) {
+  .holder {
+    max-width: 768px !important;
+    margin: auto !important;
+  }
+  .step {
+    font-size: 20px;
+  }
+  .title {
+    font-size: 25px;
+  }
+}

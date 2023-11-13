@@ -68,3 +68,10 @@
   background: #ffc6c6;
   padding: 10px;
 }
+
+@media (min-width: 769px) {
+  .holder {
+    max-width: 768px !important;
+    margin: 0 auto !important;
+  }
+}

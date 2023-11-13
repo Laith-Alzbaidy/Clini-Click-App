@@ -103,15 +103,17 @@ const OTB = () => {
   }, [timer]);
 
   return (
-    <div className="container1">
+    <div className={`container1 ${styles["holder"]}`}>
       <ClosePrev close="/" />
       <div className={styles["header"]}>
         <p className={styles["step"]}>Step 2 of 3</p>
         <h1 className={styles["title"]}>Enter the OTP</h1>
       </div>
-      <p style={{ maxWidth: "220px" }}>
-        We sent you a WhatsApp message with the OTP to {phone}.
-      </p>
+      <div className={styles["container-text-otp"]}>
+        <p className={styles["text-otp"]}>
+          We sent you a WhatsApp message with the OTP to {phone}.
+        </p>
+      </div>
       <div className={styles["container-input"]}>
         {/* OTP input component */}
         <OTPInput
