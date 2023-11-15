@@ -1,9 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styles2 from "../slideupModal/subInfo.module.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Image from "next/image";
 import closebtn from "./assets/image/close.svg";
 import styles from "../slideupModal/slideUpDoctor/styles/slideUpDoctor.module.css";
@@ -12,9 +10,8 @@ import star from "./assets/image/Star.svg";
 import global from "./assets/image/global.svg";
 import license from "./assets/image/license-number.svg";
 import { Row, Col } from "react-bootstrap";
-import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout";
 import Link from "next/link";
-
+import ReadMore from '@/src/component/read-more/read-more';
 const style = {
   position: "absolute",
   top: "50%",
@@ -27,18 +24,22 @@ const style = {
   p: 4,
   width: "740px",
   outline: "none",
+  overview:"auto"
+
 };
 const learn = {
   color: "#A75CFF",
   fontFamily: "Montserrat, sans-serif !important",
   fontSize: "18px",
   fontWeight: 600,
+
 };
 const practitionerStyle = {
   color: "#A75CFF",
   fontFamily: "Montserrat, sans-serif !important",
   fontSize: "12px",
   fontWeight: 600,
+  paddingTop:"6px"
 };
 
 const LearnMore = ({ data, learnMore, practitionerData , close }) => {
@@ -80,7 +81,8 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
       </div>
       <div className={`${styles["container-image"]}`}>
         <Image
-          fill
+          width={400}
+          height={220}
           priority
           src={practitioner.picture}
           className={styles["image"]}
@@ -126,11 +128,7 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
       <div className={styles["container-content"]}>
         <h1 className={`${styles["title"]} mb-2`}>About</h1>
         {/* <ReadMore /> */}
-        <p className={styles["description"]}>
-          Clinique de la Belle au Bois Dormant is Dubai’s most prestigiousbeauty
-          parlour. With high skilled...
-        </p>
-        <SlideUpAbout />
+        <ReadMore />
         <div className={styles["container-content"]}>
           <Row className={styles["card"]}>
             <Col className="d-flex gap-2">

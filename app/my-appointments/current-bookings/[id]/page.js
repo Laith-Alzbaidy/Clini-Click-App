@@ -101,9 +101,9 @@ const CurrentBookings = ({ params }) => {
               <div className={styles.treatmentName}>{data?.treatmentName}</div>
               {data.bodyArea ? (
                 <div>
-                  <p>Body area: {data?.bodyArea}</p>
-                  <p>Device: {data?.device}</p>
-                  <p>Sessions: {data?.sessions}</p>
+                  <p>Body area : {data?.bodyArea}</p>
+                  <p>Device : {data?.device}</p>
+                  <p>Sessions : {data?.sessions}</p>
                 </div>
               ) : data.isConsultation === true ? (
                 <p>consultation only</p>
@@ -153,11 +153,6 @@ const CurrentBookings = ({ params }) => {
         }}
       ></div>
       <div className={styles.container}>
-        <div className={styles.subTitle}>Location</div>
-        <Head>
-          <title>My Map</title>
-        </Head>
-
         <Location data={data} />
       </div>
     </div>

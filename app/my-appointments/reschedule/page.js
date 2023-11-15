@@ -27,6 +27,7 @@ const Reschedule = ({ searchParams }) => {
   const [treatmentId, setTreatmentId] = useState(null);
   const [availability, setAvailability] = useState([]);
   const [reschduleData, setReschduleData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const getAppointemntSpecific = async () => {
     try {
@@ -51,12 +52,14 @@ const Reschedule = ({ searchParams }) => {
   const router = useRouter();
 
   const fetchAvailableHours = async (dateq) => {
+    setIsLoading(true);
     try {
       const response = await api.get(
         `PractitionerAvailability?practitionerId=${practitioner}&treatmentId=${treatmentId}&date=${dateq}`
       );
       const data = response.data.responseData;
       setAvailability(data);
+      setIsLoading(false);
       console.log(data, "wiwwwq");
     } catch (error) {
       console.error("Error fetching available hours:", error);
@@ -122,6 +125,7 @@ const Reschedule = ({ searchParams }) => {
           selectedTime={selectedTime}
           setSelectedTime={setSelectedTime}
           practitioner={false}
+          isLoading={isLoading}
         />
 
         <Btn title={"confirm"} onClick={handleConfirm} />

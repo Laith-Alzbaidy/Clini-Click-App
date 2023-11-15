@@ -1,45 +1,45 @@
 .learn {
-  color: #A75CFF !important;
-  font-family: 'Montserrat' , sans-serif !important;
+  color: #a75cff !important;
+  font-family: "Montserrat", sans-serif !important;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
   padding-left: 0px !important;
-  }
+}
 .practitionerStyle {
-  color: #A75CFF !important;
-  font-family: 'Montserrat' , sans-serif !important;
+  color: #a75cff !important;
+  font-family: "Montserrat", sans-serif !important;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
   padding-left: 0px !important;
+}
+.close {
+  width: 768px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    width: 768px;
+    right: 0px;
   }
-  .close{
-width: 768px;
-   display: flex; 
-   justify-content: space-between;
+  .btn {
+    width: 725px;
   }
-  @media (min-width: 1280px) {
-    .wrapper{
-      width: 768px;
-      right: 0px;
-    }
-    .btn{
-      width: 725px;
-    }
-    .noPayment {
-      font-size: 18px;
-      color: #000 !important;
-    }
-  
-    
+  .noPayment {
+    font-size: 18px;
+    color: #000 !important;
   }
-  
-  @media (min-width: 768px) {
-    .learn {
-      color: #A75CFF !important;
-      padding-left: 0px !important;
-      }
+
+}
+
+@media (min-width: 768px) {
+  .learn {
+    color: #a75cff !important;
+    padding-left: 0px !important;
   }
+}

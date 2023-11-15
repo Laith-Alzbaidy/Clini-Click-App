@@ -106,11 +106,6 @@ const PastBookings = ({ params }) => {
           border: "solid 3px #E2E2E2",
         }}></div>
       <div className={styles.container}>
-        <div className={styles.subTitle}>Location</div>
-        <Head>
-          <title>My Map</title>
-        </Head>
-
         <Location data={data} />
       </div>
     </div>

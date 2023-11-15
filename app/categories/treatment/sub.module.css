@@ -64,6 +64,7 @@
   }
   .subName {
     font-size: 25px;
+    margin: 20px 0 19px 0;
   }
   .background {
     border-radius: 55px;
@@ -111,6 +112,7 @@
   .containerHero {
     margin: 28px 0 0 0px;
   }
+  
 }
 
 @media (max-width: 1279px) and (min-width: 768px) {
