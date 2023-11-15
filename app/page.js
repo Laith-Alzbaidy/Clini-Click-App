@@ -89,7 +89,9 @@ export default function Home() {
   return (
     <>
       <div className="container1">
-        <Header data={data} />
+        <div className="header-home">
+          <Header data={data} />
+        </div>
         <Hero data={data} />
         <div className="column-page">
           <About data={data} />
@@ -119,7 +121,9 @@ export default function Home() {
         <div className="container-footer">
           <Footer />
         </div>
-        <CardBook data={data} />
+        <div className="card-book-desktop">
+          <CardBook data={data} />
+        </div>
       </div>
     </>
   );

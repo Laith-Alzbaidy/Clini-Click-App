@@ -1,12 +1,11 @@
-.holder{
-  padding: 28px 0 28px 0;
+.holder {
+  padding: 0 0 28px 0;
 }
 .book {
   color: var(--primary-color);
 }
 .backIcon {
-margin: 0 28px 0 28px;
-
+  margin: 0 28px 0 28px;
 }
 .treatmentText {
   color: #101623;
@@ -18,7 +17,6 @@ margin: 0 28px 0 28px;
 @media (max-width: 768px) and (min-width: 481px) {
   .treatmentText {
     font-size: 25px;
-    
   }
 }
 @media (max-width: 1279px) and (min-width: 769px) {
@@ -32,9 +30,8 @@ margin: 0 28px 0 28px;
     font-size: 25px;
     margin: 0rem 0 0.8rem 0rem;
   }
-  .holder{
+  .holder {
     max-width: 768px;
     margin: 0 auto;
   }
-
 }

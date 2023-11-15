@@ -42,7 +42,7 @@ const slider = [
   },
 ];
 
-const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
+const OurTeamPopup = ({ setIsModalOpen, data, setPractitioner }) => {
   const handleDataPractitioner = (item) => {
     setIsModalOpen(true);
     setPractitioner(item);
@@ -52,13 +52,8 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
       <>
         <>
           {" "}
-          <SwiperSlide
-            onClick={() => handleDataPractitioner(item)}
-            className={styles["swiper-slide"]}
-            key={index}
-          >
+          <SwiperSlide className={styles["swiper-slide"]} key={index}>
             {/* <Link href={`ourTeam/${item.id}`}> */}
-
             <div className={styles["container-card"]}>
               <div className={styles["container-image"]}>
                 <Image
@@ -112,6 +107,18 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
                 </div>
                 <p className={styles["text-review"]}>4.5</p>
               </div>
+
+              <div className={styles["icon-desktop"]}>
+                <Icon data={data} />
+                <div className="d-flex justify-content-end">
+                  <p
+                    onClick={() => handleDataPractitioner(item)}
+                    className={styles["view-profile"]}
+                  >
+                    View profile
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* </Link> */}
@@ -145,4 +152,4 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
   );
 };
 
-export default OurTeam;
+export default OurTeamPopup;

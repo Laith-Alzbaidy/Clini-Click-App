@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import AppContext from "@/context";
 import { Montserrat } from "next/font/google";
 import "swiper/css";
+import Header from "@/src/component/header/header";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,7 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <AppContext>{children}</AppContext>
+        <AppContext>
+          <div className="header-container-layout">
+            <Header />
+          </div>
+          {children}
+        </AppContext>
       </body>
     </html>
   );

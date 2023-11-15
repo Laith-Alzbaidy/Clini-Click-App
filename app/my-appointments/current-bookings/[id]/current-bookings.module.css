@@ -18,7 +18,7 @@
   margin: 25.75px 0 23px 0;
 }
 .warpper {
-  padding: 28px 0 28px 0;
+  padding: 0 0 28px 0;
 }
 .container {
   padding: 0 28px 0 28px;
@@ -269,7 +269,7 @@
     max-width: 768px;
     margin: 0 auto;
   }
-   .totalContainer :nth-child(1) {
+  .totalContainer :nth-child(1) {
     font-size: 20px;
   }
   .totalContainer :nth-child(2) {
@@ -278,7 +278,6 @@
   .totalContainer :nth-child(1) span {
     font-size: 20px;
   }
-
 }
 
 @media (max-width: 768px) and (min-width: 481px) {

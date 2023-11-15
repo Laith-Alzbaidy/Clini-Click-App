@@ -16,7 +16,7 @@ body {
   border: 0;
   outline: 0;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 a {
@@ -52,11 +52,13 @@ a {
 }
 
 .container1 {
-  padding: 28px !important;
+  padding: 0 28px 28px 28px !important;
   /* padding-top: 28px !important;
   padding-bottom: 28px !important; */
 }
-
+.header-container-layout {
+  padding: 28px 28px 28px 28px;
+}
 .header-section {
   display: flex;
   align-items: center;
@@ -164,6 +166,25 @@ a {
   max-width: 800px !important;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .location iframe {
   height: 150px !important;
   border-radius: 20px;
@@ -172,15 +193,21 @@ a {
 .column-page {
   max-width: 800px !important;
 }
-
-::-webkit-scrollbar {
+.header-home {
+  padding: 28px;
+}
+/* ::-webkit-scrollbar {
   display: none;
 }
-
+ */
 @media (min-width: 769px) {
   /* p {
     color: #adadad !important;
   } */
+
+  .sticky-btn-desktop {
+    display: block !important;
+  }
   .location iframe {
     height: 234px !important;
   }
@@ -191,9 +218,7 @@ a {
 .container-footer {
   display: none;
 }
-.sticky-btn-desktop {
-  display: none;
-}
+
 .container-loc-mobile {
   display: none;
 }
@@ -202,4 +227,57 @@ a {
 }
 .description {
   font-size: 20px;
+}
+.header-home {
+  display: none;
+}
+@media (max-width: 1345px) {
+  .card-book-desktop {
+    /* display: none !important; */
+  }
+}
+
+@media (max-width: 768px) and (min-width: 393px) {
+  .slide-up-doctor {
+    display: block;
+  }
+  .header-home {
+    display: none;
+  }
+
+  .popup-doctor {
+    display: none;
+  }
+  .container-loc-mobile {
+    display: block;
+  }
+  .container-loc-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 392px) {
+  .header-home {
+    display: none;
+  }
+  .container-loc-mobile {
+    display: block;
+  }
+  .header-landing .container-loc-desktop {
+    display: none;
+  }
+  .popup-doctor {
+    display: none;
+  }
+  .slide-up-doctor {
+    display: block;
+  }
+}
+@media (min-width: 1101px) {
+  .sticky-btn-desktop {
+    display: none !important;
+  }
+  .container1 {
+    padding: 0 28px 28px 28px !important;
+  }
 }

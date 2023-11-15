@@ -1,5 +1,5 @@
-.costumContainer{
-padding: 28px 28px 28px 28px;
+.costumContainer {
+  padding: 0 28px 28px 28px;
 }
 
 .title {
@@ -15,7 +15,7 @@ padding: 28px 28px 28px 28px;
   font-weight: 600;
   text-align: center;
   margin: 0 0 0 0;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .input {
@@ -58,7 +58,7 @@ padding: 28px 28px 28px 28px;
 .popup {
   width: 240.587px;
   height: 148.411px;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   color: #828282;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 20px;
@@ -73,7 +73,6 @@ padding: 28px 28px 28px 28px;
   font-weight: 400;
 }
 
-
 @media (min-width: 1280px) {
   .title {
     font-size: 25px;
@@ -81,17 +80,16 @@ padding: 28px 28px 28px 28px;
   .deleteAccount {
     font-size: 18px;
   }
-  .costumContainer{
+  .costumContainer {
     max-width: 768px;
     margin: 0 auto;
   }
-  .backIcon{
+  .backIcon {
     display: none;
   }
   .title {
     margin: 1rem 0 2rem 0rem;
   }
-
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
@@ -101,11 +99,11 @@ padding: 28px 28px 28px 28px;
   .deleteAccount {
     font-size: 16px;
   }
-  .costumContainer{
+  .costumContainer {
     max-width: 768px;
     margin: 0 auto;
   }
-  .backIcon{
+  .backIcon {
     display: none;
   }
   .title {
@@ -120,5 +118,4 @@ padding: 28px 28px 28px 28px;
   .deleteAccount {
     font-size: 14px;
   }
-
 }
