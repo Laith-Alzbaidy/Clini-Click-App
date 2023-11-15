@@ -190,23 +190,28 @@ const Payment = () => {
 
       <div className={styles["container1"]}>
         <div className={styles["container-privacy"]}>
-          <p className={styles["privacy"]}>
-            By selecting the button below, I agree to the{" "}
-            <div className={styles["slide-up-privacy"]}>
-              <SlideUpPrivacy title="T&Cs" data={dataPreConfirm.policy} />
-            </div>
-            <div className="PopupPrivacy">
-              <PopupPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and
-            </div>
-            <div className={styles["slide-up-privacy"]}>
+          <div className="popup-privacy">
+            <p className={styles["privacy"]}>
+              By selecting the button below, I agree to the{" "}
+              <PopupPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and{" "}
+              <PopupPrivacy
+                title="Privacy Policy"
+                data={dataPreConfirm.terms}
+              />{" "}
+              and confirm that I am 18 years or older
+            </p>
+          </div>
+          <div className="slide-up-privacy">
+            <p className={styles["privacy"]}>
+              By selecting the button below, I agree to the{" "}
+              <SlideUpPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and{" "}
               <SlideUpPrivacy
                 title="Privacy Policy"
                 data={dataPreConfirm.terms}
-              />
-            </div>{" "}
-            <PopupPrivacy title="Privacy Policy" data={dataPreConfirm.terms} />{" "}
-            and confirm that I am 18 years or older
-          </p>
+              />{" "}
+              and confirm that I am 18 years or older
+            </p>
+          </div>
         </div>
       </div>
 

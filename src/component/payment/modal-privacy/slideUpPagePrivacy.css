@@ -95,3 +95,6 @@
   margin-bottom: 60px !important;
   padding: 0 30px !important;
 }
+.navmodal {
+  display: flex !important;
+}

@@ -62,11 +62,12 @@ import api from "@/config-API/config-API";
 import CardBook from "@/src/component/view-desktop/card-book/card-book";
 import PopupDoctor from "@/src/component/popup-view-desktop/popup-doctor/popup-doctor";
 import path from "path";
+import { useLayoutEffect } from "react";
 export default function Home() {
   // console.log(pathname, "pathnamepathnamepathnamepathnamepathname");
   const [data, setData] = useState([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchData = async () => {
       try {
         const response = await api.get("clinic?clinicName=AbdullahClinic");
@@ -92,7 +93,7 @@ export default function Home() {
       <div className="container1">
         <div className="header-home">
           <Header data={data} />
-        </div>{" "}
+        </div>
         <Hero data={data} />
         <div className="column-page">
           <About data={data} />

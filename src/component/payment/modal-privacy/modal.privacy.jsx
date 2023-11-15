@@ -24,7 +24,7 @@ const SlideUpPrivacy = ({ title, data }) => {
       {isModalOpen && (
         <div className={`modal-overlay`}>
           <div className={modalclass}>
-            <div className={styles["navmodal"]}>
+            <div className="navmodal">
               <Image
                 className="mb-3 close-btn"
                 src={back}
