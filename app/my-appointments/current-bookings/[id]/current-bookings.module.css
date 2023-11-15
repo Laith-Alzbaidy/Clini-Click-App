@@ -165,6 +165,7 @@
 @media (min-width: 1280px) {
   .title {
     font-size: 25px;
+    margin-top: 0px;
   }
   .subTitle {
     font-size: 20px;
@@ -209,7 +210,8 @@
     font-size: 20px;
   }
   .cancellation p {
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 500;
   }
   .cancellation span {
     font-size: 20px;
@@ -224,6 +226,13 @@
   .timingContainer {
     display: flex;
     gap: 73px;
+  }
+  .treatmentDeatils p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .headerContainer{
+    display: none;
   }
 }
 

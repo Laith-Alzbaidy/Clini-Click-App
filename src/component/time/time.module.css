@@ -94,6 +94,16 @@
   .note {
     font-size: 16px;
   }
+  .loadingMessage {
+
+    font-size: 16px;
+
+  }
+  .time {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {

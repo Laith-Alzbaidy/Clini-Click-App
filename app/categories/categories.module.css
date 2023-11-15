@@ -1,8 +1,7 @@
 .holder {
   padding: 28px 0 28px 0;
-  height: 100vh;
-  position: 50% 50%;
 }
+
 .book {
   color: var(--primary-color);
 }
@@ -16,9 +15,7 @@
   margin: 1rem 0 0.8rem 0rem;
   padding: 0 28px 0 28px;
 }
-.desktopConatiner {
-  display: none;
-}
+
 @media (max-width: 767px) and (min-width: 481px) {
   .treatmentText {
     font-size: 25px;
@@ -29,10 +26,16 @@
     font-size: 25px;
     margin: 0rem 0 0.8rem 0rem;
   }
-  .desktopConatiner {
+  .desktopContainer{
     display: block;
-    padding: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 712px;
+    max-height: 75vh;
   }
+  
 }
 @media (min-width: 1280px) {
   .treatmentText {
@@ -42,20 +45,19 @@
   .holder {
     max-width: 768px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .desktopContainer{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 712px;
+    max-height: 75vh;
   }
 }
 
-@media (min-width: 1280px) {
-  .treatmentText {
-    font-size: 25px;
-    margin: 0rem 0 0.8rem 0rem;
-  }
-  .holder {
-    max-width: 768px;
-    margin: 0 auto;
-  }
-  .desktopConatiner {
-    display: block;
-    padding: 28px 64px 0 64px;
-  }
-}

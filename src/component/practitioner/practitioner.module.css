@@ -108,17 +108,19 @@
     padding-bottom: 2px;
   }
   .exp {
-    font-size: 10px;
+    font-size: 12px;
     padding-bottom: 2px;
   }
   .text-review {
-    font-size: 10px;
+    font-size: 12px;
     padding-bottom: 4px;
+    font-weight: 500;
   }
   .view-profile {
     font-size: 12px;
     display: none;
   }
+
   .question {
     font-size: 20px;
   }
