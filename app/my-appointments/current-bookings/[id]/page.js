@@ -48,6 +48,8 @@ const CurrentBookings = ({ params }) => {
       });
       console.log(res.data, "Appoinment cancelled");
       setCancelData(res.data.responseData);
+      router.push('/my-appoinments')
+
     } catch (err) {
       console.log("Error occurred while canceling", err);
     }

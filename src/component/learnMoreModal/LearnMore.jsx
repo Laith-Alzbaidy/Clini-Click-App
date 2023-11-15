@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import styles2 from "../slideupModal/subInfo.module.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Image from "next/image";
+import closebtn from "./assets/image/close.svg";
 import styles from "../slideupModal/slideUpDoctor/styles/slideUpDoctor.module.css";
 import "../slideupModal/slideUpPage";
 import star from "./assets/image/Star.svg";
@@ -40,7 +41,7 @@ const practitionerStyle = {
   fontWeight: 600,
 };
 
-const LearnMore = ({ data, learnMore, practitionerData }) => {
+const LearnMore = ({ data, learnMore, practitionerData , close }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -74,6 +75,9 @@ const LearnMore = ({ data, learnMore, practitionerData }) => {
 
   const renderPractitionerInfo = () => (
     <Box sx={style}>
+       <div onClick={handleClose} className="close">
+        <Image src={closebtn} alt="close"  className="image-close"/>
+      </div>
       <div className={`${styles["container-image"]}`}>
         <Image
           fill

@@ -30,7 +30,7 @@ function PopupCardPayment({ onHide, show }) {
       formData.cardHolder !== "" &&
       formData.cardNumber !== "" &&
       formData.expiryDate !== "" &&
-      formData.cvv
+      formData.cvv.length >= 3
     ) {
       handleClose();
     }

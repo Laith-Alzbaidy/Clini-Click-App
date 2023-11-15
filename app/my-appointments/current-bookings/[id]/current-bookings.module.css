@@ -206,13 +206,13 @@
     font-size: 20px;
   }
   .CancelTitle {
-    font-size: 18px;
+    font-size: 20px;
   }
-  .cancellation {
-    font-size: 18px;
+  .cancellation p {
+    font-size: 20px;
   }
   .cancellation span {
-    font-size: 18px;
+    font-size: 20px;
   }
   .button {
     font-size: 18px;
@@ -276,6 +276,15 @@
     font-size: 20px;
   }
   .totalContainer :nth-child(1) span {
+    font-size: 20px;
+  }
+  .CancelTitle {
+    font-size: 20px;
+  }
+  .cancellation p {
+    font-size: 20px;
+  }
+  .cancellation span {
     font-size: 20px;
   }
 }

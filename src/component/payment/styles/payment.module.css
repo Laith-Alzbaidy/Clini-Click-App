@@ -91,7 +91,7 @@
 }
 .practitionerContainer {
   display: flex;
-  gap: 33px;
+  gap: 30px;
 }
 .practitionerContainer :nth-child(1) {
   color: #000;
@@ -272,5 +272,9 @@
   }
   .container-privacy {
     margin-bottom: 80px !important;
+  }
+  .timingContainer {
+    display: flex;
+    gap: 73px;
   }
 }
