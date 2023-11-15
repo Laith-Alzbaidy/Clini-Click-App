@@ -31,7 +31,7 @@ const OurBusiness = ({ data }) => {
         </Col>
         <Col>
           <p className={styles["text-time"]}>
-            {item.isClosed ? "Closed" : `${item.from}-${item.to}`}
+            {item.isClosed ? "Closed" : `${item.from} - ${item.to}`}
           </p>
         </Col>
       </Row>

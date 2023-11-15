@@ -105,7 +105,7 @@ const OurTeamPopup = ({ setIsModalOpen, data, setPractitioner }) => {
                     alt="star"
                   />
                 </div>
-                <p className={styles["text-review"]}>4.5</p>
+                <p className={styles["text-review"]}>156 reviews</p>
               </div>
 
               <div className={styles["icon-desktop"]}>

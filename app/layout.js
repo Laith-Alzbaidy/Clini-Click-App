@@ -17,9 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <AppContext>
+          <div className="padding-up-mobile"></div>
           <div className="header-container-layout">
             <Header />
           </div>
+
           {children}
         </AppContext>
       </body>

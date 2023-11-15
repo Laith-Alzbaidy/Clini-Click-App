@@ -61,9 +61,10 @@ import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoc
 import api from "@/config-API/config-API";
 import CardBook from "@/src/component/view-desktop/card-book/card-book";
 import PopupDoctor from "@/src/component/popup-view-desktop/popup-doctor/popup-doctor";
-import PopupAbout from "@/src/component/popup-view-desktop/popup-about/popup-about";
+import path from "path";
 export default function Home() {
-  const [data, setData] = useState(null);
+  // console.log(pathname, "pathnamepathnamepathnamepathnamepathname");
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -91,7 +92,7 @@ export default function Home() {
       <div className="container1">
         <div className="header-home">
           <Header data={data} />
-        </div>
+        </div>{" "}
         <Hero data={data} />
         <div className="column-page">
           <About data={data} />
@@ -114,7 +115,6 @@ export default function Home() {
         <div className="icon-mobile">
           <Icon data={data} />
         </div>
-
         <Link className="sticky-btn-desktop" href="categories">
           <StickyButton title="Book appointment" />
         </Link>

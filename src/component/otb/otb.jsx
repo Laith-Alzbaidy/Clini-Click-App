@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import OTPInput from "otp-input-react";
 import ClosePrev from "@/src/component/close-prev/close-prev";
 import styles from "./styles/otb.module.css";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import api from "@/config-API/config-API";
 import ErrorModal from "../modal-verfy/modal-verfy";
 import Cookies from "js-cookie";
@@ -11,8 +11,11 @@ import { useSearchParams } from "next/navigation";
 
 const OTB = () => {
   // Initialize the router and state variables
-  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
+  console.log(pathname, pathname, pathname, pathname);
+  const searchParams = useSearchParams();
+  console.log(searchParams);
   //params Id
   const treatmentId = searchParams.get("treatmentId");
   const practitionerId = searchParams.get("practitionerId");
@@ -29,6 +32,59 @@ const OTB = () => {
   const phone = localStorage.getItem("phone") || "";
 
   // handle OTP verification
+  // const handleVerification = async (otpValue) => {
+  //   const updatedOTPValues = [...otpValue];
+  //   setOTP(otpValue);
+
+  //   const finalOTP = updatedOTPValues.join("");
+
+  //   if (updatedOTPValues.length < 4) {
+  //     return;
+  //   }
+
+  //   try {
+  //     // Send a request to the backend API to verify the OTP
+  //     const response = await api.post("OTP/Verify", {
+  //       phoneNumber: phone,
+  //       code: finalOTP,
+  //     });
+
+  //     console.log("--------------", response.data.responseData);
+
+  //     const token = response.data.responseData.token;
+  //     if (response.data.isSuccess) {
+  //       if (response.data.responseData.isConfigured) {
+  //         if (!date || !timeSlotId || !practitionerId || !treatmentId) {
+  //           router.push("/");
+  //         } else {
+  //           router.push(
+  //             `/payment?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
+  //           );
+  //         }
+  //       } else {
+  //         if (!date || !timeSlotId || !practitionerId || !treatmentId) {
+  //           router.push(`/user-details`);
+  //         } else {
+  //           router.push(
+  //             `/user-details?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
+  //           );
+  //         }
+
+  //         setOTP("");
+  //       }
+  //       //set token in cookies
+  //       Cookies.set("token", token, {
+  //         expires: 24,
+  //         secure: true,
+  //       });
+  //     }
+  //   } catch (error) {
+  //     setErrorVerfy(error.response.data.responseData.message);
+  //     setOTP("");
+  //     setShow(true);
+  //   }
+  // };
+
   const handleVerification = async (otpValue) => {
     const updatedOTPValues = [...otpValue];
     setOTP(otpValue);
@@ -40,7 +96,6 @@ const OTB = () => {
     }
 
     try {
-      // Send a request to the backend API to verify the OTP
       const response = await api.post("OTP/Verify", {
         phoneNumber: phone,
         code: finalOTP,
@@ -48,25 +103,37 @@ const OTB = () => {
 
       console.log("--------------", response.data.responseData);
 
-      const token = response.data.responseData.token;
-      if (response.data.isSuccess) {
-        if (response.data.responseData.isConfigured) {
-          console.log();
-          router.push("/");
-        } else {
-          router.push(
-            `/user-details?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
-          );
-          setOTP("");
-        }
-        //set token in cookies
+      const { isSuccess, responseData } = response.data;
+      const token = responseData.token;
+
+      if (isSuccess) {
+        const redirectToCorrectPage = () => {
+          if (!date || !timeSlotId || !practitionerId || !treatmentId) {
+            router.push("/");
+          } else {
+            const queryParams = `treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`;
+            const path = responseData.isConfigured
+              ? "/payment"
+              : "/user-details";
+            router.push(`${path}?${queryParams}`);
+          }
+        };
+
+        redirectToCorrectPage();
+
         Cookies.set("token", token, {
-          expires: 24,
+          expires: 1 / 24, // 1
           secure: true,
         });
+
+        if (!responseData.isConfigured) {
+          setOTP("");
+        }
       }
     } catch (error) {
-      setErrorVerfy(error.response.data.responseData.message);
+      const errorMessage =
+        error.response?.data?.responseData?.message || "An error occurred";
+      setErrorVerfy(errorMessage);
       setOTP("");
       setShow(true);
     }

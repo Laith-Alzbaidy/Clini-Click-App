@@ -69,6 +69,8 @@
 .image {
   width: 100% !important;
   border-radius: 15px;
+  object-position: center center !important;
+  object-fit: cover !important;
 }
 
 .container-rate-review {

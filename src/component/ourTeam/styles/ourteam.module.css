@@ -44,8 +44,8 @@
 .image {
   /* width: 100% !important; */
   border-radius: 15px;
-  object-position: center center;
-  object-fit: cover;
+  object-position: center center !important;
+  object-fit: cover !important;
 }
 
 .container-rate-review {
@@ -78,7 +78,7 @@
     margin: auto;
   }
   .container-card {
-    max-width: 170px !important;
+    max-width: 173px !important;
     height: 244px;
   }
 
@@ -104,22 +104,26 @@
   }
   .text-review {
     font-size: 10px;
+
+    font-weight: 400;
+
+    color: #828282 !important;
   }
-  .view-profile {
-    color: var(--secondary-color) !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    height: 12px !important;
-    align-self: flex-end !important;
-    margin-right: 12px !important;
-    margin-top: 4px !important;
-    cursor: pointer;
-    text-align: right;
-    width: fit-content;
-  }
-  .title {
-    font-size: 25px;
-  }
+}
+.view-profile {
+  color: var(--secondary-color) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  height: 12px !important;
+  align-self: flex-end !important;
+  margin-right: 12px !important;
+  margin-top: 4px !important;
+  cursor: pointer;
+  text-align: right;
+  width: fit-content;
+}
+.title {
+  font-size: 25px;
 }
 
 @media (max-width: 768px) {

@@ -30,7 +30,6 @@ const style = {
   height: "90vh",
   width: "878.967px",
   outline: "none",
-  overflowY: "auto", // Corrected property name
 };
 
 const theme = createTheme({
@@ -114,7 +113,7 @@ const PopupDoctor = ({ data }) => {
                     alt="star"
                   />
                 </div>
-                <Link className={styles["link-review"]} href={`${1}/reviews`}>
+                <Link className={styles["link-review"]} href={`/reviews`}>
                   <p className={styles["text-review"]}>106 reviews</p>
                 </Link>
               </div>

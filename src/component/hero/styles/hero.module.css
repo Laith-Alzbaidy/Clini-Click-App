@@ -12,6 +12,8 @@
   border-radius: 20px !important;
   width: 100%;
   height: 100%;
+  object-fit: cover !important;
+  object-position: center center !important;
 }
 .number-image {
   position: absolute;
@@ -63,6 +65,12 @@
   .title-hero {
     font-size: 30px;
   }
+
+  .number-image {
+    right: 30px;
+    bottom: 40px;
+    font-size: 20px;
+  }
   .star-image {
     width: 22px !important;
     height: 22px !important;
@@ -73,6 +81,8 @@
   .text-icon {
     font-size: 20px !important;
     text-decoration-line: none !important;
+    color: #828282;
+    font-weight: 400;
   }
   .container-communication {
     display: flex !important;
@@ -81,6 +91,8 @@
   }
   .text-review {
     font-size: 20px;
+    color: #828282;
+    font-weight: 400;
   }
   .content-hero {
     max-width: 595px;

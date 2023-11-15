@@ -85,9 +85,14 @@ const PractitionerDetails = () => {
         expires: 1 / 24,
         secure: true,
       });
-      router.push(
-        `/payment?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
-      );
+
+      if (!date || !timeSlotId || !practitionerId || !treatmentId) {
+        router.push(`/profile`);
+      } else {
+        router.push(
+          `/payment?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`
+        );
+      }
     }
   };
 

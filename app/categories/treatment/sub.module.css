@@ -11,12 +11,11 @@
 .containerHero::before {
   content: "";
   display: block;
-  padding-top: 58.55%; 
+  padding-top: 58.55%;
 }
 
-.wrapper{
+.wrapper {
   padding: 0 28px 0 28px;
-
 }
 .subName {
   color: #001435;
@@ -53,8 +52,12 @@
   z-index: 100;
 }
 
-@media (min-width: 1280px) {
+.background {
+  object-position: center center !important;
+  object-fit: cover !important;
+}
 
+@media (min-width: 1280px) {
   .wrapper {
     max-width: 768px;
     margin: 0 auto;
@@ -95,17 +98,17 @@
   .backIcon {
     display: none;
   }
-  .price{
+  .price {
     width: 60px;
     font-size: 20px;
   }
-  .duration{
+  .duration {
     font-size: 20px;
   }
-  .name{
+  .name {
     font-size: 20px;
   }
-  .containerHero{
+  .containerHero {
     margin: 28px 0 0 0px;
   }
 }
@@ -138,11 +141,9 @@
     font-size: 20px;
     padding-bottom: 7rem;
   }
-  .containerHero{
+  .containerHero {
     margin: 28px 0 0 0px;
   }
-
-  
 }
 
 @media (max-width: 768px) and (min-width: 481px) {
@@ -161,5 +162,4 @@
   .subDiscreption {
     font-size: 12px;
   }
-
 }

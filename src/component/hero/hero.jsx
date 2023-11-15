@@ -8,7 +8,6 @@ import location from "./assets/image/icon _location_.svg";
 import call from "./assets/image/call.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
-
 import "swiper/css";
 const Hero = ({ data }) => {
   const [index, setIndex] = useState(0);

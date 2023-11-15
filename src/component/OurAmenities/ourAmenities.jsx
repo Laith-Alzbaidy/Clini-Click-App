@@ -8,7 +8,6 @@ const OurAmenities = ({ data }) => {
   const [size, setSize] = useState(window.innerWidth);
 
   const updateSize = () => setSize(window.innerWidth);
-
   console.log(size);
 
   useEffect(() => (window.onresize = updateSize), []);

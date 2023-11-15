@@ -7,7 +7,7 @@ import styles from "./styles/header.module.css";
 import UserIcon from "./assets/image/user.svg";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
-const Header = () => {
+const Header = ({ pathBefore }) => {
   const [token, setToken] = useState("");
   const [data, setData] = useState(null);
 
@@ -29,13 +29,15 @@ const Header = () => {
 
   return (
     <header className="header-section">
-      <Image
-        className={styles["logo"]}
-        src={data?.logo}
-        width={120}
-        height={50}
-        alt="logo"
-      />
+      <div>
+        <Image
+          className={styles["logo"]}
+          src={data?.logo}
+          width={120}
+          height={50}
+          alt="logo"
+        />
+      </div>
 
       {token ? (
         <Link href={"/profile"}>

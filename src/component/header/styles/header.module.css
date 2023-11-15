@@ -12,6 +12,10 @@
   font-family: "Quicksand", sans-serif !important;
 }
 
+.logo {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
 @media (min-width: 776px) {
   .logo {
     width: 174.231px;

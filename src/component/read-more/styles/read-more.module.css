@@ -14,10 +14,10 @@
 }
 
 @media (min-width: 776px) {
-  .description {
+  /* .description {
     font-size: 20px !important;
   }
   .read-more {
     font-size: 20px !important;
-  }
+  } */
 }

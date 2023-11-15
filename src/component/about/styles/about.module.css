@@ -70,6 +70,8 @@
   .description {
     font-size: 20px !important;
     line-height: 28px;
+    color: #828282;
+    font-weight: 400;
   }
   .title-icon,
   .date-established,
@@ -85,6 +87,7 @@
   .title-icon {
     margin-top: 10px !important;
     line-height: 32px;
+    font-weight: 500 !important;
   }
   .slide-up-about {
     display: none;
