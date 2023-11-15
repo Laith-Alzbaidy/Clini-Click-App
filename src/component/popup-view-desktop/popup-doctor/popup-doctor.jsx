@@ -15,6 +15,7 @@ import license from "./assets/image/license-number.svg";
 import SlideUpAbout from "../../slideupModal/slideUpAbout/slideUpAbout";
 import Icon from "../../icon/icon";
 import ReadMore from "../../read-more/read-more";
+import OurTeamPopup from "../../ourTeam/ourteam-popup";
 SlideUpAbout;
 const style = {
   position: "absolute",
@@ -47,14 +48,11 @@ const PopupDoctor = ({ data }) => {
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        {/* <Typography onClick={handleOpen}>Learn more</Typography> */}
-        <OurTeam
-          setIsModalOpen={setIsModalOpen}
-          data={data}
-          setPractitioner={setPractitioner}
-        />
-      </ThemeProvider>
+      <OurTeamPopup
+        setIsModalOpen={setIsModalOpen}
+        data={data}
+        setPractitioner={setPractitioner}
+      />
 
       <Modal
         open={isModalOpen}

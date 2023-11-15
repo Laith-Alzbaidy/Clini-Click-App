@@ -13,7 +13,7 @@
   font-family: "Montserrat", sans-serif;
 }
 .notification {
-  width: 100%;
+  width: 100% !important;
   height: 42.029px;
   background: #e8e8e8;
   color: #000;
@@ -54,7 +54,7 @@
 }
 .treatmentDeatils {
   color: #000;
-  font-size: 12px;
+  font-size: 14px !important;
   font-weight: 400;
 }
 .practitionerContainer {
@@ -118,64 +118,7 @@
 .container1 {
   padding: 10px 28px;
 }
-@media (min-width: 1280px) {
-  .container {
-    max-width: 768px;
-    margin: 0 auto;
-  }
-  .title {
-    font-size: 20px;
-  }
-  .notification {
-    font-size: 16px;
-    height: 85px;
-  }
-  .subTitle {
-    font-size: 16px;
-  }
-  .treatmentContainer:first-child {
-    font-size: 16px;
-  }
-
-  .treatmentName {
-    font-size: 16px;
-  }
-  .treatmentDeatils {
-    font-size: 16px;
-  }
-
-  .practitionerContainer :nth-child(1) {
-    font-size: 16px;
-  }
-  .practitionerContainer :nth-child(2) {
-    font-size: 16px;
-  }
-
-  .timingContainer :nth-child(1) {
-    font-size: 16px;
-  }
-  .timingContainer :nth-child(2) {
-    font-size: 16px;
-  }
-
-  .totalContainer :nth-child(1) {
-    font-size: 16px;
-
-  }
-  .totalContainer :nth-child(2) {
-    font-size: 16px;
-  }
-  .totalContainer :nth-child(1) span {
-    font-size: 16px;
-  }
-  .call {
-    font-size: 16px;
-  }
-  .timingContainer {
-    gap: 66px;
-  }
-}
-@media (max-width: 1279px) and (min-width: 769px) {
+@media (min-width: 769px) {
   .container {
     max-width: 768px;
     margin: 0 auto;
@@ -185,9 +128,9 @@
   }
   .notification {
     font-size: 20px;
-    width: 879.407px;
     height: 85.086px;
   }
+
   .subTitle {
     font-size: 20px;
   }
@@ -198,8 +141,8 @@
   .treatmentName {
     font-size: 20px;
   }
-  .treatmentDeatils {
-    font-size: 20px;
+  .treatmentDeatils p {
+    font-size: 20px !important;
   }
 
   .practitionerContainer :nth-child(1) {

@@ -4,8 +4,8 @@
   justify-content: space-between;
   align-items: center;
 }
-.warapper{
-  padding:28px 0 28px 0 ;
+.warapper {
+  padding: 0 0 28px 0;
 }
 .title {
   color: #001435;
@@ -34,7 +34,7 @@
   font-weight: 600;
 }
 .active .day {
-  color: #FFF;
+  color: #fff;
   font-size: 10px;
   font-weight: 400;
 }
@@ -72,14 +72,13 @@
   font-weight: 600;
 }
 
-
 .time {
   color: var(--primary-color);
   font-size: 12px;
   font-weight: 400;
 }
 .time:hover {
-  color: #FFF;
+  color: #fff;
   font-size: 12px;
   font-weight: 600;
 }

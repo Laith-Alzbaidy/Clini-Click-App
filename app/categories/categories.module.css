@@ -43,6 +43,17 @@
     max-width: 768px;
     margin: 0 auto;
   }
+}
+
+@media (min-width: 1280px) {
+  .treatmentText {
+    font-size: 25px;
+    margin: 0rem 0 0.8rem 0rem;
+  }
+  .holder {
+    max-width: 768px;
+    margin: 0 auto;
+  }
   .desktopConatiner {
     display: block;
     padding: 28px 64px 0 64px;

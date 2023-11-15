@@ -15,13 +15,14 @@ import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout";
 import OurTeam from "../../ourTeam/ourteam";
 import Practitioner from "@/app/schedule-appointment/page";
-
+import ReadMore from "../../read-more/read-more";
 const SlideUpDoctor = ({ data }) => {
   const [practitioner, setPractitioner] = useState({});
 
   console.log("***************", practitioner.qualifications);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalclass, SetClass] = useState("modal-content");
+  const [flagOverFlow, setFlagOverFlow] = useState(false);
   function close() {
     SetClass("modal-content closing");
     setTimeout(() => {
@@ -114,11 +115,12 @@ const SlideUpDoctor = ({ data }) => {
             <div className={styles["container-content"]}>
               <h1 className={`${styles["title"]} mb-2`}>About</h1>
               {/* <ReadMore /> */}
-              <p className={styles["description"]}>
+              {/* <p className={styles["description"]}>
                 Clinique de la Belle au Bois Dormant is Dubai’s most
                 prestigiousbeauty parlour. With high skilled...
-              </p>
-              <SlideUpAbout />
+              </p> */}
+              <ReadMore />
+              {/* <SlideUpAbout setFlagOverFlow={setFlagOverFlow} /> */}
               <div className={styles["container-content"]}>
                 <Row className={styles["card"]}>
                   <Col className="d-flex gap-2">

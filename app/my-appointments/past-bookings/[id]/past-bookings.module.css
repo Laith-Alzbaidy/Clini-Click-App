@@ -229,10 +229,9 @@
     display: flex;
     gap: 75px;
   }
-  .backIcon{
+  .backIcon {
     display: none;
   }
- 
 }
 
 @media (max-width: 1279px) and (min-width: 769px) {
@@ -283,7 +282,6 @@
   .cancellation span {
     font-size: 16px;
   }
-
 }
 
 @media (max-width: 768px) and (min-width: 481px) {

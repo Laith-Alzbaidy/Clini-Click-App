@@ -67,7 +67,7 @@ const BookFinish = ({ bookingId }) => {
               </div>
 
               {dataAppointments.bodyArea ? (
-                <div>
+                <div className={styles["content-treatment"]}>
                   <p>Body area: {dataAppointments?.bodyArea}</p>
                   <p>Device: {dataAppointments?.device}</p>
                   <p>Sessions: {dataAppointments?.sessions}</p>
@@ -77,7 +77,6 @@ const BookFinish = ({ bookingId }) => {
               ) : (
                 <p>default</p>
               )}
-              
             </div>
           </div>
           <div className={styles.practitionerContainer}>

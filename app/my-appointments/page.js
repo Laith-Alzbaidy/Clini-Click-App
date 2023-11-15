@@ -52,7 +52,7 @@ const MyAppointments = () => {
         </Link>
 
         <Link href={"/profile"}>
-          <Image src={user} alt="user" />
+          <Image src={user} alt="user" className={styles.user} />
         </Link>
       </div>
       <div className={styles.desktopContainer}>
