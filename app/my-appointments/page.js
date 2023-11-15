@@ -55,7 +55,7 @@ const MyAppointments = () => {
           <Image src={user} alt="user" />
         </Link>
       </div>
-      {/* <div className={styles.desktopContainer}> */}
+      <div className={styles.desktopContainer}>
       <div className={styles.title}>My appointments</div>
 
       <div className={styles.subTitle}>Upcoming appointments</div>
@@ -137,7 +137,7 @@ const MyAppointments = () => {
 
       <Footer additiionalStyles={style} />
     </div>
-    // </div>
+   </div>
   );
 };
 
