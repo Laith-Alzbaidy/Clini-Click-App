@@ -12,7 +12,7 @@ import google from "./assets/image/google.png";
 import credit from "./assets/image/credit-debit.png";
 import payclinic from "./assets/image/pay-clinic.png";
 import PopupCardPayment from "../popup-card-payment/popup-card-payment";
-
+import Light from "../lines/light";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 function PopupPayment({ selectMethod, setSelectMethod }) {
@@ -33,6 +33,10 @@ function PopupPayment({ selectMethod, setSelectMethod }) {
       handleClose(false);
       setShowPaymentCardPopup(true);
     }, 1000);
+  };
+
+  const stylesLine = {
+    marginTop: "5px",
   };
 
   const token = Cookies.get("token");
@@ -99,7 +103,7 @@ function PopupPayment({ selectMethod, setSelectMethod }) {
         {/* Choose payment method */}
         {selectMethod?.name ? selectMethod.name : "Choose payment method"}
       </button>
-      <Modal show={show} onHide={handleClose} animation={false}>
+      <Modal centered show={show} onHide={handleClose} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>
             <div className={styles["header"]}>
@@ -180,31 +184,35 @@ function PopupPayment({ selectMethod, setSelectMethod }) {
               </label> */}
 
               {paymentMethods?.map((method) => (
-                <label className="w-100" key={method.id} htmlFor={method.id}>
-                  <div className="d-flex align-items-center justify-content-between">
-                    <div className="d-flex gap-3 align-items-center">
-                      {/* <Image
+                <>
+                  <label className="w-100" key={method.id} htmlFor={method.id}>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <div className="d-flex gap-3 align-items-center">
+                        {/* <Image
                         width={50}
                         height={40}
                         src={method?.icon}
                         alt={method.name}
                       /> */}
-                      <span className={styles["text-lable"]}>
-                        {method?.name}
-                      </span>
+                        <span className={styles["text-lable"]}>
+                          {method?.name}
+                        </span>
+                      </div>
+                      <input
+                        type="radio"
+                        id={method.id}
+                        value={method.name}
+                        checked={selectMethod.name === method.name}
+                        onChange={() => {
+                          handleRadioChange(method);
+                          // console.log(method);
+                        }}
+                      />
                     </div>
-                    <input
-                      type="radio"
-                      id={method.id}
-                      value={method.name}
-                      checked={selectMethod.name === method.name}
-                      onChange={() => {
-                        handleRadioChange(method);
-                        // console.log(method);
-                      }}
-                    />
-                  </div>
-                </label>
+                  </label>
+
+                  <Light additionalStyles={stylesLine} />
+                </>
               ))}
             </div>
           </div>

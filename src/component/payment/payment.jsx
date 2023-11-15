@@ -195,7 +195,9 @@ const Payment = () => {
             <div className={styles["slide-up-privacy"]}>
               <SlideUpPrivacy title="T&Cs" data={dataPreConfirm.policy} />
             </div>
-            <PopupPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and
+            <div className="PopupPrivacy">
+              <PopupPrivacy title="T&Cs" data={dataPreConfirm.policy} /> and
+            </div>
             <div className={styles["slide-up-privacy"]}>
               <SlideUpPrivacy
                 title="Privacy Policy"

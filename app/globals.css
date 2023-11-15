@@ -241,6 +241,9 @@ a {
 }
 
 @media (max-width: 768px) and (min-width: 393px) {
+  .PopupPrivacy {
+    display: none;
+  }
   .padding-up-mobile {
     padding-top: 28px;
   }
