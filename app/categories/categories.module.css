@@ -1,12 +1,13 @@
-.holder{
+.holder {
   padding: 28px 0 28px 0;
+  height: 100vh;
+  position: 50% 50%;
 }
 .book {
   color: var(--primary-color);
 }
 .backIcon {
-margin: 0 28px 0 28px;
-
+  margin: 0 28px 0 28px;
 }
 .treatmentText {
   color: #101623;
@@ -15,16 +16,22 @@ margin: 0 28px 0 28px;
   margin: 1rem 0 0.8rem 0rem;
   padding: 0 28px 0 28px;
 }
-@media (max-width: 768px) and (min-width: 481px) {
+.desktopConatiner {
+  display: none;
+}
+@media (max-width: 767px) and (min-width: 481px) {
   .treatmentText {
     font-size: 25px;
-    
   }
 }
-@media (max-width: 1279px) and (min-width: 769px) {
+@media (max-width: 1279px) and (min-width: 768px) {
   .treatmentText {
     font-size: 25px;
     margin: 0rem 0 0.8rem 0rem;
+  }
+  .desktopConatiner {
+    display: block;
+    padding: 28px;
   }
 }
 @media (min-width: 1280px) {
@@ -32,9 +39,12 @@ margin: 0 28px 0 28px;
     font-size: 25px;
     margin: 0rem 0 0.8rem 0rem;
   }
-  .holder{
+  .holder {
     max-width: 768px;
     margin: 0 auto;
   }
-
+  .desktopConatiner {
+    display: block;
+    padding: 28px 64px 0 64px;
+  }
 }

@@ -25,6 +25,7 @@ const CategoryContent = () => {
 
   return (
     <div>
+     
       <Tabs list={list} />
       <CategoriesList list={list} />
     </div>

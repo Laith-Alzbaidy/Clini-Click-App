@@ -122,13 +122,13 @@ const PractitionerSelctor = ({
                 slidesPerView: 2.25,
               },
               480: {
-                slidesPerView: 2.75,
+                slidesPerView: 2.25,
               },
               600: {
-                slidesPerView: 3.5,
+                slidesPerView: 2.5,
               },
               768: {
-                slidesPerView: 3.25,
+                slidesPerView: 3.35,
               },
             }}
           >
