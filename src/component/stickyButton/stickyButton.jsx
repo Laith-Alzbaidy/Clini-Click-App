@@ -15,7 +15,7 @@ const StickyButton = ({
   const currentStyles = {
     backgroundColor: "#fff",
     width: "100%",
-    higth:"fit-content",
+    higth: "fit-content",
     position: "fixed",
     bottom: "0px",
     zIndex: 2,
@@ -23,19 +23,24 @@ const StickyButton = ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding:"15px 0px"
+    padding: "15px 0px",
   };
 
   const mix = { ...currentStyles, ...additionalStyles };
 
   return (
     <div className={styles.wrapper} style={mix}>
-      {content && <p className={styles.noPayment}>No payment will be taken until your appointment</p>}
+      {content && (
+        <p className={styles.noPayment}>
+          No payment will be taken until your appointment
+        </p>
+      )}
       <Button
         className={styles.btn}
         onClick={onClick}
         type={type}
-        disabled={disabled}>
+        disabled={disabled}
+      >
         {title}
         {selectMethod?.value && (
           <Image

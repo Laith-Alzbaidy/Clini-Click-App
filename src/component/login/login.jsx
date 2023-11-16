@@ -49,16 +49,18 @@ const Login = () => {
   };
 
   return (
-    <div className={styles["holder"]}>
+    <div className={styles.warapper}>
       <div className={`container1`}>
-        <ClosePrev close="/" back="./" />
+        <div className={styles["close-prev"]}>
+          <ClosePrev close="/" back="./" />
+        </div>
 
         <div className={styles["header"]}>
           <p className={styles["step"]}>Step 2 of 3</p>
           <h1 className={styles["title"]}>Enter the OTP</h1>
         </div>
 
-        <p>
+        <p className={styles["text-send-phone"]}>
           We will send you a WhatsApp message with an OTP to verify your number.
         </p>
 

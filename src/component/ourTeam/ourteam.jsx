@@ -51,7 +51,6 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
     return (
       <>
         <>
-          {" "}
           <SwiperSlide
             onClick={() => handleDataPractitioner(item)}
             className={styles["swiper-slide"]}

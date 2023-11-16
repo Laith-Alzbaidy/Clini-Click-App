@@ -11,7 +11,9 @@ import global from "./assets/image/global.svg";
 import license from "./assets/image/license-number.svg";
 import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
-import ReadMore from '@/src/component/read-more/read-more';
+import ReadMore from "@/src/component/read-more/read-more";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -22,27 +24,27 @@ const style = {
   borderRadius: "40px",
   boxShadow: 24,
   p: 4,
-  width: "740px",
+  height: "90vh",
+  width: "878.967px",
   outline: "none",
-  overview:"auto"
-
 };
+
 const learn = {
   color: "#A75CFF",
   fontFamily: "Montserrat, sans-serif !important",
   fontSize: "18px",
   fontWeight: 600,
-
 };
+
 const practitionerStyle = {
   color: "#A75CFF",
   fontFamily: "Montserrat, sans-serif !important",
   fontSize: "12px",
   fontWeight: 600,
-  paddingTop:"6px"
+  paddingTop: "6px",
 };
 
-const LearnMore = ({ data, learnMore, practitionerData , close }) => {
+const LearnMore = ({ data, learnMore, practitionerData, close }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -50,8 +52,8 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
 
   const renderGeneralInfo = () => (
     <Box sx={style}>
-      <div onClick={handleClose} className="close" style={{marginLeft:660}}>
-        <Image src={closebtn} alt="close"  className="image-close"/>
+      <div onClick={handleClose} className="close" style={{ marginLeft: 660 }}>
+        <Image src={closebtn} alt="close" className="image-close" />
       </div>
       <div className={styles2.container}>
         <div className={styles2.title}>{data.name}</div>
@@ -79,81 +81,81 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
 
   const renderPractitionerInfo = () => (
     <Box sx={style}>
-       <div onClick={handleClose} className="close" style={{marginLeft:660}}>
-        <Image src={closebtn} alt="close"  className="image-close"/>
+      <div onClick={handleClose} className="close">
+        <Image src={closebtn} alt="close" className="image-close" />
       </div>
-      <div className={`${styles["container-image"]}`}>
-        <Image
-          width={400}
-          height={220}
-          priority
-          src={practitioner.picture}
-          className={styles["image"]}
-          alt="Dr."
-        />
-      </div>
-      <div className={styles["container-content"]}>
-        <h1 className={styles["title"]}>{`${practitioner.title.name} ${
-          practitioner.firstName + "  " + practitioner.lastName
-        }`}</h1>
-        <p className={styles["specialization"]}>
-          {`${practitioner.speciality.name} - ${practitioner.experienceYears} years of experience`}
-        </p>
-        <div className="d-flex align-items-center gap-4">
-          <div>
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-          </div>
-          <Link className={styles["link-review"]} href={`${1}/reviews`}>
-            <p className={styles["text-review"]}>106 reviews</p>
-          </Link>
+      <div className={styles["container-practitioner"]}>
+        <div className={`${styles["container-image"]}`}>
+          <Image
+            width={400}
+            height={220}
+            priority
+            src={practitioner.picture}
+            className={styles["image"]}
+            alt="Dr."
+          />
         </div>
-      </div>
-      {/* Section qualifications */}
-      <div className={styles["container-content"]}>
-        <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
-
-        <ul className={styles["list-qualifications"]}>
-          {practitioner.qualifications?.map((qualifications, index) => {
-            return (
-              <li key={index} className={styles["item-list"]}>
-                {qualifications.name}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      {/* Section About Me  */}
-      <div className={styles["container-content"]}>
-        <h1 className={`${styles["title"]} mb-2`}>About</h1>
-        {/* <ReadMore /> */}
-        <ReadMore />
         <div className={styles["container-content"]}>
-          <Row className={styles["card"]}>
-            <Col className="d-flex gap-2">
-              <Image src={global} alt="Languages" />
-              <div>
-                <p className={styles["title-icon"]}>Languages</p>
-                <p className={styles["sub-title-icon"]}>
-                  Arabic <br />
-                  English
-                </p>
-              </div>
-            </Col>
-            <Col className="d-flex gap-2">
-              <Image src={license} alt="License Number" />
-              <div>
-                <p className={styles["title-icon"]}>License Number</p>
-                <p className={styles["sub-title-icon"]}>
-                  {practitioner.medicalLicense}
-                </p>
-              </div>
-            </Col>
-          </Row>
+          <h1 className={styles["title"]}>{`${practitioner.title.name} ${
+            practitioner.firstName + "  " + practitioner.lastName
+          }`}</h1>
+          <p className={styles["specialization"]}>
+            {`${practitioner.speciality.name} - ${practitioner.experienceYears} years of experience`}
+          </p>
+          <div className="d-flex align-items-center gap-4">
+            <div>
+              <StarsRate rate={practitioner?.rating} />
+            </div>
+            <Link className={styles["link-review"]} href={`${1}/reviews`}>
+              <p className={styles["text-review"]}>
+                {practitioner?.practitionerReviews} reviews
+              </p>
+            </Link>
+          </div>
+        </div>
+        {/* Section qualifications */}
+        <div className={styles["container-content"]}>
+          <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
+
+          <ul className={styles["list-qualifications"]}>
+            {practitioner.qualifications?.map((qualifications, index) => {
+              return (
+                <li key={index} className={styles["item-list"]}>
+                  {qualifications.name}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Section About Me  */}
+        <div className={styles["container-content"]}>
+          <h1 className={`${styles["title"]} mb-2`}>About</h1>
+          {/* <ReadMore /> */}
+          <ReadMore />
+          <div className={styles["container-content"]}>
+            <Row className={styles["card"]}>
+              <Col className="d-flex gap-2">
+                <Image src={global} alt="Languages" />
+                <div>
+                  <p className={styles["title-icon"]}>Languages</p>
+                  <p className={styles["sub-title-icon"]}>
+                    Arabic <br />
+                    English
+                  </p>
+                </div>
+              </Col>
+              <Col className="d-flex gap-2">
+                <Image src={license} alt="License Number" />
+                <div>
+                  <p className={styles["title-icon"]}>License Number</p>
+                  <p className={styles["sub-title-icon"]}>
+                    {practitioner.medicalLicense}
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </div>
       </div>
     </Box>
@@ -169,7 +171,8 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description">
+        aria-describedby="modal-modal-description"
+      >
         {learnMore ? renderGeneralInfo() : renderPractitionerInfo()}
       </Modal>
     </div>

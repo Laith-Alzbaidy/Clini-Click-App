@@ -11,6 +11,9 @@
   color: var(--primary-color);
 }
 
+.title-review {
+  font-size: 16px;
+}
 .container-all-reviews {
   margin: 10px 0 !important;
 }
@@ -37,4 +40,50 @@
   font-weight: 400;
   margin-top: 8px !important;
   color: var(--primary-color);
+}
+
+@media (min-width: 769px) {
+  .close-btn {
+    display: none;
+  }
+
+  .rate {
+    font-size: 16px;
+  }
+  .holder {
+    display: flex;
+    justify-content: center;
+    align-items: c;
+  }
+
+  .warapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 768px !important;
+    margin: 0 auto;
+    height: 74vh;
+  }
+  .title {
+    font-size: 25px;
+  }
+
+  .rate {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--secondary-color);
+  }
+
+  .star-review {
+    width: 25px;
+    height: 25px;
+  }
+
+  .title-review {
+    font-size: 20px;
+  }
+  .discription-reviews {
+    font-size: 14px;
+    font-weight: 400;
+  }
 }

@@ -5,7 +5,12 @@
   position: relative;
   width: 100%;
 }
-
+.container-practitioner {
+  padding: 0px 10px;
+  height: 100%;
+  overflow: auto !important;
+  margin-top: 10px !important;
+}
 .image {
   border-radius: 20px !important;
   position: static !important;

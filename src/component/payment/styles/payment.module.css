@@ -168,6 +168,7 @@
 
 .container1 {
   padding: 0 28px !important;
+  width: 100%;
 }
 
 .content-data-priv {
@@ -176,9 +177,11 @@
 }
 
 @media (min-width: 769px) {
-  .holder {
-    max-width: 768px !important;
-    margin: 0 auto !important;
+  .warapper {
+    max-width: 768px;
+    max-height: 73vh;
+    width: 100%;
+    margin: 0 auto;
   }
   .subTitle {
     font-size: 20px;
@@ -269,7 +272,7 @@
     height: 30px;
   }
   .container-privacy {
-    margin-bottom: 80px !important;
+    margin-bottom: 50px !important;
   }
   .timingContainer {
     display: flex;
@@ -277,5 +280,17 @@
   }
   .nav-header {
     display: none;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 394px) {
+  /* .container-privacy {
+    padding: 0 !important;
+  } */
+}
+
+@media (max-width: 394px) {
+  .container-privacy {
+    padding: 0 !important;
   }
 }

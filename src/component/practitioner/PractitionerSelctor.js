@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import star from "./assets/star.svg";
 import LearnMore from "../learnMoreModal/LearnMore";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
+
 const PractitionerSelctor = ({
   handlePractitionerSelect,
   setSelectedDoctor,
@@ -17,6 +19,7 @@ const PractitionerSelctor = ({
   NoPrefrence,
   handleNoPreference,
 }) => {
+  console.log("+++++++++++++++++++++++", data);
   const team = data
     ? data.map((practitioner, index) => {
         const isActive = practitioner.id == slecetedDoctor;
@@ -36,10 +39,10 @@ const PractitionerSelctor = ({
                 }}
               >
                 <div className={styles["container-image"]}>
-                  {practitioner.picture !== null ? (
+                  {practitioner?.picture !== null ? (
                     <Image
                       fill
-                      src={practitioner.picture}
+                      src={practitioner?.picture}
                       alt={"practitioner"}
                       className={styles["image"]}
                       priority
@@ -56,26 +59,29 @@ const PractitionerSelctor = ({
 
                 <div>
                   <h1 className={styles["name-card"]}>{`${
-                    practitioner.title.name
-                  } ${practitioner.firstName + practitioner.lastName}`}</h1>
+                    practitioner?.title.name
+                  } ${practitioner?.firstName + practitioner?.lastName}`}</h1>
                   <p className={styles["specialization"]}>
-                    {practitioner.speciality.name}
+                    {practitioner?.speciality.name}
                   </p>
                   <p className={styles["exp"]}>
-                    {practitioner.experienceYears} years of experience
+                    {practitioner?.experienceYears} years of experience
                   </p>
                 </div>
 
-                <p className={styles["exp"]}>{practitioner.exp}</p>
+                <p className={styles["exp"]}>{practitioner?.exp}</p>
                 <div className={styles["container-rate-review"]}>
                   <div>
-                    <Image
+                    {/* <Image
                       src={star}
                       className={styles["star-image"]}
                       alt="star"
-                    />
+                    /> */}
+                    <StarsRate rate={practitioner?.rating} />
                   </div>
-                  <p className={styles["text-review"]}>{230} reviews</p>
+                  <p className={styles["text-review"]}>
+                    {practitioner?.practitionerReviews || 5} reviews
+                  </p>
                 </div>
               </div>
               <p

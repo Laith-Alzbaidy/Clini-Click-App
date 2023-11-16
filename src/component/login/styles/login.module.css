@@ -43,14 +43,39 @@
 }
 
 @media (min-width: 769px) {
-  .holder {
-    max-width: 768px !important;
-    margin: 0 auto !important;
+  .warapper {
+    max-width: 768px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 75vh;
+  }
+  .lable-phone {
+    font-size: 14px;
   }
   .step {
     font-size: 20px;
   }
+  .close-prev {
+    display: none;
+  }
   .title {
     font-size: 25px;
+  }
+  .text-send-phone {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) and (min-width: 393px) {
+  .close-prev {
+    display: block;
+  }
+}
+
+@media (max-width: 392px) {
+  .close-prev {
+    display: block;
   }
 }
