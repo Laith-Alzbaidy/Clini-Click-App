@@ -38,7 +38,7 @@ function PopupCardPayment({ onHide, show }) {
 
   return (
     <>
-      <Modal show={show} onHide={onHide} animation={false}>
+      <Modal centered show={show} onHide={onHide} animation={false}>
         <Modal.Body>
           <div className={styles["container-body"]}>
             <div className={styles["header"]}>

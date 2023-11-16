@@ -6,7 +6,6 @@
 }
 .warapper {
   padding: 0 0 28px 0;
-
 }
 .title {
   color: #001435;
@@ -130,14 +129,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 75vh;
-
   }
-  .headerContainer{
+  .headerContainer {
     display: none;
   }
-  .title{
+  .title {
     font-size: 25px;
-
   }
 }
 @media (max-width: 1279px) and (min-width: 768px) {
@@ -149,9 +146,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 75vh;
-
   }
-  .headerContainer{
+  .headerContainer {
     display: none;
   }
 }

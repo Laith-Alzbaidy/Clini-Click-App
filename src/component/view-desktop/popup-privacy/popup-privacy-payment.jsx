@@ -13,7 +13,12 @@ function PopupPrivacy({ title, data }) {
       <span className={styles["privacy"]} onClick={() => setIsShow(true)}>
         <b>{title}</b>
       </span>
-      <Modal show={show} onHide={() => setIsShow(false)} animation={false}>
+      <Modal
+        centered
+        show={show}
+        onHide={() => setIsShow(false)}
+        animation={false}
+      >
         <Modal.Body>
           <div className={styles["header"]}>
             {title == "T&Cs" ? (

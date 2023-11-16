@@ -8,6 +8,8 @@ import location from "./assets/image/icon _location_.svg";
 import call from "./assets/image/call.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
+
 import "swiper/css";
 const Hero = ({ data }) => {
   const [index, setIndex] = useState(0);
@@ -49,11 +51,7 @@ const Hero = ({ data }) => {
         <h1 className={styles["title-hero"]}>{data?.name}</h1>
         <div className="d-flex align-items-center gap-3">
           <div>
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
+            <StarsRate rate={2} />
           </div>
 
           <Link href="/google-reviews">

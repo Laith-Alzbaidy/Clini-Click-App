@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Icon from "../icon/icon";
 import "swiper/css";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
 
 const slider = [
   {
@@ -79,31 +80,7 @@ const OurTeamPopup = ({ setIsModalOpen, data, setPractitioner }) => {
 
               <div className={styles["container-rate-review"]}>
                 <div>
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
+                  <StarsRate rate={item.rating} />
                 </div>
                 <p className={styles["text-review"]}>156 reviews</p>
               </div>

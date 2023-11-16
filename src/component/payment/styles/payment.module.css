@@ -202,10 +202,6 @@
     font-size: 20px;
   }
 
-  .subTitle {
-    font-size: 20px;
-  }
-
   .treatmentContainer:first-child {
     font-size: 20px;
   }
@@ -214,7 +210,8 @@
     font-size: 20px;
   }
   .treatmentDeatils {
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .practitionerContainer :nth-child(1) {
@@ -242,7 +239,8 @@
   }
 
   .privacy {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 25px;
   }
 
   .btn-payment {
@@ -253,10 +251,10 @@
     font-size: 20px;
   }
   .text-left {
-    font-size: 20px;
+    font-size: 16px;
   }
   .text-cancellation {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 25px;
   }
   .slide-up-privacy {
@@ -276,5 +274,8 @@
   .timingContainer {
     display: flex;
     gap: 73px;
+  }
+  .nav-header {
+    display: none;
   }
 }

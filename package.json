@@ -33,9 +33,12 @@
     "react-icons": "^4.11.0",
     "react-otp-input": "^3.1.0",
     "react-phone-input-2": "^2.15.1",
+    "react-rating": "^2.0.5",
     "react-rating-stars-component": "^2.2.0",
     "react-responsive-carousel": "^3.2.23",
     "reactjs-popup": "^2.0.6",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
     "styled-components": "^6.1.0",
     "swiper": "^10.3.1",
     "validator": "^13.11.0"

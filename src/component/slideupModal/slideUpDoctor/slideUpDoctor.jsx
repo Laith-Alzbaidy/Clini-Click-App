@@ -16,6 +16,8 @@ import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout
 import OurTeam from "../../ourTeam/ourteam";
 import Practitioner from "@/app/schedule-appointment/page";
 import ReadMore from "../../read-more/read-more";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
+
 const SlideUpDoctor = ({ data }) => {
   const [practitioner, setPractitioner] = useState({});
 
@@ -64,31 +66,7 @@ const SlideUpDoctor = ({ data }) => {
               </p>
               <div className="d-flex align-items-center gap-4">
                 <div>
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
+                  <StarsRate rate={practitioner?.rating} />
                 </div>
                 <Link className={styles["link-review"]} href={`${1}/reviews`}>
                   <p className={styles["text-review"]}>106 reviews</p>
