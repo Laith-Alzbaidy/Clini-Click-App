@@ -1,8 +1,7 @@
 import React from "react";
-import Bold from "../lines/bold"; 
-import Light from "../lines/light"
-import styles from "./option.module.css"; 
-
+import Bold from "../lines/bold";
+import Light from "../lines/light";
+import styles from "./option.module.css";
 const linestyle = {
   marginTop: "16px",
   marginBottom: "20px",
@@ -18,7 +17,6 @@ const OptionSelector = ({
   handleDeviceSelect,
   handleSessionSelect,
   AreaSelect,
-  
 }) => {
   return (
     <div>
@@ -80,7 +78,8 @@ const OptionSelector = ({
               ))}
               {selectedOption !== "consultation" &&
                 AreaSelect &&
-                AreaSelect.devices !== null && (
+                AreaSelect.devices &&
+                AreaSelect.devices.length > 0 && (
                   <div>
                     <Bold additionalStyles={linestyle} />
                     <div className={styles.SelectHeader}>
@@ -119,7 +118,8 @@ const OptionSelector = ({
                 )}
               {selectedOption !== "consultation" &&
                 AreaSelect &&
-                AreaSelect.sessions !== null && (
+                AreaSelect.sessions &&
+                AreaSelect.sessions.length > 0 && (
                   <div>
                     <Bold additionalStyles={linestyle} />
                     <div className={styles.SelectHeader}>
@@ -206,5 +206,4 @@ const OptionSelector = ({
     </div>
   );
 };
-
 export default OptionSelector;
