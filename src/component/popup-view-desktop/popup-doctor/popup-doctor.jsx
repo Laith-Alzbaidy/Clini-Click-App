@@ -29,7 +29,7 @@ const style = {
   borderRadius: "40px",
   boxShadow: 24,
   p: 4,
-  height: "auto",
+  height: "90vh",
   width: "878.967px",
   outline: "none",
 };
