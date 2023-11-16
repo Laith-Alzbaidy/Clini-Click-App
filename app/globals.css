@@ -189,6 +189,11 @@ a {
   background: #555;
 }
 
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
 .location iframe {
   height: 150px !important;
   border-radius: 20px;
@@ -256,7 +261,7 @@ a {
   }
 
   .slide-up-privacy {
-    margin-bottom: 80px;
+    margin-bottom: 0px;
     text-align: center;
   }
 
@@ -286,16 +291,31 @@ a {
   .container1 {
     padding: 28px;
   }
+  .container-footer {
+    display: block;
+  }
+
+  .icon-mobile {
+    display: block;
+  }
 }
 
-@media (max-width: 392px) {
+@media (max-width: 393px) {
   .slide-up-privacy {
-    margin-bottom: 70px;
+    margin-bottom: 0;
     text-align: center;
     display: block;
   }
   .padding-up-mobile {
     padding-top: 28px;
+  }
+
+  .container-footer {
+    display: block;
+  }
+
+  .icon-mobile {
+    display: block;
   }
 
   .popup-privacy {

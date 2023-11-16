@@ -35,79 +35,81 @@ const SlideUpDoctor = ({ data, isModalOpen, setIsModalOpen }) => {
             <div onClick={() => close()}>
               <ButtonPreviews />
             </div>
-            <div className={`${styles["container-image"]}`}>
-              <Image
-                fill
-                priority
-                src={practitioner.picture}
-                className={styles["image"]}
-                alt="Dr." // Alt text for the image
-              />
-            </div>
-            <div className={styles["container-content"]}>
-              <h1 className={styles["title"]}>{`${practitioner.title.name} ${
-                practitioner.firstName + "  " + practitioner.lastName
-              }`}</h1>
-              <p className={styles["specialization"]}>
-                {`${practitioner.speciality.name} - ${practitioner.experienceYears} years of experience`}
-              </p>
-              <div className="d-flex align-items-center gap-4">
-                <div>
-                  <StarsRate rate={practitioner?.rating} />
-                </div>
-                <Link className={styles["link-review"]} href={`${1}/reviews`}>
-                  <p
-                    className={styles["text-review"]}
-                  >{`${practitioner?.practitionerReviews} reviews`}</p>
-                </Link>
+            <div className={styles["container-practitioner"]}>
+              <div className={`${styles["container-image"]}`}>
+                <Image
+                  fill
+                  priority
+                  src={practitioner.picture}
+                  className={styles["image"]}
+                  alt="Dr." // Alt text for the image
+                />
               </div>
-            </div>
-            {/* Section qualifications */}
-            <div className={styles["container-content"]}>
-              <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
-
-              <ul className={styles["list-qualifications"]}>
-                {practitioner.qualifications?.map((qualifications, index) => {
-                  return (
-                    <li key={index} className={styles["item-list"]}>
-                      {qualifications.name}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            {/* Section About Me  */}
-            <div className={styles["container-content"]}>
-              <h1 className={`${styles["title"]} mb-2`}>About</h1>
-              {/* <ReadMore /> */}
-              <p className={styles["description"]}>
-                Clinique de la Belle au Bois Dormant is Dubai’s most
-                prestigiousbeauty parlour. With high skilled...
-              </p>
-              <SlideUpAbout />
               <div className={styles["container-content"]}>
-                <Row className={styles["card"]}>
-                  <Col className="d-flex gap-2">
-                    <Image src={global} alt="Languages" />
-                    <div>
-                      <p className={styles["title-icon"]}>Languages</p>
-                      <p className={styles["sub-title-icon"]}>
-                        Arabic <br />
-                        English
-                      </p>
-                    </div>
-                  </Col>
-                  <Col className="d-flex gap-2">
-                    <Image src={license} alt="License Number" />
-                    <div>
-                      <p className={styles["title-icon"]}>License Number</p>
-                      <p className={styles["sub-title-icon"]}>
-                        {practitioner.medicalLicense}
-                      </p>
-                    </div>
-                  </Col>
-                </Row>
+                <h1 className={styles["title"]}>{`${practitioner.title.name} ${
+                  practitioner.firstName + "  " + practitioner.lastName
+                }`}</h1>
+                <p className={styles["specialization"]}>
+                  {`${practitioner.speciality.name} - ${practitioner.experienceYears} years of experience`}
+                </p>
+                <div className="d-flex align-items-center gap-4">
+                  <div>
+                    <StarsRate rate={practitioner?.rating} />
+                  </div>
+                  <Link className={styles["link-review"]} href={`${1}/reviews`}>
+                    <p
+                      className={styles["text-review"]}
+                    >{`${practitioner?.practitionerReviews} reviews`}</p>
+                  </Link>
+                </div>
+              </div>
+              {/* Section qualifications */}
+              <div className={styles["container-content"]}>
+                <h1 className={`${styles["title"]} mb-2`}>My qualifications</h1>
+
+                <ul className={styles["list-qualifications"]}>
+                  {practitioner.qualifications?.map((qualifications, index) => {
+                    return (
+                      <li key={index} className={styles["item-list"]}>
+                        {qualifications.name}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Section About Me  */}
+              <div className={styles["container-content"]}>
+                <h1 className={`${styles["title"]} mb-2`}>About</h1>
+                {/* <ReadMore /> */}
+                <p className={styles["description"]}>
+                  Clinique de la Belle au Bois Dormant is Dubai’s most
+                  prestigiousbeauty parlour. With high skilled...
+                </p>
+                <SlideUpAbout />
+                <div className={styles["container-content"]}>
+                  <Row className={styles["card"]}>
+                    <Col className="d-flex gap-2">
+                      <Image src={global} alt="Languages" />
+                      <div>
+                        <p className={styles["title-icon"]}>Languages</p>
+                        <p className={styles["sub-title-icon"]}>
+                          Arabic <br />
+                          English
+                        </p>
+                      </div>
+                    </Col>
+                    <Col className="d-flex gap-2">
+                      <Image src={license} alt="License Number" />
+                      <div>
+                        <p className={styles["title-icon"]}>License Number</p>
+                        <p className={styles["sub-title-icon"]}>
+                          {practitioner.medicalLicense}
+                        </p>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
               </div>
             </div>
           </div>

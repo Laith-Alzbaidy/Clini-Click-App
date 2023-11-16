@@ -8,7 +8,7 @@ import StarsRate from "@/src/component/stars-rate/stars-rate";
 
 const Reviews = ({ title }) => {
   return (
-    <div className={styles["holder"]}>
+    <div className={styles.warapper}>
       <div className="container1">
         <div className={styles["header-reviews"]}>
           <h1 className={styles["title"]}>{title}</h1>

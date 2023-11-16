@@ -49,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div className={styles["holder"]}>
+    <div className={styles.warapper}>
       <div className={`container1`}>
         <div className={styles["close-prev"]}>
           <ClosePrev close="/" back="./" />

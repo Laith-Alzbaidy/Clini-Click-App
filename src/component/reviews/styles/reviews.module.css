@@ -51,9 +51,19 @@
     font-size: 16px;
   }
   .holder {
-    max-width: 768px !important;
+    display: flex;
+    justify-content: center;
+    align-items: c;
   }
 
+  .warapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 768px !important;
+    margin: 0 auto;
+    height: 74vh;
+  }
   .title {
     font-size: 25px;
   }

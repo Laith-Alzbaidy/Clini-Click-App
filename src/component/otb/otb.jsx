@@ -170,44 +170,48 @@ const OTB = () => {
   }, [timer]);
 
   return (
-    <div className={`container1 ${styles["holder"]}`}>
-      <ClosePrev close="/" />
-      <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 2 of 3</p>
-        <h1 className={styles["title"]}>Enter the OTP</h1>
+    <div className={styles.warapper}>
+      <div className={`container1`}>
+        <div className={styles["close-btn"]}>
+          <ClosePrev close="/" />
+        </div>
+        <div className={styles["header"]}>
+          <p className={styles["step"]}>Step 2 of 3</p>
+          <h1 className={styles["title"]}>Enter the OTP</h1>
+        </div>
+        <div className={styles["container-text-otp"]}>
+          <p className={styles["text-otp"]}>
+            We sent you a WhatsApp message with the OTP to {phone}.
+          </p>
+        </div>
+        <div className={styles["container-input"]}>
+          {/* OTP input component */}
+          <OTPInput
+            value={otp}
+            onChange={(value) => {
+              handleVerification(value);
+            }}
+            autoFocus
+            OTPLength={4}
+            otpType="number"
+            className={styles["container-input"]}
+          />
+        </div>
+        <div className="d-flex flex-column align-items-center justify-content-center">
+          {/* Display timer if it's open */}
+          {openTimer && <span className={styles["timer"]}>{timer}</span>}
+          <button
+            onClick={resendOTP}
+            disabled={openTimer}
+            className={styles["not-receive"]}
+          >
+            I did not receive the OTP
+          </button>
+        </div>
+        {show && errorVerfy && (
+          <ErrorModal show={show} setShow={setShow} errorVerfy={errorVerfy} />
+        )}{" "}
       </div>
-      <div className={styles["container-text-otp"]}>
-        <p className={styles["text-otp"]}>
-          We sent you a WhatsApp message with the OTP to {phone}.
-        </p>
-      </div>
-      <div className={styles["container-input"]}>
-        {/* OTP input component */}
-        <OTPInput
-          value={otp}
-          onChange={(value) => {
-            handleVerification(value);
-          }}
-          autoFocus
-          OTPLength={4}
-          otpType="number"
-          className={styles["container-input"]}
-        />
-      </div>
-      <div className="d-flex flex-column align-items-center justify-content-center">
-        {/* Display timer if it's open */}
-        {openTimer && <span className={styles["timer"]}>{timer}</span>}
-        <button
-          onClick={resendOTP}
-          disabled={openTimer}
-          className={styles["not-receive"]}
-        >
-          I did not receive the OTP
-        </button>
-      </div>
-      {show && errorVerfy && (
-        <ErrorModal show={show} setShow={setShow} errorVerfy={errorVerfy} />
-      )}{" "}
     </div>
   );
 };

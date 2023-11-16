@@ -43,9 +43,14 @@
 }
 
 @media (min-width: 769px) {
-  .holder {
-    max-width: 768px !important;
-    margin: 0 auto !important;
+  .warapper {
+    max-width: 768px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 75vh;
   }
   .lable-phone {
     font-size: 14px;

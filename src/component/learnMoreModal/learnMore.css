@@ -29,9 +29,12 @@
     font-size: 18px;
     color: #000 !important;
   }
-
 }
-
+.close {
+  display: flex;
+  margin: 0 !important;
+  justify-content: end;
+}
 @media (min-width: 769px) {
   .learn {
     color: #a75cff !important;
