@@ -56,12 +56,11 @@ const MyAppointments = () => {
         </Link>
       </div>
       <div className={styles.desktopContainer}>
-      <div className={styles.title}>My appointments</div>
+        <div className={styles.title}>My appointments</div>
 
-      <div className={styles.subTitle}>Upcoming appointments</div>
-      <div className={styles.main}>
-        {data && data.length > 0 ? (
-          data
+        <div className={styles.subTitle}>Upcoming appointments</div>
+        <div className={styles.main}>
+          {data
             .filter((elem) => elem.isUpcoming === true)
             .map((appointment, index) => (
               <Link
@@ -92,17 +91,16 @@ const MyAppointments = () => {
                   <Image src={left} alt="left" />
                 </div>
               </Link>
-            ))
-        ) : (
-          <div className={styles.noAppointment}>No appointments yet</div>
-        )}
-      </div>
+            ))}
+          {data.filter((elem) => elem.isUpcoming === true).length === 0  && (
+            <div className={styles.noAppointment}>No appointments </div>
+          )}
+        </div>
 
-      <div className={styles.subTitle}>Past appointments</div>
+        <div className={styles.subTitle}>Past appointments</div>
 
-      <div className={styles.main}>
-        {data && data.length > 0 ? (
-          data
+        <div className={styles.main}>
+          {data
             .filter((elem) => elem.isUpcoming === false)
             .map((appointment, index) => (
               <Link
@@ -129,15 +127,14 @@ const MyAppointments = () => {
                   <Image src={left} alt="left" />
                 </div>
               </Link>
-            ))
-        ) : (
-          <div className={styles.noAppointment}>No past appointments</div>
-        )}
+            ))}
+          {data.filter((elem) => elem.isUpcoming === false).length === 0 && (
+            <div className={styles.noAppointment}>No past appointments</div>
+          )}
+        </div>
+        <Footer additiionalStyles={style} />
       </div>
-
-      <Footer additiionalStyles={style} />
     </div>
-   </div>
   );
 };
 

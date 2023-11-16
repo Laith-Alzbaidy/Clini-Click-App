@@ -177,6 +177,9 @@
   .headerContainer{
     display: none;
   }
+  .timingContainer {
+    gap: 73px;
+  }
 }
 @media (max-width: 320px) and (min-width: 280px) {
   .treatmentName {

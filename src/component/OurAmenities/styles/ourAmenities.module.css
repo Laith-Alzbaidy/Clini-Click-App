@@ -10,7 +10,7 @@
   align-items: center;
   gap: 8px;
   margin: 5px 0;
-  width: 122px !important;
+  width: fit-content !important;
 }
 
 .icon {
@@ -22,6 +22,12 @@
 .text-icon {
   font-size: 12px !important;
   font-weight: 400;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (min-width: 769px) {
@@ -46,5 +52,9 @@
   }
   .content-icon {
     align-self: flex-start !important;
+  }
+
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

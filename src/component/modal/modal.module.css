@@ -51,7 +51,7 @@
 .noButton {
   background-color: #a75cff !important;
   border-radius: 35px !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #a75cff !important;
   display: flex !important;
   width: 68px;
   height: 30px;
@@ -64,7 +64,6 @@
 .modal {
   background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
-
 }
 
 .modalFooter {
@@ -75,19 +74,17 @@
   border-bottom-right-radius: 20px !important;
   border-bottom-left-radius: 20px !important;
 }
-.modal{
+.modal {
   background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
-
 }
 .modalBody {
   background-color: #e2e2e2 !important;
   border-color: #e2e2e2 !important;
   text-align: center !important;
-  color: #828282 !important; 
+  color: #828282 !important;
   font-size: 12px !important;
   font-weight: 400 !important;
-
 }
 .modalHeader {
   background-color: #e2e2e2 !important;
@@ -104,4 +101,10 @@
 }
 .deleteAccount:hover {
   cursor: pointer;
+}
+@media (min-width: 769px) {
+  .modalBody {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
 }
