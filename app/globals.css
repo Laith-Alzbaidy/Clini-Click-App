@@ -16,7 +16,6 @@ body {
   border: 0;
   outline: 0;
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
 }
 
 a {
@@ -211,7 +210,9 @@ a {
   /* p {
     color: #adadad !important;
   } */
-
+  .form-control {
+    font-size: 18px !important;
+  }
   .slide-up-privacy {
     display: none;
   }
@@ -292,6 +293,9 @@ a {
     margin-bottom: 70px;
     text-align: center;
     display: block;
+  }
+  .padding-up-mobile {
+    padding-top: 28px;
   }
 
   .popup-privacy {

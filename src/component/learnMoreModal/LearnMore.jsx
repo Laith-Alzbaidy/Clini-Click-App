@@ -50,6 +50,9 @@ const LearnMore = ({ data, learnMore, practitionerData, close }) => {
 
   const renderGeneralInfo = () => (
     <Box sx={style}>
+      <div onClick={handleClose} className="close" style={{ marginLeft: 660 }}>
+        <Image src={closebtn} alt="close" className="image-close" />
+      </div>
       <div className={styles2.container}>
         <div className={styles2.title}>{data.name}</div>
         <div className={styles2.infoText}>{data.description}</div>
@@ -76,7 +79,7 @@ const LearnMore = ({ data, learnMore, practitionerData, close }) => {
 
   const renderPractitionerInfo = () => (
     <Box sx={style}>
-      <div onClick={handleClose} className="close">
+      <div onClick={handleClose} className="close" style={{ marginLeft: 660 }}>
         <Image src={closebtn} alt="close" className="image-close" />
       </div>
       <div className={`${styles["container-image"]}`}>

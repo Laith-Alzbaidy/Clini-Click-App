@@ -16,11 +16,6 @@
   line-height: 20px;
   padding-left: 0px !important;
 }
-.close {
-  width: 768px;
-  display: flex;
-  justify-content: space-between;
-}
 
 @media (min-width: 1280px) {
   .wrapper {
@@ -37,7 +32,7 @@
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .learn {
     color: #a75cff !important;
     padding-left: 0px !important;

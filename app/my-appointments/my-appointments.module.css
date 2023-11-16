@@ -20,9 +20,9 @@
   font-weight: 700;
   margin: 2rem 0 1rem 0;
 }
-.desktopContainer {
+/* .desktopContainer {
   display: none;
-}
+} */
 .cardContainer {
   width: 100%;
   height: fit-content;
@@ -109,7 +109,7 @@
   }
 }
 
-@media (max-width: 1279px) and (min-width: 768px) {
+@media (max-width: 1279px) and (min-width: 769px) {
   .title {
     color: #001435;
     font-size: 18px;
@@ -121,10 +121,6 @@
     font-size: 14px;
     font-weight: 700;
     margin: 2rem 0 1rem 0;
-  }
-
-  .container {
-    margin: 0rem auto;
   }
 
   .container {
@@ -152,6 +148,15 @@
   }
   .user{
     display: none;
+  }
+  .desktopContainer {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 712px;
+    max-height: 75vh;
   }
 }
 
@@ -185,10 +190,13 @@
     align-items: center;
   }
   .childContainer {
+    width: 75%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
   }
+ 
   .cardImage {
     width: 25%;
   }
@@ -200,19 +208,6 @@
   }
 }
 
-@media (min-width: 1262px) {
-  .cardContainer {
-    width: 100%;
-    height: fit-content;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    border: #e2e2e2 1px solid;
-    border-radius: 20px;
-    margin: 1rem 0 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
 @media (max-width: 365px) and (min-width: 280px) {
   .cardContainer {
     padding: 0.5rem 0.5rem;

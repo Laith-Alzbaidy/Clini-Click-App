@@ -15,4 +15,10 @@
     height: fit-content !important;
     flex: none !important;
   }
+
+  @media (min-width:769px) {
+    .modal-content {
+      width: 600px !important;
+    }
+  }
   
