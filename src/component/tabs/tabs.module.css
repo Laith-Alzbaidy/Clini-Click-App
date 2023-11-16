@@ -4,6 +4,7 @@
 .tabscontainer {
   flex-direction: row;
   background-color: #fff;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -11,7 +12,6 @@
 }
 
 .tab {
-  /* width: 120px; */
   height: 28px;
   padding: 0 10px 0 10px;
   background-color: #ffffff;

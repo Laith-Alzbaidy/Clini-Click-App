@@ -9,12 +9,15 @@
   height: 37px;
   margin-top: 20px;
 }
-/* .timeContainer:hover {
+.timeContainer:hover {
   background-color: var(--secondary-color);
-} */
-/* .timeContainer:hover .time {
+  cursor: pointer;
+
+}
+.timeContainer:hover .time {
   color: white;
-} */
+  font-weight: 500;
+}
 
 .Bigcontainer {
   display: flex;
@@ -39,7 +42,7 @@
 .activeTime {
   color: #fff;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500 !important;
 }
 
 .container-question {
@@ -113,6 +116,9 @@
   .timeContainer {
     width: 120px;
   }
+  .question {
+    font-size: 20px;
+  }
 }
 @media (width: 768px) {
   .Bigcontainer {
@@ -121,9 +127,7 @@
   .timeContainer {
     width: 120px;
   }
-  .question {
-    font-size: 20px;
-  }
+
 }
 
 @media (max-width: 621px) and (min-width: 507px) {

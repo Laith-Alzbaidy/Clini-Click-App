@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import styles from "./tabs.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
+import './scroll.css'
 const Tabs = ({ list }) => {
   const [activeTab, setActiveTab] = useState("");
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+      console.log('Scroll Position:', scrollPosition);
       const categories = list.map((category) => category.name);
 
       for (let i = categories.length - 1; i >= 0; i--) {
@@ -44,6 +45,7 @@ const Tabs = ({ list }) => {
       });
     }
   };
+
   const TabSlider = list.map((categoryData) => (
     <SwiperSlide
       key={categoryData.name}
@@ -53,7 +55,6 @@ const Tabs = ({ list }) => {
         nextEl: ".swiper-button-prev",
         prevEl: ".swiper-button-next",
       }}
-      slidesPerView={1}
     >
       <div
         className={` ${styles.tab} ${
@@ -89,32 +90,32 @@ const Tabs = ({ list }) => {
             spaceBetween: 10,
           },
           375: {
-            slidesPerView: 3.25,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           425: {
-            slidesPerView: 3.5,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           480: {
-            slidesPerView: 3.5,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           640: {
-            slidesPerView: 4,
-            spaceBetween: 30,
+            slidesPerView: 3,
+            spaceBetween: 20,
           },
           768: {
-            slidesPerView: 6,
-            spaceBetween: 70,
+            slidesPerView: 3.5,
+            spaceBetween: 20,
           },
           768: {
-            slidesPerView: 5,
-            spaceBetween: 70,
+            slidesPerView: 3.5,
+            spaceBetween: 20,
           },
           1280: {
-            slidesPerView: 10,
-            spaceBetween: 110,
+            slidesPerView: 3.5,
+            spaceBetween: 20,
           },
         }}
       >

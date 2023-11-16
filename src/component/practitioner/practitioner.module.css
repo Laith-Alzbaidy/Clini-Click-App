@@ -18,6 +18,9 @@
   background: #fff;
   height: 212px;
 }
+.container-card :hover {
+cursor: pointer;
+}
 .container-card2 {
   border-radius: 10px;
   display: flex;
@@ -29,7 +32,9 @@
   background: #fff;
   height: 212px;
 }
-
+.container-card2 :hover {
+  cursor: pointer;
+  }
 .active-container-card {
   border: 1px solid var(--secondary-color) !important;
 }

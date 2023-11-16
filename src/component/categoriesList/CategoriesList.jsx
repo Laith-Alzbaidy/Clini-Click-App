@@ -26,67 +26,65 @@ const CategoriesList = ({ list }) => {
 
   return (
     <div>
-     <div className={styles.categoryContent}>
-  {list.map((categoryData, index) => (
-    <div
-      key={categoryData.id}
-      id={categoryData.name}
-      className={styles.categorySection}
-    >
-      <div className={styles.header}>{categoryData.name}</div>
-      {categoryData.subCategories.map((subcategoryData, subIndex) => (
-        <Link
-          key={subIndex}
-          href={{
-            pathname: `categories/treatment`,
-            query: {
-              category: categoryData.id,
-              subcategoryId: subcategoryData.id,
-            },
-          }}
-          className={styles.link}
-        >
-          <div>
-            <div key={subIndex} className={styles.mainContainer}>
-              <div>
-                <div className={styles.subTitle}>
-                  {subcategoryData.name}
-                </div>
-                <div className={styles.subCategoryText}>
-                  {truncateText(subcategoryData.description, 7)}
-                </div>
-                <div className={styles.priceIcons}>
-                  <div>AED {subcategoryData.price}</div>
-                  <div className={styles.currentPrice}>
-                    AED {subcategoryData.promotionPrice}
+      <div className={styles.categoryContent}>
+        {list.map((categoryData, index) => (
+          <div
+            key={categoryData.id}
+            id={categoryData.name}
+            className={styles.categorySection}>
+            <div className={styles.header}>{categoryData.name}</div>
+            {categoryData.subCategories.map((subcategoryData, subIndex) => (
+              <Link
+                key={subIndex}
+                href={{
+                  pathname: `categories/treatment`,
+                  query: {
+                    category: categoryData.id,
+                    subcategoryId: subcategoryData.id,
+                  },
+                }}
+                className={styles.link}>
+                <div>
+                  <div key={subIndex} className={styles.mainContainer}>
+                    <div>
+                      <div className={styles.subTitle}>
+                        {subcategoryData.name}
+                      </div>
+                      <div className={styles.subCategoryText}>
+                        {truncateText(subcategoryData.description, 7)}
+                      </div>
+                      <div className={styles.priceIcons}>
+                        <div>AED {subcategoryData.price}</div>
+                        <div className={styles.currentPrice}>
+                          AED {subcategoryData.promotionPrice}
+                        </div>
+                        <div>{subcategoryData.discount}% off</div>
+                      </div>
+                    </div>
+                    <Image
+                      className={styles.subCategoryImg}
+                      src={img}
+                      alt="Description of the image"
+                      width={100}
+                      height={90}
+                    />
                   </div>
-                  <div>{subcategoryData.discount}% off</div>
+                  {subIndex !== categoryData.subCategories.length - 1 && (
+                    <Light
+                      key={`separator-${subIndex}`}
+                      additionalStyles={costumStylesLigth}
+                    />
+                  )}
                 </div>
-              </div>
-              <Image
-                className={styles.subCategoryImg}
-                src={img}
-                alt="Description of the image"
-                width={100}
-                height={90}
-              />
-            </div>
-            {subIndex !== categoryData.subCategories.length - 1 && (
-              <Light
-                key={`separator-${subIndex}`}
-                additionalStyles={costumStylesLigth}
-              />
+              </Link>
+            ))}
+
+            {index !== list.length - 1 && (
+              <Bold additionalStyles={costumStyles} />
             )}
           </div>
-        </Link>
-      ))}
-      {index !== list.length - 1 && (
-        <Bold additionalStyles={costumStyles} />
-      )}
-    </div>
-  ))}
-</div>
-
+        ))}
+      </div>
     </div>
   );
 };
