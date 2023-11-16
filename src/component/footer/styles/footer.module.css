@@ -4,3 +4,8 @@
   font-weight: 500;
   line-height: 20px;
 }
+@media (min-width:769px) {
+  .lable-logo {
+    margin: 0;
+  }
+}
