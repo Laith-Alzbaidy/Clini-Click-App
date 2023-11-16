@@ -24,7 +24,7 @@ const style = {
   borderRadius: "40px",
   boxShadow: 24,
   p: 4,
-  height: "90vh",
+  height: "auto",
   width: "878.967px",
   outline: "none",
 };
