@@ -150,9 +150,9 @@ const Practitioner = () => {
       </div>
       <div className={styles["line"]}></div>
       <div className="mt-3 px-3">
-        <p className="text-center">
+        <div className="text-center">
           No payment will be taken until your appointment
-        </p>
+        </div>
 
         <Btn
           title="Continue"

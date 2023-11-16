@@ -35,7 +35,9 @@
     font-size: 25px;
   }
   
-
+  .text-center P{
+    font-weight: 18px !important;
+  }
   
 }
 

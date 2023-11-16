@@ -16,7 +16,6 @@ body {
   border: 0;
   outline: 0;
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
 }
 
 a {
