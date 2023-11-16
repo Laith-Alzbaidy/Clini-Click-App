@@ -6,6 +6,7 @@ import star from "./Star.svg";
 import Link from "next/link";
 import Icon from "../../icon/icon";
 import { useRouter } from "next/navigation";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
 
 const CardBook = ({ data }) => {
   const router = useRouter();
@@ -18,13 +19,8 @@ const CardBook = ({ data }) => {
 
       <div className="d-flex align-items-center gap-3">
         <div>
-          <Image src={star} className={styles["star-image"]} alt="star" />
-          <Image src={star} className={styles["star-image"]} alt="star" />
-          <Image src={star} className={styles["star-image"]} alt="star" />
-          <Image src={star} className={styles["star-image"]} alt="star" />
-          <Image src={star} className={styles["star-image"]} alt="star" />
+          <StarsRate rate={2} />
         </div>
-
         <Link href="/google-reviews">
           <p className={styles["text-review"]}>106 Google reviews</p>
         </Link>

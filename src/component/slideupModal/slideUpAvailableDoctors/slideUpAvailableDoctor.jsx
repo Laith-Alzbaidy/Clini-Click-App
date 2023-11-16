@@ -13,6 +13,7 @@ import Link from "next/link";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 // import ReadMore from "@/src/component/read-more/read-more";
 import SlideUpAbout from "@/src/component/slideupModal/slideUpAbout/slideUpAbout";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
 
 const SlideUpDoctor = ({ data, isModalOpen, setIsModalOpen }) => {
   const practitioner = data;
@@ -52,34 +53,12 @@ const SlideUpDoctor = ({ data, isModalOpen, setIsModalOpen }) => {
               </p>
               <div className="d-flex align-items-center gap-4">
                 <div>
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
+                  <StarsRate rate={practitioner?.rating} />
                 </div>
                 <Link className={styles["link-review"]} href={`${1}/reviews`}>
-                  <p className={styles["text-review"]}>106 reviews</p>
+                  <p
+                    className={styles["text-review"]}
+                  >{`${practitioner?.practitionerReviews} reviews`}</p>
                 </Link>
               </div>
             </div>

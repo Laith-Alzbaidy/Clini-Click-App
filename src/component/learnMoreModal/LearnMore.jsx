@@ -11,7 +11,9 @@ import global from "./assets/image/global.svg";
 import license from "./assets/image/license-number.svg";
 import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
-import ReadMore from '@/src/component/read-more/read-more';
+import ReadMore from "@/src/component/read-more/read-more";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -24,25 +26,23 @@ const style = {
   p: 4,
   width: "740px",
   outline: "none",
-  overview:"auto"
-
+  overview: "auto",
 };
 const learn = {
   color: "#A75CFF",
   fontFamily: "Montserrat, sans-serif !important",
   fontSize: "18px",
   fontWeight: 600,
-
 };
 const practitionerStyle = {
   color: "#A75CFF",
   fontFamily: "Montserrat, sans-serif !important",
   fontSize: "12px",
   fontWeight: 600,
-  paddingTop:"6px"
+  paddingTop: "6px",
 };
 
-const LearnMore = ({ data, learnMore, practitionerData , close }) => {
+const LearnMore = ({ data, learnMore, practitionerData, close }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -76,8 +76,8 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
 
   const renderPractitionerInfo = () => (
     <Box sx={style}>
-       <div onClick={handleClose} className="close">
-        <Image src={closebtn} alt="close"  className="image-close"/>
+      <div onClick={handleClose} className="close">
+        <Image src={closebtn} alt="close" className="image-close" />
       </div>
       <div className={`${styles["container-image"]}`}>
         <Image
@@ -98,14 +98,12 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
         </p>
         <div className="d-flex align-items-center gap-4">
           <div>
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
-            <Image src={star} className={styles["star-image"]} alt="star" />
+            <StarsRate rate={practitioner?.rating} />
           </div>
           <Link className={styles["link-review"]} href={`${1}/reviews`}>
-            <p className={styles["text-review"]}>106 reviews</p>
+            <p className={styles["text-review"]}>
+              {practitioner?.practitionerReviews} reviews
+            </p>
           </Link>
         </div>
       </div>
@@ -166,7 +164,8 @@ const LearnMore = ({ data, learnMore, practitionerData , close }) => {
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description">
+        aria-describedby="modal-modal-description"
+      >
         {learnMore ? renderGeneralInfo() : renderPractitionerInfo()}
       </Modal>
     </div>
