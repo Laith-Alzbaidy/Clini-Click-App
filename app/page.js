@@ -61,7 +61,7 @@ import SlideUpDoctor from "@/src/component/slideupModal/slideUpDoctor/slideUpDoc
 import api from "@/config-API/config-API";
 import CardBook from "@/src/component/view-desktop/card-book/card-book";
 import PopupDoctor from "@/src/component/popup-view-desktop/popup-doctor/popup-doctor";
-import path from "path";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
 import { useLayoutEffect } from "react";
 export default function Home() {
   // console.log(pathname, "pathnamepathnamepathnamepathnamepathname");
@@ -107,6 +107,7 @@ export default function Home() {
           <div className="container-loc-mobile">
             <Location data={data} />
           </div>
+
           <OurAmenities data={data} />
           <OurBusiness data={data} />
           <div className="container-loc-desktop">

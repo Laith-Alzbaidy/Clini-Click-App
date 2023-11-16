@@ -16,6 +16,8 @@ import SlideUpAbout from "../../slideupModal/slideUpAbout/slideUpAbout";
 import Icon from "../../icon/icon";
 import ReadMore from "../../read-more/read-more";
 import OurTeamPopup from "../../ourTeam/ourteam-popup";
+import StarsRate from "@/src/component/stars-rate/stars-rate";
+
 SlideUpAbout;
 const style = {
   position: "absolute",
@@ -87,31 +89,7 @@ const PopupDoctor = ({ data }) => {
               </p>
               <div className="d-flex align-items-center gap-4">
                 <div>
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
-                  <Image
-                    src={star}
-                    className={styles["star-image"]}
-                    alt="star"
-                  />
+                  <StarsRate rate={practitioner?.rating} />
                 </div>
                 <Link className={styles["link-review"]} href={`/reviews`}>
                   <p className={styles["text-review"]}>106 reviews</p>
