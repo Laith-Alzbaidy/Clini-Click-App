@@ -254,7 +254,9 @@ a {
 .header-home {
   display: none;
 }
-
+body{
+  height: 100vh;
+}
 @media (max-width: 768px) and (min-width: 393px) {
   .popup-privacy {
     display: none;

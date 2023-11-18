@@ -2,13 +2,10 @@
 import React from "react";
 import styles from "./current-bookings.module.css";
 import Link from "next/link";
-import Head from "next/head";
 import Btn from "@/src/component/button/button";
 import ModalBox from "../../../../src/component/modal/modal";
 import backIcon from "../../assets/conhh.svg";
 import user from "../../assets/user.svg";
-import location from "../../assets/location.svg";
-import phone from "../../assets/call.svg";
 import Image from "next/image";
 import api from "@/config-API/config-API";
 import Cookies from "js-cookie";
@@ -30,13 +27,13 @@ const CurrentBookings = ({ params }) => {
       console.log("----------------------", res.data);
       setData(res.data.responseData);
     } catch (err) {
-      console.log("err", err);
+      console.log("Error fetching appointment data:", err);
     }
   };
-
+  
   useEffect(() => {
     getAppointemntSpecific();
-  }, []);
+  }, [params.id, token]);
 
   const handleCancelAppoinment = async () => {
     console.log("params", params, params, params, params);
@@ -57,7 +54,7 @@ const CurrentBookings = ({ params }) => {
 
   useEffect(() => {
     getAppointemntSpecific();
-  }, []);
+  }, [params.id, token]);
 
   return (
     <div className={styles.warpper}>
@@ -72,7 +69,7 @@ const CurrentBookings = ({ params }) => {
           </Link>
         </div>
 
-        <div className={styles.title}>{data?.startTime}</div>
+        <div className={styles.title}>{data?.timing}</div>
         <Link
           href={{
             pathname: "/my-appointments/reschedule",
@@ -118,7 +115,7 @@ const CurrentBookings = ({ params }) => {
           </div>
           <div className={styles.timingContainer}>
             <div>Timing:</div>
-            <div>{data?.startTime}</div>
+            <div>{data?.timing}</div>
           </div>
         </div>
         <div className={styles.totalContainer}>

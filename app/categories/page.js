@@ -7,7 +7,7 @@ import Footer from "@/src/component/footer/footer";
 import ButtonPreviews from "@/src/component/buttonPreviews/buttonPreviews";
 
 const style = {
-  marginTop: "45px",
+  marginTop: "15px",
 };
 const Categories = () => {
   return (
@@ -18,12 +18,13 @@ const Categories = () => {
             <ButtonPreviews />
           </Link>
         </div>
+        <div className={styles.treatmentText}>Our treatments</div>
+
         <div className={styles.desktopContainer}>
-          <div className={styles.treatmentText}>Our treatments</div>
           <CategoryContent />
-          <Footer additiionalStyles={style} />
         </div>
       </div>
+      <Footer additiionalStyles={style} />
     </>
   );
 };

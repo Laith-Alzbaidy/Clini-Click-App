@@ -12,7 +12,7 @@
   margin-top: 16px;
   text-decoration: none;
   gap: 1rem;
-  padding: 0 28px 0 28px;
+  padding: 0 0px 0 28px;
  
 }
 .link {
@@ -63,7 +63,8 @@
   font-weight: 700;
 }
 
-@media (min-width: 1280px) {
+
+@media (min-width:769px) {
   .subCategoryText {
     font-size: 18px;
   }
@@ -83,9 +84,15 @@
     height: 120px;
   }
 
+  .categorySection{
+    overflow-y: auto;
+    height:50vh;
+    max-width: 760px;
+    padding-right: 28px;
+  }
 }
 
-@media (max-width: 1279px) and (min-width: 768px) {
+/* @media (max-width: 1279px) and (min-width: 768px) {
   .subCategoryText {
     font-size: 18px;
   }
@@ -117,7 +124,7 @@
   .priceIcons div {
     font-size: 16px;
   }
-}
+} */
 
 @media (max-width: 365px) and (min-width: 278px) {
   .subTitle {

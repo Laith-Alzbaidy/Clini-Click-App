@@ -72,11 +72,6 @@ const PractitionerSelctor = ({
                 <p className={styles["exp"]}>{practitioner?.exp}</p>
                 <div className={styles["container-rate-review"]}>
                   <div>
-                    {/* <Image
-                      src={star}
-                      className={styles["star-image"]}
-                      alt="star"
-                    /> */}
                     <StarsRate rate={practitioner?.rating} />
                   </div>
                   <p className={styles["text-review"]}>
@@ -143,7 +138,8 @@ const PractitionerSelctor = ({
                 className={`${styles["container-card2"]} ${
                   NoPrefrence !== null ? styles["active-container-card"] : ""
                 } `}
-                onClick={handleNoPreference}
+                onClick={handleNoPreference 
+                }
               >
                 <div className="d-flex flex-column align-items-center gap-2">
                   <Image src={user} />

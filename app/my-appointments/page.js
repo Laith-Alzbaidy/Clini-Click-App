@@ -75,7 +75,7 @@ const MyAppointments = () => {
                       alt="image"
                     />
                     <div className={styles.details}>
-                      <div>{appointment?.startTime}</div>
+                      <div>{appointment?.displayTime}</div>
                       <div>{appointment?.treatmentName}</div>
                       <div>{appointment?.id}</div>
                       <div>
@@ -111,7 +111,7 @@ const MyAppointments = () => {
                   <div className={styles.childContainer}>
                     <Image src={image} className={styles.cardImage} alt="img" />
                     <div className={styles.details}>
-                      <div>{appointment?.startTime}</div>
+                      <div>{appointment?.displayTime}</div>
                       <div>{appointment?.treatmentName}</div>
                       <div>{appointment?.id}</div>
                       <div>

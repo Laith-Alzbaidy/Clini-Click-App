@@ -8,6 +8,8 @@ const TimeSelector = ({
   setSelectedTime,
   practitioner,
   isLoading,
+  setSelectNoPrefrence
+  
 }) => {
   useEffect(() => {}, [availability]);
 
@@ -28,6 +30,7 @@ const TimeSelector = ({
               key={time.erId}
               onClick={() => {
                 setSelectedTime(time.erId);
+                setSelectNoPrefrence(time.practitionerId)
               }}
               className={`${styles.timeContainer} ${
                 time.erId === selectedTime ? styles.active : ""
