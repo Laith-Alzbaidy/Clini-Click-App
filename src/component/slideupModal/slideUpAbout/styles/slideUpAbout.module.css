@@ -17,7 +17,8 @@
 }
 
 .card {
-  padding: 10px;
+  margin: 20px 0px !important;
+  padding: 0;
 }
 
 .description {

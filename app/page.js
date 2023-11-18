@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <>
       <div className="container1">
-        <div className="header-home">
+        <div id="header-home">
           <Header data={data} />
         </div>
         <Hero data={data} />

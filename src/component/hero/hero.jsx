@@ -54,7 +54,11 @@ const Hero = ({ data }) => {
             <StarsRate rate={2} />
           </div>
 
-          <Link href="/google-reviews">
+          <Link
+            className={styles["link-review"]}
+            href="/google-reviews"
+            target="_blank"
+          >
             <p className={styles["text-review"]}>106 Google reviews</p>
           </Link>
         </div>

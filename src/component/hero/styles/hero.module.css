@@ -3,9 +3,9 @@
   margin-bottom: 20px;
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 0.93;
+  aspect-ratio: 2 / 1.93;
   min-height: 226.63px;
-  max-height: 640px;
+  max-height: 640px !important;
 }
 
 .image {

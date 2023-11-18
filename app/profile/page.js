@@ -14,6 +14,7 @@ import Footer from "@/src/component/footer/footer";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
 import ModalBox from "@/src/component/modal/modal";
+import { Divider } from "@mui/material";
 const style = {
   marginTop: "45px",
 };
@@ -51,6 +52,7 @@ const Profile = () => {
     updateProfile();
     router.push("my-appointments");
   };
+
   const updateProfile = async () => {
     try {
       const response = await api.put("Client/Update", formData, {
@@ -98,61 +100,63 @@ const Profile = () => {
   };
 
   return (
-    <div className={styles.costumContainer}>
-      <Link href={"/"}>
-        <Image src={backIcon} className={styles.backIcon} alt="back" />
-      </Link>
-      <div className={styles.title}>My details</div>
+    <div className={styles["warapper"]}>
+      <div className={styles.costumContainer}>
+        <Link href={"/"}>
+          <Image src={backIcon} className={styles.backIcon} alt="back" />
+        </Link>
+        <div className={styles.title}>My details</div>
 
-      <Popup open={showPopup} closeOnDocumentClick={false}>
-        {(close) => (
-          <div className={styles.popup}>
-            <p>Your account has been deleted successfully.</p>
+        <Popup open={showPopup} closeOnDocumentClick={false}>
+          {(close) => (
+            <div className={styles.popup}>
+              <p>Your account has been deleted successfully.</p>
+            </div>
+          )}
+        </Popup>
+        <form onSubmit={handleSubmit}>
+          <InputField
+            type={"text"}
+            placeholder={"Enter your Firstname"}
+            icon={user}
+            onChange={handleChange}
+            name="firstName"
+            value={formData.firstName}
+          />
+          <InputField
+            type={"text"}
+            placeholder={"Enter your Lastname"}
+            icon={user}
+            onChange={handleChange}
+            name="lastName"
+            value={formData.lastName}
+          />
+          <InputField
+            type={"email"}
+            placeholder={"Enter your Email"}
+            icon={email}
+            onChange={handleChange}
+            name="email"
+            value={formData.email}
+          />
+          {err && <div>{err}</div>}
+          <Btn title={"Manage my appointments"} type={"submit"} />
+        </form>
+        <>
+          <ModalBox
+            content={" Are you sure you want to delete your account ?"}
+            confirm={false}
+            handleDeleteAccount={handleDeleteAccount}
+          />
+          <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
+            or
+          </p>
+          <div onClick={logOut} className={styles.logout}>
+            Logout
           </div>
-        )}
-      </Popup>
-      <form onSubmit={handleSubmit}>
-        <InputField
-          type={"text"}
-          placeholder={"Enter your Firstname"}
-          icon={user}
-          onChange={handleChange}
-          name="firstName"
-          value={formData.firstName}
-        />
-        <InputField
-          type={"text"}
-          placeholder={"Enter your Lastname"}
-          icon={user}
-          onChange={handleChange}
-          name="lastName"
-          value={formData.lastName}
-        />
-        <InputField
-          type={"email"}
-          placeholder={"Enter your Email"}
-          icon={email}
-          onChange={handleChange}
-          name="email"
-          value={formData.email}
-        />
-        {err && <div>{err}</div>}
-        <Btn title={"Manage my appointments"} type={"submit"} />
-      </form>
-      <>
-        <ModalBox
-          content={" Are you sure you want to delete your account ?"}
-          confirm={false}
-          handleDeleteAccount={handleDeleteAccount}
-        />
-        <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
-          or
-        </p>
-        <div onClick={logOut} className={styles.logout}>
-          Logout
-        </div>
-      </>
-      <Footer additiionalStyles={style} />
+        </>
+        <Footer additiionalStyles={style} />
+      </div>
     </div>
   );
 };

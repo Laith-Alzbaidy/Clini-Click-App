@@ -8,10 +8,7 @@ const Footer = ({ additiionalStyles }) => {
   const margeStyles = { ...prevStyles, ...additiionalStyles };
   return (
     <Link href="/">
-      <div
-        className="d-flex align-items-center justify-content-center gap-2 mb-3"
-        style={margeStyles}
-      >
+      <div className="footer-icon" style={margeStyles}>
         <p className={styles["label"]}>Powered by</p>
         <Image src={logo} alt="logo" />
       </div>

@@ -1,3 +1,10 @@
+.container-logo {
+  position: relative;
+}
+.image-login {
+  position: relative;
+}
+
 .btn {
   font-size: 12px;
   font-weight: 700;
@@ -12,14 +19,10 @@
   font-family: "Quicksand", sans-serif !important;
 }
 
-.logo {
-  object-fit: cover !important;
-  object-position: center center !important;
-}
 @media (min-width: 776px) {
-  .logo {
-    width: 174.231px;
-    height: 60px;
+  .container-logo {
+    width: 243px;
+    height: 43px;
   }
   .btn {
     width: fit-content;
@@ -27,5 +30,43 @@
     align-items: center;
     padding: 20px;
     font-size: 20px;
+  }
+  .image-login {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 776px) {
+  .container-logo {
+    width: 243px;
+    height: 43px;
+    position: relative;
+  }
+
+  .image-login {
+    width: 50px;
+    height: 50px;
+  }
+  .container-logo {
+    width: 120px;
+    height: 21px;
+    position: relative;
+  }
+
+  .image-login {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media (max-width: 393px) {
+  .container-logo {
+    width: 120px;
+    height: 21px;
+    position: relative;
+  }
+
+  .image-login {
+    width: 25px;
+    height: 25px;
   }
 }
