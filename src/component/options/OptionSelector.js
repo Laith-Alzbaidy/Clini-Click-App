@@ -2,7 +2,6 @@ import React from "react";
 import Bold from "../lines/bold";
 import Light from "../lines/light";
 import styles from "./option.module.css";
-
 const linestyle = {
   marginTop: "16px",
   marginBottom: "20px",
@@ -207,5 +206,4 @@ const OptionSelector = ({
     </div>
   );
 };
-
 export default OptionSelector;

@@ -133,7 +133,7 @@ const OurTeam = ({ setIsModalOpen, data, setPractitioner }) => {
             slidesPerView: 1,
           },
           350: {
-            slidesPerView: 2.2,
+            slidesPerView: 2.1,
           },
           600: { slidesPerView: 4 },
         }}
