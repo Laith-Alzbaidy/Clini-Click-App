@@ -69,7 +69,12 @@ const SlideUpDoctor = ({ data }) => {
                   <div>
                     <StarsRate rate={practitioner?.rating} />
                   </div>
-                  <Link className={styles["link-review"]} href={`${1}/reviews`}>
+
+                  <Link
+                    className={styles["link-review"]}
+                    href={`/reviews`}
+                    target="_blank"
+                  >
                     <p className={styles["text-review"]}>106 reviews</p>
                   </Link>
                 </div>

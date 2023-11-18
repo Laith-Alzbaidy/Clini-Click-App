@@ -49,13 +49,24 @@ const OTB = () => {
   //       code: finalOTP,
   //     });
 
-  //     console.log("--------------", response.data.responseData);
+  //     //     console.log("--------------", response.data.responseData);
 
   //     const token = response.data.responseData.token;
   //     if (response.data.isSuccess) {
   //       if (response.data.responseData.isConfigured) {
   //         if (!date || !timeSlotId || !practitionerId || !treatmentId) {
-  //           router.push("/");
+  //           // router.push("/");
+  //           console.log("response", response.data);
+  //           const { email, lastName, name } = response.data.responseData;
+  //           const firstName = name;
+  //           console.log("response", email);
+  //           const useDetails = {
+  //             email,
+  //             lastName,
+  //             firstName,
+  //           };
+
+  //           localStorage.setItem("user-details", JSON.stringify(useDetails));
   //         } else {
   //           router.push(
   //             `/payment?treatmentId=${treatmentId}&practitionerId=${practitionerId}&timeSlotId=${timeSlotId}&date=${date}`

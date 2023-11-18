@@ -9,143 +9,144 @@ import StarsRate from "@/src/component/stars-rate/stars-rate";
 const Reviews = ({ title }) => {
   return (
     <div className={styles.warapper}>
-      <div className="container1">
-        <div className={styles["header-reviews"]}>
-          <h1 className={styles["title"]}>{title}</h1>
+      <div className={styles["container-over-flow"]}>
+        <div className="container1">
+          <div className={styles["header-reviews"]}>
+            <h1 className={styles["title"]}>{title}</h1>
+            <Link className={styles["close-btn"]} href="./">
+              <Image src={close} alt="close" />
+            </Link>
+          </div>
+          <div className={styles["container-review-rate"]}>
+            <div className="continer-icon-star">
+              <StarsRate rate={2} />
+            </div>
+            <p className={styles["rate"]}>4.0</p>
+          </div>
 
-          <Link className={styles["close-btn"]} href="./">
-            <Image src={close} alt="close" />
-          </Link>
-        </div>
-        <div className={styles["container-review-rate"]}>
-          <div className="continer-icon-star">
-            <StarsRate rate={2} />
-          </div>
-          <p className={styles["rate"]}>4.0</p>
-        </div>
-
-        {/* Review 1 */}
-        <div className={styles["container-all-reviews"]}>
-          <div className="d-flex align-items-center gap-3">
-            <h1 className={styles["title-review"]}>Reviewer Name</h1>
-            <div className={styles["container-review-rate"]}>
-              <div className="continer-icon-star">
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
+          {/* Review 1 */}
+          <div className={styles["container-all-reviews"]}>
+            <div className="d-flex align-items-center gap-3">
+              <h1 className={styles["title-review"]}>Reviewer Name</h1>
+              <div className={styles["container-review-rate"]}>
+                <div className="continer-icon-star">
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                </div>
+                <p className={styles["rate"]}>4.0</p>
               </div>
-              <p className={styles["rate"]}>4.0</p>
             </div>
+            <p className={styles["discription-reviews"]}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad veniam..
+            </p>
           </div>
-          <p className={styles["discription-reviews"]}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad veniam..
-          </p>
-        </div>
-        {/* Review 2 */}
-        <div className={styles["container-all-reviews"]}>
-          <div className="d-flex align-items-center gap-3">
-            <h1 className={styles["title-review"]}>Reviewer Name</h1>
-            <div className={styles["container-review-rate"]}>
-              <div className="continer-icon-star">
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
+          {/* Review 2 */}
+          <div className={styles["container-all-reviews"]}>
+            <div className="d-flex align-items-center gap-3">
+              <h1 className={styles["title-review"]}>Reviewer Name</h1>
+              <div className={styles["container-review-rate"]}>
+                <div className="continer-icon-star">
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                </div>
+                <p className={styles["rate"]}>4.0</p>
               </div>
-              <p className={styles["rate"]}>4.0</p>
             </div>
+            <p className={styles["discription-reviews"]}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad veniam..
+            </p>
           </div>
-          <p className={styles["discription-reviews"]}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad veniam..
-          </p>
-        </div>
-        {/* Review 3 */}
-        <div className={styles["container-all-reviews"]}>
-          <div className="d-flex align-items-center gap-3">
-            <h1 className={styles["title-review"]}>Reviewer Name</h1>
-            <div className={styles["container-review-rate"]}>
-              <div className="continer-icon-star">
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
-                <Image
-                  src={star}
-                  alt="star"
-                  className={styles["star-review"]}
-                />
+          {/* Review 3 */}
+          <div className={styles["container-all-reviews"]}>
+            <div className="d-flex align-items-center gap-3">
+              <h1 className={styles["title-review"]}>Reviewer Name</h1>
+              <div className={styles["container-review-rate"]}>
+                <div className="continer-icon-star">
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                  <Image
+                    src={star}
+                    alt="star"
+                    className={styles["star-review"]}
+                  />
+                </div>
+                <p className={styles["rate"]}>4.0</p>
               </div>
-              <p className={styles["rate"]}>4.0</p>
             </div>
+            <p className={styles["discription-reviews"]}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad veniam..
+            </p>
           </div>
-          <p className={styles["discription-reviews"]}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad veniam..
-          </p>
         </div>
       </div>
     </div>

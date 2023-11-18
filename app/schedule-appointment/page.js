@@ -14,6 +14,7 @@ import DateSelector from "@/src/component/date/DateSelector";
 import TimeSelector from "@/src/component/time/TimeSelector";
 import PractitionerSelctor from "@/src/component/practitioner/PractitionerSelctor";
 import Loader from "@/src/component/Loader/Loader";
+import Cookies from "js-cookie";
 const Practitioner = () => {
   const router = useRouter();
   const [selectedTime, setSelectedTime] = useState(null);
@@ -37,6 +38,10 @@ const Practitioner = () => {
       SetClass("modal-content");
     }, 300);
   }
+
+  const userDetails = JSON.parse(localStorage.getItem("user-details"));
+
+  const token = Cookies.get("token");
 
   useEffect(() => {
     async function fetchData() {
@@ -69,6 +74,7 @@ const Practitioner = () => {
       setIsLoading(false);
     }
   };
+
   const fetchPrefernceIdAvailableHours = async (date) => {
     try {
       setIsLoading(true);
@@ -101,11 +107,21 @@ const Practitioner = () => {
     }
   };
   const handleConfirm = () => {
-    router.push(
-      `/login?treatmentId=${subcategory}&practitionerId=${
-        slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor
-      }&date=${date}&timeSlotId=${selectedTime}`
-    );
+    const practitionerId =
+      slecetedDoctor === null ? selectNoPrefrence : slecetedDoctor;
+
+    const commonParams = `treatmentId=${subcategory}&practitionerId=${practitionerId}&date=${date}&timeSlotId=${selectedTime}`;
+
+    if (
+      !token ||
+      !userDetails?.email ||
+      !userDetails?.lastName ||
+      !userDetails?.firstName
+    ) {
+      router.push(`/login?${commonParams}`);
+    } else {
+      router.push(`/payment?${commonParams}`);
+    }
   };
 
   return (

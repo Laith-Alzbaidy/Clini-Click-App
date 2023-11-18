@@ -7,6 +7,7 @@ import Image from "next/image";
 import building from "./assets/image/icon _building_.svg";
 import line from "./assets/image/icon _license line_.svg";
 import back from "../assets/back.svg";
+import Link from "next/link";
 const SlideUpAbout = ({ readMore }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalclass, SetClass] = useState("modal-content");
@@ -26,6 +27,7 @@ const SlideUpAbout = ({ readMore }) => {
       >
         Read more
       </span>
+
       {isModalOpen && (
         <div className={`modal-overlay`}>
           <div className={modalclass}>
@@ -34,14 +36,14 @@ const SlideUpAbout = ({ readMore }) => {
               <div>
                 <h1 className={styles["title"]}>About us</h1>
                 <Row className={styles["card"]}>
-                  <Col className="d-flex align-items-center gap-3 p-0 justify-content-center">
+                  <Col className="d-flex align-items-center gap-3 p-0 justify-content-start">
                     <Image src={building} alt="building" />
                     <div>
                       <p className={styles["title-icon"]}>Established</p>
                       <p className={styles["date"]}>2010</p>
                     </div>
                   </Col>
-                  <Col className="d-flex align-items-center gap-3 p-0 justify-content-center">
+                  <Col className="d-flex align-items-center gap-3 p-0 justify-content-start">
                     <Image src={line} alt="building" />
                     <div>
                       <p className={styles["title-icon"]}>License Number</p>

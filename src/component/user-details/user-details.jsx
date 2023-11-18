@@ -115,91 +115,95 @@ const PractitionerDetails = () => {
   };
 
   return (
-    <div className={`container1 ${styles["holder"]}`}>
-      <div className="mb-2">
-        <Link href="payment">
-          <ButtonPreviews />
-        </Link>
+    <div className={styles["warapper"]}>
+      <div className={`container1`}>
+        <div className="mb-2">
+          <Link href="payment">
+            <ButtonPreviews />
+          </Link>
+        </div>
+        <div className={styles["header"]}>
+          <p className={styles["step"]}>Step 3 of 3</p>
+          <h1 className={styles["title"]}>My details</h1>
+        </div>
+
+        <form className={styles["form-input"]} onSubmit={handleSubmit}>
+          <div className={styles.main}>
+            <div className={styles.inputContainer}>
+              <Image
+                src={user}
+                alt="Description of the image"
+                width={24}
+                height={24}
+              />
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your first name"
+                value={formData.firstName}
+                onChange={handleChange}
+                // required
+                className={styles.input}
+              />
+            </div>
+          </div>
+          <div className={styles.main}>
+            <div className={styles.inputContainer}>
+              <Image
+                src={user}
+                alt="Description of the image"
+                width={24}
+                height={24}
+              />
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter your last name"
+                value={formData.lastName}
+                onChange={handleChange}
+                // required
+                className={styles.input}
+              />
+            </div>
+          </div>
+          <div className={styles.main}>
+            <div className={styles.inputContainer}>
+              <Image
+                src={email}
+                alt="Description of the image"
+                width={24}
+                height={24}
+              />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={styles.input}
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+
+          <div
+            className={Object.keys(errors).length > 0 ? styles["error"] : ""}
+          >
+            <p>{errors.firstName && errors.firstName}</p>
+            <p>{errors.lastName && errors.lastName}</p>
+            <p>{errors.email && errors.email}</p>
+          </div>
+
+          <div className="mt-5">
+            <p className="text-center">
+              No payment will be taken until your appointment
+            </p>
+            <Btn title="Continue" margin="10px 0" />
+          </div>
+        </form>
       </div>
-      <div className={styles["header"]}>
-        <p className={styles["step"]}>Step 3 of 3</p>
-        <h1 className={styles["title"]}>My details</h1>
-      </div>
-
-      <form className={styles["form-input"]} onSubmit={handleSubmit}>
-        <div className={styles.main}>
-          <div className={styles.inputContainer}>
-            <Image
-              src={user}
-              alt="Description of the image"
-              width={24}
-              height={24}
-            />
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              placeholder="Enter your first name"
-              value={formData.firstName}
-              onChange={handleChange}
-              // required
-              className={styles.input}
-            />
-          </div>
-        </div>
-        <div className={styles.main}>
-          <div className={styles.inputContainer}>
-            <Image
-              src={user}
-              alt="Description of the image"
-              width={24}
-              height={24}
-            />
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              placeholder="Enter your last name"
-              value={formData.lastName}
-              onChange={handleChange}
-              // required
-              className={styles.input}
-            />
-          </div>
-        </div>
-        <div className={styles.main}>
-          <div className={styles.inputContainer}>
-            <Image
-              src={email}
-              alt="Description of the image"
-              width={24}
-              height={24}
-            />
-            <input
-              type="text"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder="Enter your email"
-            />
-          </div>
-        </div>
-
-        <div className={Object.keys(errors).length > 0 ? styles["error"] : ""}>
-          <p>{errors.firstName && errors.firstName}</p>
-          <p>{errors.lastName && errors.lastName}</p>
-          <p>{errors.email && errors.email}</p>
-        </div>
-
-        <div className="mt-5">
-          <p className="text-center">
-            No payment will be taken until your appointment
-          </p>
-          <Btn title="Continue" margin="10px 0" />
-        </div>
-      </form>
     </div>
   );
 };

@@ -74,4 +74,13 @@
     max-width: 768px !important;
     margin: 0 auto !important;
   }
+
+  .warapper {
+    max-width: 768px;
+    display: block;
+    position: relative;
+    top: calc(50% - 116px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

@@ -46,11 +46,10 @@
   .warapper {
     max-width: 768px;
     display: block;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: calc(50% - 116px);
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 75vh;
   }
   .lable-phone {
     font-size: 14px;
