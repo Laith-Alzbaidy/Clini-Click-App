@@ -85,7 +85,7 @@ const BookFinish = ({ bookingId }) => {
           </div>
           <div className={styles.timingContainer}>
             <div>Timing:</div>
-            <div>{dataAppointments?.startTime}</div>
+            <div>{dataAppointments?.displayTime}</div>
           </div>
         </div>
         <div className={styles.totalContainer}>

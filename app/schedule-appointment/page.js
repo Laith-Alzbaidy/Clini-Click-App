@@ -21,7 +21,7 @@ const Practitioner = () => {
   const [date, setDate] = useState(null);
   const [slecetedDoctor, setSelectedDoctor] = useState(null);
   const [selectNoPrefrence, setSelectNoPrefrence] = useState();
-  const [NoPrefrence, setNoPrefrence] = useState(null);
+  const [NoPrefrence, setNoPrefrence] = useState('selected');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const [selectedPractitioner, setSelectedPractitioner] = useState(null);
@@ -162,6 +162,8 @@ const Practitioner = () => {
           setSelectedTime={setSelectedTime}
           practitioner={true}
           isLoading={isLoading}
+          setSelectNoPrefrence={setSelectNoPrefrence}
+        
         />
       </div>
       <div className={styles["line"]}></div>

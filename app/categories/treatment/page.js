@@ -22,7 +22,9 @@ const ligthstyle = {
   marginTop: "10px",
   marginBottom: "10px",
 };
-
+const additionalStyles = {
+  marginTop: "50px",
+};
 const SubCategory = () => {
   const router = useRouter();
   const [data, setData] = useState(null);
@@ -197,7 +199,7 @@ const SubCategory = () => {
             <div className={styles.subDiscreption}>{data.description}</div>
           </div>
           <SlideUpPage data={data} />
-          <LearnMore data={data} learnMore={true}/>
+          <LearnMore data={data} learnMore={true} />
         </div>
       ) : (
         ""
@@ -212,15 +214,14 @@ const SubCategory = () => {
       />
 
       <Bold additionalStyles={linestyle} />
-      <p className={styles.noPayment}>
-      </p>
+      <p className={styles.noPayment}></p>
 
       <StickyButton
         title={"Continue to book AED 200"}
         disabled={selectedTreatmentId === null}
         content={"  No payment will be taken until your appointment"}
         onClick={handleConfirm}
- 
+        additionalStyles={additionalStyles}
       />
     </div>
   );
