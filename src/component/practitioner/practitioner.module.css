@@ -98,7 +98,7 @@ cursor: pointer;
   height: 12px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 769px) {
   .container-card {
     height: 250px;
   }
@@ -133,25 +133,4 @@ cursor: pointer;
   }
 }
 
-@media (max-width: 1279px) and (min-width: 768px) {
-  .name-card {
-    font-size: 16px;
-  }
 
-  .specialization {
-    font-size: 15px;
-  }
-  .exp {
-    font-size: 10px;
-  }
-  .text-review {
-    font-size: 10px;
-  }
-  .view-profile {
-    font-size: 12px;
-    display: none;
-  }
-  .question {
-    font-size: 20px;
-  }
-}
