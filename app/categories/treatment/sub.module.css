@@ -56,7 +56,9 @@
   object-position: center center !important;
   object-fit: cover !important;
 }
-
+.noPayment{
+  padding-bottom: 7rem;
+}
 @media (min-width: 1280px) {
   .wrapper {
     max-width: 768px;
