@@ -18,7 +18,7 @@ const StickyButton = ({
     higth: "fit-content",
     position: "fixed",
     bottom: "0px",
-    zIndex: 2,
+    zIndex: 6,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",

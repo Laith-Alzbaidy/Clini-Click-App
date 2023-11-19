@@ -63,6 +63,7 @@ import CardBook from "@/src/component/view-desktop/card-book/card-book";
 import PopupDoctor from "@/src/component/popup-view-desktop/popup-doctor/popup-doctor";
 import StarsRate from "@/src/component/stars-rate/stars-rate";
 import { useLayoutEffect } from "react";
+import Loader from "@/src/component/Loader/Loader";
 export default function Home() {
   // console.log(pathname, "pathnamepathnamepathnamepathnamepathname");
   const [data, setData] = useState([]);
@@ -79,7 +80,6 @@ export default function Home() {
 
     fetchData();
   }, []);
-
   const styleIcon = {
     instagram: { width: 13, height: 17 },
     facebook: { width: 14, height: 12 },
@@ -88,6 +88,9 @@ export default function Home() {
   };
 
   // }
+  if (!data || data.length === 0) {
+    return <Loader />;
+  }
   return (
     <>
       <div className="container1">

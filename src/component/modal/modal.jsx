@@ -79,6 +79,7 @@ const ModalBox = ({
                   color: "#828282",
                   paddingBottom: "10px",
                 }}
+                className={styles.text}
               >
                 Are you sure you want to cancel your appointment?
               </p>
