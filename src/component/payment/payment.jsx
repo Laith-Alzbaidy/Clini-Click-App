@@ -138,18 +138,9 @@ const Payment = () => {
                 <div className={styles.treatmentName}>
                   {dataPreConfirm?.treatment?.name}
                 </div>
-
-                {dataPreConfirm.bodyArea ? (
-                  <div className={styles["content-treatment"]}>
-                    <div>Body area: {dataPreConfirm?.treatment?.bodyArea}</div>
-                    <div>Device: {dataPreConfirm?.treatment?.device}</div>
-                    <div>Sessions: {dataPreConfirm?.treatment?.sessions}</div>
-                  </div>
-                ) : dataPreConfirm.isConsultation === true ? (
-                  <p>Consultation only</p>
-                ) : (
-                  <p>Default</p>
-                )}
+                <div>Body area: {dataPreConfirm?.treatment?.bodyArea}</div>
+                <div>Device: {dataPreConfirm?.treatment?.device}</div>
+                <div>Sessions: {dataPreConfirm?.treatment?.sessions}</div>
               </div>
             </div>
             <div className={styles.practitionerContainer}>

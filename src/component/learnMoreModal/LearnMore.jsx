@@ -25,7 +25,7 @@ const style = {
   boxShadow: 24,
   p: 4,
   height: "90vh",
-  width: "878.967px",
+  width: "720px",
   outline: "none",
 };
 
