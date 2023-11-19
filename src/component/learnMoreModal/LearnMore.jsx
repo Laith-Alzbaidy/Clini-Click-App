@@ -6,27 +6,34 @@ import Image from "next/image";
 import closebtn from "./assets/image/close.svg";
 import styles from "../slideupModal/slideUpDoctor/styles/slideUpDoctor.module.css";
 import "../slideupModal/slideUpPage";
-import star from "./assets/image/Star.svg";
 import global from "./assets/image/global.svg";
 import license from "./assets/image/license-number.svg";
 import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
 import ReadMore from "@/src/component/read-more/read-more";
 import StarsRate from "@/src/component/stars-rate/stars-rate";
-
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  bgcolor: "background.paper",
+  backgroundColor: "background.paper", // Corrected property name
   border: "none",
   borderRadius: "40px",
   boxShadow: 24,
+  maxWidth: "768px",
   p: 4,
   height: "90vh",
-  width: "878.967px",
   outline: "none",
+};
+const style2 = {
+overflowY:"auto",
+position: "absolute",
+border: "none",
+paddingLeft: 4,
+height: "80vh",
+outline: "none",
+maxWidth:"720px",
 };
 
 const learn = {
@@ -51,10 +58,14 @@ const LearnMore = ({ data, learnMore, practitionerData, close }) => {
   const practitioner = practitionerData;
 
   const renderGeneralInfo = () => (
-    <Box sx={style}>
+    <Box sx={style} >
+
+
+    
       <div onClick={handleClose} className="close" style={{ marginLeft: 660 }}>
         <Image src={closebtn} alt="close" className="image-close" />
       </div>
+    <Box sx={style2}>
       <div className={styles2.container}>
         <div className={styles2.title}>{data.name}</div>
         <div className={styles2.infoText}>{data.description}</div>
@@ -75,8 +86,12 @@ const LearnMore = ({ data, learnMore, practitionerData, close }) => {
             <li className={styles2.list}>{data.afterTreatmentNotes}</li>
           </ul>
         </div>
+        <div className={styles2.title}>{data.name}</div>
+        <div className={styles2.infoText}>{data.description}</div>
       </div>
+      </Box>
     </Box>
+
   );
 
   const renderPractitionerInfo = () => (

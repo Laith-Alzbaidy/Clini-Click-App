@@ -40,4 +40,8 @@
     color: #a75cff !important;
     padding-left: 0px !important;
   }
+  .container{
+    max-width: 768px;
+    overflow-y: auto !important;
+  }
 }
