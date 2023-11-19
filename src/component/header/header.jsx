@@ -29,9 +29,11 @@ const Header = ({ pathBefore }) => {
 
   return (
     <header className="header-section">
-      <div className={styles["container-logo"]}>
-        <Image className={styles["logo"]} src={data?.logo} alt="logo" fill />
-      </div>
+      <Link href="/">
+        <div className={styles["container-logo"]}>
+          <Image className={styles["logo"]} src={data?.logo} alt="logo" fill />
+        </div>
+      </Link>
 
       {token ? (
         <Link className={styles["image-login"]} href={"/profile"}>

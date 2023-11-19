@@ -52,22 +52,22 @@
   }
 
   .warapper {
-    max-width: 768px;
-    display: block;
-    position: relative;
-    top: calc(50% - 116px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 75vh;
+    max-width: 768px !important;
+    display: block !important;
+    position: relative !important;
+    top: calc(50% - 116px) !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    height: 75vh !important;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 0px 3px 1px;
-    border-radius: 25px;
-    margin-top: 35px;
-    padding: 20px;
+      rgba(60, 64, 67, 0.15) 0px 0px 3px 1px !important;
+    border-radius: 25px !important;
+    margin-top: 35px !important;
+    padding: 20px !important;
   }
-  .container-over-flow {
+  .containerOverFlow {
     overflow: auto !important;
-    height: 100%;
+    height: 100% !important;
   }
   .title {
     font-size: 25px;
