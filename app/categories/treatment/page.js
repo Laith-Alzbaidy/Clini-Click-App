@@ -47,6 +47,7 @@ const SubCategory = () => {
         );
         const responseData = response.data.responseData;
         setData(responseData);
+        console.log(responseData , "datadata")
       } catch (error) {
         console.error("Error fetching data:", error);
         setData(null);
@@ -183,9 +184,11 @@ const SubCategory = () => {
         />
       </Link>
 
-      <div className={styles.containerHero}>
+      <div className={styles.containerHero} >
+
         <Image
           fill
+          // src={data.imageUrl}
           src={background}
           className={styles.background}
           alt="background"
