@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./profile.module.css";
 import Link from "next/link";
 import Btn from "../../src/component/button/button";
@@ -47,12 +47,43 @@ const Profile = () => {
     console.log(formData);
   };
 
+  window.addEventListener("beforeunload", function (e) {
+    // Cancel the event
+    e.preventDefault();
+    // Chrome requires returnValue to be set
+    e.returnValue = "";
+
+    // Display a confirmation message
+    var confirmationMessage = "Do you really want to leave?";
+    e.returnValue = confirmationMessage; // Standard for most browsers
+    return confirmationMessage; // For some older browsers
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     updateProfile();
     router.push("my-appointments");
   };
 
+  const ConfirmationDialog = () => {
+    useEffect(() => {
+      const handleBeforeUnload = (e) => {
+        const confirmationMessage = "Do you really want to leave?";
+        e.returnValue = confirmationMessage;
+        return confirmationMessage;
+      };
+
+      window.addEventListener("beforeunload", handleBeforeUnload);
+
+      return () => {
+        window.removeEventListener("beforeunload", handleBeforeUnload);
+      };
+    }, []);
+
+    return null;
+  };
+
+  ConfirmationDialog();
   const updateProfile = async () => {
     try {
       const response = await api.put("Client/Update", formData, {
