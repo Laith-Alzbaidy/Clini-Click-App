@@ -61,7 +61,11 @@ const MyAppointments = () => {
         <div className={styles.subTitle}>Upcoming appointments</div>
         <div className={styles.main}>
           {data
-            .filter((elem) => elem.isUpcoming === true)
+            .filter(
+              (elem) =>
+                elem.isUpcoming === true &&
+                (elem.status === 1 || elem.status === 5)
+            )
             .map((appointment, index) => (
               <Link
                 href={`my-appointments/current-bookings/${appointment?.id}`}
@@ -80,11 +84,11 @@ const MyAppointments = () => {
                       <div>{appointment?.id}</div>
                       <div>
                         {appointment.status === 1 && "Confirmed"}
-                        {appointment.status === 5 && "Complete"}
+                        {appointment.status === 5 && "Completed"}
                         {(appointment.status === 2 ||
                           appointment.status === 3 ||
                           appointment.status === 4) &&
-                          "Cancel"}
+                          "Canceled"}
                       </div>
                     </div>
                   </div>
@@ -92,8 +96,8 @@ const MyAppointments = () => {
                 </div>
               </Link>
             ))}
-          {data.filter((elem) => elem.isUpcoming === true).length === 0  && (
-            <div className={styles.noAppointment}>No appointments </div>
+          {data.filter((elem) => elem.isUpcoming === true).length === 0 && (
+            <div className={styles.noAppointment}>No appointments yet</div>
           )}
         </div>
 

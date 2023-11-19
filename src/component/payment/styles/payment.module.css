@@ -61,7 +61,7 @@
   margin: 15px 0 15px 0;
 }
 .container {
-  padding: 0 28px 0 28px;
+  padding: 0 0px 0 0px;
 }
 
 .bookingContainer {
@@ -179,9 +179,11 @@
 @media (min-width: 769px) {
   .warapper {
     max-width: 768px;
-    max-height: 73vh;
     width: 100%;
     margin: 0 auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 2px 0px, rgba(60, 64, 67, 0.15) 0px 0px 3px 1px;
+    border-radius: 25px;
+ padding: 28px 0;
   }
   .subTitle {
     font-size: 20px;
@@ -280,6 +282,11 @@
   }
   .nav-header {
     display: none;
+  }
+  .content-treatment{
+    padding-top: 5px;
+    font-size: 16px;
+    font-weight: 500 !important;
   }
 }
 

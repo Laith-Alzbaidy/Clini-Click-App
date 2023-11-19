@@ -61,37 +61,13 @@
   gap: 10px !important;
   font-size: 12px !important;
 }
-.modal {
-  background-color: #e2e2e2 !important;
-  border-color: #e2e2e2 !important;
-}
 
 .modalFooter {
-  background-color: #e2e2e2 !important;
-  border-color: #e2e2e2 !important;
   justify-content: center !important;
   gap: 24px !important;
-  border-bottom-right-radius: 20px !important;
-  border-bottom-left-radius: 20px !important;
+  height:80px;
 }
-.modal {
-  background-color: #e2e2e2 !important;
-  border-color: #e2e2e2 !important;
-}
-.modalBody {
-  background-color: #e2e2e2 !important;
-  border-color: #e2e2e2 !important;
-  text-align: center !important;
-  color: #828282 !important;
-  font-size: 12px !important;
-  font-weight: 400 !important;
-}
-.modalHeader {
-  background-color: #e2e2e2 !important;
-  border-color: #e2e2e2 !important;
-  border-top-right-radius: 20px !important;
-  border-top-left-radius: 20px !important;
-}
+
 .deleteAccount {
   color: #000;
   font-size: 12px;
@@ -110,5 +86,9 @@
   .deleteAccount {
     font-size: 16px;
 
+  }
+  .text{
+    font-size: 14px !important;
+    font-weight: 500 !important;
   }
 }

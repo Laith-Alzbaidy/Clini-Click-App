@@ -12,8 +12,7 @@
   margin-top: 16px;
   text-decoration: none;
   gap: 1rem;
-  padding: 0 0px 0 28px;
- 
+  padding: 0 28px 0 28px;
 }
 .link {
   text-decoration: none;
@@ -63,14 +62,15 @@
   font-weight: 700;
 }
 
-
-@media (min-width:769px) {
+@media (min-width: 769px) {
+  .mainContainer {
+    padding: 0 0px 0 28px;
+  }
   .subCategoryText {
     font-size: 18px;
   }
   .header {
     font-size: 25px;
-
   }
 
   .subTitle {
@@ -84,9 +84,9 @@
     height: 120px;
   }
 
-  .categorySection{
+  .categorySection {
     overflow-y: auto;
-    height:50vh;
+    height: 50vh;
     max-width: 760px;
     padding-right: 28px;
   }

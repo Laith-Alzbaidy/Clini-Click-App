@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 28px 0 28px;
 }
 
 .title {
@@ -11,6 +12,7 @@
   font-weight: 800;
   margin: 1rem 0 0 0;
   font-family: "Montserrat", sans-serif;
+  padding: 0 28px;
 }
 .notification {
   width: 100% !important;
@@ -30,12 +32,14 @@
   font-size: 12px;
   font-weight: 700;
   margin: 2rem 0 1rem 0;
+  padding: 0 28px;
 }
 
 .bookingContainer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding:0 28px
 }
 .treatmentContainer {
   display: flex;
@@ -89,6 +93,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  padding: 0 28px;
 }
 .totalContainer :nth-child(1) {
   color: #000;
@@ -122,6 +127,9 @@
   .container {
     max-width: 768px;
     margin: 0 auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 2px 0px, rgba(60, 64, 67, 0.15) 0px 0px 3px 1px;
+    border-radius: 25px;
+    padding: 28px 0;
   }
   .title {
     font-size: 25px;
@@ -183,30 +191,36 @@
 }
 @media (max-width: 320px) and (min-width: 280px) {
   .treatmentName {
-    font-size: 20px;
+    font-size: 12px;
   }
   .treatmentDeatils {
     font-size: 11px;
   }
 
   .practitionerContainer :nth-child(1) {
-    font-size: 20px;
+    font-size: 12px;
   }
   .practitionerContainer :nth-child(2) {
-    font-size: 20px;
+    font-size: 12px;
   }
 
   .totalContainer :nth-child(1) {
-    font-size: 20px;
+    font-size: 12px;
   }
   .totalContainer :nth-child(2) {
-    font-size: 20px;
+    font-size: 12px;
   }
   .totalContainer :nth-child(1) span {
-    font-size: 20px;
+    font-size: 12px;
   }
   .title {
     font-size: 14px;
+  }
+  .timingContainer :nth-child(1) {
+    font-size: 12px;
+  }
+  .timingContainer :nth-child(2) {
+    font-size: 12px;
   }
 }
 

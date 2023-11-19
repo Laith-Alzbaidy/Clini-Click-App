@@ -16,6 +16,11 @@ import api from "@/config-API/config-API";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useState } from "react";
+
+const additiionalStyles = {
+  marginTop:"35px"
+}
+
 const BookFinish = ({ bookingId }) => {
   const [dataAppointments, setDataAppointments] = useState({});
   const token = Cookies.get("token");
@@ -41,7 +46,7 @@ const BookFinish = ({ bookingId }) => {
   console.log(dataPayment);
   return (
     <div className={styles.container}>
-      <div className="container1">
+      <div className="">
         <div className={styles.headerContainer}>
           <Link href="/">
             <Image src={back} alt="back" />
@@ -119,7 +124,7 @@ const BookFinish = ({ bookingId }) => {
         <Link href="/">
           <Btn margin="0 0 10px 0" title="Back to Clinic Profile" />
         </Link>
-        <Footer />
+        <Footer additiionalStyles={additiionalStyles}/>
       </div>
     </div>
   );
