@@ -27,13 +27,13 @@ const style = {
   outline: "none",
 };
 const style2 = {
-overflowY:"auto",
-position: "absolute",
-border: "none",
-paddingLeft: 4,
-height: "80vh",
-outline: "none",
-maxWidth:"720px",
+  overflowY: "auto",
+  position: "absolute",
+  border: "none",
+  paddingLeft: 4,
+  height: "80vh",
+  outline: "none",
+  maxWidth: "720px",
 };
 
 const learn = {
@@ -58,40 +58,36 @@ const LearnMore = ({ data, learnMore, practitionerData, close }) => {
   const practitioner = practitionerData;
 
   const renderGeneralInfo = () => (
-    <Box sx={style} >
-
-
-    
+    <Box sx={style}>
       <div onClick={handleClose} className="close" style={{ marginLeft: 660 }}>
         <Image src={closebtn} alt="close" className="image-close" />
       </div>
-    <Box sx={style2}>
-      <div className={styles2.container}>
-        <div className={styles2.title}>{data.name}</div>
-        <div className={styles2.infoText}>{data.description}</div>
-
+      <Box sx={style2}>
         <div className={styles2.container}>
-          <div className={styles2.stepsTitle}>Before Treatment</div>
-          <ul>
-            <li className={styles2.list}>{data.beforeTreatmentNotes}</li>
-          </ul>
+          <div className={styles2.title}>{data.name}</div>
+          <div className={styles2.infoText}>{data.description}</div>
 
-          <div className={styles2.stepsTitle}>During Treatment</div>
-          <ul>
-            <li className={styles2.list}>{data.duringTreatmentNotes}</li>
-          </ul>
+          <div className={styles2.container}>
+            <div className={styles2.stepsTitle}>Before Treatment</div>
+            <ul>
+              <li className={styles2.list}>{data.beforeTreatmentNotes}</li>
+            </ul>
 
-          <div className={styles2.stepsTitle}>After Treatment</div>
-          <ul>
-            <li className={styles2.list}>{data.afterTreatmentNotes}</li>
-          </ul>
+            <div className={styles2.stepsTitle}>During Treatment</div>
+            <ul>
+              <li className={styles2.list}>{data.duringTreatmentNotes}</li>
+            </ul>
+
+            <div className={styles2.stepsTitle}>After Treatment</div>
+            <ul>
+              <li className={styles2.list}>{data.afterTreatmentNotes}</li>
+            </ul>
+          </div>
+          <div className={styles2.title}>{data.name}</div>
+          <div className={styles2.infoText}>{data.description}</div>
         </div>
-        <div className={styles2.title}>{data.name}</div>
-        <div className={styles2.infoText}>{data.description}</div>
-      </div>
       </Box>
     </Box>
-
   );
 
   const renderPractitionerInfo = () => (

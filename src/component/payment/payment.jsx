@@ -146,7 +146,9 @@ const Payment = () => {
                     <div>Sessions: {dataPreConfirm?.treatment?.sessions}</div>
                   </div>
                 ) : dataPreConfirm.isConsultation === true ? (
-                  <p className={styles["content-treatment"]} >Consultation only</p>
+                  <p className={styles["content-treatment"]}>
+                    Consultation only
+                  </p>
                 ) : (
                   <p className={styles["content-treatment"]}>Default</p>
                 )}

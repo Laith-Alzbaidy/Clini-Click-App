@@ -9,10 +9,11 @@ import StarsRate from "@/src/component/stars-rate/stars-rate";
 const Reviews = ({ title }) => {
   return (
     <div className={styles.warapper}>
-      <div className={styles["container-over-flow"]}>
+      <div className={styles.containerOverFlow}>
         <div className="container1">
           <div className={styles["header-reviews"]}>
             <h1 className={styles["title"]}>{title}</h1>
+
             <Link className={styles["close-btn"]} href="./">
               <Image src={close} alt="close" />
             </Link>
