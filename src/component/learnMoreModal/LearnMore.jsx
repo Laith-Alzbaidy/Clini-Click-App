@@ -182,8 +182,7 @@ const LearnMore = ({ data, learnMore, practitionerData, close }) => {
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+        aria-describedby="modal-modal-description">
         {learnMore ? renderGeneralInfo() : renderPractitionerInfo()}
       </Modal>
     </div>
