@@ -14,20 +14,13 @@ import Footer from "@/src/component/footer/footer";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
 import ModalBox from "@/src/component/modal/modal";
-import { Divider } from "@mui/material";
 const style = {
   marginTop: "45px",
 };
 const Profile = () => {
-  // window.onbeforeunload = function () {
-  //   return "Are you sure you want to leave this page?";
-  // };
   const userDetails = JSON.parse(localStorage?.getItem("user-details")) || {};
   const router = useRouter();
-  const [show, setShow] = useState(false);
   const [err, setErr] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [showPopup, setShowPopup] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -47,43 +40,6 @@ const Profile = () => {
     console.log(formData);
   };
 
-  window.addEventListener("beforeunload", function (e) {
-    // Cancel the event
-    e.preventDefault();
-    // Chrome requires returnValue to be set
-    e.returnValue = "";
-
-    // Display a confirmation message
-    var confirmationMessage = "Do you really want to leave?";
-    e.returnValue = confirmationMessage; // Standard for most browsers
-    return confirmationMessage; // For some older browsers
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateProfile();
-    router.push("my-appointments");
-  };
-
-  const ConfirmationDialog = () => {
-    useEffect(() => {
-      const handleBeforeUnload = (e) => {
-        const confirmationMessage = "Do you really want to leave?";
-        e.returnValue = confirmationMessage;
-        return confirmationMessage;
-      };
-
-      window.addEventListener("beforeunload", handleBeforeUnload);
-
-      return () => {
-        window.removeEventListener("beforeunload", handleBeforeUnload);
-      };
-    }, []);
-
-    return null;
-  };
-
-  ConfirmationDialog();
   const updateProfile = async () => {
     try {
       const response = await api.put("Client/Update", formData, {
@@ -100,6 +56,12 @@ const Profile = () => {
     } catch (err) {
       console.log("err", err);
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateProfile();
+    router.push("my-appointments");
   };
 
   const logOut = () => {
@@ -170,7 +132,7 @@ const Profile = () => {
             name="email"
             value={formData.email}
           />
-          {err && <div>{err}</div>}
+          {/* {err && <div>{err}</div>} */}
           <Btn title={"Manage my appointments"} type={"submit"} />
         </form>
         <>
@@ -179,6 +141,7 @@ const Profile = () => {
             confirm={false}
             handleDeleteAccount={handleDeleteAccount}
           />
+
           <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
             or
           </p>

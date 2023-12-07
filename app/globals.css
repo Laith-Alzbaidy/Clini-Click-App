@@ -393,28 +393,3 @@ body {
     padding: 0 28px 28px 28px !important;
   }
 }
-
-.popup-overlay {
-  /* position: fixed;
-  inset: 0px;
-  z-index: 999;
-  pointer-events: none; */
-  /* box-shadow: inset 100vw 100vh rgba(0, 0, 0, 0.5); */
-}
-
-/* .popup-content {
-  position: absolute !important;
-  z-index: 999;
-  pointer-events: auto;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  height: auto !important;
-  padding: 16px !important;
-  width: 500px !important;
-  border-radius: 20px !important;
-}
-
-.popup-arrow {
-  display: none !important;
-} */

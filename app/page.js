@@ -67,7 +67,6 @@ import Loader from "@/src/component/Loader/Loader";
 export default function Home() {
   // console.log(pathname, "pathnamepathnamepathnamepathnamepathname");
   const [data, setData] = useState([]);
-
   useLayoutEffect(() => {
     const fetchData = async () => {
       try {
@@ -77,7 +76,6 @@ export default function Home() {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
   const styleIcon = {
@@ -86,7 +84,6 @@ export default function Home() {
     linkedin: { width: 14, height: 12 },
     x: { width: 13, height: 12 },
   };
-
   // }
   if (!data || data.length === 0) {
     return <Loader />;
@@ -110,7 +107,6 @@ export default function Home() {
           <div className="container-loc-mobile">
             <Location data={data} />
           </div>
-
           <OurAmenities data={data} />
           <OurBusiness data={data} />
           <div className="container-loc-desktop">

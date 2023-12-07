@@ -118,6 +118,16 @@ const OTB = () => {
       const token = responseData.token;
 
       if (isSuccess) {
+        const { email, lastName, name } = response.data.responseData;
+        const firstName = name;
+        console.log("response", email);
+        const useDetails = {
+          email,
+          lastName,
+          firstName,
+        };
+
+        localStorage.setItem("user-details", JSON.stringify(useDetails));
         const redirectToCorrectPage = () => {
           if (!date || !timeSlotId || !practitionerId || !treatmentId) {
             router.push("/");
