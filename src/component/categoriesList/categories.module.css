@@ -82,9 +82,11 @@
   .subCategoryImg {
     width: 120px;
     height: 120px;
+    border-radius: 15px;
+
   }
 
-  .categorySection {
+  .categoryContent {
     overflow-y: auto;
     height: 50vh;
     max-width: 760px;
@@ -144,5 +146,6 @@
   .subCategoryImg {
     width: 75px;
     height: 75px;
+    border-radius: 15px;
   }
 }

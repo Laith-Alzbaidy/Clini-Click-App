@@ -29,6 +29,7 @@ const Practitioner = () => {
   const searchParams = useSearchParams();
 
   const subcategory = searchParams.get("treatmentId");
+  console.log(subcategory)
   const [modalclass, SetClass] = useState("modal-content");
   const [availability, setAvailability] = useState([]);
   function close() {
