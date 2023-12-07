@@ -65,7 +65,7 @@ const PractitionerSelctor = ({
                     {practitioner?.speciality.name}
                   </p>
                   <p className={styles["exp"]}>
-                    {practitioner?.experienceYears} years of experience
+                    {practitioner?.experienceYears}1 years of experience
                   </p>
                 </div>
 
