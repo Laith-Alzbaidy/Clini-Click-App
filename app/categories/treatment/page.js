@@ -74,7 +74,7 @@ const SubCategory = () => {
   useEffect(() => {
     fetchOptionData();
   }, []);
-  console.log(optionsData, "fdd");
+  // console.log(optionsData, "fdd");
 
   if (!data || !optionsData) {
     return <Loader />;
@@ -94,7 +94,7 @@ const SubCategory = () => {
         setAreaSelect(null);
         setDeviceOption(null);
         setSessionOption(null);
-        console.log(responseData, "cons");
+       
       } else {
         const response = await api.get(
           `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}`
@@ -104,42 +104,47 @@ const SubCategory = () => {
         if (responseData.devices) {
           setAreaSelect(responseData);
           setSelectedTreatmentId(null);
+          console.log(responseData, "cons");
         } else if (responseData.sessions) {
           setAreaSelect(responseData);
           setSelectedTreatmentId(null);
         } else {
           setSelectedTreatmentId(responseData.selectedId);
         }
-
-        console.log(responseData, "area");
+        console.log(selectedTreatmentId , "selectedTreatmentId")
+        console.log(responseData, "cons");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
       setSelectedTreatmentId(null);
     }
   };
-  console.log(AreaSelect, "area");
+  console.log(AreaSelect, "conseeeeeee");
   const handledeviceSelect = async (event) => {
     try {
       const deviceOption = event.target.value;
       setDeviceOption(event.target.value);
+      console.log(deviceOption , "device")
       const response = await api.get(
         `clinic/AbdullahClinic/subcategories/${subcategory}/options?selectedArea=${selectedOption}&selectedDevice=${deviceOption}`
       );
       const responseData = response.data.responseData;
-      if (responseData.sessions) {
+      if (responseData.sessions && responseData.sessions.length > 0 && responseData.sessions !== null) {
         setAreaSelect(responseData);
         setSelectedTreatmentId(null);
+        console.log(responseData , " device click")
+    
       } else {
-        setSelectedTreatmentId(responseData.selectedId);
+        setSelectedTreatmentId(deviceOption.selectedId);
+
       }
-      console.log(responseData, "selected device");
+   
     } catch (error) {
       console.error("Error fetching data:", error);
       setAreaSelect(null);
     }
   };
-  console.log(deviceOption, "selected device");
+
 
   const handleSessionSelect = async (event) => {
     try {
@@ -188,8 +193,8 @@ const SubCategory = () => {
 
         <Image
           fill
-          // src={data.imageUrl}
-          src={background}
+          src={data.imageUrl}
+          // src={background}
           className={styles.background}
           alt="background"
         />

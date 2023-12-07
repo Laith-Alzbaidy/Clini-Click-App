@@ -74,6 +74,9 @@ const OptionSelector = ({
                       />
                     </div>
                   </div>
+                  {index !== item.bodyAreas.length - 1 && (
+                    <Light additionalStyles={linestyle} />
+                  )}
                 </div>
               ))}
               {selectedOption !== "consultation" &&

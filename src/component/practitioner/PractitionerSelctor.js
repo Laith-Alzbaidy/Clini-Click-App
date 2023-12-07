@@ -19,7 +19,7 @@ const PractitionerSelctor = ({
   NoPrefrence,
   handleNoPreference,
 }) => {
-  console.log("+++++++++++++++++++++++", data);
+  console.log("data", data);
   const team = data
     ? data.map((practitioner, index) => {
         const isActive = practitioner.id == slecetedDoctor;
@@ -126,10 +126,10 @@ const PractitionerSelctor = ({
                 slidesPerView: 2.75,
               },
               600: {
-                slidesPerView: 3.25,
+                slidesPerView: 3.15,
               },
               768: {
-                slidesPerView: 3.35,
+                slidesPerView: 3.5,
               },
             }}
           >

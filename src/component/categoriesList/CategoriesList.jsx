@@ -63,7 +63,7 @@ const CategoriesList = ({ list }) => {
                     </div>
                     <Image
                       className={styles.subCategoryImg}
-                      src={img}
+                      src={subcategoryData.imageUrl}
                       alt="Description of the image"
                       width={100}
                       height={90}
