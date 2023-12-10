@@ -45,7 +45,7 @@
   margin-top: 16px;
   text-decoration: none;
   gap: 1rem;
-  padding: 0 0px 0 28px;
+  padding: 0 28px 0 28px;
 }
 .link {
   text-decoration: none;
@@ -112,7 +112,7 @@
     padding: 0 64px 0 64px;
   }
   .mainContainer {
-    padding: 0 64px 0 64px;
+    padding: 0 28px 0 28px;
   }
   .subTitle {
     font-size: 20px;
@@ -148,6 +148,10 @@
     width: 100px;
     height: 100px;
   }
+  .mainContainer {
+    padding: 0 28px 0 28px;
+  }
+  
 }
 
 @media (max-width: 768px) and (min-width: 481px) {

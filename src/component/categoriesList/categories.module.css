@@ -64,7 +64,7 @@
 
 @media (min-width: 769px) {
   .mainContainer {
-    padding: 0 0px 0 28px;
+    padding: 0 28px 0 28px;
   }
   .subCategoryText {
     font-size: 18px;
@@ -87,10 +87,10 @@
   }
 
   .categoryContent {
-    overflow-y: auto;
-    height: 50vh;
-    max-width: 760px;
-    padding-right: 28px;
+    /* overflow-y: auto; */
+    /* height: 50vh; */
+    /* max-width: 760px; */
+    /* padding-right: 28px; */
   }
 }
 
