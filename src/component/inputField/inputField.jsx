@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "./inputField.module.css";
 import Image from "next/image";
-const InputField = ({ type, value, onChange, icon, placeholder, name }) => {
+const InputField = ({
+  type,
+  value,
+  onChange,
+  icon,
+  placeholder,
+  name,
+  disable,
+}) => {
   return (
     <div className={styles.main}>
       <div className={styles.inputContainer}>
@@ -14,6 +22,7 @@ const InputField = ({ type, value, onChange, icon, placeholder, name }) => {
           placeholder={placeholder}
           name={name}
           required
+          disabled={!disable}
         />
       </div>
     </div>

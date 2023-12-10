@@ -14,6 +14,8 @@ import Footer from "@/src/component/footer/footer";
 import Cookies from "js-cookie";
 import api from "@/config-API/config-API";
 import ModalBox from "@/src/component/modal/modal";
+import editIcon from "./assets/edit.svg";
+
 const style = {
   marginTop: "45px",
 };
@@ -22,7 +24,9 @@ const Profile = () => {
   const router = useRouter();
   const [err, setErr] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [editActive, setEditActive] = useState(false);
 
+  console.log(editActive);
   const [formData, setFormData] = useState({
     firstName: userDetails?.firstName || "",
     lastName: userDetails?.lastName || "",
@@ -48,10 +52,9 @@ const Profile = () => {
         },
       });
 
+      console.log("Profile-update", response.data);
       if (response.data.isSuccess) {
-        console.log("Profile-update", response.data);
         localStorage.setItem("user-details", JSON.stringify(formData));
-        router.push("/my-appointments");
       }
     } catch (err) {
       console.log("err", err);
@@ -60,8 +63,12 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateProfile();
     router.push("my-appointments");
+  };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    updateProfile();
   };
 
   const logOut = () => {
@@ -98,7 +105,15 @@ const Profile = () => {
         <Link href={"/"}>
           <Image src={backIcon} className={styles.backIcon} alt="back" />
         </Link>
-        <div className={styles.title}>My details</div>
+        <div className="d-flex align-items-center justify-content-between mt-3">
+          <h1 className={styles.title}>My details</h1>
+          <Image
+            onClick={() => setEditActive(!editActive)}
+            src={editIcon}
+            className={styles.editIcon}
+            alt="edit"
+          />
+        </div>
 
         <Popup open={showPopup} closeOnDocumentClick={false}>
           {(close) => (
@@ -115,6 +130,7 @@ const Profile = () => {
             onChange={handleChange}
             name="firstName"
             value={formData.firstName}
+            disable={editActive}
           />
           <InputField
             type={"text"}
@@ -123,6 +139,7 @@ const Profile = () => {
             onChange={handleChange}
             name="lastName"
             value={formData.lastName}
+            disable={editActive}
           />
           <InputField
             type={"email"}
@@ -131,24 +148,38 @@ const Profile = () => {
             onChange={handleChange}
             name="email"
             value={formData.email}
+            disable={editActive}
           />
           {/* {err && <div>{err}</div>} */}
-          <Btn title={"Manage my appointments"} type={"submit"} />
-        </form>
-        <>
-          <ModalBox
-            content={" Are you sure you want to delete your account ?"}
-            confirm={false}
-            handleDeleteAccount={handleDeleteAccount}
-          />
 
-          <p style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}>
-            or
-          </p>
-          <div onClick={logOut} className={styles.logout}>
-            Logout
+          {!editActive && (
+            <Btn title={"Manage my appointments"} type={"submit"} />
+          )}
+        </form>
+
+        {!editActive ? (
+          <div>
+            <ModalBox
+              content={" Are you sure you want to delete your account ?"}
+              confirm={false}
+              handleDeleteAccount={handleDeleteAccount}
+            />
+
+            <p
+              style={{ textAlign: "center", fontWeight: 600, color: "#A75CFF" }}
+            >
+              or
+            </p>
+            <div onClick={logOut} className={styles.logout}>
+              Logout
+            </div>
           </div>
-        </>
+        ) : (
+          <button className={styles.BtnSaveEdit} onClick={handleEdit}>
+            Save
+          </button>
+        )}
+
         <Footer additiionalStyles={style} />
       </div>
     </div>
